@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — 骆驼商业评</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: { primary:'#0a0e17', secondary:'#111827', card:'#1a1f2e', hover:'#242b3d' },
+          accent: { cyan:'#22d3ee', purple:'#a855f7', emerald:'#34d399', amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c' },
+          text: { primary:'#e2e8f0', secondary:'#94a3b8', muted:'#64748b' }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  * { box-sizing: border-box; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); }
+  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0); background-size: 32px 32px; }
+  input, select, textarea { background: rgba(17,24,39,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 12px; color: #e2e8f0; font-size: 0.875rem; outline: none; transition: border-color 0.2s; }
+  input:focus, select:focus, textarea:focus { border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(34,211,238,0.1); }
+  textarea { resize: vertical; min-height: 60px; }
+  .btn { padding: 8px 16px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-primary { background: linear-gradient(135deg, #22d3ee, #0891b2); color: #000; }
+  .btn-primary:hover { box-shadow: 0 0 20px rgba(34,211,238,0.3); transform: translateY(-1px); }
+  .btn-danger { background: rgba(251,113,133,0.15); color: #fb7185; border: 1px solid rgba(251,113,133,0.3); }
+  .btn-danger:hover { background: rgba(251,113,133,0.25); }
+  .btn-ghost { background: transparent; color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: #e2e8f0; }
+  .btn-success { background: linear-gradient(135deg, #34d399, #059669); color: #000; }
+  .btn-success:hover { box-shadow: 0 0 20px rgba(52,211,153,0.3); }
+  .news-row { transition: all 0.2s; }
+  .news-row:hover { background: rgba(255,255,255,0.02); }
+  .toast { position: fixed; top: 20px; right: 20px; z-index: 100; padding: 12px 20px; border-radius: 10px; font-size: 0.85rem; animation: slideIn 0.3s ease-out; }
+  .toast-success { background: rgba(52,211,153,0.15); border: 1px solid rgba(52,211,153,0.3); color: #34d399; }
+  .toast-error { background: rgba(251,113,133,0.15); border: 1px solid rgba(251,113,133,0.3); color: #fb7185; }
+  @keyframes slideIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
+</style>
+</head>
+<body class="bg-bg-primary bg-grid min-h-screen">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 glass border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
+          <span class="text-white font-bold text-sm">⚙</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">Admin</span> <span class="text-text-secondary font-normal">Panel</span></h1>
+          <p class="text-xs text-text-muted -mt-0.5">内容管理后台</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-xs text-text-muted" id="dataSourceLabel">数据源: --</span>
+        <a href="index.html" class="btn btn-ghost text-xs">← 返回前台</a>
+        <button onclick="exportData()" class="btn btn-ghost text-xs">📥 导出 JSON</button>
+        <button onclick="resetData()" class="btn btn-ghost text-xs">🔄 恢复默认</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <!-- Add New Form -->
+    <div class="glass rounded-2xl p-6 mb-8">
+      <h2 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="w-1 h-4 rounded-full bg-accent-cyan"></span>发布新速报</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+        <div>
+          <label class="block text-xs text-text-muted mb-1">标题 *</label>
+          <input type="text" id="newTitle" placeholder="输入新闻标题..." class="w-full">
+        </div>
+        <div>
+          <label class="block text-xs text-text-muted mb-1">分类 *</label>
+          <select id="newCategory" class="w-full">
+            <option value="models">🧠 大模型军备</option>
+            <option value="agents">🤖 智能体浪潮</option>
+            <option value="hardware">💻 硬件与基建</option>
+            <option value="opensource">📡 开源与语音</option>
+            <option value="china">🇨🇳 中国动态</option>
+            <option value="policy">🛡️ 政策与监管</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-text-muted mb-1">日期 *</label>
+          <input type="date" id="newDate" class="w-full" value="2026-06-04">
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-xs text-text-muted mb-1">摘要 *</label>
+        <textarea id="newSummary" placeholder="输入新闻摘要..." class="w-full"></textarea>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+        <div>
+          <label class="block text-xs text-text-muted mb-1">标签（逗号分隔）</label>
+          <input type="text" id="newTags" placeholder="AI, 大模型, OpenAI" class="w-full">
+        </div>
+        <div>
+          <label class="block text-xs text-text-muted mb-1">重要度</label>
+          <select id="newImportance" class="w-full">
+            <option value="5">⭐⭐⭐⭐⭐ 极重要</option>
+            <option value="4" selected>⭐⭐⭐⭐ 重要</option>
+            <option value="3">⭐⭐⭐ 一般</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-text-muted mb-1">来源</label>
+          <input type="text" id="newSource" placeholder="来源媒体/机构" class="w-full">
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <button onclick="addNews()" class="btn btn-primary">✦ 发布速报</button>
+        <span class="text-xs text-text-muted self-center">发布后立即出现在前台页面</span>
+      </div>
+    </div>
+
+    <!-- News List -->
+    <div class="glass rounded-2xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-bold flex items-center gap-2"><span class="w-1 h-4 rounded-full bg-accent-purple"></span>已发布速报 <span class="text-sm text-text-muted font-normal" id="newsCount">--</span></h2>
+        <div class="flex items-center gap-3">
+          <input type="text" id="searchInput" placeholder="搜索标题..." class="w-48 text-xs" oninput="renderNewsList()">
+          <select id="filterCategory" class="text-xs" onchange="renderNewsList()">
+            <option value="all">全部分类</option>
+            <option value="models">大模型军备</option>
+            <option value="agents">智能体浪潮</option>
+            <option value="hardware">硬件与基建</option>
+            <option value="opensource">开源与语音</option>
+            <option value="china">中国动态</option>
+            <option value="policy">政策与监管</option>
+          </select>
+        </div>
+      </div>
+      <div id="newsList" class="space-y-1 max-h-[600px] overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="fixed inset-0 z-50 hidden items-center justify-center" style="background:rgba(0,0,0,0.6);backdrop-filter:blur(4px)">
+    <div class="glass rounded-2xl p-6 w-full max-w-lg mx-4">
+      <h3 class="text-lg font-bold mb-4">编辑速报</h3>
+      <input type="hidden" id="editId">
+      <div class="space-y-3">
+        <div><label class="block text-xs text-text-muted mb-1">标题</label><input type="text" id="editTitle" class="w-full"></div>
+        <div class="grid grid-cols-2 gap-3">
+          <div><label class="block text-xs text-text-muted mb-1">分类</label><select id="editCategory" class="w-full"><option value="models">大模型军备</option><option value="agents">智能体浪潮</option><option value="hardware">硬件与基建</option><option value="opensource">开源与语音</option><option value="china">中国动态</option><option value="policy">政策与监管</option></select></div>
+          <div><label class="block text-xs text-text-muted mb-1">日期</label><input type="date" id="editDate" class="w-full"></div>
+        </div>
+        <div><label class="block text-xs text-text-muted mb-1">摘要</label><textarea id="editSummary" class="w-full" rows="3"></textarea></div>
+        <div class="grid grid-cols-3 gap-3">
+          <div><label class="block text-xs text-text-muted mb-1">标签</label><input type="text" id="editTags" class="w-full"></div>
+          <div><label class="block text-xs text-text-muted mb-1">重要度</label><select id="editImportance" class="w-full"><option value="5">5 - 极重要</option><option value="4">4 - 重要</option><option value="3">3 - 一般</option></select></div>
+          <div><label class="block text-xs text-text-muted mb-1">来源</label><input type="text" id="editSource" class="w-full"></div>
+        </div>
+      </div>
+      <div class="flex gap-3 mt-6 justify-end">
+        <button onclick="closeEditModal()" class="btn btn-ghost">取消</button>
+        <button onclick="saveEdit()" class="btn btn-primary">保存修改</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+<script>
+let DATA = null;
+
+async function loadData() {
+  const localData = localStorage.getItem('afd_news_data');
+  if (localData) {
+    try { DATA = JSON.parse(localData); document.getElementById('dataSourceLabel').textContent = '数据源: localStorage'; return; }
+    catch(e) { console.warn('localStorage parse failed'); }
+  }
+  const resp = await fetch('data/news.json');
+  DATA = await resp.json();
+  document.getElementById('dataSourceLabel').textContent = '数据源: news.json (默认)';
+}
+
+function saveData() {
+  localStorage.setItem('afd_news_data', JSON.stringify(DATA));
+  DATA.meta.lastUpdated = new Date().toISOString();
+  document.getElementById('dataSourceLabel').textContent = '数据源: localStorage ✓';
+  showToast('数据已保存到本地存储', 'success');
+}
+
+function showToast(msg, type) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.className = 'toast toast-' + type;
+  setTimeout(() => toast.classList.add('hidden'), 2500);
+}
+
+let newsIdCounter = 100;
+
+function addNews() {
+  const title = document.getElementById('newTitle').value.trim();
+  const category = document.getElementById('newCategory').value;
+  const date = document.getElementById('newDate').value;
+  const summary = document.getElementById('newSummary').value.trim();
+  const tagsStr = document.getElementById('newTags').value.trim();
+  const importance = parseInt(document.getElementById('newImportance').value);
+  const source = document.getElementById('newSource').value.trim();
+
+  if (!title || !summary) { showToast('标题和摘要不能为空', 'error'); return; }
+
+  const tags = tagsStr ? tagsStr.split(',').map(t => t.trim()).filter(Boolean) : [];
+
+  const newItem = {
+    id: 'u' + (newsIdCounter++),
+    title, summary, category, date,
+    tags, importance, source: source || '用户发布',
+  };
+
+  DATA.news.unshift(newItem);
+
+  // Update timeline
+  const existingDay = DATA.timeline.find(t => t.date === date);
+  if (existingDay) {
+    existingDay.events.unshift(title);
+  } else {
+    DATA.timeline.unshift({ date, events: [title] });
+    DATA.timeline.sort((a,b) => a.date.localeCompare(b.date));
+  }
+
+  saveData();
+  renderNewsList();
+  // Clear form
+  document.getElementById('newTitle').value = '';
+  document.getElementById('newSummary').value = '';
+  document.getElementById('newTags').value = '';
+  document.getElementById('newSource').value = '';
+  showToast('速报已发布！刷新前台即可看到', 'success');
+}
+
+function renderNewsList() {
+  const container = document.getElementById('newsList');
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  const filterCat = document.getElementById('filterCategory').value;
+
+  let filtered = DATA.news;
+  if (searchTerm) filtered = filtered.filter(n => n.title.toLowerCase().includes(searchTerm) || n.summary.toLowerCase().includes(searchTerm));
+  if (filterCat !== 'all') filtered = filtered.filter(n => n.category === filterCat);
+
+  document.getElementById('newsCount').textContent = `共 ${filtered.length} 条`;
+
+  const catNames = { models:'大模型', agents:'智能体', hardware:'硬件', opensource:'开源', china:'中国', policy:'政策' };
+  const importanceStars = {5:'⭐⭐⭐⭐⭐',4:'⭐⭐⭐⭐',3:'⭐⭐⭐'};
+
+  let html = '';
+  filtered.forEach(n => {
+    const tagsHtml = n.tags.map(t => `<span class="text-[10px] px-1.5 py-0.5 rounded bg-white/5 text-text-muted">${t}</span>`).join('');
+    html += `
+    <div class="news-row flex items-start gap-3 p-3 rounded-lg">
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-[10px] font-mono text-text-muted">${n.date}</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-white/5 text-text-muted">${catNames[n.category]||n.category}</span>
+          <span class="text-[10px] text-text-muted">${importanceStars[n.importance]||''}</span>
+        </div>
+        <div class="text-sm font-medium mt-1 truncate">${n.title}</div>
+        <div class="text-xs text-text-muted mt-0.5 line-clamp-2">${n.summary}</div>
+        <div class="flex gap-1 mt-1">${tagsHtml}</div>
+      </div>
+      <div class="flex gap-1 flex-shrink-0">
+        <button onclick="openEditModal('${n.id}')" class="btn btn-ghost text-xs py-1 px-2">✏️</button>
+        <button onclick="deleteNews('${n.id}')" class="btn btn-danger text-xs py-1 px-2">🗑</button>
+      </div>
+    </div>`;
+  });
+  container.innerHTML = html || '<div class="text-text-muted text-sm py-8 text-center">没有匹配的速报</div>';
+}
+
+function openEditModal(id) {
+  const n = DATA.news.find(item => item.id === id);
+  if (!n) return;
+  document.getElementById('editId').value = n.id;
+  document.getElementById('editTitle').value = n.title;
+  document.getElementById('editCategory').value = n.category;
+  document.getElementById('editDate').value = n.date;
+  document.getElementById('editSummary').value = n.summary;
+  document.getElementById('editTags').value = n.tags.join(', ');
+  document.getElementById('editImportance').value = n.importance;
+  document.getElementById('editSource').value = n.source || '';
+  document.getElementById('editModal').classList.remove('hidden');
+  document.getElementById('editModal').classList.add('flex');
+}
+
+function closeEditModal() {
+  document.getElementById('editModal').classList.add('hidden');
+  document.getElementById('editModal').classList.remove('flex');
+}
+
+function saveEdit() {
+  const id = document.getElementById('editId').value;
+  const n = DATA.news.find(item => item.id === id);
+  if (!n) return;
+  n.title = document.getElementById('editTitle').value.trim();
+  n.category = document.getElementById('editCategory').value;
+  n.date = document.getElementById('editDate').value;
+  n.summary = document.getElementById('editSummary').value.trim();
+  n.tags = document.getElementById('editTags').value.split(',').map(t => t.trim()).filter(Boolean);
+  n.importance = parseInt(document.getElementById('editImportance').value);
+  n.source = document.getElementById('editSource').value.trim();
+  saveData();
+  renderNewsList();
+  closeEditModal();
+  showToast('速报已更新', 'success');
+}
+
+function deleteNews(id) {
+  if (!confirm('确定删除这条速报？')) return;
+  const idx = DATA.news.findIndex(n => n.id === id);
+  if (idx === -1) return;
+  const title = DATA.news[idx].title;
+  DATA.news.splice(idx, 1);
+  // Remove from timeline
+  DATA.timeline.forEach(day => {
+    day.events = day.events.filter(e => e !== title);
+  });
+  DATA.timeline = DATA.timeline.filter(day => day.events.length > 0);
+  saveData();
+  renderNewsList();
+  showToast('速报已删除', 'success');
+}
+
+function exportData() {
+  const blob = new Blob([JSON.stringify(DATA, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'ai_frontier_daily_news_' + new Date().toISOString().split('T')[0] + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('数据已导出为 JSON 文件', 'success');
+}
+
+async function resetData() {
+  if (!confirm('确定恢复为默认数据？所有本地修改将丢失。')) return;
+  localStorage.removeItem('afd_news_data');
+  await loadData();
+  renderNewsList();
+  showToast('已恢复默认数据', 'success');
+}
+
+// Init
+async function init() {
+  await loadData();
+  renderNewsList();
+}
+
+init();
+</script>
+</body>
+</html>

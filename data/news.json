@@ -1,0 +1,270 @@
+{
+  "meta": {
+    "siteName": "骆驼商业评",
+    "siteNameCN": "骆驼商业评",
+    "version": "1.0.0",
+    "lastUpdated": "2026-06-04T08:30:00+08:00",
+    "description": "AI 商业深度观察，追踪全球科技产业变革"
+  },
+  "featured": {
+    "id": "feat-001",
+    "title": "Anthropic 正式提交 IPO 申请",
+    "titleCN": "",
+    "summary": "Anthropic 于 6 月 1 日正式向 SEC 提交 IPO 申请，抢在 OpenAI 之前冲击「AI 上市第一股」，市场传闻估值高达 9650 亿美元。若成功上市，将成为史上最大规模科技 IPO 之一。",
+    "category": "大模型",
+    "date": "2026-06-01",
+    "tags": ["Anthropic", "IPO", "大模型"],
+    "importance": 5,
+    "source": "SEC Filing / 综合报道",
+    "link": ""
+  },
+  "categories": [
+    { "id": "models", "name": "大模型军备", "icon": "brain", "color": "cyan" },
+    { "id": "agents", "name": "智能体浪潮", "icon": "bot", "color": "purple" },
+    { "id": "hardware", "name": "硬件与基建", "icon": "chip", "color": "emerald" },
+    { "id": "opensource", "name": "开源与语音", "icon": "code", "color": "amber" },
+    { "id": "china", "name": "中国动态", "icon": "globe", "color": "rose" },
+    { "id": "policy", "name": "政策与监管", "icon": "shield", "color": "orange" }
+  ],
+  "news": [
+    {
+      "id": "n001",
+      "title": "Anthropic 提交 IPO 申请，剑指 AI 上市第一股",
+      "summary": "Anthropic 6月1日正式提交 IPO，抢在 OpenAI 之前冲击「AI 上市第一股」，估值传闻 9650 亿美元。SEC 文件披露其年化收入已突破 180 亿美元，企业客户超过 5 万家。",
+      "category": "models",
+      "date": "2026-06-01",
+      "tags": ["Anthropic", "IPO", "上市"],
+      "importance": 5,
+      "source": "SEC Filing"
+    },
+    {
+      "id": "n002",
+      "title": "OpenAI 发布 GPT-5.5 Instant：幻觉率降 52.5%",
+      "summary": "GPT-5.5 Instant 正式发布，幻觉率相比前代降低 52.5%，推理成本降至每百万 token $0.40。同步登陆 AWS Bedrock 平台，Codex 编码能力大幅提升。",
+      "category": "models",
+      "date": "2026-06-03",
+      "tags": ["OpenAI", "GPT-5.5", "幻觉"],
+      "importance": 5,
+      "source": "OpenAI Blog"
+    },
+    {
+      "id": "n003",
+      "title": "Google Gemini 3.5 Flash：每百万 token 仅 $0.1",
+      "summary": "Google 发布 Gemini 3.5 Flash，以每百万 token $0.1 的价格刷新性价比天花板。在多语言、代码生成和长文本理解等基准测试中全面超越同级竞品。",
+      "category": "models",
+      "date": "2026-06-03",
+      "tags": ["Google", "Gemini", "性价比"],
+      "importance": 4,
+      "source": "Google AI Blog"
+    },
+    {
+      "id": "n004",
+      "title": "Claude Opus 4.8：代码审查漏检率降 4 倍",
+      "summary": "Anthropic 推出 Claude Opus 4.8，代码审查漏检率降低 4 倍，可自动完成 75 万行代码迁移任务，通过率达 99.8%。在企业级代码智能领域树立新标杆。",
+      "category": "models",
+      "date": "2026-06-03",
+      "tags": ["Anthropic", "Claude", "代码"],
+      "importance": 4,
+      "source": "Anthropic Blog"
+    },
+    {
+      "id": "n005",
+      "title": "MiniMax M3：速度提升 5 倍，支持百万 Token 上下文",
+      "summary": "中国 MiniMax 发布 M3 模型，推理速度提升 5 倍，单 token 计算量仅为前代的 1/20，支持 100 万 token 超长上下文。在中文理解和生成任务上表现突出。",
+      "category": "models",
+      "date": "2026-06-03",
+      "tags": ["MiniMax", "M3", "国产模型"],
+      "importance": 4,
+      "source": "MiniMax 官方"
+    },
+    {
+      "id": "n006",
+      "title": "智能体 AI 元年：三部门联合发文推 AI Agent",
+      "summary": "国家网信办、发改委、工信部三部门联合发文推动 AI 智能体产业发展，明确将智能体列为新一代人工智能发展重点方向，支持行业应用落地。",
+      "category": "agents",
+      "date": "2026-06-02",
+      "tags": ["政策", "智能体", "三部门"],
+      "importance": 5,
+      "source": "新华社"
+    },
+    {
+      "id": "n007",
+      "title": "Gartner：2026 年底 40% 企业应用将集成 AI 智能体",
+      "summary": "Gartner 发布最新预测报告，预计到 2026 年底 40% 的企业应用将集成 AI 智能体功能，到 2028 年智能体将处理 60% 以上的客户服务交互。",
+      "category": "agents",
+      "date": "2026-06-03",
+      "tags": ["Gartner", "预测", "企业"],
+      "importance": 4,
+      "source": "Gartner Report"
+    },
+    {
+      "id": "n008",
+      "title": "ZoomMate 上线：会议内容自动转待办/文档/PPT",
+      "summary": "Zoom 推出 AI 智能体 ZoomMate，月费 $20，可自动将会议内容转化为待办事项、文档和 PPT。上线首日用户突破 10 万，标志着协作工具 AI 化的加速。",
+      "category": "agents",
+      "date": "2026-06-01",
+      "tags": ["Zoom", "智能体", "协作"],
+      "importance": 3,
+      "source": "Zoom Blog"
+    },
+    {
+      "id": "n009",
+      "title": "百度、阿里、腾讯、字节集体入局智能体平台",
+      "summary": "受 OpenClaw 框架影响，百度、阿里、腾讯、字节跳动、智谱 AI、月之暗面等中国科技巨头集体宣布推出自研 AI 智能体平台，智能体赛道竞争白热化。",
+      "category": "agents",
+      "date": "2026-06-04",
+      "tags": ["BAT", "字节", "智能体平台"],
+      "importance": 4,
+      "source": "综合报道"
+    },
+    {
+      "id": "n010",
+      "title": "英伟达联手微软戴尔惠普进军 CPU 市场",
+      "summary": "英伟达联手微软、戴尔、惠普正式宣布进军价值 2000 亿美元的 CPU 市场，推出「AI 智能体 PC」概念产品。首批设备预计 2026 Q4 出货。",
+      "category": "hardware",
+      "date": "2026-06-03",
+      "tags": ["英伟达", "CPU", "PC"],
+      "importance": 5,
+      "source": "NVIDIA Press"
+    },
+    {
+      "id": "n011",
+      "title": "英伟达 Cosmos 3：全球首个全开源物理 AI 模型",
+      "summary": "英伟达发布 Cosmos 3，全球首个完全开源的全模态物理 AI 模型。支持视频理解、物理世界模拟、机器人训练等场景，开源社区反响热烈。",
+      "category": "hardware",
+      "date": "2026-06-03",
+      "tags": ["英伟达", "Cosmos", "开源", "物理AI"],
+      "importance": 4,
+      "source": "NVIDIA Developer"
+    },
+    {
+      "id": "n012",
+      "title": "Orion-100B：$1.25/小时训练千亿参数模型",
+      "summary": "Orion-100B 项目展示用普通硬件 + 开放互联网数据训练 1000 亿参数大模型，成本仅 $1.25/小时（传统方案需 $50/小时），大幅降低大模型训练门槛。",
+      "category": "hardware",
+      "date": "2026-06-02",
+      "tags": ["Orion", "训练", "降本"],
+      "importance": 4,
+      "source": "arXiv / 社区"
+    },
+    {
+      "id": "n013",
+      "title": "清华 OpenBMB 发布 VoxCPM2 语音生成模型",
+      "summary": "清华大学 OpenBMB 团队发布 VoxCPM2，无需分词器即可实现多语言语音生成和高保真语音克隆。支持中文、英文、日文等多语种，在语音自然度上达到新高。",
+      "category": "opensource",
+      "date": "2026-06-03",
+      "tags": ["清华", "语音", "开源"],
+      "importance": 4,
+      "source": "OpenBMB GitHub"
+    },
+    {
+      "id": "n014",
+      "title": "微软开源 MarkItDown：Office 文档一键转 Markdown",
+      "summary": "微软开源 MarkItDown 工具，支持 Word/Excel/PPT 一键转换为 Markdown 格式。GitHub 上线 48 小时内获 15,000+ Star，解决了文档格式转换的长期痛点。",
+      "category": "opensource",
+      "date": "2026-06-03",
+      "tags": ["微软", "开源", "Markdown", "工具"],
+      "importance": 3,
+      "source": "GitHub"
+    },
+    {
+      "id": "n015",
+      "title": "Harness 框架：自动构建领域专家 AI 团队",
+      "summary": "Harness 开源框架发布，可自动构建领域专家 AI 智能体团队。用户只需定义任务目标，框架自动拆分、分配、协调多个 AI 智能体完成任务。",
+      "category": "opensource",
+      "date": "2026-06-03",
+      "tags": ["Harness", "开源", "多智能体"],
+      "importance": 3,
+      "source": "GitHub"
+    },
+    {
+      "id": "n016",
+      "title": "中国 AI 核心产业规模突破 1.2 万亿元",
+      "summary": "工信部最新数据显示，中国 AI 企业已超 6000 家，核心产业规模突破 1.2 万亿元人民币。算力规模全球第二，AI 人才缺口持续扩大。",
+      "category": "china",
+      "date": "2026-06-02",
+      "tags": ["产业规模", "工信部", "中国AI"],
+      "importance": 5,
+      "source": "工信部"
+    },
+    {
+      "id": "n017",
+      "title": "WWDC 2026 定档 6 月 8-12 日：苹果 AI 大考",
+      "summary": "苹果宣布 WWDC 2026 将于 6 月 8-12 日举行。市场预期将发布 Siri 重大 AI 升级、Apple Intelligence 2.0 以及 AI 开发者工具链，这是苹果 AI 战略的关键节点。",
+      "category": "china",
+      "date": "2026-06-03",
+      "tags": ["苹果", "WWDC", "Siri"],
+      "importance": 4,
+      "source": "Apple"
+    },
+    {
+      "id": "n018",
+      "title": "EU AI 法案关键条款即将生效",
+      "summary": "欧盟 AI 法案高风险应用条款将于 2026 年 8 月正式生效。企业在欧盟部署 AI 系统需完成合规评估，违规罚款最高可达全球年营收 7%。",
+      "category": "policy",
+      "date": "2026-06-03",
+      "tags": ["EU", "监管", "AI法案"],
+      "importance": 4,
+      "source": "EU Commission"
+    },
+    {
+      "id": "n019",
+      "title": "AI 安全再引关注：CVE 漏洞库新增多项 AI 相关漏洞",
+      "summary": "近期 CVE 漏洞库新增多项 AI 框架和模型相关的安全漏洞。安全专家呼吁建立 AI 供应链安全标准，OpenAI 和 Anthropic 均已发布安全白皮书应对。",
+      "category": "policy",
+      "date": "2026-06-04",
+      "tags": ["安全", "CVE", "漏洞"],
+      "importance": 3,
+      "source": "CVE / 安全社区"
+    },
+    {
+      "id": "n020",
+      "title": "MoneyPrinterTurbo 开源：AI 短视频一键生成",
+      "summary": "MoneyPrinterTurbo 开源项目发布，支持 AI 短视频一键生成，整合了文案生成、语音合成、视频素材匹配等能力，降低短视频创作门槛。",
+      "category": "opensource",
+      "date": "2026-06-02",
+      "tags": ["视频生成", "开源", "短视频"],
+      "importance": 3,
+      "source": "GitHub"
+    },
+    {
+      "id": "n021",
+      "title": "OpenAI Codex 登陆 AWS Bedrock，企业 AI 编码加速",
+      "summary": "OpenAI Codex 正式登陆 AWS Bedrock 平台，企业可通过 AWS 基础设施直接调用 Codex 编码能力。支持 50+ 编程语言，代码生成准确率提升 30%。",
+      "category": "agents",
+      "date": "2026-06-03",
+      "tags": ["OpenAI", "Codex", "AWS", "编码"],
+      "importance": 3,
+      "source": "AWS Blog"
+    },
+    {
+      "id": "n022",
+      "title": "英伟达发布 AI 智能体 PC 概念：本地运行大模型",
+      "summary": "英伟达与合作伙伴展示「AI 智能体 PC」概念机，搭载专用 NPU 芯片，可本地运行 70 亿参数大模型。目标将 AI 计算从云端推向端侧设备。",
+      "category": "hardware",
+      "date": "2026-06-04",
+      "tags": ["英伟达", "NPU", "端侧AI"],
+      "importance": 4,
+      "source": "NVIDIA / Computex"
+    }
+  ],
+  "timeline": [
+    { "date": "2026-06-01", "events": ["Anthropic 提交 IPO 申请", "ZoomMate AI 智能体上线"] },
+    { "date": "2026-06-02", "events": ["三部门联合发文推 AI 智能体", "中国 AI 产业规模突破 1.2 万亿", "Orion-100B 公布", "MoneyPrinterTurbo 发布"] },
+    { "date": "2026-06-03", "events": ["GPT-5.5 Instant 发布", "Gemini 3.5 Flash 发布", "Claude Opus 4.8 发布", "MiniMax M3 发布", "英伟达 Cosmos 3 开源", "清华 VoxCPM2 发布", "微软 MarkItDown 开源", "WWDC 2026 定档", "Gartner AI 智能体预测"] },
+    { "date": "2026-06-04", "events": ["BAT 等巨头集体入局智能体平台", "CVE 新增多项 AI 漏洞", "英伟达 AI 智能体 PC 概念发布"] }
+  ],
+  "stats": {
+    "anthropicValuation": 965,
+    "gpt55HallucinationReduction": 52.5,
+    "geminiPricePerMillion": 0.10,
+    "chinaAIScale": 1.2,
+    "chinaAIEnterprises": 6000,
+    "gartnerAgentAdoption": 40,
+    "orionCostPerHour": 1.25,
+    "minimaxSpeedup": 5,
+    "claudeCodeMigrationLines": 750000,
+    "claudePassRate": 99.8,
+    "markitdownStars": 15000
+  }
+}
