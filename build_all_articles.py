@@ -206,6 +206,13 @@ out = {
 with open(OUT, "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)
 
+# Also generate articles.js for script-tag loading (compatible with file:// protocol)
+js_data = json.dumps(out, ensure_ascii=False, indent=2)
+with open("articles.js", "w", encoding="utf-8") as f:
+    f.write(f"window.__ARTICLES__ = {js_data};")
+
 size_kb = os.path.getsize(OUT) // 1024
+js_size_kb = os.path.getsize("articles.js") // 1024
 print(f"\n✅ 完成！共 {len(articles)} 篇文章 → {OUT}")
-print(f"   文件大小: {size_kb} KB")
+print(f"   articles.json: {size_kb} KB")
+print(f"   articles.js: {js_size_kb} KB")

@@ -45,6 +45,7 @@
   .importance-3 { border-left: 3px solid #64748b; }
   .empty-state { min-height: 200px; display: flex; align-items: center; justify-content: center; }
 </style>
+<script src="articles.js"></script>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
 
@@ -115,7 +116,7 @@ const PILLAR_CONFIG = {
   }
 };
 
-async function init() {
+function init() {
   const params = new URLSearchParams(window.location.search);
   const pillar = params.get('pillar') || '';
   const cat = decodeURIComponent(params.get('cat') || '');
@@ -129,8 +130,7 @@ async function init() {
   document.title = `${cat} — ${cfg.name.replace(/[^\u4e00-\u9fa5]/g,'')} — 骆驼商业本质`;
 
   try {
-    const resp = await fetch('articles.json');
-    const data = await resp.json();
+    const data = window.__ARTICLES__;
     const articles = data.articles || data;
     const filtered = articles.filter(a => a.pillar === pillar && a.subcategory === cat);
     render(cfg, pillar, cat, filtered);
