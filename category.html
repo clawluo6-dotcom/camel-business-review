@@ -131,7 +131,7 @@ async function init() {
   try {
     const resp = await fetch('articles.json');
     const articles = await resp.json();
-    const filtered = articles.filter(a => a.pillar === pillar && a.category === cat);
+    const filtered = articles.filter(a => a.pillar === pillar && a.subcategory === cat);
     render(cfg, pillar, cat, filtered);
   } catch (err) {
     document.getElementById('app').innerHTML = `<div class="empty-state"><p class="text-text-muted text-lg">数据加载失败: ${err.message}</p></div>`;
