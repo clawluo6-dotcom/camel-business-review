@@ -130,7 +130,8 @@ async function init() {
 
   try {
     const resp = await fetch('articles.json');
-    const articles = await resp.json();
+    const data = await resp.json();
+    const articles = data.articles || data;
     const filtered = articles.filter(a => a.pillar === pillar && a.subcategory === cat);
     render(cfg, pillar, cat, filtered);
   } catch (err) {

@@ -136,7 +136,8 @@ async function init() {
 
   try {
     const resp = await fetch('articles.json');
-    const articles = await resp.json();
+    const data = await resp.json();
+    const articles = data.articles || data;
     const article = articles.find(a => a.id === id);
     if (!article) {
       document.getElementById('app').innerHTML = `<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">文章未找到: ${id}</p></div>`;
