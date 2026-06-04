@@ -164,10 +164,10 @@ function render(article) {
       <span class="text-text-muted mx-2">/</span>
       <a href="${cfg.slug}" class="text-sm hover:underline transition" style="color:${acc}">${cfg.name}</a>
     `;
-    if (article.category) {
+    if (article.subcategory) {
       html += `
       <span class="text-text-muted mx-2">/</span>
-      <a href="category.html?pillar=${article.pillar}&cat=${encodeURIComponent(article.category)}" class="text-sm hover:underline transition" style="color:${acc}">${article.category}</a>
+      <a href="category.html?pillar=${article.pillar}&cat=${encodeURIComponent(article.subcategory)}" class="text-sm hover:underline transition" style="color:${acc}">${article.subcategory}</a>
       `;
     }
     html += `</div>`;
@@ -194,8 +194,8 @@ function render(article) {
   // Back button
   html += `
   <div class="mt-8 text-center">
-    <a href="category.html?pillar=${article.pillar}&cat=${encodeURIComponent(article.category || '')}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-hover text-sm font-medium transition" style="color:${acc};border-color:rgba(${cfg.accentRgb},0.2);background:rgba(${cfg.accentRgb},0.06);border:1px solid rgba(${cfg.accentRgb},0.2);">
-      ← 返回「${article.category || '分类'}」文章列表
+    <a href="category.html?pillar=${article.pillar}&cat=${encodeURIComponent(article.subcategory || '')}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-hover text-sm font-medium transition" style="color:${acc};border-color:rgba(${cfg.accentRgb},0.2);background:rgba(${cfg.accentRgb},0.06);border:1px solid rgba(${cfg.accentRgb},0.2);">
+      ← 返回「${article.subcategory || '分类'}」文章列表
     </a>
   </div>`;
 
