@@ -2,9 +2,9 @@
   "meta": {
     "siteName": "骆驼商业评论",
     "siteNameCN": "骆驼商业评论",
-    "version": "1.0.0",
-    "lastUpdated": "2026-06-04T08:30:00+08:00",
-    "description": "AI 商业深度观察，追踪全球科技产业变革"
+    "version": "2.0.0",
+    "lastUpdated": "2026-06-04T11:00:00+08:00",
+    "description": "认识世界 · 理解社会 · 安顿自己"
   },
   "featured": {
     "id": "feat-001",
@@ -13,18 +13,52 @@
     "summary": "Anthropic 于 6 月 1 日正式向 SEC 提交 IPO 申请，抢在 OpenAI 之前冲击「AI 上市第一股」，市场传闻估值高达 9650 亿美元。若成功上市，将成为史上最大规模科技 IPO 之一。",
     "category": "大模型",
     "date": "2026-06-01",
-    "tags": ["Anthropic", "IPO", "大模型"],
+    "tags": [
+      "Anthropic",
+      "IPO",
+      "大模型"
+    ],
     "importance": 5,
     "source": "SEC Filing / 综合报道",
     "link": ""
   },
   "categories": [
-    { "id": "models", "name": "大模型军备", "icon": "brain", "color": "cyan" },
-    { "id": "agents", "name": "智能体浪潮", "icon": "bot", "color": "purple" },
-    { "id": "hardware", "name": "硬件与基建", "icon": "chip", "color": "emerald" },
-    { "id": "opensource", "name": "开源与语音", "icon": "code", "color": "amber" },
-    { "id": "china", "name": "中国动态", "icon": "globe", "color": "rose" },
-    { "id": "policy", "name": "政策与监管", "icon": "shield", "color": "orange" }
+    {
+      "id": "models",
+      "name": "大模型军备",
+      "icon": "brain",
+      "color": "cyan"
+    },
+    {
+      "id": "agents",
+      "name": "智能体浪潮",
+      "icon": "bot",
+      "color": "purple"
+    },
+    {
+      "id": "hardware",
+      "name": "硬件与基建",
+      "icon": "chip",
+      "color": "emerald"
+    },
+    {
+      "id": "opensource",
+      "name": "开源与语音",
+      "icon": "code",
+      "color": "amber"
+    },
+    {
+      "id": "china",
+      "name": "中国动态",
+      "icon": "globe",
+      "color": "rose"
+    },
+    {
+      "id": "policy",
+      "name": "政策与监管",
+      "icon": "shield",
+      "color": "orange"
+    }
   ],
   "news": [
     {
@@ -33,7 +67,11 @@
       "summary": "Anthropic 6月1日正式提交 IPO，抢在 OpenAI 之前冲击「AI 上市第一股」，估值传闻 9650 亿美元。SEC 文件披露其年化收入已突破 180 亿美元，企业客户超过 5 万家。",
       "category": "models",
       "date": "2026-06-01",
-      "tags": ["Anthropic", "IPO", "上市"],
+      "tags": [
+        "Anthropic",
+        "IPO",
+        "上市"
+      ],
       "importance": 5,
       "source": "SEC Filing"
     },
@@ -43,7 +81,11 @@
       "summary": "GPT-5.5 Instant 正式发布，幻觉率相比前代降低 52.5%，推理成本降至每百万 token $0.40。同步登陆 AWS Bedrock 平台，Codex 编码能力大幅提升。",
       "category": "models",
       "date": "2026-06-03",
-      "tags": ["OpenAI", "GPT-5.5", "幻觉"],
+      "tags": [
+        "OpenAI",
+        "GPT-5.5",
+        "幻觉"
+      ],
       "importance": 5,
       "source": "OpenAI Blog"
     },
@@ -53,7 +95,11 @@
       "summary": "Google 发布 Gemini 3.5 Flash，以每百万 token $0.1 的价格刷新性价比天花板。在多语言、代码生成和长文本理解等基准测试中全面超越同级竞品。",
       "category": "models",
       "date": "2026-06-03",
-      "tags": ["Google", "Gemini", "性价比"],
+      "tags": [
+        "Google",
+        "Gemini",
+        "性价比"
+      ],
       "importance": 4,
       "source": "Google AI Blog"
     },
@@ -63,7 +109,11 @@
       "summary": "Anthropic 推出 Claude Opus 4.8，代码审查漏检率降低 4 倍，可自动完成 75 万行代码迁移任务，通过率达 99.8%。在企业级代码智能领域树立新标杆。",
       "category": "models",
       "date": "2026-06-03",
-      "tags": ["Anthropic", "Claude", "代码"],
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "代码"
+      ],
       "importance": 4,
       "source": "Anthropic Blog"
     },
@@ -73,7 +123,11 @@
       "summary": "中国 MiniMax 发布 M3 模型，推理速度提升 5 倍，单 token 计算量仅为前代的 1/20，支持 100 万 token 超长上下文。在中文理解和生成任务上表现突出。",
       "category": "models",
       "date": "2026-06-03",
-      "tags": ["MiniMax", "M3", "国产模型"],
+      "tags": [
+        "MiniMax",
+        "M3",
+        "国产模型"
+      ],
       "importance": 4,
       "source": "MiniMax 官方"
     },
@@ -83,7 +137,11 @@
       "summary": "国家网信办、发改委、工信部三部门联合发文推动 AI 智能体产业发展，明确将智能体列为新一代人工智能发展重点方向，支持行业应用落地。",
       "category": "agents",
       "date": "2026-06-02",
-      "tags": ["政策", "智能体", "三部门"],
+      "tags": [
+        "政策",
+        "智能体",
+        "三部门"
+      ],
       "importance": 5,
       "source": "新华社"
     },
@@ -93,7 +151,11 @@
       "summary": "Gartner 发布最新预测报告，预计到 2026 年底 40% 的企业应用将集成 AI 智能体功能，到 2028 年智能体将处理 60% 以上的客户服务交互。",
       "category": "agents",
       "date": "2026-06-03",
-      "tags": ["Gartner", "预测", "企业"],
+      "tags": [
+        "Gartner",
+        "预测",
+        "企业"
+      ],
       "importance": 4,
       "source": "Gartner Report"
     },
@@ -103,7 +165,11 @@
       "summary": "Zoom 推出 AI 智能体 ZoomMate，月费 $20，可自动将会议内容转化为待办事项、文档和 PPT。上线首日用户突破 10 万，标志着协作工具 AI 化的加速。",
       "category": "agents",
       "date": "2026-06-01",
-      "tags": ["Zoom", "智能体", "协作"],
+      "tags": [
+        "Zoom",
+        "智能体",
+        "协作"
+      ],
       "importance": 3,
       "source": "Zoom Blog"
     },
@@ -113,7 +179,11 @@
       "summary": "受 OpenClaw 框架影响，百度、阿里、腾讯、字节跳动、智谱 AI、月之暗面等中国科技巨头集体宣布推出自研 AI 智能体平台，智能体赛道竞争白热化。",
       "category": "agents",
       "date": "2026-06-04",
-      "tags": ["BAT", "字节", "智能体平台"],
+      "tags": [
+        "BAT",
+        "字节",
+        "智能体平台"
+      ],
       "importance": 4,
       "source": "综合报道"
     },
@@ -123,7 +193,11 @@
       "summary": "英伟达联手微软、戴尔、惠普正式宣布进军价值 2000 亿美元的 CPU 市场，推出「AI 智能体 PC」概念产品。首批设备预计 2026 Q4 出货。",
       "category": "hardware",
       "date": "2026-06-03",
-      "tags": ["英伟达", "CPU", "PC"],
+      "tags": [
+        "英伟达",
+        "CPU",
+        "PC"
+      ],
       "importance": 5,
       "source": "NVIDIA Press"
     },
@@ -133,7 +207,12 @@
       "summary": "英伟达发布 Cosmos 3，全球首个完全开源的全模态物理 AI 模型。支持视频理解、物理世界模拟、机器人训练等场景，开源社区反响热烈。",
       "category": "hardware",
       "date": "2026-06-03",
-      "tags": ["英伟达", "Cosmos", "开源", "物理AI"],
+      "tags": [
+        "英伟达",
+        "Cosmos",
+        "开源",
+        "物理AI"
+      ],
       "importance": 4,
       "source": "NVIDIA Developer"
     },
@@ -143,7 +222,11 @@
       "summary": "Orion-100B 项目展示用普通硬件 + 开放互联网数据训练 1000 亿参数大模型，成本仅 $1.25/小时（传统方案需 $50/小时），大幅降低大模型训练门槛。",
       "category": "hardware",
       "date": "2026-06-02",
-      "tags": ["Orion", "训练", "降本"],
+      "tags": [
+        "Orion",
+        "训练",
+        "降本"
+      ],
       "importance": 4,
       "source": "arXiv / 社区"
     },
@@ -153,7 +236,11 @@
       "summary": "清华大学 OpenBMB 团队发布 VoxCPM2，无需分词器即可实现多语言语音生成和高保真语音克隆。支持中文、英文、日文等多语种，在语音自然度上达到新高。",
       "category": "opensource",
       "date": "2026-06-03",
-      "tags": ["清华", "语音", "开源"],
+      "tags": [
+        "清华",
+        "语音",
+        "开源"
+      ],
       "importance": 4,
       "source": "OpenBMB GitHub"
     },
@@ -163,7 +250,12 @@
       "summary": "微软开源 MarkItDown 工具，支持 Word/Excel/PPT 一键转换为 Markdown 格式。GitHub 上线 48 小时内获 15,000+ Star，解决了文档格式转换的长期痛点。",
       "category": "opensource",
       "date": "2026-06-03",
-      "tags": ["微软", "开源", "Markdown", "工具"],
+      "tags": [
+        "微软",
+        "开源",
+        "Markdown",
+        "工具"
+      ],
       "importance": 3,
       "source": "GitHub"
     },
@@ -173,7 +265,11 @@
       "summary": "Harness 开源框架发布，可自动构建领域专家 AI 智能体团队。用户只需定义任务目标，框架自动拆分、分配、协调多个 AI 智能体完成任务。",
       "category": "opensource",
       "date": "2026-06-03",
-      "tags": ["Harness", "开源", "多智能体"],
+      "tags": [
+        "Harness",
+        "开源",
+        "多智能体"
+      ],
       "importance": 3,
       "source": "GitHub"
     },
@@ -183,7 +279,11 @@
       "summary": "工信部最新数据显示，中国 AI 企业已超 6000 家，核心产业规模突破 1.2 万亿元人民币。算力规模全球第二，AI 人才缺口持续扩大。",
       "category": "china",
       "date": "2026-06-02",
-      "tags": ["产业规模", "工信部", "中国AI"],
+      "tags": [
+        "产业规模",
+        "工信部",
+        "中国AI"
+      ],
       "importance": 5,
       "source": "工信部"
     },
@@ -193,7 +293,11 @@
       "summary": "苹果宣布 WWDC 2026 将于 6 月 8-12 日举行。市场预期将发布 Siri 重大 AI 升级、Apple Intelligence 2.0 以及 AI 开发者工具链，这是苹果 AI 战略的关键节点。",
       "category": "china",
       "date": "2026-06-03",
-      "tags": ["苹果", "WWDC", "Siri"],
+      "tags": [
+        "苹果",
+        "WWDC",
+        "Siri"
+      ],
       "importance": 4,
       "source": "Apple"
     },
@@ -203,7 +307,11 @@
       "summary": "欧盟 AI 法案高风险应用条款将于 2026 年 8 月正式生效。企业在欧盟部署 AI 系统需完成合规评估，违规罚款最高可达全球年营收 7%。",
       "category": "policy",
       "date": "2026-06-03",
-      "tags": ["EU", "监管", "AI法案"],
+      "tags": [
+        "EU",
+        "监管",
+        "AI法案"
+      ],
       "importance": 4,
       "source": "EU Commission"
     },
@@ -213,7 +321,11 @@
       "summary": "近期 CVE 漏洞库新增多项 AI 框架和模型相关的安全漏洞。安全专家呼吁建立 AI 供应链安全标准，OpenAI 和 Anthropic 均已发布安全白皮书应对。",
       "category": "policy",
       "date": "2026-06-04",
-      "tags": ["安全", "CVE", "漏洞"],
+      "tags": [
+        "安全",
+        "CVE",
+        "漏洞"
+      ],
       "importance": 3,
       "source": "CVE / 安全社区"
     },
@@ -223,7 +335,11 @@
       "summary": "MoneyPrinterTurbo 开源项目发布，支持 AI 短视频一键生成，整合了文案生成、语音合成、视频素材匹配等能力，降低短视频创作门槛。",
       "category": "opensource",
       "date": "2026-06-02",
-      "tags": ["视频生成", "开源", "短视频"],
+      "tags": [
+        "视频生成",
+        "开源",
+        "短视频"
+      ],
       "importance": 3,
       "source": "GitHub"
     },
@@ -233,7 +349,12 @@
       "summary": "OpenAI Codex 正式登陆 AWS Bedrock 平台，企业可通过 AWS 基础设施直接调用 Codex 编码能力。支持 50+ 编程语言，代码生成准确率提升 30%。",
       "category": "agents",
       "date": "2026-06-03",
-      "tags": ["OpenAI", "Codex", "AWS", "编码"],
+      "tags": [
+        "OpenAI",
+        "Codex",
+        "AWS",
+        "编码"
+      ],
       "importance": 3,
       "source": "AWS Blog"
     },
@@ -243,21 +364,59 @@
       "summary": "英伟达与合作伙伴展示「AI 智能体 PC」概念机，搭载专用 NPU 芯片，可本地运行 70 亿参数大模型。目标将 AI 计算从云端推向端侧设备。",
       "category": "hardware",
       "date": "2026-06-04",
-      "tags": ["英伟达", "NPU", "端侧AI"],
+      "tags": [
+        "英伟达",
+        "NPU",
+        "端侧AI"
+      ],
       "importance": 4,
       "source": "NVIDIA / Computex"
     }
   ],
   "timeline": [
-    { "date": "2026-06-01", "events": ["Anthropic 提交 IPO 申请", "ZoomMate AI 智能体上线"] },
-    { "date": "2026-06-02", "events": ["三部门联合发文推 AI 智能体", "中国 AI 产业规模突破 1.2 万亿", "Orion-100B 公布", "MoneyPrinterTurbo 发布"] },
-    { "date": "2026-06-03", "events": ["GPT-5.5 Instant 发布", "Gemini 3.5 Flash 发布", "Claude Opus 4.8 发布", "MiniMax M3 发布", "英伟达 Cosmos 3 开源", "清华 VoxCPM2 发布", "微软 MarkItDown 开源", "WWDC 2026 定档", "Gartner AI 智能体预测"] },
-    { "date": "2026-06-04", "events": ["BAT 等巨头集体入局智能体平台", "CVE 新增多项 AI 漏洞", "英伟达 AI 智能体 PC 概念发布"] }
+    {
+      "date": "2026-06-01",
+      "events": [
+        "Anthropic 提交 IPO 申请",
+        "ZoomMate AI 智能体上线"
+      ]
+    },
+    {
+      "date": "2026-06-02",
+      "events": [
+        "三部门联合发文推 AI 智能体",
+        "中国 AI 产业规模突破 1.2 万亿",
+        "Orion-100B 公布",
+        "MoneyPrinterTurbo 发布"
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "events": [
+        "GPT-5.5 Instant 发布",
+        "Gemini 3.5 Flash 发布",
+        "Claude Opus 4.8 发布",
+        "MiniMax M3 发布",
+        "英伟达 Cosmos 3 开源",
+        "清华 VoxCPM2 发布",
+        "微软 MarkItDown 开源",
+        "WWDC 2026 定档",
+        "Gartner AI 智能体预测"
+      ]
+    },
+    {
+      "date": "2026-06-04",
+      "events": [
+        "BAT 等巨头集体入局智能体平台",
+        "CVE 新增多项 AI 漏洞",
+        "英伟达 AI 智能体 PC 概念发布"
+      ]
+    }
   ],
   "stats": {
     "anthropicValuation": 965,
     "gpt55HallucinationReduction": 52.5,
-    "geminiPricePerMillion": 0.10,
+    "geminiPricePerMillion": 0.1,
     "chinaAIScale": 1.2,
     "chinaAIEnterprises": 6000,
     "gartnerAgentAdoption": 40,
@@ -266,5 +425,145 @@
     "claudeCodeMigrationLines": 750000,
     "claudePassRate": 99.8,
     "markitdownStars": 15000
+  },
+  "articles": {
+    "worldview": [
+      {
+        "id": "a001",
+        "title": "意识切片世界观",
+        "summary": "提出一种全新的世界观框架：意识不是连续的河流，而是离散的「时间切片」的集合。每个切片都是一个完整的世界态。这篇文章奠定了整个思想体系的基础。",
+        "date": "2026-05",
+        "tags": [
+          "意识",
+          "世界观",
+          "哲学"
+        ],
+        "importance": 5
+      },
+      {
+        "id": "a002",
+        "title": "世界的真相（系列导言）",
+        "summary": "「世界的真相」11篇系列文章的总纲。从力的统一到现象的本质，从科学世界观到形而上学的追问——我们看到的「世界」到底有多少层？",
+        "date": "2026-05",
+        "tags": [
+          "世界观",
+          "系列",
+          "物理学"
+        ],
+        "importance": 5
+      },
+      {
+        "id": "a003",
+        "title": "力的统一：三圈同心圆模型",
+        "summary": "提出力统一理论的三圈同心圆模型：物理力、社会力、意识力——三者同源同构。这是从物理学到社会科学再到意识哲学的桥梁。",
+        "date": "2026-05",
+        "tags": [
+          "统一理论",
+          "物理学",
+          "意识"
+        ],
+        "importance": 4
+      }
+    ],
+    "social": [
+      {
+        "id": "a004",
+        "title": "500 年霸权更迭：从葡萄牙到中美争霸",
+        "summary": "大周期系列开篇。梳理 500 年来全球霸权的五次更迭，揭示军事、金融、科技、文化、制度五维霸权的运作机制，预测下一阶段中美争霸的走向。",
+        "date": "2026-05",
+        "tags": [
+          "大周期",
+          "地缘",
+          "霸权"
+        ],
+        "importance": 5
+      },
+      {
+        "id": "a005",
+        "title": "财富的谬论：对经济周期本质的再思考",
+        "summary": "重新审视「财富」概念的本质——财富不是拥有的资源，而是调配资源的能力。经济周期的本质是这种调配能力的集中与分散。",
+        "date": "2026-05",
+        "tags": [
+          "宏观经济",
+          "财富",
+          "周期"
+        ],
+        "importance": 4
+      },
+      {
+        "id": "a006",
+        "title": "美国战略演变（2017-2026）：从特朗普到后特朗普时代",
+        "summary": "分析美国从特朗普第一任期到2026年的全球战略演变。从贸易战到科技封锁，从地缘博弈到金融制裁——理解美国战略是理解全球秩序的关键。",
+        "date": "2026-06",
+        "tags": [
+          "美国",
+          "地缘",
+          "战略"
+        ],
+        "importance": 5
+      },
+      {
+        "id": "a007",
+        "title": "中国 A 股资产结构分析",
+        "summary": "基于 Wind 金融终端数据，对中国 A 股市场上市公司的企业所有制结构、大股东持股比例、国有与民营资本分布进行系统分析。",
+        "date": "2026-06",
+        "tags": [
+          "A股",
+          "资产结构",
+          "金融"
+        ],
+        "importance": 4
+      }
+    ],
+    "practice": [
+      {
+        "id": "a008",
+        "title": "人的本质：意识之外的追问",
+        "summary": "如果意识是离散的切片，那么「人的本质」在哪里？本文从意识切片理论出发，逐层剖析自我的构成——从感官到认知，从记忆到身份认同。",
+        "date": "2026-05",
+        "tags": [
+          "人性",
+          "意识",
+          "哲学"
+        ],
+        "importance": 5
+      },
+      {
+        "id": "a009",
+        "title": "一念花开：论心性的力量",
+        "summary": "一念之间，可以开出一朵花，也可以生出一片荒芜。本文从禅宗「一念相应」出发，探讨心性的训练如何改变人的感知和行动能力。",
+        "date": "2026-05",
+        "tags": [
+          "心性",
+          "修行",
+          "禅"
+        ],
+        "importance": 4
+      },
+      {
+        "id": "a010",
+        "title": "内圣外王：儒家修养与现代生活",
+        "summary": "「内圣外王」是儒家修养的终极理想——内修圣人之德，外行王者之道。在现代语境下，它是一条从个人修养到社会参与的内在路径。",
+        "date": "2026-05",
+        "tags": [
+          "儒家",
+          "修养",
+          "内圣外王"
+        ],
+        "importance": 4
+      },
+      {
+        "id": "a011",
+        "title": "性相不二：破一切相的哲学实践",
+        "summary": "「性」是本质，「相」是表象。当我们说「性相不二」的时候，不是否定表象的存在，而是指出本质与表象之间没有鸿沟。这是破一切相的哲学入口。",
+        "date": "2026-06",
+        "tags": [
+          "哲学",
+          "本质",
+          "修行"
+        ],
+        "importance": 4
+      }
+    ]
   }
 }

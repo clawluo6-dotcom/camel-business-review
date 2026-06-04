@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>骆驼商业评论 — AI · 商业 · 深度</title>
+<title>骆驼商业评论 — 认识世界 · 理解社会 · 安顿自己</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
@@ -15,11 +15,10 @@
           bg: { primary:'#0a0e17', secondary:'#111827', card:'#1a1f2e', hover:'#242b3d' },
           accent: {
             cyan:'#22d3ee', purple:'#a855f7', emerald:'#34d399',
-            amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c'
+            amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c', gold:'#f59e0b'
           },
           text: { primary:'#e2e8f0', secondary:'#94a3b8', muted:'#64748b' }
-        },
-        fontFamily: { mono:['JetBrains Mono','Fira Code','monospace'], sans:['Inter','system-ui','sans-serif'] }
+        }
       }
     }
   }
@@ -30,160 +29,403 @@
   body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
   .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
   .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
-  .neon-cyan { box-shadow: 0 0 20px rgba(34,211,238,0.15), inset 0 0 20px rgba(34,211,238,0.03); }
-  .neon-purple { box-shadow: 0 0 20px rgba(168,85,247,0.15), inset 0 0 20px rgba(168,85,247,0.03); }
   .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
   .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
-  .bg-glow-bottom { background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(168,85,247,0.06) 0%, transparent 70%); }
   .card-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-  .stat-bar { height: 4px; border-radius: 2px; transition: width 1.5s ease-out; }
-  .category-badge { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 2px 10px; border-radius: 9999px; }
-  .timeline-line::before { content:''; position:absolute; left:7px; top:0; bottom:0; width:2px; background: linear-gradient(to bottom, #22d3ee, #a855f7); }
-  .timeline-dot { width:16px; height:16px; border-radius:50%; background:#1a1f2e; border:2px solid #22d3ee; position:relative; z-index:1; }
-  .importance-5 { border-left: 3px solid #22d3ee; }
-  .importance-4 { border-left: 3px solid #a855f7; }
-  .importance-3 { border-left: 3px solid #64748b; }
-  .fade-in { animation: fadeIn 0.6s ease-out; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-  @keyframes pulse-glow { 0%,100% { box-shadow: 0 0 20px rgba(34,211,238,0.15); } 50% { box-shadow: 0 0 40px rgba(34,211,238,0.3); } }
-  .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-  .scrollbar-hide::-webkit-scrollbar { display: none; }
-  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   .nav-link { position: relative; }
   .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
   .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  .pillar-card { position: relative; overflow: hidden; }
+  .pillar-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
+  .pillar-worldview::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
+  .pillar-social::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+  .pillar-practice::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  .importance-5 { border-left: 3px solid #22d3ee; }
+  .importance-4 { border-left: 3px solid #a855f7; }
+  .importance-3 { border-left: 3px solid #64748b; }
+  .timeline-line::before { content:''; position:absolute; left:7px; top:0; bottom:0; width:2px; background: linear-gradient(to bottom, #22d3ee, #a855f7); }
+  .timeline-dot { width:16px; height:16px; border-radius:50%; background:#1a1f2e; border:2px solid #22d3ee; position:relative; z-index:1; }
+  .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+  @keyframes pulse-glow { 0%,100% { box-shadow: 0 0 20px rgba(34,211,238,0.15); } 50% { box-shadow: 0 0 40px rgba(34,211,238,0.3); } }
+  html { scroll-behavior: smooth; }
   .count-pill { animation: countIn 0.8s ease-out; }
   @keyframes countIn { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
 </style>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen">
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50 glass border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
-          <span class="text-white font-bold text-sm">✦</span>
-        </div>
-        <div>
-          <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业评论</span></h1>
-          <p class="text-xs text-text-muted -mt-0.5">AI · 商业 · 深度</p>
-        </div>
+
+<!-- ====== 导航 ====== -->
+<nav class="sticky top-0 z-50 glass border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-3 no-underline">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
+        <span class="text-white font-bold text-sm">✦</span>
       </div>
-      <div class="flex items-center gap-6">
-        <a href="#models" class="nav-link text-text-secondary hover:text-accent-cyan transition text-sm font-medium">大模型</a>
-        <a href="#agents" class="nav-link text-text-secondary hover:text-accent-purple transition text-sm font-medium">智能体</a>
-        <a href="#hardware" class="nav-link text-text-secondary hover:text-accent-emerald transition text-sm font-medium">硬件</a>
-        <a href="#opensource" class="nav-link text-text-secondary hover:text-accent-amber transition text-sm font-medium">开源</a>
-        <a href="#timeline" class="nav-link text-text-secondary hover:text-text-primary transition text-sm font-medium">时间线</a>
-        <a href="admin.html" class="ml-4 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">
-          ADMIN
-        </a>
+      <div>
+        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业评论</span></h1>
+      </div>
+    </a>
+    <div class="flex items-center gap-6">
+      <a href="#home" class="nav-link active text-text-secondary hover:text-accent-cyan transition text-sm font-medium">首页</a>
+      <a href="#ai-news" class="nav-link text-text-secondary hover:text-accent-cyan transition text-sm font-medium">AI 前沿速报</a>
+      <a href="#thinktank" class="nav-link text-text-secondary hover:text-accent-purple transition text-sm font-medium">思想库</a>
+      <a href="#about" class="nav-link text-text-secondary hover:text-accent-amber transition text-sm font-medium">关于</a>
+      <a href="admin.html" class="ml-4 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">
+        ADMIN
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ====== 首页 Hero ====== -->
+<section id="home" class="relative bg-glow-top pt-20 pb-16">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <!-- 主标题 -->
+    <h2 class="text-4xl lg:text-5xl font-black tracking-tight mb-6 leading-tight">
+      <span class="gradient-text">认识世界</span>
+      <span class="text-text-primary"> · </span>
+      <span class="gradient-text-warm">理解社会</span>
+      <span class="text-text-primary"> · </span>
+      <span class="text-accent-purple">安顿自己</span>
+    </h2>
+
+    <!-- 网站说明 -->
+    <div class="glass rounded-2xl p-8 mb-12 text-left">
+      <p class="text-text-secondary leading-relaxed text-base">
+        骆驼商业评论是一个<span class="text-text-primary font-semibold">跨领域思想平台</span>，聚焦三个维度：<span class="text-accent-cyan">世界观</span>（宇宙如何运作）、<span class="text-accent-gold">社会秩序</span>（社会如何形成与运行）、<span class="text-accent-purple">思想与修行</span>（人如何认识自己）。我们同时追踪 AI 产业最前沿动态，在技术浪潮中寻找不变的思想锚点。
+      </p>
+      <p class="text-text-muted text-sm mt-4 italic">
+        「天覆地载，人居其中。知天以立心，知地以立身，知己以立命。」
+      </p>
+    </div>
+
+    <!-- 三大板块入口卡片 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <!-- 世界观 -->
+      <a href="#pillar-worldview" class="glass rounded-2xl p-6 pillar-card pillar-worldview card-transition glass-hover text-left no-underline block group">
+        <div class="text-4xl mb-4">🌌</div>
+        <h3 class="text-xl font-bold mb-1 text-accent-cyan">世界观</h3>
+        <p class="text-xs text-text-muted mb-3 font-mono uppercase tracking-wider">Worldview</p>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          探讨宇宙运行的根本法则。从物理学到形而上学，从力的统一到世界底层的运作逻辑——这个世界到底是怎样一个系统？
+        </p>
+        <div class="mt-4 flex items-center gap-1 text-xs text-accent-cyan opacity-0 group-hover:opacity-100 transition-opacity">
+          浏览全部 <span class="text-lg leading-none">→</span>
+        </div>
+      </a>
+
+      <!-- 社会秩序 -->
+      <a href="#pillar-social" class="glass rounded-2xl p-6 pillar-card pillar-social card-transition glass-hover text-left no-underline block group">
+        <div class="text-4xl mb-4">🏛️</div>
+        <h3 class="text-xl font-bold mb-1 text-accent-gold">社会秩序</h3>
+        <p class="text-xs text-text-muted mb-3 font-mono uppercase tracking-wider">Social Order</p>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          人类社会如何组织、权力如何分配、财富如何流动。从 500 年霸权更迭到产业经济的微观落地，寻找社会运行的规律。
+        </p>
+        <div class="mt-4 flex items-center gap-1 text-xs text-accent-gold opacity-0 group-hover:opacity-100 transition-opacity">
+          浏览全部 <span class="text-lg leading-none">→</span>
+        </div>
+      </a>
+
+      <!-- 思想与修行 -->
+      <a href="#pillar-practice" class="glass rounded-2xl p-6 pillar-card pillar-practice card-transition glass-hover text-left no-underline block group">
+        <div class="text-4xl mb-4">🧘</div>
+        <h3 class="text-xl font-bold mb-1 text-accent-purple">思想与修行</h3>
+        <p class="text-xs text-text-muted mb-3 font-mono uppercase tracking-wider">Thought &amp; Practice</p>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          在理解宇宙法则和社会规则之后，人如何安顿自己的内心？从意识到人性，从哲学思辨到内在修行之路。
+        </p>
+        <div class="mt-4 flex items-center gap-1 text-xs text-accent-purple opacity-0 group-hover:opacity-100 transition-opacity">
+          浏览全部 <span class="text-lg leading-none">→</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- ====== 思想库：详细板块 ====== -->
+<section id="thinktank" class="py-16">
+  <div class="max-w-5xl mx-auto px-6">
+    <!-- 板块标题 -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-black tracking-tight mb-4">思想库</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed">
+        思想库是骆驼商业评论的核心。三个板块构成一个从外到内的认知体系——先看清宇宙的法则，再理解社会的秩序，最终回到人的内在修行。
+      </p>
+    </div>
+
+    <!-- === 世界观板块 === -->
+    <div id="pillar-worldview" class="mb-20">
+      <div class="glass rounded-2xl p-8 md:p-10 pillar-card pillar-worldview">
+        <!-- 标题区 -->
+        <div class="flex items-start gap-5 mb-8">
+          <div class="text-5xl">🌌</div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-accent-cyan mb-2">世界观</h3>
+            <p class="text-text-muted text-sm font-mono uppercase tracking-wider mb-4">Worldview — 宇宙如何运作</p>
+            <div class="text-text-secondary leading-relaxed text-sm space-y-3">
+              <p>
+                世界观板块探讨的是<strong class="text-text-primary">宇宙运行的根本法则</strong>。这里的「世界」不只是地球或人类社会，而是整个存在本身——从物理学的力场统一到形而上学的本质追问。
+              </p>
+              <p>
+                一个不追问世界本质的人，容易被表象迷惑；一个不理解底层法则的人，容易在信息洪流中失去判断。世界观提供的是<strong class="text-accent-cyan">认知的坐标系</strong>——在变动不居的现象背后，寻找不变的结构。
+              </p>
+              <p class="text-text-muted text-xs">
+                覆盖领域：宇宙运行规律 / 力的统一 / 世界的真相系列 / 科学哲学 / 系统思维
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 文章列表 -->
+        <div class="border-t border-white/5 pt-6">
+          <h4 class="text-xs font-mono text-text-muted uppercase tracking-widest mb-5">✦ 精选文章</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="articles-worldview">
+            <!-- JS 动态渲染 -->
+          </div>
+          <div class="mt-6 text-center">
+            <span class="text-xs text-text-muted italic">更多文章持续更新中 ✦</span>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="relative bg-glow-top">
-    <div class="max-w-7xl mx-auto px-6 pt-16 pb-12">
-      <div class="flex flex-col lg:flex-row gap-8 items-start">
-        <!-- Featured Story -->
-        <div class="flex-1 glass rounded-2xl p-8 pulse-glow card-transition" id="featuredCard">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="px-2.5 py-0.5 rounded-full bg-accent-cyan/10 text-accent-cyan text-xs font-mono">BREAKING</span>
-            <span class="text-text-muted text-xs" id="featuredDate">--</span>
+    <!-- === 社会秩序板块 === -->
+    <div id="pillar-social" class="mb-20">
+      <div class="glass rounded-2xl p-8 md:p-10 pillar-card pillar-social">
+        <div class="flex items-start gap-5 mb-8">
+          <div class="text-5xl">🏛️</div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-accent-gold mb-2">社会秩序</h3>
+            <p class="text-text-muted text-sm font-mono uppercase tracking-wider mb-4">Social Order — 社会如何形成与运行</p>
+            <div class="text-text-secondary leading-relaxed text-sm space-y-3">
+              <p>
+                社会秩序板块探讨的是<strong class="text-text-primary">人类社会的组织规律</strong>。从全球格局到商业实践，从 500 年霸权更迭到产业经济的微观落地——权力、财富、制度之间的互动遵循着深层逻辑。
+              </p>
+              <p>
+                这里的「秩序」不是指静态的规则手册，而是<strong class="text-accent-gold">动态的结构演化</strong>。宏观经济、地缘博弈、商业模式、企业观察——这些都是社会秩序在不同尺度上的投影。理解了秩序，就理解了局势。
+              </p>
+              <p class="text-text-muted text-xs">
+                覆盖领域：宏观经济 / 全球地缘 / 500 年大周期 / 产业经济 / 商业模式与项目 / 企业观察
+              </p>
+            </div>
           </div>
-          <h2 class="text-2xl lg:text-3xl font-bold mb-4 leading-tight" id="featuredTitle">--</h2>
-          <p class="text-text-secondary leading-relaxed" id="featuredSummary">--</p>
         </div>
-        <!-- Stats Column -->
-        <div class="lg:w-80 grid grid-cols-2 gap-3">
-          <div class="glass rounded-xl p-4 text-center card-transition glass-hover">
-            <div class="text-2xl font-bold gradient-text count-pill" id="statValuation">--</div>
-            <div class="text-xs text-text-muted mt-1">Anthropic 估值</div>
-            <div class="text-[10px] text-text-muted mt-0.5">十亿美元</div>
+
+        <div class="border-t border-white/5 pt-6">
+          <h4 class="text-xs font-mono text-text-muted uppercase tracking-widest mb-5">✦ 精选文章</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="articles-social">
           </div>
-          <div class="glass rounded-xl p-4 text-center card-transition glass-hover">
-            <div class="text-2xl font-bold text-accent-purple count-pill" id="statHallucination">--</div>
-            <div class="text-xs text-text-muted mt-1">幻觉率降低</div>
-          </div>
-          <div class="glass rounded-xl p-4 text-center card-transition glass-hover">
-            <div class="text-2xl font-bold text-accent-emerald count-pill" id="statPrice">--</div>
-            <div class="text-xs text-text-muted mt-1">$/M token</div>
-            <div class="text-[10px] text-text-muted mt-0.5">Gemini 3.5 Flash</div>
-          </div>
-          <div class="glass rounded-xl p-4 text-center card-transition glass-hover">
-            <div class="text-2xl font-bold text-accent-amber count-pill" id="statChina">--</div>
-            <div class="text-xs text-text-muted mt-1">中国 AI 规模</div>
-            <div class="text-[10px] text-text-muted mt-0.5">万亿元</div>
+          <div class="mt-6 text-center">
+            <span class="text-xs text-text-muted italic">更多文章持续更新中 ✦</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Category Sections (dynamically rendered) -->
-  <div id="categorySections" class="max-w-7xl mx-auto px-6 py-8 space-y-12"></div>
+    <!-- === 思想与修行板块 === -->
+    <div id="pillar-practice" class="mb-20">
+      <div class="glass rounded-2xl p-8 md:p-10 pillar-card pillar-practice">
+        <div class="flex items-start gap-5 mb-8">
+          <div class="text-5xl">🧘</div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-accent-purple mb-2">思想与修行</h3>
+            <p class="text-text-muted text-sm font-mono uppercase tracking-wider mb-4">Thought &amp; Practice — 人如何认识自己</p>
+            <div class="text-text-secondary leading-relaxed text-sm space-y-3">
+              <p>
+                思想与修行板块关注的是<strong class="text-text-primary">人的内在维度</strong>。在理解了宇宙法则（世界观）和社会规则（社会秩序）之后，最终的问题指向自身：我是谁？意识如何运作？如何安顿内心？
+              </p>
+              <p>
+                这里的「修行」不是宗教仪式，而是<strong class="text-accent-purple">思想的自我训练</strong>——通过对意识本质的观察、对人性的理解、对心性的调伏，实现内在的自由。哲学思辨是路径，内在安顿是目的。
+              </p>
+              <p class="text-text-muted text-xs">
+                覆盖领域：意识哲学 / 人性本质 / 心性修养 / 内圣外王 / 思修实践
+              </p>
+            </div>
+          </div>
+        </div>
 
-  <!-- Charts Section -->
-  <section class="max-w-7xl mx-auto px-6 py-8">
-    <div class="glass rounded-2xl p-8">
-      <h2 class="text-xl font-bold mb-6 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple"></span>数据透视</h2>
+        <div class="border-t border-white/5 pt-6">
+          <h4 class="text-xs font-mono text-text-muted uppercase tracking-widest mb-5">✦ 精选文章</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="articles-practice">
+          </div>
+          <div class="mt-6 text-center">
+            <span class="text-xs text-text-muted italic">更多文章持续更新中 ✦</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- ====== AI 前沿速报 ====== -->
+<section id="ai-news" class="py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-black tracking-tight mb-4">AI 前沿速报</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed">
+        每日自动追踪全球 AI 产业动态，涵盖大模型、智能体、硬件、开源、中国动态与政策监管六大板块。数据每日 9:00 自动更新。
+      </p>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="flex flex-col lg:flex-row gap-8 items-start mb-12">
+      <div class="flex-1 glass rounded-2xl p-8 pulse-glow card-transition" id="featuredCard">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full bg-accent-cyan/10 text-accent-cyan text-xs font-mono">BREAKING</span>
+          <span class="text-text-muted text-xs" id="featuredDate">--</span>
+        </div>
+        <h3 class="text-2xl lg:text-3xl font-bold mb-4 leading-tight" id="featuredTitle">--</h3>
+        <p class="text-text-secondary leading-relaxed" id="featuredSummary">--</p>
+      </div>
+      <div class="lg:w-80 grid grid-cols-2 gap-3">
+        <div class="glass rounded-xl p-4 text-center card-transition glass-hover">
+          <div class="text-2xl font-bold gradient-text count-pill" id="statValuation">--</div>
+          <div class="text-xs text-text-muted mt-1">Anthropic 估值</div>
+          <div class="text-[10px] text-text-muted mt-0.5">十亿美元</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center card-transition glass-hover">
+          <div class="text-2xl font-bold text-accent-purple count-pill" id="statHallucination">--</div>
+          <div class="text-xs text-text-muted mt-1">幻觉率降低</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center card-transition glass-hover">
+          <div class="text-2xl font-bold text-accent-emerald count-pill" id="statPrice">--</div>
+          <div class="text-xs text-text-muted mt-1">$/M token</div>
+          <div class="text-[10px] text-text-muted mt-0.5">Gemini 3.5 Flash</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center card-transition glass-hover">
+          <div class="text-2xl font-bold text-accent-amber count-pill" id="statChina">--</div>
+          <div class="text-xs text-text-muted mt-1">中国 AI 规模</div>
+          <div class="text-[10px] text-text-muted mt-0.5">万亿元</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Sections -->
+    <div id="categorySections" class="space-y-12"></div>
+
+    <!-- Charts -->
+    <div class="glass rounded-2xl p-8 mt-12">
+      <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple"></span>数据透视</h3>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div><canvas id="chartHallucination" height="240"></canvas></div>
         <div><canvas id="chartCost" height="240"></canvas></div>
       </div>
     </div>
-  </section>
 
-  <!-- Timeline -->
-  <section id="timeline" class="max-w-7xl mx-auto px-6 py-8">
-    <div class="glass rounded-2xl p-8">
-      <h2 class="text-xl font-bold mb-6 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple"></span>新闻时间线 <span class="text-sm text-text-muted font-normal">6 月 1 — 4 日</span></h2>
+    <!-- Timeline -->
+    <div id="timeline" class="glass rounded-2xl p-8 mt-8">
+      <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple"></span>新闻时间线 <span class="text-sm text-text-muted font-normal">6 月 1 — 4 日</span></h3>
       <div class="relative pl-8 timeline-line" id="timelineContent"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/5 mt-12 bg-bg-secondary/50">
-    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2 text-sm text-text-muted">
-        <span class="gradient-text font-bold">骆驼商业评论</span>
-        <span>·</span>
-        <span>AI · 商业 · 深度</span>
-        <span>·</span>
-        <span id="footerUpdated">--</span>
-      </div>
-      <div class="flex items-center gap-4 text-xs text-text-muted">
-        <span>web-db-user 架构</span>
-        <span>·</span>
-        <span>Tailwind CSS</span>
-        <span>·</span>
-        <span>Chart.js</span>
-        <a href="admin.html" class="text-accent-cyan hover:text-accent-purple transition">后台管理</a>
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- ====== 关于 ====== -->
+<section id="about" class="py-16">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="glass rounded-2xl p-8 md:p-10">
+      <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+        <span class="w-1 h-6 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple"></span>关于骆驼商业评论
+      </h2>
+      <div class="text-text-secondary leading-relaxed space-y-4 text-sm">
+        <p>
+          骆驼商业评论（Camel Business Review）是一个<span class="text-text-primary font-semibold">跨领域思想平台</span>。我们相信，理解世界需要多维度视角——从宇宙的运行法则，到社会的组织秩序，再到人的内在修行。三个维度构成一个完整的认知体系。
+        </p>
+        <p>
+          骆驼的步伐虽慢，但每一步都踏实。在信息过载的时代，我们选择<strong class="text-text-primary">深度而非速度，结构而非碎片</strong>。
+        </p>
+        <p>
+          网站架构：web-db-user 三层 · Tailwind CSS 暗色主题 · Chart.js 数据可视化 · 每日 9:00 自动更新 AI 新闻 · GitHub + Vercel 部署
+        </p>
+        <div class="pt-4 flex flex-wrap gap-4 text-xs text-text-muted">
+          <span>✦ 2026 年创建</span>
+          <span>✦ 暗色玻璃拟态设计</span>
+          <span>✦ 全自动内容更新</span>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- ====== Footer ====== -->
+<footer class="border-t border-white/5 mt-8 bg-bg-secondary/50">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2 text-sm text-text-muted">
+      <span class="gradient-text font-bold">骆驼🐫 商业评论</span>
+      <span>·</span>
+      <span>认识世界 · 理解社会 · 安顿自己</span>
+      <span>·</span>
+      <span id="footerUpdated">--</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-text-muted">
+      <span>web-db-user 架构</span>
+      <span>·</span>
+      <span>Tailwind CSS</span>
+      <span>·</span>
+      <span>Chart.js</span>
+      <span>·</span>
+      <a href="admin.html" class="text-accent-cyan hover:text-accent-purple transition">后台</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-// ===== Data Layer (web-db-user: db) =====
-// 内嵌数据，兼容 file:// 本地打开（无需服务器）
-const BUILTIN_DATA = {"meta":{"siteName":"骆驼商业评论","siteNameCN":"骆驼商业评论","version":"1.0.0","lastUpdated":"2026-06-04T08:30:00+08:00","description":"AI 商业深度观察，追踪全球科技产业变革"},"featured":{"id":"feat-001","title":"Anthropic 正式提交 IPO 申请","summary":"Anthropic 于 6 月 1 日正式向 SEC 提交 IPO 申请，抢在 OpenAI 之前冲击「AI 上市第一股」，市场传闻估值高达 9650 亿美元。若成功上市，将成为史上最大规模科技 IPO 之一。","category":"大模型","date":"2026-06-01","tags":["Anthropic","IPO","大模型"],"importance":5,"source":"SEC Filing / 综合报道","link":""},"categories":[{"id":"models","name":"大模型军备","icon":"brain","color":"cyan"},{"id":"agents","name":"智能体浪潮","icon":"bot","color":"purple"},{"id":"hardware","name":"硬件与基建","icon":"chip","color":"emerald"},{"id":"opensource","name":"开源与语音","icon":"code","color":"amber"},{"id":"china","name":"中国动态","icon":"globe","color":"rose"},{"id":"policy","name":"政策与监管","icon":"shield","color":"orange"}],"news":[{"id":"n001","title":"Anthropic 提交 IPO 申请，剑指 AI 上市第一股","summary":"Anthropic 6月1日正式提交 IPO，抢在 OpenAI 之前冲击「AI 上市第一股」，估值传闻 9650 亿美元。SEC 文件披露其年化收入已突破 180 亿美元，企业客户超过 5 万家。","category":"models","date":"2026-06-01","tags":["Anthropic","IPO","上市"],"importance":5,"source":"SEC Filing"},{"id":"n002","title":"OpenAI 发布 GPT-5.5 Instant：幻觉率降 52.5%","summary":"GPT-5.5 Instant 正式发布，幻觉率相比前代降低 52.5%，推理成本降至每百万 token $0.40。同步登陆 AWS Bedrock 平台，Codex 编码能力大幅提升。","category":"models","date":"2026-06-03","tags":["OpenAI","GPT-5.5","幻觉"],"importance":5,"source":"OpenAI Blog"},{"id":"n003","title":"Google Gemini 3.5 Flash：每百万 token 仅 $0.1","summary":"Google 发布 Gemini 3.5 Flash，以每百万 token $0.1 的价格刷新性价比天花板。在多语言、代码生成和长文本理解等基准测试中全面超越同级竞品。","category":"models","date":"2026-06-03","tags":["Google","Gemini","性价比"],"importance":4,"source":"Google AI Blog"},{"id":"n004","title":"Claude Opus 4.8：代码审查漏检率降 4 倍","summary":"Anthropic 推出 Claude Opus 4.8，代码审查漏检率降低 4 倍，可自动完成 75 万行代码迁移任务，通过率达 99.8%。在企业级代码智能领域树立新标杆。","category":"models","date":"2026-06-03","tags":["Anthropic","Claude","代码"],"importance":4,"source":"Anthropic Blog"},{"id":"n005","title":"MiniMax M3：速度提升 5 倍，支持百万 Token 上下文","summary":"中国 MiniMax 发布 M3 模型，推理速度提升 5 倍，单 token 计算量仅为前代的 1/20，支持 100 万 token 超长上下文。在中文理解和生成任务上表现突出。","category":"models","date":"2026-06-03","tags":["MiniMax","M3","国产模型"],"importance":4,"source":"MiniMax 官方"},{"id":"n006","title":"智能体 AI 元年：三部门联合发文推 AI Agent","summary":"国家网信办、发改委、工信部三部门联合发文推动 AI 智能体产业发展，明确将智能体列为新一代人工智能发展重点方向，支持行业应用落地。","category":"agents","date":"2026-06-02","tags":["政策","智能体","三部门"],"importance":5,"source":"新华社"},{"id":"n007","title":"Gartner：2026 年底 40% 企业应用将集成 AI 智能体","summary":"Gartner 发布最新预测报告，预计到 2026 年底 40% 的企业应用将集成 AI 智能体功能，到 2028 年智能体将处理 60% 以上的客户服务交互。","category":"agents","date":"2026-06-03","tags":["Gartner","预测","企业"],"importance":4,"source":"Gartner Report"},{"id":"n008","title":"ZoomMate 上线：会议内容自动转待办/文档/PPT","summary":"Zoom 推出 AI 智能体 ZoomMate，月费 $20，可自动将会议内容转化为待办事项、文档和 PPT。上线首日用户突破 10 万，标志着协作工具 AI 化的加速。","category":"agents","date":"2026-06-01","tags":["Zoom","智能体","协作"],"importance":3,"source":"Zoom Blog"},{"id":"n009","title":"百度、阿里、腾讯、字节集体入局智能体平台","summary":"受 OpenClaw 框架影响，百度、阿里、腾讯、字节跳动、智谱 AI、月之暗面等中国科技巨头集体宣布推出自研 AI 智能体平台，智能体赛道竞争白热化。","category":"agents","date":"2026-06-04","tags":["BAT","字节","智能体平台"],"importance":4,"source":"综合报道"},{"id":"n010","title":"英伟达联手微软戴尔惠普进军 CPU 市场","summary":"英伟达联手微软、戴尔、惠普正式宣布进军价值 2000 亿美元的 CPU 市场，推出「AI 智能体 PC」概念产品。首批设备预计 2026 Q4 出货。","category":"hardware","date":"2026-06-03","tags":["英伟达","CPU","PC"],"importance":5,"source":"NVIDIA Press"},{"id":"n011","title":"英伟达 Cosmos 3：全球首个全开源物理 AI 模型","summary":"英伟达发布 Cosmos 3，全球首个完全开源的全模态物理 AI 模型。支持视频理解、物理世界模拟、机器人训练等场景，开源社区反响热烈。","category":"hardware","date":"2026-06-03","tags":["英伟达","Cosmos","开源","物理AI"],"importance":4,"source":"NVIDIA Developer"},{"id":"n012","title":"Orion-100B：$1.25/小时训练千亿参数模型","summary":"Orion-100B 项目展示用普通硬件 + 开放互联网数据训练 1000 亿参数大模型，成本仅 $1.25/小时（传统方案需 $50/小时），大幅降低大模型训练门槛。","category":"hardware","date":"2026-06-02","tags":["Orion","训练","降本"],"importance":4,"source":"arXiv / 社区"},{"id":"n013","title":"清华 OpenBMB 发布 VoxCPM2 语音生成模型","summary":"清华大学 OpenBMB 团队发布 VoxCPM2，无需分词器即可实现多语言语音生成和高保真语音克隆。支持中文、英文、日文等多语种，在语音自然度上达到新高。","category":"opensource","date":"2026-06-03","tags":["清华","语音","开源"],"importance":4,"source":"OpenBMB GitHub"},{"id":"n014","title":"微软开源 MarkItDown：Office 文档一键转 Markdown","summary":"微软开源 MarkItDown 工具，支持 Word/Excel/PPT 一键转换为 Markdown 格式。GitHub 上线 48 小时内获 15,000+ Star，解决了文档格式转换的长期痛点。","category":"opensource","date":"2026-06-03","tags":["微软","开源","Markdown","工具"],"importance":3,"source":"GitHub"},{"id":"n015","title":"Harness 框架：自动构建领域专家 AI 团队","summary":"Harness 开源框架发布，可自动构建领域专家 AI 智能体团队。用户只需定义任务目标，框架自动拆分、分配、协调多个 AI 智能体完成任务。","category":"opensource","date":"2026-06-03","tags":["Harness","开源","多智能体"],"importance":3,"source":"GitHub"},{"id":"n016","title":"中国 AI 核心产业规模突破 1.2 万亿元","summary":"工信部最新数据显示，中国 AI 企业已超 6000 家，核心产业规模突破 1.2 万亿元人民币。算力规模全球第二，AI 人才缺口持续扩大。","category":"china","date":"2026-06-02","tags":["产业规模","工信部","中国AI"],"importance":5,"source":"工信部"},{"id":"n017","title":"WWDC 2026 定档 6 月 8-12 日：苹果 AI 大考","summary":"苹果宣布 WWDC 2026 将于 6 月 8-12 日举行。市场预期将发布 Siri 重大 AI 升级、Apple Intelligence 2.0 以及 AI 开发者工具链，这是苹果 AI 战略的关键节点。","category":"china","date":"2026-06-03","tags":["苹果","WWDC","Siri"],"importance":4,"source":"Apple"},{"id":"n018","title":"EU AI 法案关键条款即将生效","summary":"欧盟 AI 法案高风险应用条款将于 2026 年 8 月正式生效。企业在欧盟部署 AI 系统需完成合规评估，违规罚款最高可达全球年营收 7%。","category":"policy","date":"2026-06-03","tags":["EU","监管","AI法案"],"importance":4,"source":"EU Commission"},{"id":"n019","title":"AI 安全再引关注：CVE 漏洞库新增多项 AI 相关漏洞","summary":"近期 CVE 漏洞库新增多项 AI 框架和模型相关的安全漏洞。安全专家呼吁建立 AI 供应链安全标准，OpenAI 和 Anthropic 均已发布安全白皮书应对。","category":"policy","date":"2026-06-04","tags":["安全","CVE","漏洞"],"importance":3,"source":"CVE / 安全社区"},{"id":"n020","title":"MoneyPrinterTurbo 开源：AI 短视频一键生成","summary":"MoneyPrinterTurbo 开源项目发布，支持 AI 短视频一键生成，整合了文案生成、语音合成、视频素材匹配等能力，降低短视频创作门槛。","category":"opensource","date":"2026-06-02","tags":["视频生成","开源","短视频"],"importance":3,"source":"GitHub"},{"id":"n021","title":"OpenAI Codex 登陆 AWS Bedrock，企业 AI 编码加速","summary":"OpenAI Codex 正式登陆 AWS Bedrock 平台，企业可通过 AWS 基础设施直接调用 Codex 编码能力。支持 50+ 编程语言，代码生成准确率提升 30%。","category":"agents","date":"2026-06-03","tags":["OpenAI","Codex","AWS","编码"],"importance":3,"source":"AWS Blog"},{"id":"n022","title":"英伟达发布 AI 智能体 PC 概念：本地运行大模型","summary":"英伟达与合作伙伴展示「AI 智能体 PC」概念机，搭载专用 NPU 芯片，可本地运行 70 亿参数大模型。目标将 AI 计算从云端推向端侧设备。","category":"hardware","date":"2026-06-04","tags":["英伟达","NPU","端侧AI"],"importance":4,"source":"NVIDIA / Computex"}],"timeline":[{"date":"2026-06-01","events":["Anthropic 提交 IPO 申请","ZoomMate AI 智能体上线"]},{"date":"2026-06-02","events":["三部门联合发文推 AI 智能体","中国 AI 产业规模突破 1.2 万亿","Orion-100B 公布","MoneyPrinterTurbo 发布"]},{"date":"2026-06-03","events":["GPT-5.5 Instant 发布","Gemini 3.5 Flash 发布","Claude Opus 4.8 发布","MiniMax M3 发布","英伟达 Cosmos 3 开源","清华 VoxCPM2 发布","微软 MarkItDown 开源","WWDC 2026 定档","Gartner AI 智能体预测"]},{"date":"2026-06-04","events":["BAT 等巨头集体入局智能体平台","CVE 新增多项 AI 漏洞","英伟达 AI 智能体 PC 概念发布"]}],"stats":{"anthropicValuation":965,"gpt55HallucinationReduction":52.5,"geminiPricePerMillion":0.10,"chinaAIScale":1.2,"chinaAIEnterprises":6000,"gartnerAgentAdoption":40,"orionCostPerHour":1.25,"minimaxSpeedup":5,"claudeCodeMigrationLines":750000,"claudePassRate":99.8,"markitdownStars":15000}};
+// ===== Data Layer =====
+const BUILTIN_DATA = {"meta":{"siteName":"骆驼商业评论","version":"2.0.0","lastUpdated":"2026-06-04T11:00:00+08:00","description":"认识世界 · 理解社会 · 安顿自己"},"articles":{"worldview":[{"id":"a001","title":"意识切片世界观","summary":"提出一种全新的世界观框架：意识不是连续的河流，而是离散的「时间切片」的集合。每个切片都是一个完整的世界态。这篇文章奠定了整个思想体系的基础。","date":"2026-05","tags":["意识","世界观","哲学"],"importance":5},{"id":"a002","title":"世界的真相（系列导言）","summary":"「世界的真相」11篇系列文章的总纲。从力的统一到现象的本质，从科学世界观到形而上学的追问——我们看到的「世界」到底有多少层？","date":"2026-05","tags":["世界观","系列","物理学"],"importance":5},{"id":"a003","title":"力的统一：三圈同心圆模型","summary":"提出力统一理论的三圈同心圆模型：物理力、社会力、意识力——三者同源同构。这是从物理学到社会科学再到意识哲学的桥梁。","date":"2026-05","tags":["统一理论","物理学","意识"],"importance":4}],"social":[{"id":"a004","title":"500 年霸权更迭：从葡萄牙到中美争霸","summary":"大周期系列开篇。梳理 500 年来全球霸权的五次更迭，揭示军事、金融、科技、文化、制度五维霸权的运作机制，预测下一阶段中美争霸的走向。","date":"2026-05","tags":["大周期","地缘","霸权"],"importance":5},{"id":"a005","title":"财富的谬论：对经济周期本质的再思考","summary":"重新审视「财富」概念的本质——财富不是拥有的资源，而是调配资源的能力。经济周期的本质是这种调配能力的集中与分散。","date":"2026-05","tags":["宏观经济","财富","周期"],"importance":4},{"id":"a006","title":"美国战略演变（2017-2026）：从特朗普到后特朗普时代","summary":"分析美国从特朗普第一任期到2026年的全球战略演变。从贸易战到科技封锁，从地缘博弈到金融制裁——理解美国战略是理解全球秩序的关键。","date":"2026-06","tags":["美国","地缘","战略"],"importance":5},{"id":"a007","title":"中国 A 股资产结构分析","summary":"基于 Wind 金融终端数据，对中国 A 股市场上市公司的企业所有制结构、大股东持股比例、国有与民营资本分布进行系统分析。","date":"2026-06","tags":["A股","资产结构","金融"],"importance":4}],"practice":[{"id":"a008","title":"人的本质：意识之外的追问","summary":"如果意识是离散的切片，那么「人的本质」在哪里？本文从意识切片理论出发，逐层剖析自我的构成——从感官到认知，从记忆到身份认同。","date":"2026-05","tags":["人性","意识","哲学"],"importance":5},{"id":"a009","title":"一念花开：论心性的力量","summary":"一念之间，可以开出一朵花，也可以生出一片荒芜。本文从禅宗「一念相应」出发，探讨心性的训练如何改变人的感知和行动能力。","date":"2026-05","tags":["心性","修行","禅"],"importance":4},{"id":"a010","title":"内圣外王：儒家修养与现代生活","summary":"「内圣外王」是儒家修养的终极理想——内修圣人之德，外行王者之道。在现代语境下，它是一条从个人修养到社会参与的内在路径。","date":"2026-05","tags":["儒家","修养","内圣外王"],"importance":4},{"id":"a011","title":"性相不二：破一切相的哲学实践","summary":"「性」是本质，「相」是表象。当我们说「性相不二」的时候，不是否定表象的存在，而是指出本质与表象之间没有鸿沟。这是破一切相的哲学入口。","date":"2026-06","tags":["哲学","本质","修行"],"importance":4}]},"featured":{"id":"feat-001","title":"Anthropic 正式提交 IPO 申请","summary":"Anthropic 于 6 月 1 日正式向 SEC 提交 IPO 申请，抢在 OpenAI 之前冲击「AI 上市第一股」，市场传闻估值高达 9650 亿美元。若成功上市，将成为史上最大规模科技 IPO 之一。","category":"大模型","date":"2026-06-01","tags":["Anthropic","IPO","大模型"],"importance":5,"source":"SEC Filing / 综合报道"},"categories":[{"id":"models","name":"大模型军备","icon":"brain","color":"cyan"},{"id":"agents","name":"智能体浪潮","icon":"bot","color":"purple"},{"id":"hardware","name":"硬件与基建","icon":"chip","color":"emerald"},{"id":"opensource","name":"开源与语音","icon":"code","color":"amber"},{"id":"china","name":"中国动态","icon":"globe","color":"rose"},{"id":"policy","name":"政策与监管","icon":"shield","color":"orange"}],"news":[{"id":"n001","title":"Anthropic 提交 IPO 申请，剑指 AI 上市第一股","summary":"Anthropic 6月1日正式提交 IPO，抢在 OpenAI 之前冲击「AI 上市第一股」，估值传闻 9650 亿美元。SEC 文件披露其年化收入已突破 180 亿美元，企业客户超过 5 万家。","category":"models","date":"2026-06-01","tags":["Anthropic","IPO","上市"],"importance":5,"source":"SEC Filing"},{"id":"n002","title":"OpenAI 发布 GPT-5.5 Instant：幻觉率降 52.5%","summary":"GPT-5.5 Instant 正式发布，幻觉率相比前代降低 52.5%，推理成本降至每百万 token $0.40。同步登陆 AWS Bedrock 平台，Codex 编码能力大幅提升。","category":"models","date":"2026-06-03","tags":["OpenAI","GPT-5.5","幻觉"],"importance":5,"source":"OpenAI Blog"},{"id":"n003","title":"Google Gemini 3.5 Flash：每百万 token 仅 $0.1","summary":"Google 发布 Gemini 3.5 Flash，以每百万 token $0.1 的价格刷新性价比天花板。在多语言、代码生成和长文本理解等基准测试中全面超越同级竞品。","category":"models","date":"2026-06-03","tags":["Google","Gemini","性价比"],"importance":4,"source":"Google AI Blog"},{"id":"n004","title":"Claude Opus 4.8：代码审查漏检率降 4 倍","summary":"Anthropic 推出 Claude Opus 4.8，代码审查漏检率降低 4 倍，可自动完成 75 万行代码迁移任务，通过率达 99.8%。在企业级代码智能领域树立新标杆。","category":"models","date":"2026-06-03","tags":["Anthropic","Claude","代码"],"importance":4,"source":"Anthropic Blog"},{"id":"n005","title":"MiniMax M3：速度提升 5 倍，支持百万 Token 上下文","summary":"中国 MiniMax 发布 M3 模型，推理速度提升 5 倍，单 token 计算量仅为前代的 1/20，支持 100 万 token 超长上下文。在中文理解和生成任务上表现突出。","category":"models","date":"2026-06-03","tags":["MiniMax","M3","国产模型"],"importance":4,"source":"MiniMax 官方"},{"id":"n006","title":"智能体 AI 元年：三部门联合发文推 AI Agent","summary":"国家网信办、发改委、工信部三部门联合发文推动 AI 智能体产业发展，明确将智能体列为新一代人工智能发展重点方向，支持行业应用落地。","category":"agents","date":"2026-06-02","tags":["政策","智能体","三部门"],"importance":5,"source":"新华社"},{"id":"n007","title":"Gartner：2026 年底 40% 企业应用将集成 AI 智能体","summary":"Gartner 发布最新预测报告，预计到 2026 年底 40% 的企业应用将集成 AI 智能体功能，到 2028 年智能体将处理 60% 以上的客户服务交互。","category":"agents","date":"2026-06-03","tags":["Gartner","预测","企业"],"importance":4,"source":"Gartner Report"},{"id":"n008","title":"ZoomMate 上线：会议内容自动转待办/文档/PPT","summary":"Zoom 推出 AI 智能体 ZoomMate，月费 $20，可自动将会议内容转化为待办事项、文档和 PPT。上线首日用户突破 10 万，标志着协作工具 AI 化的加速。","category":"agents","date":"2026-06-01","tags":["Zoom","智能体","协作"],"importance":3,"source":"Zoom Blog"},{"id":"n009","title":"百度、阿里、腾讯、字节集体入局智能体平台","summary":"受 OpenClaw 框架影响，百度、阿里、腾讯、字节跳动、智谱 AI、月之暗面等中国科技巨头集体宣布推出自研 AI 智能体平台，智能体赛道竞争白热化。","category":"agents","date":"2026-06-04","tags":["BAT","字节","智能体平台"],"importance":4,"source":"综合报道"},{"id":"n010","title":"英伟达联手微软戴尔惠普进军 CPU 市场","summary":"英伟达联手微软、戴尔、惠普正式宣布进军价值 2000 亿美元的 CPU 市场，推出「AI 智能体 PC」概念产品。首批设备预计 2026 Q4 出货。","category":"hardware","date":"2026-06-03","tags":["英伟达","CPU","PC"],"importance":5,"source":"NVIDIA Press"},{"id":"n011","title":"英伟达 Cosmos 3：全球首个全开源物理 AI 模型","summary":"英伟达发布 Cosmos 3，全球首个完全开源的全模态物理 AI 模型。支持视频理解、物理世界模拟、机器人训练等场景，开源社区反响热烈。","category":"hardware","date":"2026-06-03","tags":["英伟达","Cosmos","开源","物理AI"],"importance":4,"source":"NVIDIA Developer"},{"id":"n012","title":"Orion-100B：$1.25/小时训练千亿参数模型","summary":"Orion-100B 项目展示用普通硬件 + 开放互联网数据训练 1000 亿参数大模型，成本仅 $1.25/小时（传统方案需 $50/小时），大幅降低大模型训练门槛。","category":"hardware","date":"2026-06-02","tags":["Orion","训练","降本"],"importance":4,"source":"arXiv / 社区"},{"id":"n013","title":"清华 OpenBMB 发布 VoxCPM2 语音生成模型","summary":"清华大学 OpenBMB 团队发布 VoxCPM2，无需分词器即可实现多语言语音生成和高保真语音克隆。支持中文、英文、日文等多语种，在语音自然度上达到新高。","category":"opensource","date":"2026-06-03","tags":["清华","语音","开源"],"importance":4,"source":"OpenBMB GitHub"},{"id":"n014","title":"微软开源 MarkItDown：Office 文档一键转 Markdown","summary":"微软开源 MarkItDown 工具，支持 Word/Excel/PPT 一键转换为 Markdown 格式。GitHub 上线 48 小时内获 15,000+ Star，解决了文档格式转换的长期痛点。","category":"opensource","date":"2026-06-03","tags":["微软","开源","Markdown","工具"],"importance":3,"source":"GitHub"},{"id":"n015","title":"Harness 框架：自动构建领域专家 AI 团队","summary":"Harness 开源框架发布，可自动构建领域专家 AI 智能体团队。用户只需定义任务目标，框架自动拆分、分配、协调多个 AI 智能体完成任务。","category":"opensource","date":"2026-06-03","tags":["Harness","开源","多智能体"],"importance":3,"source":"GitHub"},{"id":"n016","title":"中国 AI 核心产业规模突破 1.2 万亿元","summary":"工信部最新数据显示，中国 AI 企业已超 6000 家，核心产业规模突破 1.2 万亿元人民币。算力规模全球第二，AI 人才缺口持续扩大。","category":"china","date":"2026-06-02","tags":["产业规模","工信部","中国AI"],"importance":5,"source":"工信部"},{"id":"n017","title":"WWDC 2026 定档 6 月 8-12 日：苹果 AI 大考","summary":"苹果宣布 WWDC 2026 将于 6 月 8-12 日举行。市场预期将发布 Siri 重大 AI 升级、Apple Intelligence 2.0 以及 AI 开发者工具链，这是苹果 AI 战略的关键节点。","category":"china","date":"2026-06-03","tags":["苹果","WWDC","Siri"],"importance":4,"source":"Apple"},{"id":"n018","title":"EU AI 法案关键条款即将生效","summary":"欧盟 AI 法案高风险应用条款将于 2026 年 8 月正式生效。企业在欧盟部署 AI 系统需完成合规评估，违规罚款最高可达全球年营收 7%。","category":"policy","date":"2026-06-03","tags":["EU","监管","AI法案"],"importance":4,"source":"EU Commission"},{"id":"n019","title":"AI 安全再引关注：CVE 漏洞库新增多项 AI 相关漏洞","summary":"近期 CVE 漏洞库新增多项 AI 框架和模型相关的安全漏洞。安全专家呼吁建立 AI 供应链安全标准，OpenAI 和 Anthropic 均已发布安全白皮书应对。","category":"policy","date":"2026-06-04","tags":["安全","CVE","漏洞"],"importance":3,"source":"CVE / 安全社区"},{"id":"n020","title":"MoneyPrinterTurbo 开源：AI 短视频一键生成","summary":"MoneyPrinterTurbo 开源项目发布，支持 AI 短视频一键生成，整合了文案生成、语音合成、视频素材匹配等能力，降低短视频创作门槛。","category":"opensource","date":"2026-06-02","tags":["视频生成","开源","短视频"],"importance":3,"source":"GitHub"},{"id":"n021","title":"OpenAI Codex 登陆 AWS Bedrock，企业 AI 编码加速","summary":"OpenAI Codex 正式登陆 AWS Bedrock 平台，企业可通过 AWS 基础设施直接调用 Codex 编码能力。支持 50+ 编程语言，代码生成准确率提升 30%。","category":"agents","date":"2026-06-03","tags":["OpenAI","Codex","AWS","编码"],"importance":3,"source":"AWS Blog"},{"id":"n022","title":"英伟达发布 AI 智能体 PC 概念：本地运行大模型","summary":"英伟达与合作伙伴展示「AI 智能体 PC」概念机，搭载专用 NPU 芯片，可本地运行 70 亿参数大模型。目标将 AI 计算从云端推向端侧设备。","category":"hardware","date":"2026-06-04","tags":["英伟达","NPU","端侧AI"],"importance":4,"source":"NVIDIA / Computex"}],"timeline":[{"date":"2026-06-01","events":["Anthropic 提交 IPO 申请","ZoomMate AI 智能体上线"]},{"date":"2026-06-02","events":["三部门联合发文推 AI 智能体","中国 AI 产业规模突破 1.2 万亿","Orion-100B 公布","MoneyPrinterTurbo 发布"]},{"date":"2026-06-03","events":["GPT-5.5 Instant 发布","Gemini 3.5 Flash 发布","Claude Opus 4.8 发布","MiniMax M3 发布","英伟达 Cosmos 3 开源","清华 VoxCPM2 发布","微软 MarkItDown 开源","WWDC 2026 定档","Gartner AI 智能体预测"]},{"date":"2026-06-04","events":["BAT 等巨头集体入局智能体平台","CVE 新增多项 AI 漏洞","英伟达 AI 智能体 PC 概念发布"]}],"stats":{"anthropicValuation":965,"gpt55HallucinationReduction":52.5,"geminiPricePerMillion":0.10,"chinaAIScale":1.2}};
 
 let DATA = null;
 
 async function loadData() {
-  // Priority 1: localStorage (admin edits)
   const localData = localStorage.getItem('afd_news_data');
   if (localData) {
     try { DATA = JSON.parse(localData); return; }
     catch(e) { console.warn('localStorage parse failed, using builtin data'); }
   }
-  // Priority 2: inline builtin data (works with file:// protocol)
   DATA = BUILTIN_DATA;
 }
 
-// ===== Render Functions =====
+// ===== 渲染思想库文章 =====
+function renderArticles() {
+  const pillarIds = ['worldview', 'social', 'practice'];
+  pillarIds.forEach(pid => {
+    const container = document.getElementById('articles-' + pid);
+    if (!container) return;
+    const articles = DATA.articles[pid] || [];
+    if (!articles.length) {
+      container.innerHTML = '<p class="text-text-muted text-sm italic col-span-2">暂无文章，敬请期待 ✦</p>';
+      return;
+    }
+    let html = '';
+    articles.forEach(a => {
+      const impClass = 'importance-' + (a.importance || 3);
+      const tagsHtml = (a.tags || []).map(t => `<span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-text-muted">#${t}</span>`).join('');
+      html += `
+        <div class="glass rounded-xl p-5 card-transition glass-hover fade-in ${impClass}">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] text-text-muted font-mono">${a.date || ''}</span>
+          </div>
+          <h4 class="font-semibold text-sm mb-2 leading-snug">${a.title}</h4>
+          <p class="text-xs text-text-secondary leading-relaxed mb-3">${a.summary}</p>
+          <div class="flex flex-wrap gap-1">${tagsHtml}</div>
+        </div>`;
+    });
+    container.innerHTML = html;
+  });
+}
+
+// ===== AI 新闻渲染（保留原有逻辑） =====
 function renderFeatured() {
   const f = DATA.featured;
   document.getElementById('featuredDate').textContent = f.date;
@@ -210,10 +452,9 @@ const categoryConfig = {
 
 function renderCategorySections() {
   const container = document.getElementById('categorySections');
-  // Group news by category
   const grouped = {};
   DATA.categories.forEach(c => { grouped[c.id] = []; });
-  DATA.news.forEach(n => { if (grouped[n.category]) grouped[n.category].push(n); });
+  (DATA.news || []).forEach(n => { if (grouped[n.category]) grouped[n.category].push(n); });
 
   let html = '';
   for (const [catId, news] of Object.entries(grouped)) {
@@ -226,7 +467,7 @@ function renderCategorySections() {
           ${cfg.icon}
         </div>
         <div>
-          <h2 class="text-lg font-bold">${cfg.name}</h2>
+          <h3 class="text-lg font-bold">${cfg.name}</h3>
           <p class="text-xs text-text-muted">${news.length} 条速报</p>
         </div>
       </div>
@@ -241,7 +482,7 @@ function renderCategorySections() {
             <span class="text-[10px] text-text-muted font-mono">${n.date}</span>
             <span class="text-[10px] text-text-muted">${n.source || ''}</span>
           </div>
-          <h3 class="font-semibold text-sm mb-2 leading-snug">${n.title}</h3>
+          <h4 class="font-semibold text-sm mb-2 leading-snug">${n.title}</h4>
           <p class="text-xs text-text-secondary leading-relaxed mb-3">${n.summary}</p>
           <div class="flex flex-wrap gap-1">${tagsHtml}</div>
         </div>`;
@@ -253,9 +494,10 @@ function renderCategorySections() {
 
 function renderTimeline() {
   const container = document.getElementById('timelineContent');
+  if (!container) return;
   const colors = ['#22d3ee','#a855f7','#34d399','#fbbf24'];
   let html = '';
-  DATA.timeline.forEach((day, i) => {
+  (DATA.timeline || []).forEach((day, i) => {
     html += `
     <div class="relative pb-8 last:pb-0 fade-in" style="animation-delay:${i*0.15}s">
       <div class="timeline-dot absolute -left-[7px] top-1" style="border-color:${colors[i%4]}"></div>
@@ -272,66 +514,85 @@ function renderTimeline() {
 }
 
 function renderCharts() {
-  // Hallucination rate comparison chart
-  new Chart(document.getElementById('chartHallucination'), {
-    type: 'bar',
-    data: {
-      labels: ['GPT-4', 'GPT-5', 'GPT-5.5\nInstant', 'Claude 3', 'Claude 4', 'Claude\nOpus 4.8'],
-      datasets: [{
-        label: '幻觉率 (%)',
-        data: [14.3, 8.2, 3.9, 12.1, 6.5, 2.8],
-        backgroundColor: ['#475569','#475569','#22d3ee','#475569','#475569','#a855f7'],
-        borderRadius: 6,
-        borderSkipped: false
-      }]
-    },
-    options: {
-      responsive:true,
-      plugins: {
-        legend:{display:false},
-        title:{display:true,text:'大模型幻觉率对比 (%)',color:'#e2e8f0',font:{size:14,family:'Inter'},padding:16}
+  // Hallucination rate
+  const ctx1 = document.getElementById('chartHallucination');
+  if (ctx1) {
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['GPT-4', 'GPT-5', 'GPT-5.5\nInstant', 'Claude 3', 'Claude 4', 'Claude\nOpus 4.8'],
+        datasets: [{
+          label: '幻觉率 (%)',
+          data: [14.3, 8.2, 3.9, 12.1, 6.5, 2.8],
+          backgroundColor: ['#475569','#475569','#22d3ee','#475569','#475569','#a855f7'],
+          borderRadius: 6,
+          borderSkipped: false
+        }]
       },
-      scales: {
-        y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#94a3b8'}},
-        x:{ticks:{color:'#94a3b8',font:{size:10}}}
+      options: {
+        responsive:true,
+        plugins: {
+          legend:{display:false},
+          title:{display:true,text:'大模型幻觉率对比 (%)',color:'#e2e8f0',font:{size:14},padding:16}
+        },
+        scales: {
+          y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#94a3b8'}},
+          x:{ticks:{color:'#94a3b8',font:{size:10}}}
+        }
       }
-    }
-  });
+    });
+  }
 
-  // Cost comparison chart
-  new Chart(document.getElementById('chartCost'), {
-    type: 'bar',
-    data: {
-      labels: ['GPT-4', 'GPT-5.5\nInstant', 'Gemini 2.0', 'Gemini 3.5\nFlash', 'Claude\nSonnet', 'Claude\nOpus 4.8'],
-      datasets: [{
-        label: '$/百万 token',
-        data: [30, 0.40, 10, 0.10, 3, 15],
-        backgroundColor: ['#475569','#22d3ee','#475569','#34d399','#475569','#a855f7'],
-        borderRadius: 6,
-        borderSkipped: false
-      }]
-    },
-    options: {
-      responsive:true,
-      plugins: {
-        legend:{display:false},
-        title:{display:true,text:'百万 Token 成本对比 ($)',color:'#e2e8f0',font:{size:14,family:'Inter'},padding:16}
+  // Cost comparison
+  const ctx2 = document.getElementById('chartCost');
+  if (ctx2) {
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['GPT-4', 'GPT-5.5\nInstant', 'Gemini 2.0', 'Gemini 3.5\nFlash', 'Claude\nSonnet', 'Claude\nOpus 4.8'],
+        datasets: [{
+          label: '$/百万 token',
+          data: [30, 0.40, 10, 0.10, 3, 15],
+          backgroundColor: ['#475569','#22d3ee','#475569','#34d399','#475569','#a855f7'],
+          borderRadius: 6,
+          borderSkipped: false
+        }]
       },
-      scales: {
-        y:{type:'logarithmic',grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#94a3b8',callback:v=>'$'+v}},
-        x:{ticks:{color:'#94a3b8',font:{size:10}}}
+      options: {
+        responsive:true,
+        plugins: {
+          legend:{display:false},
+          title:{display:true,text:'百万 Token 成本对比 ($)',color:'#e2e8f0',font:{size:14},padding:16}
+        },
+        scales: {
+          y:{type:'logarithmic',grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#94a3b8',callback:v=>'$'+v}},
+          x:{ticks:{color:'#94a3b8',font:{size:10}}}
+        }
       }
-    }
-  });
+    });
+  }
 }
 
 function renderFooter() {
   document.getElementById('footerUpdated').textContent = '更新于 ' + DATA.meta.lastUpdated.split('T')[0];
 }
 
+// Active nav link on scroll
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  let current = 'home';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  navLinks.forEach(l => {
+    const href = l.getAttribute('href') || '';
+    l.classList.toggle('active', href === '#' + current);
+  });
+});
+
 // ===== Init =====
 async function init() {
   await loadData();
+  renderArticles();
   renderFeatured();
   renderStats();
   renderCategorySections();
@@ -339,15 +600,6 @@ async function init() {
   renderCharts();
   renderFooter();
 }
-
-// Active nav link on scroll
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-  navLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
-});
 
 init();
 </script>
