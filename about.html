@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于 — 骆驼商业本质</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: { primary:'#0a0e17', secondary:'#111827', card:'#1a1f2e', hover:'#242b3d' },
+          accent: {
+            cyan:'#22d3ee', purple:'#a855f7', emerald:'#34d399',
+            amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c', gold:'#f59e0b'
+          },
+          text: { primary:'#e2e8f0', secondary:'#94a3b8', muted:'#64748b' }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
+  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
+  .nav-link:hover::after { width: 100%; }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+</style>
+</head>
+<body class="bg-bg-primary bg-grid min-h-screen">
+
+<nav class="sticky top-0 z-50 glass border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 no-underline">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
+        <span class="text-white font-bold text-sm">✦</span>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
+      </div>
+    </a>
+    <div class="flex items-center gap-5">
+      <a href="index.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">首页</a>
+      <a href="worldview.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">世界观</a>
+      <a href="social.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-gold transition">社会逻辑</a>
+      <a href="practice.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-purple transition">思想与修行</a>
+      <a href="ai-news.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-emerald transition">AI 速报</a>
+      <a href="about.html" class="nav-link text-sm font-medium text-accent-amber">关于</a>
+      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+    </div>
+  </div>
+</nav>
+
+<section class="relative bg-glow-top py-16">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="fade-in">
+      <div class="text-center mb-10">
+        <div class="text-4xl mb-4">📝</div>
+        <h2 class="text-3xl font-black tracking-tight mb-3">关于骆驼商业本质</h2>
+        <p class="text-text-muted font-mono text-xs uppercase tracking-widest">About Camel Business Essence</p>
+      </div>
+
+      <div class="glass rounded-2xl p-8 md:p-10 space-y-6">
+        <div class="text-text-secondary leading-relaxed space-y-4">
+          <p>
+            骆驼商业本质（Camel Business Essence）是一个<span class="text-text-primary font-semibold">跨领域思想平台</span>。我们相信，理解世界需要多维度视角——从宇宙的运行法则，到社会的组织秩序，再到人的内在修行。三个维度构成一个完整的认知体系。
+          </p>
+          <p>
+            骆驼的步伐虽慢，但每一步都踏实。在信息过载的时代，我们选择<strong class="text-text-primary">深度而非速度，结构而非碎片</strong>。
+          </p>
+        </div>
+
+        <div class="section-divider my-6"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="text-center">
+            <div class="text-3xl mb-2">🌌</div>
+            <h4 class="font-bold text-accent-cyan text-sm mb-1">世界观</h4>
+            <p class="text-xs text-text-muted">宇宙如何运作</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">🏛️</div>
+            <h4 class="font-bold text-accent-gold text-sm mb-1">社会逻辑</h4>
+            <p class="text-xs text-text-muted">社会如何形成与运行</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">🧘</div>
+            <h4 class="font-bold text-accent-purple text-sm mb-1">思想与修行</h4>
+            <p class="text-xs text-text-muted">人如何认识自己</p>
+          </div>
+        </div>
+
+        <div class="section-divider my-6"></div>
+
+        <div class="text-text-secondary text-sm leading-relaxed space-y-3">
+          <p>🏗️ <span class="text-text-muted">技术栈：</span>Tailwind CSS · Chart.js · web-db-user 三层架构 · 暗色玻璃拟态设计</p>
+          <p>🔄 <span class="text-text-muted">自动更新：</span>每日 9:00 AM 自动抓取最新 AI 新闻 · GitHub Actions 推送 · Vercel 自动部署</p>
+          <p>🚀 <span class="text-text-muted">部署：</span>GitHub Pages + Vercel + CloudStudio 三重镜像</p>
+        </div>
+
+        <div class="pt-4 flex flex-wrap gap-4 text-xs text-text-muted">
+          <span>✦ 2026 年创建</span>
+          <span>✦ 暗色玻璃拟态设计</span>
+          <span>✦ 全自动内容更新</span>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="index.html" class="text-sm text-accent-cyan hover:text-accent-purple transition inline-flex items-center gap-1">← 返回首页</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-white/5 mt-8 bg-bg-secondary/50">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2 text-sm text-text-muted">
+      <span class="gradient-text font-bold">骆驼🐫 商业本质</span>
+      <span>·</span>
+      <span>认识世界 · 理解社会 · 安顿自己</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-text-muted">
+      <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
+      <span>·</span>
+      <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a>
+      <span>·</span>
+      <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a>
+      <span>·</span>
+      <a href="practice.html" class="hover:text-accent-purple transition">思想与修行</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

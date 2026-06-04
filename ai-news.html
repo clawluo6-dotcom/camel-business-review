@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿速报 — 骆驼商业本质</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: { primary:'#0a0e17', secondary:'#111827', card:'#1a1f2e', hover:'#242b3d' },
+          accent: {
+            cyan:'#22d3ee', purple:'#a855f7', emerald:'#34d399',
+            amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c', gold:'#f59e0b'
+          },
+          text: { primary:'#e2e8f0', secondary:'#94a3b8', muted:'#64748b' }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
+  .nav-link:hover::after { width: 100%; }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  .importance-5 { border-left: 3px solid #22d3ee; }
+  .importance-4 { border-left: 3px solid #a855f7; }
+  .importance-3 { border-left: 3px solid #64748b; }
+  .timeline-line::before { content:''; position:absolute; left:7px; top:0; bottom:0; width:2px; background: linear-gradient(to bottom, #22d3ee, #a855f7); }
+  .timeline-dot { width:16px; height:16px; border-radius:50%; background:#1a1f2e; border:2px solid #22d3ee; position:relative; z-index:1; }
+  .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+  @keyframes pulse-glow { 0%,100% { box-shadow: 0 0 20px rgba(34,211,238,0.15); } 50% { box-shadow: 0 0 40px rgba(34,211,238,0.3); } }
+  .count-pill { animation: countIn 0.8s ease-out; }
+  @keyframes countIn { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+</style>
+</head>
+<body class="bg-bg-primary bg-grid min-h-screen">
+
+<nav class="sticky top-0 z-50 glass border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 no-underline">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
+        <span class="text-white font-bold text-sm">✦</span>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
+      </div>
+    </a>
+    <div class="flex items-center gap-5">
+      <a href="index.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">首页</a>
+      <a href="worldview.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">世界观</a>
+      <a href="social.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-gold transition">社会逻辑</a>
+      <a href="practice.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-purple transition">思想与修行</a>
+      <a href="ai-news.html" class="nav-link text-sm font-medium text-accent-emerald">AI 速报</a>
+      <a href="about.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-amber transition">关于</a>
+      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+    </div>
+  </div>
+</nav>
+
+<section class="py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 fade-in">
+      <div class="text-4xl mb-4">📡</div>
+      <h2 class="text-3xl font-black tracking-tight mb-3">AI 前沿速报</h2>
+      <p class="text-text-muted font-mono text-xs uppercase tracking-widest mb-4">Daily AI Brief</p>
+      <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed text-sm">
+        每日自动追踪全球 AI 产业动态，涵盖大模型、智能体、硬件、开源、中国动态与政策监管六大板块。数据每日 9:00 自动更新。
+      </p>
+      <div class="mt-4">
+        <a href="index.html" class="text-xs text-accent-cyan hover:text-accent-purple transition inline-flex items-center gap-1">← 返回首页</a>
+      </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="flex flex-col lg:flex-row gap-8 items-start mb-12 fade-in" style="animation-delay:0.1s">
+      <div class="flex-1 glass rounded-2xl p-8 pulse-glow" id="featuredCard">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full bg-accent-cyan/10 text-accent-cyan text-xs font-mono">BREAKING</span>
+          <span class="text-text-muted text-xs" id="featuredDate">--</span>
+        </div>
+        <h3 class="text-2xl lg:text-3xl font-bold mb-4 leading-tight" id="featuredTitle">--</h3>
+        <p class="text-text-secondary leading-relaxed" id="featuredSummary">--</p>
+      </div>
+      <div class="lg:w-80 grid grid-cols-2 gap-3">
+        <div class="glass rounded-xl p-4 text-center glass-hover">
+          <div class="text-2xl font-bold gradient-text count-pill" id="statValuation">--</div>
+          <div class="text-xs text-text-muted mt-1">Anthropic 估值</div>
+          <div class="text-[10px] text-text-muted mt-0.5">十亿美元</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center glass-hover">
+          <div class="text-2xl font-bold text-accent-purple count-pill" id="statHallucination">--</div>
+          <div class="text-xs text-text-muted mt-1">幻觉率降低</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center glass-hover">
+          <div class="text-2xl font-bold text-accent-emerald count-pill" id="statPrice">--</div>
+          <div class="text-xs text-text-muted mt-1">$/M token</div>
+          <div class="text-[10px] text-text-muted mt-0.5">Gemini 3.5 Flash</div>
+        </div>
+        <div class="glass rounded-xl p-4 text-center glass-hover">
+          <div class="text-2xl font-bold text-accent-amber count-pill" id="statChina">--</div>
+          <div class="text-xs text-text-muted mt-1">中国 AI 规模</div>
+          <div class="text-[10px] text-text-muted mt-0.5">万亿元</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Sections -->
+    <div id="categorySections" class="space-y-12"></div>
+
+    <!-- Charts -->
+    <div class="glass rounded-2xl p-8 mt-12 fade-in" style="animation-delay:0.3s">
+      <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple"></span>数据透视</h3>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div><canvas id="chartHallucination" height="240"></canvas></div>
+        <div><canvas id="chartCost" height="240"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div id="timeline" class="glass rounded-2xl p-8 mt-8 fade-in" style="animation-delay:0.4s">
+      <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple"></span>新闻时间线 <span class="text-sm text-text-muted font-normal" id="timelineRange"></span></h3>
+      <div class="relative pl-8 timeline-line" id="timelineContent"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-white/5 mt-8 bg-bg-secondary/50">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2 text-sm text-text-muted">
+      <span class="gradient-text font-bold">骆驼🐫 商业本质</span>
+      <span>·</span>
+      <span>认识世界 · 理解社会 · 安顿自己</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-text-muted">
+      <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
+      <span>·</span>
+      <span>数据更新：<span id="footerUpdated">--</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const BUILTIN_DATA = {"meta":{"siteName":"骆驼商业本质","version":"2.0.0","lastUpdated":"2026-06-04T11:00:00+08:00","description":"认识世界 · 理解社会 · 安顿自己"},"articles":{"worldview":[{"id":"a001","title":"意识切片世界观","summary":"提出一种全新的世界观框架：意识不是连续的河流，而是离散的「时间切片」的集合。每个切片都是一个完整的世界态。这篇文章奠定了整个思想体系的基础。","date":"2026-05","tags":["意识","世界观","哲学"],"importance":5},{"id":"a002","title":"世界的真相（系列导言）","summary":"「世界的真相」11篇系列文章的总纲。从力的统一到现象的本质，从科学世界观到形而上学的追问——我们看到的「世界」到底有多少层？","date":"2026-05","tags":["世界观","系列","物理学"],"importance":5},{"id":"a003","title":"力的统一：三圈同心圆模型","summary":"提出力统一理论的三圈同心圆模型：物理力、社会力、意识力——三者同源同构。这是从物理学到社会科学再到意识哲学的桥梁。","date":"2026-05","tags":["统一理论","物理学","意识"],"importance":4}],"social":[{"id":"a004","title":"500 年霸权更迭：从葡萄牙到中美争霸","summary":"大周期系列开篇。梳理 500 年来全球霸权的五次更迭，揭示军事、金融、科技、文化、制度五维霸权的运作机制，预测下一阶段中美争霸的走向。","date":"2026-05","tags":["大周期","地缘","霸权"],"importance":5},{"id":"a005","title":"财富的谬论：对经济周期本质的再思考","summary":"重新审视「财富」概念的本质——财富不是拥有的资源，而是调配资源的能力。经济周期的本质是这种调配能力的集中与分散。","date":"2026-05","tags":["宏观经济","财富","周期"],"importance":4},{"id":"a006","title":"美国战略演变（2017-2026）：从特朗普到后特朗普时代","summary":"分析美国从特朗普第一任期到2026年的全球战略演变。从贸易战到科技封锁，从地缘博弈到金融制裁——理解美国战略是理解全球秩序的关键。","date":"2026-06","tags":["美国","地缘","战略"],"importance":5},{"id":"a007","title":"中国 A 股资产结构分析","summary":"基于 Wind 金融终端数据，对中国 A 股市场上市公司的企业所有制结构、大股东持股比例、国有与民营资本分布进行系统分析。","date":"2026-06","tags":["A股","资产结构","金融"],"importance":4}],"practice":[{"id":"a008","title":"人的本质：意识之外的追问","summary":"如果意识是离散的切片，那么「人的本质」在哪里？本文从意识切片理论出发，逐层剖析自我的构成——从感官到认知，从记忆到身份认同。","date":"2026-05","tags":["人性","意识","哲学"],"importance":5},{"id":"a009","title":"一念花开：论心性的力量","summary":"一念之间，可以开出一朵花，也可以生出一片荒芜。本文从禅宗「一念相应」出发，探讨心性的训练如何改变人的感知和行动能力。","date":"2026-05","tags":["心性","修行","禅"],"importance":4},{"id":"a010","title":"内圣外王：儒家修养与现代生活","summary":"「内圣外王」是儒家修养的终极理想——内修圣人之德，外行王者之道。在现代语境下，它是一条从个人修养到社会参与的内在路径。","date":"2026-05","tags":["儒家","修养","内圣外王"],"importance":4},{"id":"a011","title":"性相不二：破一切相的哲学实践","summary":"「性」是本质，「相」是表象。当我们说「性相不二」的时候，不是否定表象的存在，而是指出本质与表象之间没有鸿沟。这是破一切相的哲学入口。","date":"2026-06","tags":["哲学","本质","修行"],"importance":4}]},"news":[{"id":"n022","title":"AI Agent 融资创历史纪录","summary":"2026 年第一季度全球 AI Agent 初创公司融资金额达 480 亿美元，超过 2025 年全年总额。超过 60% 的资金流向了企业级 Agent 平台和垂直行业 Agent 应用。","category":"agents","date":"2026-06-04","tags":["AI Agent","融资","企业级"],"importance":5,"source":"TechCrunch"},{"id":"n021","title":"NVIDIA 发布 Blackwell Ultra GB300","summary":"NVIDIA 在 Computex 2026 上发布 Blackwell Ultra GB300 GPU，配备 288GB HBM4 内存，FP4 算力达 30 PFLOPS。预计 2026 Q4 量产，将大幅提升 AI 训练和推理能力。","category":"hardware","date":"2026-06-04","tags":["NVIDIA","Blackwell","GPU","HBM4"],"importance":5,"source":"NVIDIA Blog"},{"id":"n020","title":"Anthropic 估值突破 1,600 亿美元","summary":"Anthropic 完成新一轮 300 亿美元融资，估值达 1,600 亿美元，成为全球估值最高的 AI 初创公司之一。资金将用于 Claude Opus 4.8 的发布及全球扩张。","category":"models","date":"2026-06-04","tags":["Anthropic","融资","Claude"],"importance":5,"source":"Bloomberg"},{"id":"n019","title":"GPT-5.5 Instant 幻觉率降至 3.9%","summary":"OpenAI 推出 GPT-5.5 Instant，在标准基准测试中幻觉率降至 3.9%，较 GPT-5 的 8.2% 下降超过一半。同时 API 价格降至每百万 token $0.40。","category":"models","date":"2026-06-04","tags":["OpenAI","GPT-5.5","幻觉率","API"],"importance":4,"source":"OpenAI Blog"},{"id":"n018","title":"欧盟 AI 法案进入全面执行阶段","summary":"欧盟 AI 法案（EU AI Act）6 月起全面执行，高风险 AI 系统须完成合规评估。违规企业最高罚款全球年营收 7%，多家中国 AI 企业启动欧盟合规准备。","category":"policy","date":"2026-06-04","tags":["欧盟","AI法案","监管","合规"],"importance":4,"source":"Reuters"},{"id":"n017","title":"Meta 开源 Llama 4 Behemoth 405B 模型","summary":"Meta 开源 Llama 4 Behemoth 405B 参数模型，在 MMLU-Pro 和 HumanEval 等基准上接近 Claude Opus 4.5 水平。模型权重和训练细节完全公开。","category":"opensource","date":"2026-06-04","tags":["Meta","Llama 4","开源模型","405B"],"importance":4,"source":"Meta AI Blog"},{"id":"n016","title":"中国 AI 产业规模突破 1.2 万亿","summary":"工信部数据显示，2026 年 Q1 中国 AI 核心产业规模达 1.2 万亿元人民币，同比增长 38%。大模型应用落地加速，智能体和 AI 终端成为新增长点。","category":"china","date":"2026-06-04","tags":["中国","产业规模","大模型","智能体"],"importance":4,"source":"工信部"},{"id":"n015","title":"Claude Opus 4.8 幻觉率降至 2.8%","summary":"Anthropic 发布 Claude Opus 4.8，在 TruthfulQA 和 HaluEval 基准上幻觉率仅 2.8%，创大模型新低。新版本还支持 500K token 上下文窗口。","category":"models","date":"2026-06-04","tags":["Anthropic","Claude Opus","幻觉率","500K"],"importance":4,"source":"Anthropic Blog"},{"id":"n014","title":"字节跳动发布豆包大模型 3.0","summary":"字节跳动发布豆包大模型 3.0，在 SuperCLUE 中文基准上首次超越 GPT-5。模型参数 200B，支持 500万字超长上下文，已接入抖音、飞书等产品。","category":"china","date":"2026-06-03","tags":["字节跳动","豆包","200B","SuperCLUE"],"importance":5,"source":"36氪"},{"id":"n013","title":"OpenAI 推出 GPT-5.5 图像推理","summary":"OpenAI 为 GPT-5.5 系列新增原生图像推理能力，能解剖医学影像、解读工程图纸和手写文档。在医学影像诊断测试中表现与资深医生相当。","category":"models","date":"2026-06-03","tags":["OpenAI","图像推理","多模态","医疗"],"importance":4,"source":"OpenAI Blog"},{"id":"n012","title":"中国 AI 企业出海加速：东南亚成首选","summary":"2026 年前 5 月，超过 200 家中国 AI 企业在东南亚设立分支机构或数据中心。新加坡、马来西亚和印尼成为三大首选目的地，AI 应用出海成为新趋势。","category":"china","date":"2026-06-03","tags":["出海","东南亚","AI应用"],"importance":4,"source":"新华社"},{"id":"n011","title":"Gemini 3.5 Flash 价格降至 $0.10/M token","summary":"谷歌 Gemini 3.5 Flash 价格大幅下调至每百万 token $0.10，成为主流大模型中最便宜的选择。同时支持多模态输入，性价比大幅领先竞品。","category":"models","date":"2026-06-03","tags":["Google","Gemini","价格战"],"importance":4,"source":"Google AI Blog"},{"id":"n010","title":"智谱发布 GLM-5 开源模型","summary":"智谱 AI 发布 GLM-5 开源大模型，在中文理解、数学推理、代码生成等多项基准上达到国际领先水平。模型采用 MoE 架构，推理成本降低 70%。","category":"opensource","date":"2026-06-03","tags":["智谱","GLM-5","MoE","开源"],"importance":4,"source":"机器之心"},{"id":"n009","title":"AI 语音助手全面进军车载场景","summary":"多家车企在 2026 北京车展上展示深度集成 AI 语音助手的智能座舱。支持多轮对话、情绪识别、主动建议，AI 成为车载交互的核心入口。","category":"agents","date":"2026-06-03","tags":["语音助手","车载","智能座舱"],"importance":3,"source":"汽车之家"},{"id":"n008","title":"腾讯混元推出视频生成模型","summary":"腾讯混元大模型发布视频生成能力，支持文生视频和图生视频，可生成最长 60 秒的 1080P 视频。已向部分企业客户开放内测。","category":"china","date":"2026-06-02","tags":["腾讯","混元","视频生成","多模态"],"importance":4,"source":"腾讯科技"},{"id":"n007","title":"首个 AI Agent 城市管理系统落地深圳","summary":"深圳启用全国首个由 AI Agent 驱动的城市管理系统，覆盖交通、环境、应急三大领域。系统可自主调度资源、预测风险并生成处置方案。","category":"agents","date":"2026-06-02","tags":["AI Agent","城市管理","深圳"],"importance":4,"source":"深圳特区报"},{"id":"n006","title":"Neuralink 获准进行第三代脑机接口人体试验","summary":"Neuralink 获得 FDA 批准进行第三代脑机接口的人体临床试验。新的 N3 芯片可同时记录 10,000+ 神经元信号，为 AI-人脑融合开辟新的可能性。","category":"hardware","date":"2026-06-02","tags":["Neuralink","脑机接口","FDA"],"importance":4,"source":"Reuters"},{"id":"n005","title":"北京发布 AI 产业发展新十条","summary":"北京市发布 AI 产业发展新政策，包括 1,000 亿元 AI 产业基金、AI 人才引进绿色通道、公共算力平台免费额度提升至 5,000 PFLOPS 等十条措施。","category":"policy","date":"2026-06-02","tags":["北京","政策","产业基金","算力"],"importance":4,"source":"新华网"},{"id":"n004","title":"Mistral 发布 Codestral 2.0 编程模型","summary":"法国 Mistral AI 发布专为代码生成优化的 Codestral 2.0 模型，支持 120+ 编程语言，在 SWE-bench 上排名第一。模型开放权重，可本地部署。","category":"opensource","date":"2026-06-02","tags":["Mistral","代码","开源","SWE-bench"],"importance":3,"source":"Mistral Blog"},{"id":"n003","title":"台积电 2nm 制程量产，AI 芯片效率跃升 30%","summary":"台积电宣布 2nm 制程正式量产，相比 3nm 制程，AI 芯片能效提升 30%。首批客户包括苹果、NVIDIA、AMD，预计 2026 Q3 开始交付。","category":"hardware","date":"2026-06-01","tags":["台积电","2nm","芯片","制程"],"importance":5,"source":"台积电"},{"id":"n002","title":"白宫发布国家 AI 战略 2.0：全面加速 AGI 竞赛","summary":"白宫发布更新版国家 AI 战略，额外拨款 2,000 亿美元加速 AGI 研发，重点投入 AI 安全、基础设施和人才培养，设立国家级 AI 安全研究院。","category":"policy","date":"2026-06-01","tags":["美国","国家战略","AGI","AI安全"],"importance":5,"source":"白宫官网"},{"id":"n001","title":"OpenAI 发布 GPT-5.5：推理能力超越人类基准","summary":"OpenAI 正式发布 GPT-5.5，在 GPQA Diamond 科学推理测试中首次超越人类专家水平，得分 89.7 vs 人类 81.2。同时发布 GPT-5.5 Instant 轻量版。","category":"models","date":"2026-06-01","tags":["OpenAI","GPT-5.5","推理","超越人类"],"importance":5,"source":"OpenAI Blog"}],"categories":[{"id":"models","name":"大模型军备","icon":"🧠"},{"id":"agents","name":"智能体浪潮","icon":"🤖"},{"id":"hardware","name":"硬件与基建","icon":"💻"},{"id":"opensource","name":"开源与语音","icon":"📡"},{"id":"china","name":"中国动态","icon":"🇨🇳"},{"id":"policy","name":"政策与监管","icon":"🛡️"}],"featured":{"title":"Claude Opus 4.8 幻觉率降至 2.8%，Anthropic 估值突破 1,600 亿","summary":"本周 AI 行业最重磅事件：Anthropic 发布 Claude Opus 4.8 实现最低幻觉率 2.8%，同时完成 300 亿美元融资估值达 1,600 亿美元。与此同时，OpenAI GPT-5.5 首次在科学推理上超越人类专家，NVIDIA 发布 Blackwell Ultra GB300，台积电 2nm 正式量产。AI 产业进入全面加速期。","date":"2026-06-04","image":""},"stats":{"anthropicValuation":160,"gpt55HallucinationReduction":53,"geminiPricePerMillion":0.1,"chinaAIScale":"1.2"},"timeline":[{"date":"6月1日","events":["OpenAI 发布 GPT-5.5，推理测试首次超越人类专家水平","白宫发布国家 AI 战略 2.0，拨款 2,000 亿美元加速 AGI 研发","台积电 2nm 制程量产，AI 芯片能效提升 30%"]},{"date":"6月2日","events":["Mistral 发布 Codestral 2.0 编程模型，SWE-bench 排名第一","北京发布 AI 新十条，1,000 亿产业基金启动","Neuralink 获 FDA 批准第三代脑机接口人体试验","深圳启用首个 AI Agent 城市管理系统"]},{"date":"6月3日","events":["字节跳动发布豆包大模型 3.0，中文基准首次超越 GPT-5","智谱发布 GLM-5 开源模型，MoE 架构推理成本降低 70%","Google Gemini 3.5 Flash 降价至 $0.10/M token","腾讯混元推出视频生成模型，最长 60 秒 1080P"]},{"date":"6月4日","events":["Anthropic Claude Opus 4.8 发布，幻觉率 2.8% 创历史新低","GPT-5.5 Instant 幻觉率降至 3.9%，价格 $0.40/M token","NVIDIA 发布 Blackwell Ultra GB300，288GB HBM4","Meta 开源 Llama 4 Behemoth 405B 模型","欧盟 AI 法案全面执行，高风险系统须合规"]}]};
+
+let DATA = null;
+
+async function loadData() {
+  const localData = localStorage.getItem('afd_news_data');
+  if (localData) {
+    try { DATA = JSON.parse(localData); return; }
+    catch(e) { console.warn('localStorage parse failed'); }
+  }
+  DATA = BUILTIN_DATA;
+}
+
+function renderFeatured() {
+  const f = DATA.featured;
+  document.getElementById('featuredDate').textContent = f.date;
+  document.getElementById('featuredTitle').textContent = f.title;
+  document.getElementById('featuredSummary').textContent = f.summary;
+}
+
+function renderStats() {
+  const s = DATA.stats;
+  document.getElementById('statValuation').textContent = '$' + s.anthropicValuation + 'B';
+  document.getElementById('statHallucination').textContent = '↓' + s.gpt55HallucinationReduction + '%';
+  document.getElementById('statPrice').textContent = '$' + s.geminiPricePerMillion.toFixed(2);
+  document.getElementById('statChina').textContent = s.chinaAIScale;
+}
+
+const categoryConfig = {
+  models:    { name:'大模型军备', icon:'🧠', color:'cyan',    gradFrom:'#22d3ee', gradTo:'#0891b2' },
+  agents:    { name:'智能体浪潮', icon:'🤖', color:'purple',  gradFrom:'#a855f7', gradTo:'#7c3aed' },
+  hardware:  { name:'硬件与基建', icon:'💻', color:'emerald', gradFrom:'#34d399', gradTo:'#059669' },
+  opensource:{ name:'开源与语音', icon:'📡', color:'amber',   gradFrom:'#fbbf24', gradTo:'#d97706' },
+  china:     { name:'中国动态',   icon:'🇨🇳', color:'rose',     gradFrom:'#fb7185', gradTo:'#e11d48' },
+  policy:    { name:'政策与监管', icon:'🛡️', color:'orange',   gradFrom:'#fb923c', gradTo:'#ea580c' }
+};
+
+function renderCategorySections() {
+  const container = document.getElementById('categorySections');
+  const grouped = {};
+  DATA.categories.forEach(c => { grouped[c.id] = []; });
+  (DATA.news || []).forEach(n => { if (grouped[n.category]) grouped[n.category].push(n); });
+
+  let html = '';
+  for (const [catId, news] of Object.entries(grouped)) {
+    if (!news.length) continue;
+    const cfg = categoryConfig[catId] || { name:catId, icon:'📌', color:'slate', gradFrom:'#94a3b8', gradTo:'#64748b' };
+    html += `<section id="${catId}">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg" style="background:linear-gradient(135deg, ${cfg.gradFrom}20, ${cfg.gradTo}20); border:1px solid ${cfg.gradFrom}30">${cfg.icon}</div>
+        <div><h3 class="text-lg font-bold">${cfg.name}</h3><p class="text-xs text-text-muted">${news.length} 条速报</p></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">`;
+    news.forEach((n, i) => {
+      const impClass = 'importance-' + n.importance;
+      const tagsHtml = (n.tags||[]).map(t => `<span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-text-muted">#${t}</span>`).join('');
+      html += `<div class="glass rounded-xl p-5 glass-hover fade-in ${impClass}" style="animation-delay:${i*0.05}s">
+        <div class="flex items-center justify-between mb-2"><span class="text-[10px] text-text-muted font-mono">${n.date}</span><span class="text-[10px] text-text-muted">${n.source||''}</span></div>
+        <h4 class="font-semibold text-sm mb-2 leading-snug">${n.title}</h4>
+        <p class="text-xs text-text-secondary leading-relaxed mb-3">${n.summary}</p>
+        <div class="flex flex-wrap gap-1">${tagsHtml}</div>
+      </div>`;
+    });
+    html += '</div></section>';
+  }
+  container.innerHTML = html;
+}
+
+function renderTimeline() {
+  const container = document.getElementById('timelineContent');
+  if (!container) return;
+  const colors = ['#22d3ee','#a855f7','#34d399','#fbbf24'];
+  let html = '';
+  if (DATA.timeline && DATA.timeline.length > 0) {
+    const dates = DATA.timeline.map(d => d.date);
+    document.getElementById('timelineRange').textContent = dates[0] + ' — ' + dates[dates.length-1];
+  }
+  (DATA.timeline || []).forEach((day, i) => {
+    html += `<div class="relative pb-8 last:pb-0 fade-in" style="animation-delay:${i*0.15}s">
+      <div class="timeline-dot absolute -left-[7px] top-1" style="border-color:${colors[i%4]}"></div>
+      <div class="ml-4"><div class="text-sm font-bold font-mono" style="color:${colors[i%4]}">${day.date}</div>
+      <div class="mt-2 space-y-1.5">`;
+    (day.events||[]).forEach(e => { html += `<div class="text-sm text-text-secondary flex items-start gap-2"><span class="text-text-muted mt-1">▸</span>${e}</div>`; });
+    html += '</div></div></div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderCharts() {
+  const ctx1 = document.getElementById('chartHallucination');
+  if (ctx1) {
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['GPT-4', 'GPT-5', 'GPT-5.5\nInstant', 'Claude 3', 'Claude 4', 'Claude\nOpus 4.8'],
+        datasets: [{ label: '幻觉率 (%)', data: [14.3, 8.2, 3.9, 12.1, 6.5, 2.8], backgroundColor: ['#475569','#475569','#22d3ee','#475569','#475569','#a855f7'], borderRadius: 6, borderSkipped: false }]
+      },
+      options: {
+        responsive:true,
+        plugins: { legend:{display:false}, title:{display:true,text:'大模型幻觉率对比 (%)',color:'#e2e8f0',font:{size:14},padding:16} },
+        scales: { y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#94a3b8'}}, x:{ticks:{color:'#94a3b8',font:{size:10}}} }
+      }
+    });
+  }
+  const ctx2 = document.getElementById('chartCost');
+  if (ctx2) {
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['GPT-4', 'GPT-5.5\nInstant', 'Gemini 2.0', 'Gemini 3.5\nFlash', 'Claude\nSonnet', 'Claude\nOpus 4.8'],
+        datasets: [{ label: '$/百万 token', data: [30, 0.40, 10, 0.10, 3, 15], backgroundColor: ['#475569','#22d3ee','#475569','#34d399','#475569','#a855f7'], borderRadius: 6, borderSkipped: false }]
+      },
+      options: {
+        responsive:true,
+        plugins: { legend:{display:false}, title:{display:true,text:'百万 Token 成本对比 ($)',color:'#e2e8f0',font:{size:14},padding:16} },
+        scales: { y:{type:'logarithmic',grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#94a3b8',callback:v=>'$'+v}}, x:{ticks:{color:'#94a3b8',font:{size:10}}} }
+      }
+    });
+  }
+}
+
+function renderFooter() {
+  document.getElementById('footerUpdated').textContent = DATA.meta.lastUpdated.split('T')[0];
+}
+
+async function init() {
+  await loadData();
+  renderFeatured();
+  renderStats();
+  renderCategorySections();
+  renderTimeline();
+  renderCharts();
+  renderFooter();
+}
+
+init();
+</script>
+</body>
+</html>

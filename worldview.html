@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界观 — 骆驼商业本质</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: { primary:'#0a0e17', secondary:'#111827', card:'#1a1f2e', hover:'#242b3d' },
+          accent: {
+            cyan:'#22d3ee', purple:'#a855f7', emerald:'#34d399',
+            amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c', gold:'#f59e0b'
+          },
+          text: { primary:'#e2e8f0', secondary:'#94a3b8', muted:'#64748b' }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
+  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
+  .nav-link:hover::after { width: 100%; }
+  .pillar-top-bar { position: relative; }
+  .pillar-top-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
+  .bar-cyan::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
+  .bar-gold::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+  .bar-purple::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  .importance-5 { border-left: 3px solid #22d3ee; }
+  .importance-4 { border-left: 3px solid #a855f7; }
+  .importance-3 { border-left: 3px solid #64748b; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  .back-link { transition: all 0.3s ease; }
+  .back-link:hover { transform: translateX(-4px); }
+</style>
+</head>
+<body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 glass border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 no-underline">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
+        <span class="text-white font-bold text-sm">✦</span>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
+      </div>
+    </a>
+    <div class="flex items-center gap-5">
+      <a href="index.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">首页</a>
+      <a href="worldview.html" class="nav-link text-sm font-medium text-accent-cyan">世界观</a>
+      <a href="social.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-gold transition">社会逻辑</a>
+      <a href="practice.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-purple transition">思想与修行</a>
+      <a href="ai-news.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-emerald transition">AI 速报</a>
+      <a href="about.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-amber transition">关于</a>
+      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="max-w-7xl mx-auto px-6 pt-16 pb-8 fade-in">
+  <div class="text-center">
+    <div class="text-6xl mb-4">🌌</div>
+    <h2 class="text-4xl font-extrabold mb-3" style="color: #22d3ee;">世界观</h2>
+    <p class="text-text-secondary text-lg font-light">Worldview — 宇宙如何运作</p>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6">
+  <!-- Breadcrumb -->
+  <div class="mb-8">
+    <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-cyan transition">
+      <span>←</span> <span>返回首页</span>
+    </a>
+  </div>
+
+  <!-- Explanation Section -->
+  <div class="glass rounded-2xl p-8 mb-10 pillar-top-bar bar-cyan fade-in" style="animation-delay: 0.05s">
+    <h3 class="text-xl font-bold mb-4" style="color: #22d3ee;">关于世界观</h3>
+    <p class="text-text-secondary leading-relaxed mb-4">
+      世界观板块探讨的是宇宙运行的根本法则。这里的「世界」不只是地球或人类社会，而是整个存在本身——从物理学的力场统一到形而上学的本质追问。
+    </p>
+    <p class="text-text-secondary leading-relaxed">
+      一个不追问世界本质的人，容易被表象迷惑；一个不理解底层法则的人，容易在信息洪流中失去判断。世界观提供的是认知的坐标系——在变动不居的现象背后，寻找不变的结构。
+    </p>
+  </div>
+
+  <!-- Coverage -->
+  <div class="flex flex-wrap gap-2 mb-8 fade-in" style="animation-delay: 0.1s">
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(34,211,238,0.3); color: #22d3ee; background: rgba(34,211,238,0.08);">宇宙运行规律</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(34,211,238,0.3); color: #22d3ee; background: rgba(34,211,238,0.08);">力的统一</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(34,211,238,0.3); color: #22d3ee; background: rgba(34,211,238,0.08);">世界的真相系列</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(34,211,238,0.3); color: #22d3ee; background: rgba(34,211,238,0.08);">科学哲学</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(34,211,238,0.3); color: #22d3ee; background: rgba(34,211,238,0.08);">系统思维</span>
+  </div>
+
+  <!-- Section Divider -->
+  <div class="section-divider mb-10"></div>
+
+  <!-- Article Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+    <!-- Card 1 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.1s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
+          <span class="text-[10px] text-text-muted">重要度 5</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #22d3ee;">意识切片世界观</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">提出一种全新的世界观框架：意识不是连续的河流，而是离散的「时间切片」的集合。每个切片都是一个完整的世界态。这篇文章奠定了整个思想体系的基础。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">意识</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">世界观</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">哲学</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.2s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
+          <span class="text-[10px] text-text-muted">重要度 5</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #22d3ee;">世界的真相（系列导言）</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">「世界的真相」11篇系列文章的总纲。从力的统一到现象的本质，从科学世界观到形而上学的追问——我们看到的「世界」到底有多少层？</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">世界观</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">系列</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">物理学</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.3s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
+          <span class="text-[10px] text-text-muted">重要度 4</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">力的统一：三圈同心圆模型</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">提出力统一理论的三圈同心圆模型：物理力、社会力、意识力——三者同源同构。这是从物理学到社会科学再到意识哲学的桥梁。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">统一理论</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">物理学</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">意识</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Note -->
+  <div class="text-center text-text-muted text-xs py-8 mb-4">更多文章持续更新中...</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 mt-8 bg-bg-secondary/50">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2 text-sm text-text-muted">
+      <span class="gradient-text font-bold">骆驼🐫 商业本质</span>
+      <span>·</span>
+      <span>认识世界 · 理解社会 · 安顿自己</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-text-muted">
+      <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
+      <span>·</span>
+      <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a>
+      <span>·</span>
+      <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a>
+      <span>·</span>
+      <a href="practice.html" class="hover:text-accent-purple transition">思想与修行</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

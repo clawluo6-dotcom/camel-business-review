@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社会逻辑 — 骆驼商业本质</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: { primary:'#0a0e17', secondary:'#111827', card:'#1a1f2e', hover:'#242b3d' },
+          accent: {
+            cyan:'#22d3ee', purple:'#a855f7', emerald:'#34d399',
+            amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c', gold:'#f59e0b'
+          },
+          text: { primary:'#e2e8f0', secondary:'#94a3b8', muted:'#64748b' }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
+  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
+  .nav-link:hover::after { width: 100%; }
+  .pillar-top-bar { position: relative; }
+  .pillar-top-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
+  .bar-cyan::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
+  .bar-gold::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+  .bar-purple::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  .importance-5 { border-left: 3px solid #22d3ee; }
+  .importance-4 { border-left: 3px solid #a855f7; }
+  .importance-3 { border-left: 3px solid #64748b; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  .back-link { transition: all 0.3s ease; }
+  .back-link:hover { transform: translateX(-4px); }
+</style>
+</head>
+<body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 glass border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 no-underline">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
+        <span class="text-white font-bold text-sm">✦</span>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
+      </div>
+    </a>
+    <div class="flex items-center gap-5">
+      <a href="index.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">首页</a>
+      <a href="worldview.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">世界观</a>
+      <a href="social.html" class="nav-link text-sm font-medium text-accent-gold">社会逻辑</a>
+      <a href="practice.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-purple transition">思想与修行</a>
+      <a href="ai-news.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-emerald transition">AI 速报</a>
+      <a href="about.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-amber transition">关于</a>
+      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="max-w-7xl mx-auto px-6 pt-16 pb-8 fade-in">
+  <div class="text-center">
+    <div class="text-6xl mb-4">🏛️</div>
+    <h2 class="text-4xl font-extrabold mb-3" style="color: #f59e0b;">社会逻辑</h2>
+    <p class="text-text-secondary text-lg font-light">Social Logic — 社会如何形成与运行</p>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6">
+  <!-- Breadcrumb -->
+  <div class="mb-8">
+    <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-gold transition">
+      <span>←</span> <span>返回首页</span>
+    </a>
+  </div>
+
+  <!-- Explanation Section -->
+  <div class="glass rounded-2xl p-8 mb-10 pillar-top-bar bar-gold fade-in" style="animation-delay: 0.05s">
+    <h3 class="text-xl font-bold mb-4" style="color: #f59e0b;">关于社会逻辑</h3>
+    <p class="text-text-secondary leading-relaxed mb-4">
+      社会逻辑板块探讨的是人类社会的组织规律。从全球格局到商业实践，从500年霸权更迭到产业经济的微观落地——权力、财富、制度之间的互动遵循着深层逻辑。
+    </p>
+    <p class="text-text-secondary leading-relaxed">
+      这里的「秩序」不是指静态的规则手册，而是动态的结构演化。宏观经济、地缘博弈、商业模式、企业观察——这些都是社会逻辑在不同尺度上的投影。理解了秩序，就理解了局势。
+    </p>
+  </div>
+
+  <!-- Coverage -->
+  <div class="flex flex-wrap gap-2 mb-8 fade-in" style="animation-delay: 0.1s">
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(245,158,11,0.3); color: #f59e0b; background: rgba(245,158,11,0.08);">宏观经济</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(245,158,11,0.3); color: #f59e0b; background: rgba(245,158,11,0.08);">全球地缘</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(245,158,11,0.3); color: #f59e0b; background: rgba(245,158,11,0.08);">500年大周期</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(245,158,11,0.3); color: #f59e0b; background: rgba(245,158,11,0.08);">产业经济</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(245,158,11,0.3); color: #f59e0b; background: rgba(245,158,11,0.08);">商业模式与项目</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(245,158,11,0.3); color: #f59e0b; background: rgba(245,158,11,0.08);">企业观察</span>
+  </div>
+
+  <!-- Section Divider -->
+  <div class="section-divider mb-10"></div>
+
+  <!-- Article Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mb-10">
+    <!-- Card 1 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.1s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
+          <span class="text-[10px] text-text-muted">重要度 5</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #f59e0b;">500 年霸权更迭：从葡萄牙到中美争霸</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">大周期系列开篇。梳理500年来全球霸权的五次更迭，揭示军事、金融、科技、文化、制度五维霸权的运作机制，预测下一阶段中美争霸的走向。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">大周期</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">地缘</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">霸权</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.2s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
+          <span class="text-[10px] text-text-muted">重要度 4</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #f59e0b;">财富的谬论：对经济周期本质的再思考</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">重新审视「财富」概念的本质——财富不是拥有的资源，而是调配资源的能力。经济周期的本质是这种调配能力的集中与分散。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">宏观经济</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">财富</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">周期</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.3s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-06</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
+          <span class="text-[10px] text-text-muted">重要度 5</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #f59e0b;">美国战略演变（2017-2026）：从特朗普到后特朗普时代</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">分析美国从特朗普第一任期到2026年的全球战略演变。从贸易战到科技封锁，从地缘博弈到金融制裁——理解美国战略是理解全球秩序的关键。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">美国</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">地缘</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">战略</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.4s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-06</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
+          <span class="text-[10px] text-text-muted">重要度 4</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #f59e0b;">中国 A 股资产结构分析</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">基于Wind金融终端数据，对中国A股市场上市公司的企业所有制结构、大股东持股比例、国有与民营资本分布进行系统分析。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">A股</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">资产结构</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">金融</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Note -->
+  <div class="text-center text-text-muted text-xs py-8 mb-4">更多文章持续更新中...</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 mt-8 bg-bg-secondary/50">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2 text-sm text-text-muted">
+      <span class="gradient-text font-bold">骆驼🐫 商业本质</span>
+      <span>·</span>
+      <span>认识世界 · 理解社会 · 安顿自己</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-text-muted">
+      <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
+      <span>·</span>
+      <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a>
+      <span>·</span>
+      <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a>
+      <span>·</span>
+      <a href="practice.html" class="hover:text-accent-purple transition">思想与修行</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

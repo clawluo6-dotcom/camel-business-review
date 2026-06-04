@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>思想与修行 — 骆驼商业本质</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: { primary:'#0a0e17', secondary:'#111827', card:'#1a1f2e', hover:'#242b3d' },
+          accent: {
+            cyan:'#22d3ee', purple:'#a855f7', emerald:'#34d399',
+            amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c', gold:'#f59e0b'
+          },
+          text: { primary:'#e2e8f0', secondary:'#94a3b8', muted:'#64748b' }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
+  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
+  .nav-link:hover::after { width: 100%; }
+  .pillar-top-bar { position: relative; }
+  .pillar-top-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
+  .bar-cyan::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
+  .bar-gold::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+  .bar-purple::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  .importance-5 { border-left: 3px solid #22d3ee; }
+  .importance-4 { border-left: 3px solid #a855f7; }
+  .importance-3 { border-left: 3px solid #64748b; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  .back-link { transition: all 0.3s ease; }
+  .back-link:hover { transform: translateX(-4px); }
+</style>
+</head>
+<body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 glass border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 no-underline">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
+        <span class="text-white font-bold text-sm">✦</span>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
+      </div>
+    </a>
+    <div class="flex items-center gap-5">
+      <a href="index.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">首页</a>
+      <a href="worldview.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">世界观</a>
+      <a href="social.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-gold transition">社会逻辑</a>
+      <a href="practice.html" class="nav-link text-sm font-medium text-accent-purple">思想与修行</a>
+      <a href="ai-news.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-emerald transition">AI 速报</a>
+      <a href="about.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-amber transition">关于</a>
+      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="max-w-7xl mx-auto px-6 pt-16 pb-8 fade-in">
+  <div class="text-center">
+    <div class="text-6xl mb-4">🧘</div>
+    <h2 class="text-4xl font-extrabold mb-3" style="color: #a855f7;">思想与修行</h2>
+    <p class="text-text-secondary text-lg font-light">Thought & Practice — 人如何认识自己</p>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-6">
+  <!-- Breadcrumb -->
+  <div class="mb-8">
+    <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-purple transition">
+      <span>←</span> <span>返回首页</span>
+    </a>
+  </div>
+
+  <!-- Explanation Section -->
+  <div class="glass rounded-2xl p-8 mb-10 pillar-top-bar bar-purple fade-in" style="animation-delay: 0.05s">
+    <h3 class="text-xl font-bold mb-4" style="color: #a855f7;">关于思想与修行</h3>
+    <p class="text-text-secondary leading-relaxed mb-4">
+      思想与修行板块关注的是人的内在维度。在理解了宇宙法则（世界观）和社会规则（社会逻辑）之后，最终的问题指向自身：我是谁？意识如何运作？如何安顿内心？
+    </p>
+    <p class="text-text-secondary leading-relaxed">
+      这里的「修行」不是宗教仪式，而是思想的自我训练——通过对意识本质的观察、对人性的理解、对心性的调伏，实现内在的自由。哲学思辨是路径，内在安顿是目的。
+    </p>
+  </div>
+
+  <!-- Coverage -->
+  <div class="flex flex-wrap gap-2 mb-8 fade-in" style="animation-delay: 0.1s">
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(168,85,247,0.3); color: #a855f7; background: rgba(168,85,247,0.08);">意识哲学</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(168,85,247,0.3); color: #a855f7; background: rgba(168,85,247,0.08);">人性本质</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(168,85,247,0.3); color: #a855f7; background: rgba(168,85,247,0.08);">心性修养</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(168,85,247,0.3); color: #a855f7; background: rgba(168,85,247,0.08);">内圣外王</span>
+    <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color: rgba(168,85,247,0.3); color: #a855f7; background: rgba(168,85,247,0.08);">思修实践</span>
+  </div>
+
+  <!-- Section Divider -->
+  <div class="section-divider mb-10"></div>
+
+  <!-- Article Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mb-10">
+    <!-- Card 1 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.1s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
+          <span class="text-[10px] text-text-muted">重要度 5</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">人的本质：意识之外的追问</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">如果意识是离散的切片，那么「人的本质」在哪里？本文从意识切片理论出发，逐层剖析自我的构成——从感官到认知，从记忆到身份认同。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">人性</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">意识</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">哲学</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.2s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
+          <span class="text-[10px] text-text-muted">重要度 4</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">一念花开：论心性的力量</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">一念之间，可以开出一朵花，也可以生出一片荒芜。本文从禅宗「一念相应」出发，探讨心性的训练如何改变人的感知和行动能力。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">心性</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">修行</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">禅</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.3s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
+          <span class="text-[10px] text-text-muted">重要度 4</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">内圣外王：儒家修养与现代生活</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">「内圣外王」是儒家修养的终极理想——内修圣人之德，外行王者之道。在现代语境下，它是一条从个人修养到社会参与的内在路径。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">儒家</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">修养</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">内圣外王</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.4s">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] text-text-muted font-mono">2026-06</span>
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
+          <span class="text-[10px] text-text-muted">重要度 4</span>
+        </div>
+      </div>
+      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">性相不二：破一切相的哲学实践</h4>
+      <p class="text-xs text-text-secondary leading-relaxed mb-3">「性」是本质，「相」是表象。当我们说「性相不二」的时候，不是否定表象的存在，而是指出本质与表象之间没有鸿沟。这是破一切相的哲学入口。</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">哲学</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">本质</span>
+        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">修行</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Note -->
+  <div class="text-center text-text-muted text-xs py-8 mb-4">更多文章持续更新中...</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 mt-8 bg-bg-secondary/50">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2 text-sm text-text-muted">
+      <span class="gradient-text font-bold">骆驼🐫 商业本质</span>
+      <span>·</span>
+      <span>认识世界 · 理解社会 · 安顿自己</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-text-muted">
+      <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
+      <span>·</span>
+      <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a>
+      <span>·</span>
+      <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a>
+      <span>·</span>
+      <a href="practice.html" class="hover:text-accent-purple transition">思想与修行</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
