@@ -24,40 +24,36 @@
   }
 </script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
   * { box-sizing: border-box; }
-  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
   .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
-  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
   .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
   .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
-  .nav-link { position: relative; }
+  .nav-link { position: relative; font-size: 14px; font-weight: 700; }
   .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
   .nav-link:hover::after { width: 100%; }
-  .pillar-top-bar { position: relative; }
-  .pillar-top-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
-  .bar-cyan::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
-  .bar-gold::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
-  .bar-purple::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
-  .fade-in { animation: fadeIn 0.6s ease-out; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-  .importance-5 { border-left: 3px solid #22d3ee; }
-  .importance-4 { border-left: 3px solid #a855f7; }
-  .importance-3 { border-left: 3px solid #64748b; }
-  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
-  .back-link { transition: all 0.3s ease; }
-  .back-link:hover { transform: translateX(-4px); }
+  .nav-link.active::after { width: 100%; }
+  .fade-in { animation: fadeIn 0.4s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+  /* Tree sidebar */
+  .tree-module { transition: all 0.2s ease; cursor: pointer; }
+  .tree-module:hover { background: rgba(255,255,255,0.03); }
+  .tree-subdir { transition: all 0.2s ease; cursor: pointer; }
+  .tree-subdir:hover { background: rgba(255,255,255,0.03); }
+  .tree-subdir.active { background: rgba(34,211,238,0.1); border-left: 2px solid #22d3ee; color: #22d3ee; }
+  .tree-subdir.active .tree-count { color: #22d3ee; }
+  .tree-count { font-size: 10px; color: #64748b; }
+  .article-row { transition: all 0.2s ease; }
+  .article-row:hover { background: rgba(36,43,61,0.6); border-color: rgba(255,255,255,0.08); transform: translateX(4px); }
 </style>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
 
-<!-- NAV -->
+<!-- ====== NAV —— 统一 4 项 ====== -->
 <nav class="sticky top-0 z-50 glass border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 no-underline">
+    <a href="index.html" class="flex items-center gap-3 no-underline shrink-0" style="text-decoration:none">
       <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
         <span class="text-white font-bold text-sm">✦</span>
       </div>
@@ -65,116 +61,79 @@
         <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
       </div>
     </a>
-    <div class="flex items-center gap-5">
-      <a href="index.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">首页</a>
-      <a href="worldview.html" class="nav-link text-sm font-medium text-accent-cyan">世界观</a>
-      <a href="social.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-gold transition">社会逻辑</a>
-      <a href="practice.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-purple transition">思想与修行</a>
-      <a href="ai-news.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-emerald transition">AI 速报</a>
-      <a href="about.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-amber transition">关于</a>
-      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+    <div class="flex items-center gap-8">
+      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">首页</a>
+      <a href="worldview.html" class="nav-link active no-underline" style="color:#22d3ee;text-decoration:none">🌌 世界观</a>
+      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none">🏛️ 社会逻辑</a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 速递</a>
     </div>
   </div>
 </nav>
 
 <!-- Hero -->
-<section class="max-w-7xl mx-auto px-6 pt-16 pb-8 fade-in">
+<section class="max-w-7xl mx-auto px-6 pt-12 pb-6 fade-in">
   <div class="text-center">
-    <div class="text-6xl mb-4">🌌</div>
-    <h2 class="text-4xl font-extrabold mb-3" style="color: #22d3ee;">世界观</h2>
-    <p class="text-text-secondary text-lg font-light">Worldview — 宇宙如何运作</p>
+    <div class="text-5xl mb-3">🌌</div>
+    <h2 class="text-3xl font-extrabold mb-2" style="color:#22d3ee;">世界观</h2>
+    <p class="text-text-secondary text-sm">哲学思想研究 — 宇宙如何运作，人如何认识自己</p>
   </div>
 </section>
 
-<div class="max-w-7xl mx-auto px-6">
+<div class="max-w-7xl mx-auto px-6 pb-16">
   <!-- Breadcrumb -->
-  <div class="mb-8">
-    <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-cyan transition">
+  <div class="mb-6">
+    <a href="index.html" class="inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-cyan transition no-underline" style="text-decoration:none">
       <span>←</span> <span>返回首页</span>
     </a>
   </div>
 
-  <!-- Explanation Section -->
-  <div class="glass rounded-2xl p-8 mb-10 pillar-top-bar bar-cyan fade-in" style="animation-delay: 0.05s">
-    <h3 class="text-xl font-bold mb-4" style="color: #22d3ee;">关于世界观</h3>
-    <p class="text-text-secondary leading-relaxed mb-4">
-      世界观板块探讨的是宇宙运行的根本法则。这里的「世界」不只是地球或人类社会，而是整个存在本身——从物理学的力场统一到形而上学的本质追问。
-    </p>
-    <p class="text-text-secondary leading-relaxed">
-      一个不追问世界本质的人，容易被表象迷惑；一个不理解底层法则的人，容易在信息洪流中失去判断。世界观提供的是认知的坐标系——在变动不居的现象背后，寻找不变的结构。
-    </p>
-  </div>
+  <!-- Tree Layout: Sidebar + Content -->
+  <div class="flex gap-6">
+    <!-- LEFT SIDEBAR: Module tree -->
+    <aside class="w-56 flex-shrink-0 hidden md:block">
+      <div class="glass rounded-xl p-4 sticky top-24">
+        <h4 class="text-xs text-text-muted uppercase tracking-wider mb-3 font-semibold">哲学思想研究</h4>
+        <nav id="sidebar-tree" class="flex flex-col gap-0">
+          <!-- dynamic from JS -->
+        </nav>
+      </div>
+    </aside>
 
-  <!-- Coverage -->
-  <div class="flex flex-wrap gap-3 mb-10 fade-in" style="animation-delay: 0.1s">
-    <a href="category.html?pillar=worldview&cat=意识哲学" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(34,211,238,0.35); color: #22d3ee; background: rgba(34,211,238,0.12);">意识哲学</a>
-    <a href="category.html?pillar=worldview&cat=世界的真相" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(34,211,238,0.35); color: #22d3ee; background: rgba(34,211,238,0.12);">世界的真相</a>
-    <a href="category.html?pillar=worldview&cat=性相不二" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(34,211,238,0.35); color: #22d3ee; background: rgba(34,211,238,0.12);">性相不二</a>
-    <a href="category.html?pillar=worldview&cat=力与物理" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(34,211,238,0.35); color: #22d3ee; background: rgba(34,211,238,0.12);">力与物理</a>
-  </div>
-
-  <!-- Section Divider -->
-  <div class="section-divider mb-10"></div>
-
-  <!-- Article Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-    <!-- Card 1 -->
-    <a href="article.html?id=consciousness-slicing" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.1s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
-          <span class="text-[10px] text-text-muted">重要度 5</span>
+    <!-- RIGHT CONTENT -->
+    <main class="flex-1 min-w-0">
+      <!-- Folder Header -->
+      <div id="folder-header" class="glass rounded-xl p-5 mb-4">
+        <div class="flex items-center gap-3">
+          <span id="folder-icon" class="text-2xl">📁</span>
+          <div>
+            <h3 id="folder-title" class="text-lg font-bold" style="color:#22d3ee;"></h3>
+            <p id="folder-path" class="text-xs text-text-muted mt-0.5"></p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 mt-3">
+          <span class="text-xs text-text-muted">共</span>
+          <span id="article-count" class="text-lg font-bold" style="color:#22d3ee;">0</span>
+          <span class="text-xs text-text-muted">篇文章</span>
         </div>
       </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #22d3ee;">意识切片世界观</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">提出一种全新的世界观框架：意识不是连续的河流，而是离散的「时间切片」的集合。每个切片都是一个完整的世界态。这篇文章奠定了整个思想体系的基础。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">意识</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">世界观</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">哲学</span>
-      </div>
-    </div></a>
 
-    <!-- Card 2 -->
-    <a href="article.html?id=world-essence-full" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.2s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
-          <span class="text-[10px] text-text-muted">重要度 5</span>
-        </div>
+      <!-- Article List -->
+      <div id="article-list" class="flex flex-col gap-1">
       </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #22d3ee;">世界的真相（系列导言）</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">「世界的真相」11篇系列文章的总纲。从力的统一到现象的本质，从科学世界观到形而上学的追问——我们看到的「世界」到底有多少层？</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">世界观</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">系列</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(34,211,238,0.1); color: #22d3ee;">物理学</span>
-      </div>
-    </div></a>
 
-    <!-- Card 3 -->
-    <a href="article.html?id=force-unification" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.3s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
-          <span class="text-[10px] text-text-muted">重要度 4</span>
-        </div>
+      <!-- Empty state -->
+      <div id="empty-state" class="hidden glass rounded-xl p-12 text-center">
+        <div class="text-4xl mb-3 opacity-40">📭</div>
+        <p class="text-text-muted">该分类暂无文章</p>
       </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">力的统一：三圈同心圆模型</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">提出力统一理论的三圈同心圆模型：物理力、社会力、意识力——三者同源同构。这是从物理学到社会科学再到意识哲学的桥梁。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">统一理论</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">物理学</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">意识</span>
-      </div>
-    </div></a>
+    </main>
   </div>
 
-  <!-- Footer Note -->
-  <div class="text-center text-text-muted text-xs py-8 mb-4">更多文章持续更新中...</div>
+  <!-- Mobile: dropdown selector -->
+  <div class="md:hidden mb-4">
+    <select id="mobile-selector" class="w-full glass rounded-lg px-4 py-3 text-sm text-text-primary bg-bg-card appearance-none cursor-pointer">
+    </select>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -192,9 +151,237 @@
       <span>·</span>
       <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a>
       <span>·</span>
-      <a href="practice.html" class="hover:text-accent-purple transition">思想与修行</a>
+      <a href="ai-news.html" class="hover:text-accent-emerald transition">AI 速递</a>
     </div>
   </div>
 </footer>
+
+<script src="articles.js"></script>
+<script>
+(function() {
+  const DATA = window.__ARTICLES__;
+  if (!DATA || !DATA.articles) return;
+
+  const ACCENT = '#22d3ee';
+  const PILLAR = 'worldview';
+
+  // ---- Module tree definition (matches Obsidian 01-哲学思想研究/) ----
+  const MODULE_TREE = [
+    {
+      module: '传统哲学研究',
+      icon: '📜',
+      subdirs: [
+        { name: '世界的真相', desc: '对宇宙本质、意识本源的系统性追问' },
+        { name: '传统哲学', desc: '太极图说、道德经、周易等经典解读' },
+        { name: '内圣外王', desc: '内圣外王——修己与治世之道' },
+        { name: '西游记', desc: '《西游记》中的修行密码' },
+        { name: '豆豆三部曲', desc: '《豆豆三部曲》思想解读' }
+      ]
+    },
+    {
+      module: '佛学思想研究',
+      icon: '🪷',
+      subdirs: [
+        { name: '佛陀的核心思想', desc: '八正道、十二因缘、三法印、四圣谛' },
+        { name: '佛教思想', desc: '五见、分别心、三界唯心、觉与空' },
+        { name: '金刚经', desc: '《金刚般若波罗蜜经》原文与解读' },
+        { name: '中观唯识', desc: '龙树中观、唯识学说' },
+        { name: '止观禅定', desc: '四禅八定至灭尽定与涅槃' },
+        { name: '禅宗六祖', desc: '禅宗传法与顿悟法门' },
+        { name: '心与识', desc: '心识运作机制与观心之道' },
+        { name: '修行方法', desc: '圣多纳释放法、三破法、漏尽通' }
+      ]
+    },
+    {
+      module: '儒家思想研究',
+      icon: '📖',
+      subdirs: [
+        { name: '儒家思想研究', desc: '儒家经典与义理研究' }
+      ]
+    },
+    {
+      module: '科学哲学研究',
+      icon: '🔬',
+      subdirs: [
+        { name: '科学哲学研究', desc: '太极波粒、统一场论等科学范式追问' }
+      ]
+    }
+  ];
+
+  // ---- Build lookup: subcategory → { module, subdir } ----
+  const subdirMap = {};
+  MODULE_TREE.forEach(mod => {
+    mod.subdirs.forEach(sd => {
+      subdirMap[sd.name] = { module: mod.module, moduleIcon: mod.icon, ...sd };
+    });
+  });
+
+  // ---- Filter articles ----
+  const articles = DATA.articles.filter(a => a.pillar === PILLAR);
+
+  // Group by subcategory
+  const bySub = {};
+  articles.forEach(a => {
+    const sc = a.subcategory || '未分类';
+    if (!bySub[sc]) bySub[sc] = [];
+    bySub[sc].push(a);
+  });
+
+  // Smart sort: 按标题中的数字/中文序号排序（一<二<...<十<十一；1<2<10）
+  function extractNum(title) {
+    var m = title.match(/^(\d+)[-\\.、．\\s·]+/);
+    if (m) return parseInt(m[1],10);
+    var cn = {一:1,二:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9,十:10};
+    m = title.match(/^([一二三四五六七八九十]+)[、，,\\s·]*/);
+    if (m) {
+      var s = m[1];
+      if (s.length===1) return cn[s]||0;
+      if (s.length===2) {
+        if (s[0]==='十') return 10+(cn[s[1]]||0);
+        if (s[1]==='十') return (cn[s[0]]||0)*10;
+      }
+      if (s.length===3 && s[1]==='十') return (cn[s[0]]||0)*10+(cn[s[2]]||0);
+    }
+    return 0;
+  }
+  var collator = new Intl.Collator('zh-Hans-CN', { numeric: true });
+  Object.keys(bySub).forEach(function(k) {
+    bySub[k].sort(function(a,b) {
+      var na=extractNum(a.title), nb=extractNum(b.title);
+      if (na!==nb) return na-nb;
+      return collator.compare(a.title, b.title);
+    });
+  });
+
+  // ---- Build flat folder list for sidebar ----
+  // For modules where all subdirs have exactly 1 subdir with same name as module, flatten
+  const flatFolders = [];
+  MODULE_TREE.forEach(mod => {
+    mod.subdirs.forEach(sd => {
+      const count = (bySub[sd.name] || []).length;
+      flatFolders.push({
+        label: sd.name,
+        module: mod.module,
+        moduleIcon: mod.icon,
+        desc: sd.desc,
+        count: count,
+        subcat: sd.name,
+      });
+    });
+  });
+
+  // ---- Render sidebar tree ----
+  function buildSidebar() {
+    const sidebar = document.getElementById('sidebar-tree');
+    if (!sidebar) return;
+
+    let html = '';
+    let currentModule = '';
+    MODULE_TREE.forEach(mod => {
+      // Module header
+      const modArticles = mod.subdirs.reduce((sum, sd) => sum + (bySub[sd.name] || []).length, 0);
+      html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
+        <span>${mod.icon}</span>
+        <span class="flex-1">${mod.module}</span>
+        <span class="tree-count">${modArticles}篇</span>
+      </div>`;
+
+      // Subdirs
+      mod.subdirs.forEach(sd => {
+        const count = (bySub[sd.name] || []).length;
+        html += `<button class="tree-subdir w-full text-left px-2 py-1.5 pl-6 rounded text-sm text-text-secondary flex items-center justify-between border-l border-transparent"
+                data-sub="${sd.name}" onclick="window.__selectFolder('${sd.name}')">
+          <span class="truncate">${sd.name}</span>
+          <span class="tree-count ml-2 flex-shrink-0">${count}</span>
+        </button>`;
+      });
+    });
+
+    sidebar.innerHTML = html;
+  }
+
+  // ---- Render article list for a subfolder ----
+  function renderArticles(subKey) {
+    const list = bySub[subKey] || [];
+    const info = subdirMap[subKey] || { module: '', moduleIcon: '📁', desc: '' };
+    const container = document.getElementById('article-list');
+    const empty = document.getElementById('empty-state');
+    const countEl = document.getElementById('article-count');
+    const titleEl = document.getElementById('folder-title');
+    const pathEl = document.getElementById('folder-path');
+    const iconEl = document.getElementById('folder-icon');
+
+    if (titleEl) titleEl.textContent = subKey;
+    if (pathEl) pathEl.textContent = info.module ? `${info.module} / ${subKey}` : subKey;
+    if (iconEl) iconEl.textContent = info.moduleIcon || '📁';
+    if (countEl) countEl.textContent = list.length;
+
+    if (list.length === 0) {
+      container.innerHTML = '';
+      if (empty) empty.classList.remove('hidden');
+    } else {
+      if (empty) empty.classList.add('hidden');
+      container.innerHTML = list.map((a, i) => `
+        <a href="article.html?id=${a.id}" class="article-row block no-underline glass rounded-lg px-5 py-3.5 border border-white/5 fade-in"
+           style="animation-delay:${i * 0.03}s;text-decoration:none;">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono w-8 flex-shrink-0" style="color:${ACCENT}">${String(i + 1).padStart(2, '0')}</span>
+            <div class="flex-1 min-w-0">
+              <h4 class="text-sm font-semibold text-text-primary leading-snug truncate">${a.title}</h4>
+              <p class="text-xs text-text-muted mt-1 truncate">${(a.tags || []).join(' · ')}</p>
+            </div>
+            <div class="flex-shrink-0 hidden sm:flex items-center gap-2">
+              <span class="text-[10px] text-text-muted font-mono">${a.date || ''}</span>
+              <span class="text-[10px] text-text-muted">${a.wordCount || 0}字</span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    // Update active
+    document.querySelectorAll('.tree-subdir').forEach(el => {
+      el.classList.toggle('active', el.dataset.sub === subKey);
+    });
+
+    // Update mobile
+    const mobile = document.getElementById('mobile-selector');
+    if (mobile && mobile.value !== subKey) {
+      mobile.value = subKey;
+    }
+
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+  }
+
+  // ---- Mobile selector ----
+  function buildMobile() {
+    const sel = document.getElementById('mobile-selector');
+    if (!sel) return;
+    let opts = '';
+    MODULE_TREE.forEach(mod => {
+      opts += `<optgroup label="${mod.module}">`;
+      mod.subdirs.forEach(sd => {
+        opts += `<option value="${sd.name}">${sd.name}（${(bySub[sd.name]||[]).length}篇）</option>`;
+      });
+      opts += '</optgroup>';
+    });
+    sel.innerHTML = opts;
+    sel.addEventListener('change', function() {
+      window.__selectFolder(this.value);
+    });
+  }
+
+  // Expose
+  window.__selectFolder = renderArticles;
+
+  // Init
+  buildSidebar();
+  buildMobile();
+
+  // Default: first subdir with articles, or first overall
+  const first = flatFolders.find(f => f.count > 0) || flatFolders[0];
+  if (first) renderArticles(first.subcat);
+})();
+</script>
 </body>
 </html>

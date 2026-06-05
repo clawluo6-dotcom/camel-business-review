@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>经济史研究 — 骆驼商业本质</title>
+<meta name="description" content="全球经济史与大周期研究——500年霸权更迭、大国兴衰的底层逻辑。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: { primary:'#0a0e17', secondary:'#111827', card:'#1a1f2e', hover:'#242b3d' },
+          accent: { cyan:'#22d3ee', purple:'#a855f7', emerald:'#34d399', amber:'#fbbf24', rose:'#fb7185', orange:'#fb923c', gold:'#f59e0b' },
+          text: { primary:'#e2e8f0', secondary:'#94a3b8', muted:'#64748b' }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { box-sizing: border-box; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
+  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
+  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-pillar { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .nav-pillar .nav-macro { font-size: 14px; font-weight: 600; line-height: 1.2; }
+  .nav-pillar .nav-research { font-size: 10px; font-weight: 400; opacity: 0.6; letter-spacing: 0.5px; line-height: 1.2; }
+  .pillar-top-bar { position: relative; }
+  .pillar-top-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
+  .bar-cyan::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
+  .bar-gold::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  .importance-5 { border-left: 3px solid #22d3ee; }
+  .importance-4 { border-left: 3px solid #a855f7; }
+  .importance-3 { border-left: 3px solid #64748b; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  .back-link { transition: all 0.3s ease; }
+  .back-link:hover { transform: translateX(-4px); }
+  .empty-state { min-height: 200px; display: flex; align-items: center; justify-content: center; }
+</style>
+<script src="articles.js"></script>
+</head>
+<body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
+
+<nav class="sticky top-0 z-50 glass border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 no-underline shrink-0">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
+        <span class="text-white font-bold text-sm">✦</span>
+      </div>
+      <div><h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1></div>
+        <div class="flex items-center gap-8">
+      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">首页</a>
+      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🌌 世界观</a>
+      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🏛️ 社会逻辑</a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">📡 AI 速递</a>
+    </div>
+  </div>
+</nav>
+
+<div class="max-w-5xl mx-auto px-6 pt-8 pb-2 fade-in">
+  <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm no-underline transition" style="color:#f59e0b;"><span>←</span> <span>返回首页</span></a>
+  <span class="text-text-muted mx-2 text-sm">/</span>
+  <a href="social.html" class="text-sm no-underline transition hover:opacity-70" style="color:#f59e0b;">🏛️ 社会逻辑 · 经济研究</a>
+  <span class="text-text-muted mx-2 text-sm">/</span>
+  <span class="text-sm font-semibold" style="color:#f59e0b;">经济史研究</span>
+</div>
+
+<section class="max-w-5xl mx-auto px-6 pt-6 pb-4 fade-in" style="animation-delay:0.05s">
+  <div class="text-center">
+    <div class="text-5xl mb-3">📜</div>
+    <h2 class="text-3xl font-extrabold mb-2" style="color:#f59e0b;">经济史研究</h2>
+    <p class="text-text-secondary text-sm font-light max-w-lg mx-auto">霸权更迭 · 大国兴衰 · 500年全球大周期的底层逻辑</p>
+  </div>
+</section>
+
+<div class="max-w-5xl mx-auto px-6 mb-8 fade-in" style="animation-delay:0.1s">
+  <div class="glass rounded-2xl p-7 pillar-top-bar bar-gold">
+    <h3 class="text-lg font-bold mb-3" style="color:#f59e0b;">研究说明</h3>
+    <p class="text-text-secondary leading-relaxed text-sm">
+      不理解历史，就无法理解当下。本研究方向以500年跨度为基本观测单位，追踪从葡萄牙、西班牙、荷兰、英国到美国的全球霸权更迭过程。揭示军事、金融、科技、文化、制度五维霸权的运作机制——经济史的规律不在一年一季，在百年尺度。
+    </p>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-6 mb-8 fade-in" style="animation-delay:0.15s">
+  <div class="flex flex-wrap items-center gap-2">
+    <span class="text-xs text-text-muted mr-2">同板块研究：</span>
+    <a href="macroeconomic-research.html" class="px-4 py-2 rounded-lg text-sm font-medium border no-underline transition-all duration-300 hover:-translate-y-0.5" style="border-color:rgba(245,158,11,0.15);color:#94a3b8;background:rgba(245,158,11,0.03);">宏观经济研究</a>
+    <a href="international-finance.html" class="px-4 py-2 rounded-lg text-sm font-medium border no-underline transition-all duration-300 hover:-translate-y-0.5" style="border-color:rgba(245,158,11,0.15);color:#94a3b8;background:rgba(245,158,11,0.03);">国际金融研究</a>
+    <a href="china-economy.html" class="px-4 py-2 rounded-lg text-sm font-medium border no-underline transition-all duration-300 hover:-translate-y-0.5" style="border-color:rgba(245,158,11,0.15);color:#94a3b8;background:rgba(245,158,11,0.03);">中国经济观察</a>
+    <a href="business-model.html" class="px-4 py-2 rounded-lg text-sm font-medium border no-underline transition-all duration-300 hover:-translate-y-0.5" style="border-color:rgba(245,158,11,0.15);color:#94a3b8;background:rgba(245,158,11,0.03);">商业模式研究</a>
+  </div>
+</div>
+
+<div class="section-divider max-w-5xl mx-auto mb-8"></div>
+
+<div id="article-container" class="max-w-5xl mx-auto px-6 pb-16">
+  <div id="app"><div class="text-center text-text-muted py-20">加载中...</div></div>
+</div>
+
+<footer class="border-t border-white/5 bg-bg-secondary/50">
+  <div class="max-w-5xl mx-auto px-6 py-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-5 mb-3">
+      <div class="flex items-center gap-3"><span class="gradient-text font-bold text-xl">骆驼🐫 商业本质</span><span class="text-text-muted text-base">·</span><span class="text-text-secondary text-base">个人跨领域独立研究</span></div>
+      <div class="flex items-center gap-3">
+        <a href="https://www.ximalaya.com/zhubo/3049357" target="_blank" rel="noopener" class="glass rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 no-underline inline-flex items-center gap-2" style="border:1px solid rgba(255,255,255,0.08);"><span class="text-lg">🎙️</span> 喜马拉雅</a>
+        <a href="https://space.bilibili.com/527952781" target="_blank" rel="noopener" class="glass rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 no-underline inline-flex items-center gap-2" style="border:1px solid rgba(255,255,255,0.08);"><span class="text-lg">📺</span> B站</a>
+        <a href="https://zhuanlan.zhihu.com/c_1033349413602889728" target="_blank" rel="noopener" class="glass rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 no-underline inline-flex items-center gap-2" style="border:1px solid rgba(255,255,255,0.08);"><span class="text-lg">✍️</span> 知乎</a>
+        <a href="https://mp.sohu.com/profile?xpt=ODg1NDI3OTk1NDIxMjE2NzY4QHNvaHUuY29t" target="_blank" rel="noopener" class="glass rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 no-underline inline-flex items-center gap-2" style="border:1px solid rgba(255,255,255,0.08);"><span class="text-lg">📰</span> 搜狐号</a>
+      </div>
+    </div>
+    <div class="flex items-center justify-center gap-3 text-[11px] text-text-muted">
+      <a href="index.html" class="hover:text-accent-cyan transition">首页</a><span>·</span><a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a><span>·</span><a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a><span>·</span><span class="opacity-50">&copy; 2016-2026 骆驼商业本质</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var CATEGORY_MAP = {
+    '传统哲学研究': ['意识哲学'],
+    '佛学思想研究': ['性相不二'],
+    '儒家思想研究': ['内圣外王', '人的本质', '处世实践', '心性修养', '文化修行'],
+    '科学哲学研究': ['世界的真相', '力与物理'],
+    '经济史研究': ['500年大周期'],
+    '宏观经济研究': ['宏观经济'],
+    '国际金融研究': ['全球地缘'],
+    '中国经济观察': ['产业经济'],
+    '商业模式研究': []
+  };
+  var mapped = CATEGORY_MAP['经济史研究'] || [];
+  var articles = (window.__ARTICLES__ && window.__ARTICLES__.articles) || [];
+  var filtered = articles.filter(function(a){ return a.pillar === 'social' && mapped.indexOf(a.subcategory) !== -1; });
+  var ACC = '#f59e0b', html = '<div class="mb-6 fade-in" style="animation-delay:0.2s"><h3 class="text-lg font-bold" style="color:'+ACC+'">文章列表</h3><p class="text-text-secondary text-sm">共 '+filtered.length+' 篇</p></div>';
+  if (filtered.length === 0) {
+    html += '<div class="glass rounded-2xl p-12 empty-state"><p class="text-text-muted text-base">该分类暂无文章，敬请期待</p></div>';
+  } else {
+    html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-5">';
+    filtered.forEach(function(a,i){
+      var cls = a.importance>=5?'importance-5':a.importance>=4?'importance-4':'importance-3';
+      html += '<a href="article.html?id='+a.id+'" class="glass rounded-xl p-6 glass-hover fade-in '+cls+' block no-underline" style="animation-delay:'+(0.05*(i+1))+'s">';
+      html += '<div class="flex items-center justify-between mb-3"><span class="text-[10px] text-text-muted font-mono">'+(a.date||'')+'</span>';
+      if (a.importance>=5) html += '<span class="text-[10px] px-2 py-0.5 rounded-full" style="background:rgba(245,158,11,0.12);color:#f59e0b">精选</span>';
+      html += '</div><h4 class="font-semibold text-sm mb-2 leading-snug" style="color:'+ACC+'">'+a.title+'</h4>';
+      html += '<p class="text-xs text-text-secondary leading-relaxed">'+(a.summary||'').substring(0,120)+'</p></a>';
+    });
+    html += '</div>';
+  }
+  document.getElementById('app').innerHTML = html;
+})();
+</script>
+</body>
+</html>

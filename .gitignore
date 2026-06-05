@@ -1,0 +1,19 @@
+# Backup files
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Screenshots and temp images
+manus_site_screenshot.png
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

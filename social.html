@@ -24,40 +24,36 @@
   }
 </script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
   * { box-sizing: border-box; }
-  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
   .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
-  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
   .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
-  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
-  .nav-link { position: relative; }
+  .bg-glow-gold { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(251,191,36,0.04) 0%, transparent 70%); }
+  .nav-link { position: relative; font-size: 14px; font-weight: 700; }
   .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
   .nav-link:hover::after { width: 100%; }
-  .pillar-top-bar { position: relative; }
-  .pillar-top-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
-  .bar-cyan::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
-  .bar-gold::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
-  .bar-purple::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
-  .fade-in { animation: fadeIn 0.6s ease-out; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-  .importance-5 { border-left: 3px solid #22d3ee; }
-  .importance-4 { border-left: 3px solid #a855f7; }
-  .importance-3 { border-left: 3px solid #64748b; }
-  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
-  .back-link { transition: all 0.3s ease; }
-  .back-link:hover { transform: translateX(-4px); }
+  .nav-link.active::after { width: 100%; }
+  .fade-in { animation: fadeIn 0.4s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+  .tree-module { transition: all 0.2s ease; cursor: pointer; }
+  .tree-module:hover { background: rgba(255,255,255,0.03); }
+  .tree-subdir { transition: all 0.2s ease; cursor: pointer; }
+  .tree-subdir:hover { background: rgba(255,255,255,0.03); }
+  .tree-subdir.active { background: rgba(251,191,36,0.1); border-left: 2px solid #fbbf24; color: #fbbf24; }
+  .tree-subdir.active .tree-count { color: #fbbf24; }
+  .tree-count { font-size: 10px; color: #64748b; }
+  .article-row { transition: all 0.2s ease; }
+  .article-row:hover { background: rgba(36,43,61,0.6); border-color: rgba(255,255,255,0.08); transform: translateX(4px); }
 </style>
 </head>
-<body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
+<body class="bg-bg-primary bg-grid min-h-screen bg-glow-gold">
 
-<!-- NAV -->
+<!-- ====== NAV —— 统一 4 项 ====== -->
 <nav class="sticky top-0 z-50 glass border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 no-underline">
+    <a href="index.html" class="flex items-center gap-3 no-underline shrink-0" style="text-decoration:none">
       <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
         <span class="text-white font-bold text-sm">✦</span>
       </div>
@@ -65,138 +61,70 @@
         <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
       </div>
     </a>
-    <div class="flex items-center gap-5">
-      <a href="index.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">首页</a>
-      <a href="worldview.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">世界观</a>
-      <a href="social.html" class="nav-link text-sm font-medium text-accent-gold">社会逻辑</a>
-      <a href="practice.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-purple transition">思想与修行</a>
-      <a href="ai-news.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-emerald transition">AI 速报</a>
-      <a href="about.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-amber transition">关于</a>
-      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+    <div class="flex items-center gap-8">
+      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">首页</a>
+      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">🌌 世界观</a>
+      <a href="social.html" class="nav-link active no-underline" style="color:#fbbf24;text-decoration:none">🏛️ 社会逻辑</a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 速递</a>
     </div>
   </div>
 </nav>
 
 <!-- Hero -->
-<section class="max-w-7xl mx-auto px-6 pt-16 pb-8 fade-in">
+<section class="max-w-7xl mx-auto px-6 pt-12 pb-6 fade-in">
   <div class="text-center">
-    <div class="text-6xl mb-4">🏛️</div>
-    <h2 class="text-4xl font-extrabold mb-3" style="color: #f59e0b;">社会逻辑</h2>
-    <p class="text-text-secondary text-lg font-light">Social Logic — 社会如何形成与运行</p>
+    <div class="text-5xl mb-3">🏛️</div>
+    <h2 class="text-3xl font-extrabold mb-2" style="color:#fbbf24;">社会逻辑</h2>
+    <p class="text-text-secondary text-sm">经济研究 — 社会如何形成与运行，经济如何驱动历史</p>
   </div>
 </section>
 
-<div class="max-w-7xl mx-auto px-6">
-  <!-- Breadcrumb -->
-  <div class="mb-8">
-    <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-gold transition">
+<div class="max-w-7xl mx-auto px-6 pb-16">
+  <div class="mb-6">
+    <a href="index.html" class="inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-gold transition no-underline" style="text-decoration:none">
       <span>←</span> <span>返回首页</span>
     </a>
   </div>
 
-  <!-- Explanation Section -->
-  <div class="glass rounded-2xl p-8 mb-10 pillar-top-bar bar-gold fade-in" style="animation-delay: 0.05s">
-    <h3 class="text-xl font-bold mb-4" style="color: #f59e0b;">关于社会逻辑</h3>
-    <p class="text-text-secondary leading-relaxed mb-4">
-      社会逻辑板块探讨的是人类社会的组织规律。从全球格局到商业实践，从500年霸权更迭到产业经济的微观落地——权力、财富、制度之间的互动遵循着深层逻辑。
-    </p>
-    <p class="text-text-secondary leading-relaxed">
-      这里的「秩序」不是指静态的规则手册，而是动态的结构演化。宏观经济、地缘博弈、商业模式、企业观察——这些都是社会逻辑在不同尺度上的投影。理解了秩序，就理解了局势。
-    </p>
+  <div class="flex gap-6">
+    <!-- LEFT SIDEBAR: Module tree -->
+    <aside class="w-56 flex-shrink-0 hidden md:block">
+      <div class="glass rounded-xl p-4 sticky top-24">
+        <h4 class="text-xs text-text-muted uppercase tracking-wider mb-3 font-semibold">经济研究</h4>
+        <nav id="sidebar-tree" class="flex flex-col gap-0">
+        </nav>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <main class="flex-1 min-w-0">
+      <div id="folder-header" class="glass rounded-xl p-5 mb-4">
+        <div class="flex items-center gap-3">
+          <span id="folder-icon" class="text-2xl">📁</span>
+          <div>
+            <h3 id="folder-title" class="text-lg font-bold" style="color:#fbbf24;"></h3>
+            <p id="folder-path" class="text-xs text-text-muted mt-0.5"></p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 mt-3">
+          <span class="text-xs text-text-muted">共</span>
+          <span id="article-count" class="text-lg font-bold" style="color:#fbbf24;">0</span>
+          <span class="text-xs text-text-muted">篇文章</span>
+        </div>
+      </div>
+      <div id="article-list" class="flex flex-col gap-1"></div>
+      <div id="empty-state" class="hidden glass rounded-xl p-12 text-center">
+        <div class="text-4xl mb-3 opacity-40">📭</div>
+        <p class="text-text-muted">该分类暂无文章</p>
+      </div>
+    </main>
   </div>
 
-  <!-- Coverage -->
-  <div class="flex flex-wrap gap-3 mb-10 fade-in" style="animation-delay: 0.1s">
-    <a href="category.html?pillar=social&cat=宏观经济" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(245,158,11,0.35); color: #fbbf24; background: rgba(245,158,11,0.12);">宏观经济</a>
-    <a href="category.html?pillar=social&cat=500年大周期" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(245,158,11,0.35); color: #fbbf24; background: rgba(245,158,11,0.12);">500年大周期</a>
-    <a href="category.html?pillar=social&cat=全球地缘" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(245,158,11,0.35); color: #fbbf24; background: rgba(245,158,11,0.12);">全球地缘</a>
-    <a href="category.html?pillar=social&cat=产业经济" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(245,158,11,0.35); color: #fbbf24; background: rgba(245,158,11,0.12);">产业经济</a>
+  <div class="md:hidden mb-4">
+    <select id="mobile-selector" class="w-full glass rounded-lg px-4 py-3 text-sm text-text-primary bg-bg-card appearance-none cursor-pointer"></select>
   </div>
-
-  <!-- Section Divider -->
-  <div class="section-divider mb-10"></div>
-
-  <!-- Article Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mb-10">
-    <!-- Card 1 -->
-    <a href="article.html?id=500-overview" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.1s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
-          <span class="text-[10px] text-text-muted">重要度 5</span>
-        </div>
-      </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #f59e0b;">500 年霸权更迭：从葡萄牙到中美争霸</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">大周期系列开篇。梳理500年来全球霸权的五次更迭，揭示军事、金融、科技、文化、制度五维霸权的运作机制，预测下一阶段中美争霸的走向。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">大周期</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">地缘</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">霸权</span>
-      </div>
-    </div>
-</a>
-
-    <!-- Card 2 -->
-    <a href="article.html?id=wealth-delusion" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.2s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
-          <span class="text-[10px] text-text-muted">重要度 4</span>
-        </div>
-      </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #f59e0b;">财富的谬论：对经济周期本质的再思考</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">重新审视「财富」概念的本质——财富不是拥有的资源，而是调配资源的能力。经济周期的本质是这种调配能力的集中与分散。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">宏观经济</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">财富</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">周期</span>
-      </div>
-    </div></a>
-
-    <!-- Card 3 -->
-    <a href="article.html?id=us-strategy-dollar" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.3s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-06</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
-          <span class="text-[10px] text-text-muted">重要度 5</span>
-        </div>
-      </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #f59e0b;">美国战略演变（2017-2026）：从特朗普到后特朗普时代</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">分析美国从特朗普第一任期到2026年的全球战略演变。从贸易战到科技封锁，从地缘博弈到金融制裁——理解美国战略是理解全球秩序的关键。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">美国</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">地缘</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">战略</span>
-      </div>
-    </div></a>
-
-    <!-- Card 4 -->
-    <a href="article.html?id=china-astock" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.4s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-06</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
-          <span class="text-[10px] text-text-muted">重要度 4</span>
-        </div>
-      </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #f59e0b;">中国 A 股资产结构分析</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">基于Wind金融终端数据，对中国A股市场上市公司的企业所有制结构、大股东持股比例、国有与民营资本分布进行系统分析。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">A股</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">资产结构</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(245,158,11,0.1); color: #f59e0b;">金融</span>
-      </div>
-    </div></a>
-  </div>
-
-  <!-- Footer Note -->
-  <div class="text-center text-text-muted text-xs py-8 mb-4">更多文章持续更新中...</div>
 </div>
 
-<!-- FOOTER -->
 <footer class="border-t border-white/5 mt-8 bg-bg-secondary/50">
   <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-2 text-sm text-text-muted">
@@ -205,15 +133,227 @@
       <span>认识世界 · 理解社会 · 安顿自己</span>
     </div>
     <div class="flex items-center gap-4 text-xs text-text-muted">
-      <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
-      <span>·</span>
-      <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a>
-      <span>·</span>
-      <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a>
-      <span>·</span>
-      <a href="practice.html" class="hover:text-accent-purple transition">思想与修行</a>
+      <a href="index.html" class="hover:text-accent-cyan transition">首页</a> <span>·</span>
+      <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a> <span>·</span>
+      <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a> <span>·</span>
+      <a href="ai-news.html" class="hover:text-accent-emerald transition">AI 速递</a>
     </div>
   </div>
 </footer>
+
+<script src="articles.js"></script>
+<script>
+(function() {
+  const DATA = window.__ARTICLES__;
+  if (!DATA || !DATA.articles) return;
+
+  const ACCENT = '#fbbf24';
+  const PILLAR = 'social';
+
+  // ---- Module tree: 严格对齐 Obsidian 02-经济研究/ ----
+  const MODULE_TREE = [
+    {
+      module: '经济总纲',
+      icon: '🧭',
+      subdirs: [
+        { name: '经济总纲', dataSubcat: '经济总纲', desc: '经济研究体系的总体索引与知识地图' }
+      ]
+    },
+    {
+      module: '一、经济史研究',
+      icon: '📜',
+      subdirs: [
+        { name: '经济史研究', dataSubcat: '经济史研究', desc: '经济史研究的总体索引' },
+        { name: '世界历史', dataSubcat: '世界历史', desc: '全球历史脉络中的霸权更迭与文明兴衰' },
+        { name: '中国历史', dataSubcat: '中国历史', desc: '中国三百年朝代更替、历代发展与金融危机' }
+      ]
+    },
+    {
+      module: '二、宏观经济与周期研究',
+      icon: '📊',
+      subdirs: [
+        { name: '宏观经济', dataSubcat: '宏观经济', desc: '经济周期、经济危机、财富本质与原理公式' },
+        { name: '500年大周期', dataSubcat: '500年大周期', desc: '五百年全球霸权更迭的完整逻辑推演' }
+      ]
+    },
+    {
+      module: '三、国际金融与政策研究',
+      icon: '🌐',
+      subdirs: [
+        { name: '国际金融', dataSubcat: '国际金融', desc: '全球金融秩序、石油霸权、美元体系与数字货币' },
+        { name: '美国战略', dataSubcat: '美国战略', desc: '美国对外三大战略、制裁体系与全球掠夺逻辑' }
+      ]
+    },
+    {
+      module: '四、中国经济观察',
+      icon: '🇨🇳',
+      subdirs: [
+        { name: '中国经济', dataSubcat: '中国经济', desc: '民营企业、芯片产业、农村改革、海南封关等中国议题' }
+      ]
+    }
+  ];
+
+  // ---- Build flat mapping ----
+  const folderMap = {}; // folderName → { module, icon, dataSubcat, desc }
+  MODULE_TREE.forEach(mod => {
+    mod.subdirs.forEach(sd => {
+      folderMap[sd.name] = { module: mod.module, icon: mod.icon, dataSubcat: sd.dataSubcat || sd.name, desc: sd.desc };
+    });
+  });
+
+  // ---- Filter articles ----
+  const articles = DATA.articles.filter(a => a.pillar === PILLAR);
+
+  // Group by subcategory (data field)
+  const bySub = {};
+  articles.forEach(a => {
+    const sc = a.subcategory || '未分类';
+    if (!bySub[sc]) bySub[sc] = [];
+    bySub[sc].push(a);
+  });
+
+  // Smart sort: 按标题中的数字/中文序号排序（一<二<...<十<十一；1<2<10）
+  function extractNum(title) {
+    // 阿拉伯数字前缀: "01-" "1-" "01·"
+    var m = title.match(/^(\d+)[-\\.、．\\s·]+/);
+    if (m) return parseInt(m[1],10);
+    // 中文数字前缀: "一、" "八、" "十二、"
+    var cn = {一:1,二:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9,十:10};
+    m = title.match(/^([一二三四五六七八九十]+)[、，,\\s·]*/);
+    if (m) {
+      var s = m[1];
+      if (s.length===1) return cn[s]||0;
+      if (s.length===2) {
+        if (s[0]==='十') return 10+(cn[s[1]]||0);
+        if (s[1]==='十') return (cn[s[0]]||0)*10;
+      }
+      if (s.length===3 && s[1]==='十') return (cn[s[0]]||0)*10+(cn[s[2]]||0);
+    }
+    return 0;
+  }
+  var collator = new Intl.Collator('zh-Hans-CN', { numeric: true });
+  Object.keys(bySub).forEach(function(k) {
+    bySub[k].sort(function(a,b) {
+      var na=extractNum(a.title), nb=extractNum(b.title);
+      if (na!==nb) return na-nb;
+      return collator.compare(a.title, b.title);
+    });
+  });
+
+  // ---- Render sidebar tree ----
+  function buildSidebar() {
+    const sidebar = document.getElementById('sidebar-tree');
+    if (!sidebar) return;
+
+    let html = '';
+    MODULE_TREE.forEach(mod => {
+      const modTotal = mod.subdirs.reduce((sum, sd) => sum + (bySub[sd.dataSubcat] || []).length, 0);
+      html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
+        <span>${mod.icon}</span>
+        <span class="flex-1">${mod.module}</span>
+        <span class="tree-count">${modTotal}篇</span>
+      </div>`;
+
+      mod.subdirs.forEach(sd => {
+        const count = (bySub[sd.dataSubcat] || []).length;
+        html += `<button class="tree-subdir w-full text-left px-2 py-1.5 pl-6 rounded text-sm text-text-secondary flex items-center justify-between border-l border-transparent"
+                data-folder="${sd.name}" onclick="window.__selectFolder('${sd.name}')">
+          <span class="truncate">${sd.name}</span>
+          <span class="tree-count ml-2 flex-shrink-0">${count}</span>
+        </button>`;
+      });
+    });
+
+    sidebar.innerHTML = html;
+  }
+
+  // ---- Render articles for a folder ----
+  function renderArticles(folderName) {
+    const info = folderMap[folderName] || { dataSubcat: folderName, module: '', icon: '📁', desc: '' };
+    const list = bySub[info.dataSubcat] || [];
+    const container = document.getElementById('article-list');
+    const empty = document.getElementById('empty-state');
+    const countEl = document.getElementById('article-count');
+    const titleEl = document.getElementById('folder-title');
+    const pathEl = document.getElementById('folder-path');
+    const iconEl = document.getElementById('folder-icon');
+
+    if (titleEl) titleEl.textContent = folderName;
+    if (pathEl) pathEl.textContent = info.module ? `${info.module} / ${folderName}` : folderName;
+    if (iconEl) iconEl.textContent = info.icon || '📁';
+    if (countEl) countEl.textContent = list.length;
+
+    if (list.length === 0) {
+      container.innerHTML = '';
+      if (empty) empty.classList.remove('hidden');
+    } else {
+      if (empty) empty.classList.add('hidden');
+      container.innerHTML = list.map((a, i) => `
+        <a href="article.html?id=${a.id}" class="article-row block no-underline glass rounded-lg px-5 py-3.5 border border-white/5 fade-in"
+           style="animation-delay:${i * 0.03}s;text-decoration:none;">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono w-8 flex-shrink-0" style="color:${ACCENT}">${String(i + 1).padStart(2, '0')}</span>
+            <div class="flex-1 min-w-0">
+              <h4 class="text-sm font-semibold text-text-primary leading-snug truncate">${a.title}</h4>
+              <p class="text-xs text-text-muted mt-1 truncate">${(a.tags || []).join(' · ')}</p>
+            </div>
+            <div class="flex-shrink-0 hidden sm:flex items-center gap-2">
+              <span class="text-[10px] text-text-muted font-mono">${a.date || ''}</span>
+              <span class="text-[10px] text-text-muted">${a.wordCount || 0}字</span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    // Update active
+    document.querySelectorAll('.tree-subdir').forEach(el => {
+      el.classList.toggle('active', el.dataset.folder === folderName);
+    });
+
+    // Update mobile
+    const mobile = document.getElementById('mobile-selector');
+    if (mobile && mobile.value !== folderName) {
+      mobile.value = folderName;
+    }
+
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+  }
+
+  // ---- Mobile selector ----
+  function buildMobile() {
+    const sel = document.getElementById('mobile-selector');
+    if (!sel) return;
+    let opts = '';
+    MODULE_TREE.forEach(mod => {
+      opts += `<optgroup label="${mod.module}">`;
+      mod.subdirs.forEach(sd => {
+        const count = (bySub[sd.dataSubcat] || []).length;
+        opts += `<option value="${sd.name}">${sd.name}（${count}篇）</option>`;
+      });
+      opts += '</optgroup>';
+    });
+    sel.innerHTML = opts;
+    sel.addEventListener('change', function() {
+      window.__selectFolder(this.value);
+    });
+  }
+
+  window.__selectFolder = renderArticles;
+
+  buildSidebar();
+  buildMobile();
+
+  // Default: first folder with articles
+  const flatFolders = [];
+  MODULE_TREE.forEach(mod => {
+    mod.subdirs.forEach(sd => {
+      flatFolders.push({ name: sd.name, count: (bySub[sd.dataSubcat] || []).length });
+    });
+  });
+  const first = flatFolders.find(f => f.count > 0) || flatFolders[0];
+  if (first) renderArticles(first.name);
+})();
+</script>
 </body>
 </html>

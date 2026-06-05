@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>骆驼商业本质 — 认识世界 · 理解社会 · 安顿自己</title>
+<title>骆驼商业本质 — 个人跨领域独立研究</title>
+<meta name="author" content="骆新中">
+<meta name="keywords" content="骆驼商业本质,骆新中,商业模式,哲学思想,经济研究,佛学思想,宏观经济,个人独立研究">
+<meta name="description" content="骆新中——骆驼商业本质创始人。跨领域独立研究：世界观（哲学思想研究）· 社会逻辑（经济研究）· AI 速递。">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -24,9 +27,8 @@
   }
 </script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
   * { box-sizing: border-box; }
-  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
   .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
   .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
   .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
@@ -41,21 +43,22 @@
   .pillar-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
   .pillar-worldview::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
   .pillar-social::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
-  .pillar-practice::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
   .pillar-ai::before { background: linear-gradient(90deg, #34d399, #059669); }
   .fade-in { animation: fadeIn 0.8s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-  .entry-btn { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
-  .entry-btn:hover { transform: translateY(-4px) scale(1.02); }
   .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  /* 子模块标签 */
+  .sub-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.3px; margin: 2px; }
+  .sub-tag-cyan { background: rgba(34,211,238,0.08); color: rgba(34,211,238,0.8); }
+  .sub-tag-gold { background: rgba(245,158,11,0.08); color: rgba(245,158,11,0.8); }
 </style>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen">
 
-<!-- ====== 导航 ====== -->
+<!-- ====== 导航 —— 统一 4 项 + 关于 ====== -->
 <nav class="sticky top-0 z-50 glass border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 no-underline">
+    <a href="index.html" class="flex items-center gap-3 no-underline shrink-0" style="text-decoration:none">
       <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
         <span class="text-white font-bold text-sm">✦</span>
       </div>
@@ -63,21 +66,18 @@
         <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
       </div>
     </a>
-    <div class="flex items-center gap-5">
-      <a href="index.html" class="nav-link text-sm font-medium text-accent-cyan">首页</a>
-      <a href="worldview.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">世界观</a>
-      <a href="social.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-gold transition">社会逻辑</a>
-      <a href="practice.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-purple transition">思想与修行</a>
-      <a href="ai-news.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-emerald transition">AI 速报</a>
-      <a href="about.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-amber transition">关于</a>
-      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+    <div class="flex items-center gap-8">
+      <a href="index.html" class="text-sm font-bold no-underline" style="color:#22d3ee;text-decoration:none;">首页</a>
+      <a href="worldview.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">🌌 世界观</a>
+      <a href="social.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none">🏛️ 社会逻辑</a>
+      <a href="ai-news.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 速递</a>
     </div>
   </div>
 </nav>
 
 <!-- ====== Hero 区 ====== -->
 <section class="relative bg-glow-top pt-16 pb-8">
-  <div class="max-w-4xl mx-auto px-6 text-center">
+  <div class="max-w-5xl mx-auto px-6 text-center">
     <div class="fade-in">
       <h2 class="text-3xl lg:text-5xl font-black tracking-tight mb-5 leading-tight">
         <span class="gradient-text">认识世界</span>
@@ -87,86 +87,99 @@
         <span class="text-accent-purple">安顿自己</span>
       </h2>
       <p class="text-text-secondary max-w-xl mx-auto leading-relaxed text-sm">
-        骆驼商业本质是一个跨领域思想平台。三个维度构成从外到内的认知体系——先看清宇宙法则，再理解社会逻辑，最终回到人的内在修行。
+        以下是我在哲学思想与经济社会领域的<strong class="text-text-primary">独立研究产出</strong>。<br>
+        每篇文章代表一次完整的思考闭环，而非信息搬运。
       </p>
     </div>
   </div>
 </section>
 
-<!-- ====== 三大思想板块入口 ====== -->
+<!-- ====== 两大研究板块入口 ====== -->
 <section class="py-4 pb-12">
   <div class="max-w-4xl mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
-      <!-- 🌌 世界观 -->
-      <a href="worldview.html" class="glass rounded-2xl p-7 pillar-card pillar-worldview glass-hover text-left no-underline block group fade-in" style="animation-delay:0.1s">
-        <div class="text-4xl mb-4">🌌</div>
-        <h3 class="text-xl font-bold mb-1 text-accent-cyan">世界观</h3>
-        <p class="text-[10px] text-text-muted mb-3 font-mono uppercase tracking-widest">Worldview</p>
-        <p class="text-sm text-text-secondary leading-relaxed mb-4">
-          宇宙如何运作。从物理学到形而上学，从力的统一到世界底层的运行法则。
+      <!-- 🌌 世界观 → 哲学思想研究 -->
+      <a href="worldview.html" class="glass rounded-2xl p-7 pillar-card pillar-worldview glass-hover fade-in text-left no-underline block" style="animation-delay:0.1s;text-decoration:none;">
+        <div class="text-center mb-2">
+          <div class="text-5xl mb-2">🌌</div>
+          <h3 class="text-2xl font-extrabold text-accent-cyan">世界观</h3>
+        </div>
+        <div class="flex justify-center items-center gap-3 mb-4">
+          <span class="text-sm font-bold px-3 py-1 rounded-md" style="background:rgba(34,211,238,0.1);color:#22d3ee;letter-spacing:0.5px;">哲学思想研究</span>
+        </div>
+        <!-- 子模块：纯描述标签，不可点击 -->
+        <div class="flex flex-wrap justify-center gap-1.5 mb-4">
+          <span class="sub-tag sub-tag-cyan">传统哲学研究</span>
+          <span class="sub-tag sub-tag-cyan">佛学思想研究</span>
+          <span class="sub-tag sub-tag-cyan">儒家思想研究</span>
+          <span class="sub-tag sub-tag-cyan">科学哲学研究</span>
+        </div>
+        <p class="text-sm text-text-secondary leading-relaxed mb-4 text-center">
+          宇宙如何运作，人如何认识自己。从意识哲学到佛学修行，从传统思想到科学范式——一切追问的终点是哲学。
         </p>
-        <div class="flex items-center gap-2 text-xs text-accent-cyan">
-          <span>进入板块</span>
-          <span class="text-lg leading-none transition-transform group-hover:translate-x-1">→</span>
+        <div class="text-center">
+          <span class="inline-flex items-center gap-2 text-xs font-medium no-underline" style="color:#22d3ee;">
+            进入完整研究板块 → <span class="text-[10px] text-text-muted ml-1">90 篇文章</span>
+          </span>
         </div>
       </a>
 
-      <!-- 🏛️ 社会逻辑 -->
-      <a href="social.html" class="glass rounded-2xl p-7 pillar-card pillar-social glass-hover text-left no-underline block group fade-in" style="animation-delay:0.2s">
-        <div class="text-4xl mb-4">🏛️</div>
-        <h3 class="text-xl font-bold mb-1 text-accent-gold">社会逻辑</h3>
-        <p class="text-[10px] text-text-muted mb-3 font-mono uppercase tracking-widest">Social Logic</p>
-        <p class="text-sm text-text-secondary leading-relaxed mb-4">
-          社会如何形成与运行。从500年霸权更迭到产业经济的微观落地。
+      <!-- 🏛️ 社会逻辑 → 经济研究 -->
+      <a href="social.html" class="glass rounded-2xl p-7 pillar-card pillar-social glass-hover fade-in text-left no-underline block" style="animation-delay:0.2s;text-decoration:none;">
+        <div class="text-center mb-2">
+          <div class="text-5xl mb-2">🏛️</div>
+          <h3 class="text-2xl font-extrabold text-accent-gold">社会逻辑</h3>
+        </div>
+        <div class="flex justify-center items-center gap-3 mb-4">
+          <span class="text-sm font-bold px-3 py-1 rounded-md" style="background:rgba(245,158,11,0.1);color:#f59e0b;letter-spacing:0.5px;">经济研究</span>
+        </div>
+        <!-- 子模块：纯描述标签 -->
+        <div class="flex flex-wrap justify-center gap-1.5 mb-4">
+          <span class="sub-tag sub-tag-gold">经济史研究</span>
+          <span class="sub-tag sub-tag-gold">宏观经济研究</span>
+          <span class="sub-tag sub-tag-gold">国际金融研究</span>
+          <span class="sub-tag sub-tag-gold">中国经济观察</span>
+          <span class="sub-tag sub-tag-gold">商业模式研究</span>
+        </div>
+        <p class="text-sm text-text-secondary leading-relaxed mb-4 text-center">
+          社会如何形成与运行。从500年霸权更迭到产业经济分析，从全球金融秩序到商业模式的微观解剖。
         </p>
-        <div class="flex items-center gap-2 text-xs text-accent-gold">
-          <span>进入板块</span>
-          <span class="text-lg leading-none transition-transform group-hover:translate-x-1">→</span>
+        <div class="text-center">
+          <span class="inline-flex items-center gap-2 text-xs font-medium no-underline" style="color:#f59e0b;">
+            进入完整研究板块 → <span class="text-[10px] text-text-muted ml-1">22 篇文章</span>
+          </span>
         </div>
       </a>
 
-      <!-- 🧘 思想与修行 -->
-      <a href="practice.html" class="glass rounded-2xl p-7 pillar-card pillar-practice glass-hover text-left no-underline block group fade-in" style="animation-delay:0.3s">
-        <div class="text-4xl mb-4">🧘</div>
-        <h3 class="text-xl font-bold mb-1 text-accent-purple">思想与修行</h3>
-        <p class="text-[10px] text-text-muted mb-3 font-mono uppercase tracking-widest">Thought &amp; Practice</p>
-        <p class="text-sm text-text-secondary leading-relaxed mb-4">
-          人如何认识自己。从意识哲学到心性修养，寻找内在安顿之道。
-        </p>
-        <div class="flex items-center gap-2 text-xs text-accent-purple">
-          <span>进入板块</span>
-          <span class="text-lg leading-none transition-transform group-hover:translate-x-1">→</span>
-        </div>
-      </a>
     </div>
 
-    <!-- AI 速报入口 -->
-    <div class="max-w-3xl mx-auto">
-      <a href="ai-news.html" class="glass rounded-2xl p-5 pillar-card pillar-ai glass-hover text-left no-underline flex items-center gap-5 group fade-in" style="animation-delay:0.4s">
+    <!-- AI 前沿速报入口（横幅） -->
+    <div class="max-w-4xl mx-auto">
+      <a href="ai-news.html" class="glass rounded-2xl p-5 pillar-card pillar-ai glass-hover text-left no-underline flex items-center gap-5 group fade-in" style="text-decoration:none;animation-delay:0.3s;">
         <div class="text-3xl">📡</div>
         <div class="flex-1">
-          <h3 class="text-base font-bold text-accent-emerald mb-0.5">AI 前沿速报</h3>
-          <p class="text-xs text-text-muted font-mono uppercase tracking-wider mb-1">Daily AI Brief</p>
+          <h3 class="text-base font-bold text-accent-emerald mb-0.5">AI 速递</h3>
           <p class="text-xs text-text-secondary">每日自动追踪全球 AI 产业动态，涵盖大模型、智能体、硬件、开源、中国动态与政策监管六大板块</p>
         </div>
         <div class="text-accent-emerald text-xl transition-transform group-hover:translate-x-2">→</div>
       </a>
     </div>
+
   </div>
 </section>
 
-<div class="section-divider max-w-4xl mx-auto"></div>
+<div class="section-divider max-w-5xl mx-auto"></div>
 
 <!-- ====== 点睛语 ====== -->
 <section class="py-16">
   <div class="max-w-2xl mx-auto px-6 text-center">
-    <div class="glass rounded-2xl p-10 fade-in" style="animation-delay:0.5s">
+    <div class="glass rounded-2xl p-10 fade-in" style="animation-delay:0.4s">
       <p class="text-text-secondary text-base leading-relaxed italic mb-4">
         「天覆地载，人居其中。<br>知天以立心，知地以立身，知己以立命。」
       </p>
       <p class="text-text-muted text-sm">
-        三层递进 —— 世界观（天） → 社会逻辑（地） → 思想与修行（人）
+        三层递进 —— 世界观（哲学思想研究） → 社会逻辑（经济研究） → 回到人的安顿
       </p>
     </div>
   </div>
@@ -174,20 +187,38 @@
 
 <!-- ====== Footer ====== -->
 <footer class="border-t border-white/5 bg-bg-secondary/50">
-  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-    <div class="flex items-center gap-2 text-sm text-text-muted">
-      <span class="gradient-text font-bold">骆驼🐫 商业本质</span>
-      <span>·</span>
-      <span>认识世界 · 理解社会 · 安顿自己</span>
+  <div class="max-w-5xl mx-auto px-6 py-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-5 mb-3">
+      <div class="flex items-center gap-3">
+        <span class="gradient-text font-bold text-xl">骆驼🐫 商业本质</span>
+        <span class="text-text-muted text-base">·</span>
+        <span class="text-text-secondary text-base">个人跨领域独立研究</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://www.ximalaya.com/zhubo/3049357" target="_blank" rel="noopener" class="glass rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 no-underline inline-flex items-center gap-2" style="border:1px solid rgba(255,255,255,0.08);" title="喜马拉雅">
+          <span class="text-lg">🎙️</span> 喜马拉雅
+        </a>
+        <a href="https://space.bilibili.com/527952781" target="_blank" rel="noopener" class="glass rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 no-underline inline-flex items-center gap-2" style="border:1px solid rgba(255,255,255,0.08);" title="B站">
+          <span class="text-lg">📺</span> B站
+        </a>
+        <a href="https://zhuanlan.zhihu.com/c_1033349413602889728" target="_blank" rel="noopener" class="glass rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 no-underline inline-flex items-center gap-2" style="border:1px solid rgba(255,255,255,0.08);" title="知乎">
+          <span class="text-lg">✍️</span> 知乎
+        </a>
+        <a href="https://mp.sohu.com/profile?xpt=ODg1NDI3OTk1NDIxMjE2NzY4QHNvaHUuY29t" target="_blank" rel="noopener" class="glass rounded-lg px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 no-underline inline-flex items-center gap-2" style="border:1px solid rgba(255,255,255,0.08);" title="搜狐号">
+          <span class="text-lg">📰</span> 搜狐号
+        </a>
+      </div>
     </div>
-    <div class="flex items-center gap-4 text-xs text-text-muted">
-      <span>web-db-user 架构</span>
+    <div class="flex items-center justify-center gap-3 text-[11px] text-text-muted">
+      <span>web-db-user</span>
       <span>·</span>
       <span>Tailwind CSS</span>
       <span>·</span>
       <span>Chart.js</span>
       <span>·</span>
       <a href="admin.html" class="text-accent-cyan hover:text-accent-purple transition">后台</a>
+      <span>·</span>
+      <span class="opacity-50">&copy; 2016-2026 骆驼商业本质</span>
     </div>
   </div>
 </footer>

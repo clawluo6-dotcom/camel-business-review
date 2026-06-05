@@ -24,35 +24,28 @@
   }
 </script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
   * { box-sizing: border-box; }
-  body { background: #0a0e17; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
   .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
-  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
   .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
-  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
+  .bg-glow-purple { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(168,85,247,0.04) 0%, transparent 70%); }
   .nav-link { position: relative; }
   .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
   .nav-link:hover::after { width: 100%; }
-  .pillar-top-bar { position: relative; }
-  .pillar-top-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
-  .bar-cyan::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
-  .bar-gold::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
-  .bar-purple::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
-  .fade-in { animation: fadeIn 0.6s ease-out; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-  .importance-5 { border-left: 3px solid #22d3ee; }
-  .importance-4 { border-left: 3px solid #a855f7; }
-  .importance-3 { border-left: 3px solid #64748b; }
-  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  .fade-in { animation: fadeIn 0.4s ease-out; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
   .back-link { transition: all 0.3s ease; }
   .back-link:hover { transform: translateX(-4px); }
+  .sidebar-item { transition: all 0.25s ease; cursor: pointer; }
+  .sidebar-item.active { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.4); color: #a855f7; }
+  .sidebar-item:hover:not(.active) { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+  .article-row { transition: all 0.25s ease; }
+  .article-row:hover { background: rgba(36,43,61,0.6); border-color: rgba(255,255,255,0.08); transform: translateX(4px); }
+  .pillar-purple { color: #a855f7; }
 </style>
 </head>
-<body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
+<body class="bg-bg-primary bg-grid min-h-screen bg-glow-purple">
 
 <!-- NAV -->
 <nav class="sticky top-0 z-50 glass border-b border-white/5">
@@ -64,139 +57,64 @@
       <div>
         <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼🐫</span> <span class="text-text-secondary font-normal">商业本质</span></h1>
       </div>
-    </a>
-    <div class="flex items-center gap-5">
-      <a href="index.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">首页</a>
-      <a href="worldview.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-cyan transition">世界观</a>
-      <a href="social.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-gold transition">社会逻辑</a>
-      <a href="practice.html" class="nav-link text-sm font-medium text-accent-purple">思想与修行</a>
-      <a href="ai-news.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-emerald transition">AI 速报</a>
-      <a href="about.html" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-amber transition">关于</a>
-      <a href="admin.html" class="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition text-xs font-mono">ADMIN</a>
+        <div class="flex items-center gap-8">
+      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">首页</a>
+      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🌌 世界观</a>
+      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🏛️ 社会逻辑</a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">📡 AI 速递</a>
     </div>
   </div>
 </nav>
 
 <!-- Hero -->
-<section class="max-w-7xl mx-auto px-6 pt-16 pb-8 fade-in">
+<section class="max-w-7xl mx-auto px-6 pt-12 pb-6 fade-in">
   <div class="text-center">
-    <div class="text-6xl mb-4">🧘</div>
-    <h2 class="text-4xl font-extrabold mb-3" style="color: #a855f7;">思想与修行</h2>
-    <p class="text-text-secondary text-lg font-light">Thought & Practice — 人如何认识自己</p>
+    <div class="text-5xl mb-3">🧘</div>
+    <h2 class="text-3xl font-extrabold mb-2 pillar-purple">思想与修行</h2>
+    <p class="text-text-secondary text-base font-light">Practice — 人如何安顿自己</p>
   </div>
 </section>
 
-<div class="max-w-7xl mx-auto px-6">
-  <!-- Breadcrumb -->
-  <div class="mb-8">
+<div class="max-w-7xl mx-auto px-6 pb-16">
+  <div class="mb-6">
     <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-purple transition">
       <span>←</span> <span>返回首页</span>
     </a>
   </div>
 
-  <!-- Explanation Section -->
-  <div class="glass rounded-2xl p-8 mb-10 pillar-top-bar bar-purple fade-in" style="animation-delay: 0.05s">
-    <h3 class="text-xl font-bold mb-4" style="color: #a855f7;">关于思想与修行</h3>
-    <p class="text-text-secondary leading-relaxed mb-4">
-      思想与修行板块关注的是人的内在维度。在理解了宇宙法则（世界观）和社会规则（社会逻辑）之后，最终的问题指向自身：我是谁？意识如何运作？如何安顿内心？
-    </p>
-    <p class="text-text-secondary leading-relaxed">
-      这里的「修行」不是宗教仪式，而是思想的自我训练——通过对意识本质的观察、对人性的理解、对心性的调伏，实现内在的自由。哲学思辨是路径，内在安顿是目的。
-    </p>
+  <div class="flex gap-6">
+    <!-- LEFT SIDEBAR -->
+    <aside class="w-56 flex-shrink-0 hidden md:block">
+      <div class="glass rounded-xl p-4 sticky top-24">
+        <h4 class="text-xs text-text-muted uppercase tracking-wider mb-3 font-semibold">目录导航</h4>
+        <nav id="sidebar-nav" class="flex flex-col gap-1"></nav>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <main class="flex-1 min-w-0">
+      <div id="subcategory-header" class="glass rounded-xl p-5 mb-4">
+        <h3 id="subcategory-title" class="text-lg font-bold pillar-purple">内圣外王</h3>
+        <p id="subcategory-desc" class="text-sm text-text-secondary mt-1">儒家修身的至高境界——内修圣德、外施王道</p>
+        <div class="flex items-center gap-2 mt-3">
+          <span class="text-xs text-text-muted">共</span>
+          <span id="article-count" class="text-lg font-bold pillar-purple">4</span>
+          <span class="text-xs text-text-muted">篇文章</span>
+        </div>
+      </div>
+      <div id="article-list" class="flex flex-col gap-1"></div>
+      <div id="empty-state" class="hidden glass rounded-xl p-12 text-center">
+        <div class="text-4xl mb-3 opacity-40">📭</div>
+        <p class="text-text-muted">该分类暂无文章</p>
+      </div>
+    </main>
   </div>
 
-  <!-- Coverage -->
-  <div class="flex flex-wrap gap-3 mb-10 fade-in" style="animation-delay: 0.1s">
-    <a href="category.html?pillar=practice&cat=人的本质" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(168,85,247,0.35); color: #c084fc; background: rgba(168,85,247,0.12);">人的本质</a>
-    <a href="category.html?pillar=practice&cat=心性修养" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(168,85,247,0.35); color: #c084fc; background: rgba(168,85,247,0.12);">心性修养</a>
-    <a href="category.html?pillar=practice&cat=内圣外王" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(168,85,247,0.35); color: #c084fc; background: rgba(168,85,247,0.12);">内圣外王</a>
-    <a href="category.html?pillar=practice&cat=处世实践" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(168,85,247,0.35); color: #c084fc; background: rgba(168,85,247,0.12);">处世实践</a>
-    <a href="category.html?pillar=practice&cat=文化修行" class="px-5 py-2.5 rounded-full text-sm font-semibold border shadow-sm hover:scale-105 transition no-underline inline-block" style="border-color: rgba(168,85,247,0.35); color: #c084fc; background: rgba(168,85,247,0.12);">文化修行</a>
+  <div class="md:hidden mb-4">
+    <select id="mobile-subcategory" class="w-full glass rounded-lg px-4 py-3 text-sm text-text-primary bg-bg-card appearance-none cursor-pointer"></select>
   </div>
-
-  <!-- Section Divider -->
-  <div class="section-divider mb-10"></div>
-
-  <!-- Article Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mb-10">
-    <!-- Card 1 -->
-    <a href="article.html?id=human-essence" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-5" style="animation-delay: 0.1s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #22d3ee"></span>
-          <span class="text-[10px] text-text-muted">重要度 5</span>
-        </div>
-      </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">人的本质：意识之外的追问</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">如果意识是离散的切片，那么「人的本质」在哪里？本文从意识切片理论出发，逐层剖析自我的构成——从感官到认知，从记忆到身份认同。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">人性</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">意识</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">哲学</span>
-      </div>
-    </div></a>
-
-    <!-- Card 2 -->
-    <a href="article.html?id=one-thought-flower" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.2s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
-          <span class="text-[10px] text-text-muted">重要度 4</span>
-        </div>
-      </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">一念花开：论心性的力量</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">一念之间，可以开出一朵花，也可以生出一片荒芜。本文从禅宗「一念相应」出发，探讨心性的训练如何改变人的感知和行动能力。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">心性</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">修行</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">禅</span>
-      </div>
-    </div></a>
-
-    <!-- Card 3 -->
-    <a href="article.html?id=inner-sage-outer-king" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.3s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-05</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
-          <span class="text-[10px] text-text-muted">重要度 4</span>
-        </div>
-      </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">内圣外王：儒家修养与现代生活</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">「内圣外王」是儒家修养的终极理想——内修圣人之德，外行王者之道。在现代语境下，它是一条从个人修养到社会参与的内在路径。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">儒家</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">修养</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">内圣外王</span>
-      </div>
-    </div></a>
-
-    <!-- Card 4 -->
-    <a href="article.html?id=nature-form-equal-practice" class="block no-underline"><div class="glass rounded-xl p-5 glass-hover fade-in importance-4" style="animation-delay: 0.4s">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-[10px] text-text-muted font-mono">2026-06</span>
-        <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full" style="background: #a855f7"></span>
-          <span class="text-[10px] text-text-muted">重要度 4</span>
-        </div>
-      </div>
-      <h4 class="font-semibold text-sm mb-2 leading-snug" style="color: #a855f7;">性相不二：破一切相的哲学实践</h4>
-      <p class="text-xs text-text-secondary leading-relaxed mb-3">「性」是本质，「相」是表象。当我们说「性相不二」的时候，不是否定表象的存在，而是指出本质与表象之间没有鸿沟。这是破一切相的哲学入口。</p>
-      <div class="flex flex-wrap gap-1">
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">哲学</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">本质</span>
-        <span class="px-2 py-0.5 rounded text-[10px] font-medium" style="background: rgba(168,85,247,0.1); color: #a855f7;">修行</span>
-      </div>
-    </div></a>
-  </div>
-
-  <!-- Footer Note -->
-  <div class="text-center text-text-muted text-xs py-8 mb-4">更多文章持续更新中...</div>
 </div>
 
-<!-- FOOTER -->
 <footer class="border-t border-white/5 mt-8 bg-bg-secondary/50">
   <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-2 text-sm text-text-muted">
@@ -205,15 +123,123 @@
       <span>认识世界 · 理解社会 · 安顿自己</span>
     </div>
     <div class="flex items-center gap-4 text-xs text-text-muted">
-      <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
-      <span>·</span>
-      <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a>
-      <span>·</span>
-      <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a>
-      <span>·</span>
+      <a href="index.html" class="hover:text-accent-cyan transition">首页</a> <span>·</span>
+      <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a> <span>·</span>
+      <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a> <span>·</span>
       <a href="practice.html" class="hover:text-accent-purple transition">思想与修行</a>
     </div>
   </div>
 </footer>
+
+<script src="articles.js"></script>
+<script>
+(function() {
+  const DATA = window.__ARTICLES__;
+  if (!DATA || !DATA.articles) return;
+
+  const PILLAR = 'practice';
+  const ACCENT_COLOR = '#a855f7';
+
+  const SUB_DESC = {
+    '内圣外王': '儒家修身的至高境界——从庄子本源到心相一体，四篇贯通内圣外王的完整思想体系',
+    '文化修行': '从豆豆三部曲到西游记——以文化作品为镜，观照自我修行'
+  };
+
+  const articles = DATA.articles.filter(a => a.pillar === PILLAR);
+  const groups = {};
+  articles.forEach(a => {
+    const sc = a.subcategory || '未分类';
+    if (!groups[sc]) groups[sc] = [];
+    groups[sc].push(a);
+  });
+
+  // Smart sort: 按标题中的数字/中文序号排序（一<二<...<十<十一；1<2<10）
+  function extractNum(title) {
+    var m = title.match(/^(\d+)[-\\.、．\\s·]+/);
+    if (m) return parseInt(m[1],10);
+    var cn = {一:1,二:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9,十:10};
+    m = title.match(/^([一二三四五六七八九十]+)[、，,\\s·]*/);
+    if (m) {
+      var s = m[1];
+      if (s.length===1) return cn[s]||0;
+      if (s.length===2) {
+        if (s[0]==='十') return 10+(cn[s[1]]||0);
+        if (s[1]==='十') return (cn[s[0]]||0)*10;
+      }
+      if (s.length===3 && s[1]==='十') return (cn[s[0]]||0)*10+(cn[s[2]]||0);
+    }
+    return 0;
+  }
+  var collator = new Intl.Collator('zh-Hans-CN', { numeric: true });
+  Object.keys(groups).forEach(function(k) {
+    groups[k].sort(function(a,b) {
+      var na=extractNum(a.title), nb=extractNum(b.title);
+      if (na!==nb) return na-nb;
+      return collator.compare(a.title, b.title);
+    });
+  });
+  const subKeys = Object.keys(groups).sort();
+
+  const sidebar = document.getElementById('sidebar-nav');
+  if (sidebar) {
+    sidebar.innerHTML = subKeys.map(key => `
+      <button class="sidebar-item w-full text-left px-3 py-2.5 rounded-lg border border-transparent text-sm text-text-secondary flex items-center justify-between"
+              data-sub="${key}" onclick="window.__switchSubcategory('${key}')">
+        <span>${key}</span>
+        <span class="text-xs text-text-muted ml-2 tabular-nums">${groups[key].length}</span>
+      </button>
+    `).join('');
+  }
+
+  const mobile = document.getElementById('mobile-subcategory');
+  if (mobile) {
+    mobile.innerHTML = subKeys.map(k => `<option value="${k}">${k}（${groups[k].length}篇）</option>`).join('');
+    mobile.addEventListener('change', function() { window.__switchSubcategory(this.value); });
+  }
+
+  function renderArticles(subKey) {
+    const list = groups[subKey] || [];
+    const container = document.getElementById('article-list');
+    const empty = document.getElementById('empty-state');
+    document.getElementById('subcategory-title').textContent = subKey;
+    document.getElementById('subcategory-desc').textContent = SUB_DESC[subKey] || '';
+    document.getElementById('article-count').textContent = list.length;
+
+    if (list.length === 0) {
+      container.innerHTML = '';
+      empty.classList.remove('hidden');
+    } else {
+      empty.classList.add('hidden');
+      container.innerHTML = list.map((a, i) => `
+        <a href="article.html?id=${a.id}" class="article-row block no-underline glass rounded-lg px-5 py-3.5 border border-white/5 fade-in"
+           style="animation-delay: ${i * 0.03}s">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono w-8 flex-shrink-0" style="color:${ACCENT_COLOR}">${String(i + 1).padStart(2, '0')}</span>
+            <div class="flex-1 min-w-0">
+              <h4 class="text-sm font-semibold text-text-primary leading-snug truncate">${a.title}</h4>
+              <p class="text-xs text-text-muted mt-1 truncate">${(a.tags || []).join(' · ')}</p>
+            </div>
+            <div class="flex-shrink-0 hidden sm:flex items-center gap-2">
+              <span class="text-[10px] text-text-muted font-mono">${a.date || ''}</span>
+              <span class="text-[10px] text-text-muted">${a.wordCount || 0}字</span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    document.querySelectorAll('.sidebar-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.sub === subKey);
+    });
+
+    const m = document.getElementById('mobile-subcategory');
+    if (m && m.value !== subKey) m.value = subKey;
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+  }
+
+  window.__switchSubcategory = renderArticles;
+  renderArticles(subKeys[0]);
+})();
+</script>
 </body>
 </html>
