@@ -2,8 +2,8 @@
   "meta": {
     "siteName": "骆驼商业本质",
     "siteNameCN": "骆驼商业本质",
-    "version": "2.0.0",
-    "lastUpdated": "2026-06-04T11:00:00+08:00",
+    "version": "2.0.1",
+    "lastUpdated": "2026-06-05T09:30:00+08:00",
     "description": "认识世界 · 理解社会 · 安顿自己"
   },
   "featured": {
@@ -61,6 +61,111 @@
     }
   ],
   "news": [
+    {
+      "id": "n023",
+      "title": "特朗普签署AI行政令：前沿模型发布前须提交安全审查",
+      "summary": "美国总统特朗普6月2日签署AI行政命令，要求OpenAI、谷歌、Anthropic等企业在发布前沿大模型前，须向政府提供最长30天的网络安全测试窗口。此举标志着美国AI监管重大转向。",
+      "category": "policy",
+      "date": "2026-06-03",
+      "tags": [
+        "特朗普",
+        "行政令",
+        "安全审查",
+        "监管"
+      ],
+      "importance": 5,
+      "source": "新华社 / NPR"
+    },
+    {
+      "id": "n024",
+      "title": "微软Build 2026：发布7款MAI自研模型，推智能体控制规范",
+      "summary": "微软Build 2026大会发布MAI-Thinking-1等7款自研AI模型，全部从零训练、无蒸馏。同时推出Agent Control Specification（ACS）规范，为AI智能体提供统一行为控制框架。",
+      "category": "models",
+      "date": "2026-06-03",
+      "tags": [
+        "微软",
+        "MAI",
+        "Build",
+        "智能体"
+      ],
+      "importance": 5,
+      "source": "Microsoft / 综合报道"
+    },
+    {
+      "id": "n025",
+      "title": "DeepSeek首轮融资约500亿元，腾讯与宁德时代入局",
+      "summary": "外媒报道DeepSeek首轮融资预计筹资约500亿元人民币，估值最高可达4000亿元。腾讯和宁德时代将成为最大外部投资者，有望创下中国AI企业史上最大单笔融资纪录。",
+      "category": "china",
+      "date": "2026-06-04",
+      "tags": [
+        "DeepSeek",
+        "融资",
+        "腾讯",
+        "宁德时代"
+      ],
+      "importance": 5,
+      "source": "彭博社 / 综合报道"
+    },
+    {
+      "id": "n026",
+      "title": "千问App全面开放第三方智能体，肯德基瑞幸首批入驻",
+      "summary": "阿里千问App宣布向第三方Agent、Skill全面开放，企业可在千问运营自有品牌智能体。肯德基、瑞幸咖啡、蜜雪冰城、东方航空成为首批入驻企业，以对话形式提供产品服务。",
+      "category": "agents",
+      "date": "2026-06-04",
+      "tags": [
+        "千问",
+        "阿里",
+        "智能体平台",
+        "开放"
+      ],
+      "importance": 4,
+      "source": "阿里巴巴 / 综合报道"
+    },
+    {
+      "id": "n027",
+      "title": "阿里发布Qwen3.7-Plus：多模态智能体新突破",
+      "summary": "阿里云发布Qwen3.7-Plus多模态模型，文本和视觉能力大幅提升，支持GUI+CLI双端操作。在权威视觉榜单上表现突出，已上架千问云和阿里云百炼平台。",
+      "category": "models",
+      "date": "2026-06-03",
+      "tags": [
+        "阿里云",
+        "Qwen",
+        "多模态",
+        "智能体"
+      ],
+      "importance": 4,
+      "source": "阿里云"
+    },
+    {
+      "id": "n028",
+      "title": "COMPUTEX 2026：高通发布分布式AI PC战略",
+      "summary": "高通CEO安蒙在COMPUTEX 2026发表开幕演讲，提出「计算连续体」概念，展示分布式AI从云端到终端的完整布局。展会汇聚1500家企业，AI运算成为绝对主角。",
+      "category": "hardware",
+      "date": "2026-06-05",
+      "tags": [
+        "高通",
+        "COMPUTEX",
+        "端侧AI",
+        "PC"
+      ],
+      "importance": 3,
+      "source": "环球网 / COMPUTEX"
+    },
+    {
+      "id": "n029",
+      "title": "中国AI智能体领航者榜单在京揭晓，百余企业参评",
+      "summary": "2026中国AI智能体领航者榜单在北京网络安全大会上揭晓。来自20多个行业100余家企业提交AI智能体方案参评，全面呈现中国智能体技术落地与产业创新图景。",
+      "category": "agents",
+      "date": "2026-06-03",
+      "tags": [
+        "智能体",
+        "榜单",
+        "产业",
+        "BCS"
+      ],
+      "importance": 3,
+      "source": "IT之家 / BCS 2026"
+    },
     {
       "id": "n001",
       "title": "Anthropic 提交 IPO 申请，剑指 AI 上市第一股",
@@ -160,20 +265,6 @@
       "source": "Gartner Report"
     },
     {
-      "id": "n008",
-      "title": "ZoomMate 上线：会议内容自动转待办/文档/PPT",
-      "summary": "Zoom 推出 AI 智能体 ZoomMate，月费 $20，可自动将会议内容转化为待办事项、文档和 PPT。上线首日用户突破 10 万，标志着协作工具 AI 化的加速。",
-      "category": "agents",
-      "date": "2026-06-01",
-      "tags": [
-        "Zoom",
-        "智能体",
-        "协作"
-      ],
-      "importance": 3,
-      "source": "Zoom Blog"
-    },
-    {
       "id": "n009",
       "title": "百度、阿里、腾讯、字节集体入局智能体平台",
       "summary": "受 OpenClaw 框架影响，百度、阿里、腾讯、字节跳动、智谱 AI、月之暗面等中国科技巨头集体宣布推出自研 AI 智能体平台，智能体赛道竞争白热化。",
@@ -245,35 +336,6 @@
       "source": "OpenBMB GitHub"
     },
     {
-      "id": "n014",
-      "title": "微软开源 MarkItDown：Office 文档一键转 Markdown",
-      "summary": "微软开源 MarkItDown 工具，支持 Word/Excel/PPT 一键转换为 Markdown 格式。GitHub 上线 48 小时内获 15,000+ Star，解决了文档格式转换的长期痛点。",
-      "category": "opensource",
-      "date": "2026-06-03",
-      "tags": [
-        "微软",
-        "开源",
-        "Markdown",
-        "工具"
-      ],
-      "importance": 3,
-      "source": "GitHub"
-    },
-    {
-      "id": "n015",
-      "title": "Harness 框架：自动构建领域专家 AI 团队",
-      "summary": "Harness 开源框架发布，可自动构建领域专家 AI 智能体团队。用户只需定义任务目标，框架自动拆分、分配、协调多个 AI 智能体完成任务。",
-      "category": "opensource",
-      "date": "2026-06-03",
-      "tags": [
-        "Harness",
-        "开源",
-        "多智能体"
-      ],
-      "importance": 3,
-      "source": "GitHub"
-    },
-    {
       "id": "n016",
       "title": "中国 AI 核心产业规模突破 1.2 万亿元",
       "summary": "工信部最新数据显示，中国 AI 企业已超 6000 家，核心产业规模突破 1.2 万亿元人民币。算力规模全球第二，AI 人才缺口持续扩大。",
@@ -330,20 +392,6 @@
       "source": "CVE / 安全社区"
     },
     {
-      "id": "n020",
-      "title": "MoneyPrinterTurbo 开源：AI 短视频一键生成",
-      "summary": "MoneyPrinterTurbo 开源项目发布，支持 AI 短视频一键生成，整合了文案生成、语音合成、视频素材匹配等能力，降低短视频创作门槛。",
-      "category": "opensource",
-      "date": "2026-06-02",
-      "tags": [
-        "视频生成",
-        "开源",
-        "短视频"
-      ],
-      "importance": 3,
-      "source": "GitHub"
-    },
-    {
       "id": "n021",
       "title": "OpenAI Codex 登陆 AWS Bedrock，企业 AI 编码加速",
       "summary": "OpenAI Codex 正式登陆 AWS Bedrock 平台，企业可通过 AWS 基础设施直接调用 Codex 编码能力。支持 50+ 编程语言，代码生成准确率提升 30%。",
@@ -377,8 +425,7 @@
     {
       "date": "2026-06-01",
       "events": [
-        "Anthropic 提交 IPO 申请",
-        "ZoomMate AI 智能体上线"
+        "Anthropic 提交 IPO 申请"
       ]
     },
     {
@@ -386,8 +433,7 @@
       "events": [
         "三部门联合发文推 AI 智能体",
         "中国 AI 产业规模突破 1.2 万亿",
-        "Orion-100B 公布",
-        "MoneyPrinterTurbo 发布"
+        "Orion-100B 公布"
       ]
     },
     {
@@ -399,9 +445,12 @@
         "MiniMax M3 发布",
         "英伟达 Cosmos 3 开源",
         "清华 VoxCPM2 发布",
-        "微软 MarkItDown 开源",
         "WWDC 2026 定档",
-        "Gartner AI 智能体预测"
+        "Gartner AI 智能体预测",
+        "特朗普签署AI行政令：前沿模型发布前须提交安全审查",
+        "微软Build 2026：发布7款MAI自研模型，推智能体控制规范",
+        "阿里发布Qwen3.7-Plus：多模态智能体新突破",
+        "中国AI智能体领航者榜单在京揭晓，百余企业参评"
       ]
     },
     {
@@ -409,7 +458,15 @@
       "events": [
         "BAT 等巨头集体入局智能体平台",
         "CVE 新增多项 AI 漏洞",
-        "英伟达 AI 智能体 PC 概念发布"
+        "英伟达 AI 智能体 PC 概念发布",
+        "DeepSeek首轮融资约500亿元，腾讯与宁德时代入局",
+        "千问App全面开放第三方智能体，肯德基瑞幸首批入驻"
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "events": [
+        "COMPUTEX 2026：高通发布分布式AI PC战略"
       ]
     }
   ],
@@ -424,7 +481,10 @@
     "minimaxSpeedup": 5,
     "claudeCodeMigrationLines": 750000,
     "claudePassRate": 99.8,
-    "markitdownStars": 15000
+    "markitdownStars": 15000,
+    "deepseekValuation": 400,
+    "deepseekFunding": 500,
+    "microsoftMAIModels": 7
   },
   "articles": {
     "worldview": [
