@@ -2,24 +2,25 @@
   "meta": {
     "siteName": "骆驼商业本质",
     "siteNameCN": "骆驼商业本质",
-    "version": "2.0.1",
-    "lastUpdated": "2026-06-05T09:30:00+08:00",
+    "version": "2.0.2",
+    "lastUpdated": "2026-06-06T09:30:00+08:00",
     "description": "认识世界 · 理解社会 · 安顿自己"
   },
   "featured": {
     "id": "feat-001",
-    "title": "Anthropic 正式提交 IPO 申请",
+    "title": "Google 与 SpaceX 签下 294 亿美元 AI 算力协议",
     "titleCN": "",
-    "summary": "Anthropic 于 6 月 1 日正式向 SEC 提交 IPO 申请，抢在 OpenAI 之前冲击「AI 上市第一股」，市场传闻估值高达 9650 亿美元。若成功上市，将成为史上最大规模科技 IPO 之一。",
-    "category": "大模型",
-    "date": "2026-06-01",
+    "summary": "Google 与 SpaceX 签署云计算服务协议，每月支付 9.2 亿美元租用约 11 万颗英伟达 GPU，合同期 32 个月，总价值约 294 亿美元。这是史上最大规模的 AI 算力租赁交易。",
+    "category": "硬件与基建",
+    "date": "2026-06-05",
     "tags": [
-      "Anthropic",
-      "IPO",
-      "大模型"
+      "Google",
+      "SpaceX",
+      "算力",
+      "GPU"
     ],
     "importance": 5,
-    "source": "SEC Filing / 综合报道",
+    "source": "CNBC / TechCrunch",
     "link": ""
   },
   "categories": [
@@ -61,6 +62,110 @@
     }
   ],
   "news": [
+    {
+      "id": "n030",
+      "title": "Google与SpaceX签下294亿美元AI算力协议",
+      "summary": "Google与SpaceX签署云计算服务协议，每月支付9.2亿美元租用约11万颗英伟达GPU及相关基础设施，合同期为2026年10月至2029年6月，总价值约294亿美元。这是史上最大规模AI算力租赁交易。",
+      "category": "hardware",
+      "date": "2026-06-05",
+      "tags": [
+        "Google",
+        "SpaceX",
+        "算力",
+        "GPU"
+      ],
+      "importance": 5,
+      "source": "CNBC / TechCrunch"
+    },
+    {
+      "id": "n031",
+      "title": "特朗普宣布政府考虑入股AI企业，下周召见科技巨头",
+      "summary": "特朗普6月5日在空军一号透露，团队正研究AI企业向美国民众出让股份的方案，计划下周在白宫会见各大AI公司高管。此举标志美国政府可能直接参股顶尖AI企业，引发市场广泛关注。",
+      "category": "policy",
+      "date": "2026-06-05",
+      "tags": [
+        "特朗普",
+        "入股",
+        "白宫",
+        "监管"
+      ],
+      "importance": 5,
+      "source": "路透社 / 财联社"
+    },
+    {
+      "id": "n032",
+      "title": "美股黑色星期五：AI芯片板块遭猛烈抛售，纳指暴跌逾1100点",
+      "summary": "6月5日美股遭遇黑色星期五，纳指暴跌逾1100点。AI芯片板块遭重创：美光跌13.25%，英特尔跌11.28%，AMD跌10.86%，博通跌7.92%，英伟达跌6.20%。加息预期升温为主要诱因。",
+      "category": "hardware",
+      "date": "2026-06-05",
+      "tags": [
+        "美股",
+        "芯片",
+        "暴跌",
+        "英伟达"
+      ],
+      "importance": 5,
+      "source": "CNBC / 中新社"
+    },
+    {
+      "id": "n033",
+      "title": "Meta拟通过股票发行融资数百亿美元加码AI",
+      "summary": "据金融时报报道，Meta正探索股票发行等创新融资方式，计划将2026年AI相关资本支出大幅增至1450亿美元。此前Alphabet已宣布800亿美元AI融资计划，科技巨头AI军备竞赛持续升级。",
+      "category": "models",
+      "date": "2026-06-05",
+      "tags": [
+        "Meta",
+        "融资",
+        "AI投资",
+        "资本支出"
+      ],
+      "importance": 5,
+      "source": "Financial Times / CNBC"
+    },
+    {
+      "id": "n034",
+      "title": "欧盟发布技术主权一揽子计划：推Cloud and AI Development Act",
+      "summary": "欧盟委员会6月3日发布技术主权一揽子计划，核心为《云与AI发展法案》，目标未来5-7年将欧洲数据中心容量提升三倍。同时推出四档分级监管框架，降低对美国云巨头的依赖。",
+      "category": "policy",
+      "date": "2026-06-05",
+      "tags": [
+        "欧盟",
+        "技术主权",
+        "云计算",
+        "监管"
+      ],
+      "importance": 4,
+      "source": "EU Commission / CNBC"
+    },
+    {
+      "id": "n035",
+      "title": "日本数字大臣警告：若不追赶，日本将沦为AI殖民地",
+      "summary": "日本数字大臣松本尚6月5日公开呼吁全力推进AI研发，警告若无法跟上AI技术发展步伐，日本可能沦为「人工智能殖民地」。此言引发日本国内对AI战略滞后的广泛讨论。",
+      "category": "policy",
+      "date": "2026-06-05",
+      "tags": [
+        "日本",
+        "AI战略",
+        "数字大臣"
+      ],
+      "importance": 4,
+      "source": "路透社"
+    },
+    {
+      "id": "n036",
+      "title": "中国信通院启动高质量Token服务能力攀登计划",
+      "summary": "中国信通院宣布启动高质量Token服务能力攀登计划，推动AI数据服务标准化。同时工信部提出到2029年形成一批自主创新6G技术方案，AI与通信技术融合发展成为国家战略重点。",
+      "category": "china",
+      "date": "2026-06-05",
+      "tags": [
+        "信通院",
+        "Token",
+        "6G",
+        "标准"
+      ],
+      "importance": 4,
+      "source": "财联社 / 工信部"
+    },
     {
       "id": "n023",
       "title": "特朗普签署AI行政令：前沿模型发布前须提交安全审查",
@@ -165,20 +270,6 @@
       ],
       "importance": 3,
       "source": "IT之家 / BCS 2026"
-    },
-    {
-      "id": "n001",
-      "title": "Anthropic 提交 IPO 申请，剑指 AI 上市第一股",
-      "summary": "Anthropic 6月1日正式提交 IPO，抢在 OpenAI 之前冲击「AI 上市第一股」，估值传闻 9650 亿美元。SEC 文件披露其年化收入已突破 180 亿美元，企业客户超过 5 万家。",
-      "category": "models",
-      "date": "2026-06-01",
-      "tags": [
-        "Anthropic",
-        "IPO",
-        "上市"
-      ],
-      "importance": 5,
-      "source": "SEC Filing"
     },
     {
       "id": "n002",
@@ -308,20 +399,6 @@
       "source": "NVIDIA Developer"
     },
     {
-      "id": "n012",
-      "title": "Orion-100B：$1.25/小时训练千亿参数模型",
-      "summary": "Orion-100B 项目展示用普通硬件 + 开放互联网数据训练 1000 亿参数大模型，成本仅 $1.25/小时（传统方案需 $50/小时），大幅降低大模型训练门槛。",
-      "category": "hardware",
-      "date": "2026-06-02",
-      "tags": [
-        "Orion",
-        "训练",
-        "降本"
-      ],
-      "importance": 4,
-      "source": "arXiv / 社区"
-    },
-    {
       "id": "n013",
       "title": "清华 OpenBMB 发布 VoxCPM2 语音生成模型",
       "summary": "清华大学 OpenBMB 团队发布 VoxCPM2，无需分词器即可实现多语言语音生成和高保真语音克隆。支持中文、英文、日文等多语种，在语音自然度上达到新高。",
@@ -334,20 +411,6 @@
       ],
       "importance": 4,
       "source": "OpenBMB GitHub"
-    },
-    {
-      "id": "n016",
-      "title": "中国 AI 核心产业规模突破 1.2 万亿元",
-      "summary": "工信部最新数据显示，中国 AI 企业已超 6000 家，核心产业规模突破 1.2 万亿元人民币。算力规模全球第二，AI 人才缺口持续扩大。",
-      "category": "china",
-      "date": "2026-06-02",
-      "tags": [
-        "产业规模",
-        "工信部",
-        "中国AI"
-      ],
-      "importance": 5,
-      "source": "工信部"
     },
     {
       "id": "n017",
@@ -365,7 +428,7 @@
     },
     {
       "id": "n018",
-      "title": "EU AI 法案关键条款即将生效",
+      "title": "EU AI 法案高风险应用条款即将生效",
       "summary": "欧盟 AI 法案高风险应用条款将于 2026 年 8 月正式生效。企业在欧盟部署 AI 系统需完成合规评估，违规罚款最高可达全球年营收 7%。",
       "category": "policy",
       "date": "2026-06-03",
@@ -376,49 +439,6 @@
       ],
       "importance": 4,
       "source": "EU Commission"
-    },
-    {
-      "id": "n019",
-      "title": "AI 安全再引关注：CVE 漏洞库新增多项 AI 相关漏洞",
-      "summary": "近期 CVE 漏洞库新增多项 AI 框架和模型相关的安全漏洞。安全专家呼吁建立 AI 供应链安全标准，OpenAI 和 Anthropic 均已发布安全白皮书应对。",
-      "category": "policy",
-      "date": "2026-06-04",
-      "tags": [
-        "安全",
-        "CVE",
-        "漏洞"
-      ],
-      "importance": 3,
-      "source": "CVE / 安全社区"
-    },
-    {
-      "id": "n021",
-      "title": "OpenAI Codex 登陆 AWS Bedrock，企业 AI 编码加速",
-      "summary": "OpenAI Codex 正式登陆 AWS Bedrock 平台，企业可通过 AWS 基础设施直接调用 Codex 编码能力。支持 50+ 编程语言，代码生成准确率提升 30%。",
-      "category": "agents",
-      "date": "2026-06-03",
-      "tags": [
-        "OpenAI",
-        "Codex",
-        "AWS",
-        "编码"
-      ],
-      "importance": 3,
-      "source": "AWS Blog"
-    },
-    {
-      "id": "n022",
-      "title": "英伟达发布 AI 智能体 PC 概念：本地运行大模型",
-      "summary": "英伟达与合作伙伴展示「AI 智能体 PC」概念机，搭载专用 NPU 芯片，可本地运行 70 亿参数大模型。目标将 AI 计算从云端推向端侧设备。",
-      "category": "hardware",
-      "date": "2026-06-04",
-      "tags": [
-        "英伟达",
-        "NPU",
-        "端侧AI"
-      ],
-      "importance": 4,
-      "source": "NVIDIA / Computex"
     }
   ],
   "timeline": [
@@ -447,10 +467,11 @@
         "清华 VoxCPM2 发布",
         "WWDC 2026 定档",
         "Gartner AI 智能体预测",
-        "特朗普签署AI行政令：前沿模型发布前须提交安全审查",
-        "微软Build 2026：发布7款MAI自研模型，推智能体控制规范",
-        "阿里发布Qwen3.7-Plus：多模态智能体新突破",
-        "中国AI智能体领航者榜单在京揭晓，百余企业参评"
+        "特朗普签署AI行政令",
+        "微软Build发布7款MAI自研模型",
+        "阿里发布Qwen3.7-Plus",
+        "中国AI智能体领航者榜单揭晓",
+        "欧盟技术主权一揽子计划发布"
       ]
     },
     {
@@ -459,14 +480,20 @@
         "BAT 等巨头集体入局智能体平台",
         "CVE 新增多项 AI 漏洞",
         "英伟达 AI 智能体 PC 概念发布",
-        "DeepSeek首轮融资约500亿元，腾讯与宁德时代入局",
-        "千问App全面开放第三方智能体，肯德基瑞幸首批入驻"
+        "DeepSeek首轮融资约500亿元",
+        "千问App全面开放第三方智能体"
       ]
     },
     {
       "date": "2026-06-05",
       "events": [
-        "COMPUTEX 2026：高通发布分布式AI PC战略"
+        "COMPUTEX 2026：高通发布分布式AI PC战略",
+        "Google与SpaceX签下294亿美元算力协议",
+        "特朗普宣布政府考虑入股AI企业",
+        "美股黑色星期五：AI芯片遭猛烈抛售",
+        "Meta拟融资数百亿美元加码AI",
+        "日本数字大臣AI殖民地警告",
+        "中国信通院启动Token攀登计划"
       ]
     }
   ],
@@ -484,7 +511,10 @@
     "markitdownStars": 15000,
     "deepseekValuation": 400,
     "deepseekFunding": 500,
-    "microsoftMAIModels": 7
+    "microsoftMAIModels": 7,
+    "googleSpacexMonthlyDeal": 0.92,
+    "googleSpacexGPUs": 110000,
+    "metaAICapEx": 145
   },
   "articles": {
     "worldview": [
