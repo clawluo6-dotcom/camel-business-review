@@ -17,3 +17,6 @@ __pycache__/
 .vscode/
 *.swp
 *.swo
+
+# WorkBuddy workspace
+.workbuddy/
