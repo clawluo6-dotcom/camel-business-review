@@ -1,7 +1,7 @@
 window.__ARTICLES__ = {
   "meta": {
     "version": "1.0",
-    "generated": "2026-06-06T11:07:39.326349",
+    "generated": "2026-06-06T11:08:33.918687",
     "count": 167
   },
   "articles": [
