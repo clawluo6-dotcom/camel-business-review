@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>文章详情 — 骆驼商业本质</title>
+  <link rel="stylesheet" href="scholar-theme.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -54,6 +55,7 @@
   .article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
   .article-body th { background: rgba(255,255,255,0.06); padding: 0.6rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid rgba(255,255,255,0.1); }
   .article-body td { padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: #cbd5e1; }
+  .article-title { color: #7dd3fc; }
 </style>
 <script src="articles.js"></script>
 </head>
@@ -93,7 +95,7 @@
     <div class="flex items-center gap-2 text-sm text-text-muted">
       <span class="gradient-text font-bold">骆驼🐫 商业本质</span>
       <span>·</span>
-      <span>认识世界 · 理解社会 · 安顿自己</span>
+      <span class="site-slogan">认识世界 · 理解社会 · 安顿自己</span>
     </div>
     <div class="flex items-center gap-4 text-xs text-text-muted">
       <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
@@ -178,7 +180,7 @@ function render(article) {
       <span class="text-xs text-text-muted">${article.date || ''}</span>
       ${article.importance >= 5 ? '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(34,211,238,0.12);color:#22d3ee">精选</span>' : ''}
     </div>
-    <h1 class="text-3xl font-extrabold leading-tight" style="color:${acc}">${article.title}</h1>
+    <h1 class="text-3xl font-extrabold leading-tight article-title">${article.title}</h1>
     ${article.summary ? `<p class="mt-4 text-text-secondary leading-relaxed text-lg">${article.summary}</p>` : ''}
   </div>`;
 
@@ -201,5 +203,6 @@ function render(article) {
 
 init();
 </script>
+  <script src="theme-toggle.js"></script>
 </body>
 </html>
