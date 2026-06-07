@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>分类文章 — 骆驼商业本质</title>
+  <link rel="stylesheet" href="scholar-theme.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -144,7 +145,7 @@ function init() {
   try {
     const data = window.__ARTICLES__;
     const articles = data.articles || data;
-    const filtered = articles.filter(a => a.pillar === pillar && a.subcategory === cat);
+    const filtered = articles.filter(a => a.pillar === pillar && a.subcategory === cat && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
     render(cfg, pillar, cat, filtered);
   } catch (err) {
     document.getElementById('app').innerHTML = `<div class="empty-state"><p class="text-text-muted text-lg">数据加载失败: ${err.message}</p></div>`;
@@ -200,5 +201,6 @@ function render(cfg, pillar, cat, articles) {
 
 init();
 </script>
+  <script src="theme-toggle.js"></script>
 </body>
 </html>

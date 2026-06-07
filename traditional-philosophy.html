@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>传统哲学研究 — 骆驼商业本质</title>
+  <link rel="stylesheet" href="scholar-theme.css">
 <meta name="description" content="诸子百家与中国传统哲学思想的独立研究——从先秦到宋明，探寻中国思想的内在脉络。">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -173,7 +174,7 @@
     var mapped = CATEGORY_MAP[PAGE_SUBCATEGORY] || [];
     var allArticles = (window.__ARTICLES__ && window.__ARTICLES__.articles) || [];
     var filtered = allArticles.filter(function(a) {
-      return a.pillar === PILLAR && mapped.indexOf(a.subcategory) !== -1;
+      return a.pillar === PILLAR && mapped.indexOf(a.subcategory) !== -1 && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-');
     });
     render(filtered);
   }
@@ -205,5 +206,6 @@
   init();
 })();
 </script>
+  <script src="theme-toggle.js"></script>
 </body>
 </html>

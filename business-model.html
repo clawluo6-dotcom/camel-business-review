@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>商业模式研究 — 骆驼商业本质</title>
+  <link rel="stylesheet" href="scholar-theme.css">
 <meta name="description" content="商业模式与企业案例深度研究——商业逻辑、企业分析、产业实践。">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -144,7 +145,7 @@
   };
   var mapped = CATEGORY_MAP['商业模式研究'] || [];
   var articles = (window.__ARTICLES__ && window.__ARTICLES__.articles) || [];
-  var filtered = articles.filter(function(a){ return a.pillar === 'social' && mapped.indexOf(a.subcategory) !== -1; });
+  var filtered = articles.filter(function(a){ return a.pillar === 'social' && mapped.indexOf(a.subcategory) !== -1 && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'); });
   var ACC = '#f59e0b', html = '<div class="mb-6 fade-in" style="animation-delay:0.2s"><h3 class="text-lg font-bold" style="color:'+ACC+'">文章列表</h3><p class="text-text-secondary text-sm">共 '+filtered.length+' 篇</p></div>';
   if (filtered.length === 0) {
     html += '<div class="glass rounded-2xl p-12 empty-state"><p class="text-text-muted text-base">该分类暂无文章，敬请期待</p></div>';
@@ -163,5 +164,6 @@
   document.getElementById('app').innerHTML = html;
 })();
 </script>
+  <script src="theme-toggle.js"></script>
 </body>
 </html>

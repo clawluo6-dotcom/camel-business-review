@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>世界观 — 骆驼商业本质</title>
+  <link rel="stylesheet" href="scholar-theme.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -143,7 +144,7 @@
     <div class="flex items-center gap-2 text-sm text-text-muted">
       <span class="gradient-text font-bold">骆驼🐫 商业本质</span>
       <span>·</span>
-      <span>认识世界 · 理解社会 · 安顿自己</span>
+      <span class="site-slogan">认识世界 · 理解社会 · 安顿自己</span>
     </div>
     <div class="flex items-center gap-4 text-xs text-text-muted">
       <a href="index.html" class="hover:text-accent-cyan transition">首页</a>
@@ -218,7 +219,7 @@
   });
 
   // ---- Filter articles ----
-  const articles = DATA.articles.filter(a => a.pillar === PILLAR);
+  const articles = DATA.articles.filter(a => a.pillar === PILLAR && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
 
   // Group by subcategory
   const bySub = {};
@@ -279,8 +280,12 @@
     let html = '';
     let currentModule = '';
     MODULE_TREE.forEach(mod => {
+      // 只保留有文章的子目录
+      const activeSubdirs = mod.subdirs.filter(sd => (bySub[sd.name] || []).length > 0);
+      if (activeSubdirs.length === 0) return; // 跳过整组空的 module
+
       // Module header
-      const modArticles = mod.subdirs.reduce((sum, sd) => sum + (bySub[sd.name] || []).length, 0);
+      const modArticles = activeSubdirs.reduce((sum, sd) => sum + (bySub[sd.name] || []).length, 0);
       html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
         <span>${mod.icon}</span>
         <span class="flex-1">${mod.module}</span>
@@ -288,7 +293,7 @@
       </div>`;
 
       // Subdirs
-      mod.subdirs.forEach(sd => {
+      activeSubdirs.forEach(sd => {
         const count = (bySub[sd.name] || []).length;
         html += `<button class="tree-subdir w-full text-left px-2 py-1.5 pl-6 rounded text-sm text-text-secondary flex items-center justify-between border-l border-transparent"
                 data-sub="${sd.name}" onclick="window.__selectFolder('${sd.name}')">
@@ -384,5 +389,6 @@
   if (first) renderArticles(first.subcat);
 })();
 </script>
+  <script src="theme-toggle.js"></script>
 </body>
 </html>

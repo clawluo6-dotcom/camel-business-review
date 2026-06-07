@@ -35,7 +35,6 @@
   .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
   .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .gradient-text-purple { background: linear-gradient(135deg, #a855f7, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
   .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
   .nav-link { position: relative; }
@@ -53,13 +52,6 @@
   .sub-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.3px; margin: 2px; }
   .sub-tag-cyan { background: rgba(34,211,238,0.08); color: rgba(34,211,238,0.8); }
   .sub-tag-gold { background: rgba(245,158,11,0.08); color: rgba(245,158,11,0.8); }
-  /* L2 说明文字 —— 纯文本，不起眼，用作标题的注解 */
-  .l1-title { color: #e2e8f0; }  /* 暗版：浅灰白，纸版由 scholar-theme.css 覆盖为深棕色 */
-  .l2-subtitle { font-size: 13px; color: #6b7d99; font-style: italic; letter-spacing: 0.05em; }
-  /* L3 按钮网格 */
-  .l3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; min-height: 72px; }
-  .l3-btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; font-size: 13px; font-weight: 500; color: #a0aec0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
-  .l3-btn:hover { background: rgba(168,133,247,0.14); border-color: rgba(168,133,247,0.55); color: #ddd6fe; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(168,133,247,0.25), 0 0 0 1px rgba(168,133,247,0.12); }
   /* 抬头行 */
   .site-hero-title { font-size: 2.4rem; font-weight: 800; background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .site-hero-sep { font-size: 2rem; color: rgba(255,255,255,0.2); margin: 0 6px; }
@@ -67,17 +59,13 @@
   /* 注解块 —— 文字底色高亮，无框 */
   .hero-note-wrapper { max-width: 580px; margin: 0 auto; }
   .hero-note-text { text-align:center; margin:0; line-height: 2.2; color: #8899b4; font-size: 12.5px; }
-  .hero-note { background: rgba(148,163,184,0.20); padding: 2px 7px; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .hero-note { background: rgba(148,163,184,0.13); padding: 2px 7px; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
   /* 写在前面（暗版）— 仅左竖线，无背景无阴影 */
   .preface-card { background: transparent; border: none; border-left: 3px solid rgba(168,133,247,0.35); border-radius: 0; padding: 8px 0 8px 18px; max-width: 580px; margin: 0 auto; box-shadow: none; }
   .preface-title { font-size: 0.85rem; font-weight: 600; color: #a78bfa; margin: 0 0 10px; letter-spacing: 0.05em; }
   .preface-text { font-size: 13px; line-height: 1.85; color: #8899b4; margin: 0 0 5px; }
   .preface-text:last-of-type { margin-bottom: 0; }
   .preface-signature { text-align: right; font-size: 12px; color: #6b7d99; margin: 10px 0 0; font-style: italic; }
-  /* 点睛语 —— 暖色调格言 */
-  .punchline-quote { font-size: 15px; line-height: 2; color: #a0aec0; font-style: italic; margin: 0 0 8px; }
-  .punchline-sub { font-size: 12.5px; color: #6b7d99; }
-  .punchline-quote span { color: rgba(168,133,247,0.5); }
 </style>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen">
@@ -119,7 +107,7 @@
         <span class="text-text-primary"> · </span>
         <span class="gradient-text-warm">理解社会</span>
         <span class="text-text-primary"> · </span>
-        <span class="gradient-text-purple">安顿自己</span>
+        <span class="text-accent-purple">安顿自己</span>
       </h2>
       <!-- 注解块：标语的具体含义 -->
       <div class="hero-note-wrapper mt-4">
@@ -153,19 +141,19 @@
         <!-- L1：一级目录 -->
         <div class="layer-l1 text-center mb-2">
           <div class="text-3xl mb-1">🌌</div>
-          <h3 class="l1-title text-2xl font-black leading-tight">世界观</h3>
+          <h3 class="text-2xl font-black leading-tight" style="color:#251401;">世界观</h3>
         </div>
 
-        <!-- L2：一级目录说明（纯文字说明，不是按钮） -->
-        <div class="layer-l2 text-center mb-2">
-          <span class="l2-subtitle">哲学思想研究</span>
+        <!-- L2：一级目录说明 -->
+        <div class="layer-l2 flex justify-center mb-2">
+          <span class="l2-tag">哲学思想研究</span>
         </div>
 
         <!-- 分隔线 L2 → L3 -->
-        <div class="layer-divider mb-2" style="width:50%;"></div>
+        <div class="layer-divider mb-2" style="width:55%;"></div>
         
-        <!-- L3：二级目录按钮，2×2 网格 -->
-        <div class="layer-l3 l3-grid mb-2">
+        <!-- L3：二级目录按钮 -->
+        <div class="layer-l3 flex flex-wrap justify-center gap-2 mb-2">
           <span class="l3-btn">传统哲学研究</span>
           <span class="l3-btn">佛学思想研究</span>
           <span class="l3-btn">儒家思想研究</span>
@@ -178,7 +166,7 @@
         <!-- L4：解说词 -->
         <div class="layer-l4 mb-2">
           <p class="l4-desc">
-            宇宙如何运作，人如何认识自己。从意识哲学到佛学修行，从传统思想到科学范式——追问的终点是哲学。
+            宇宙如何运作，人如何认识自己。从意识哲学到佛学修行，从传统思想到科学范式——一切追问的终点是哲学。
           </p>
         </div>
 
@@ -195,23 +183,24 @@
         <!-- L1：一级目录 -->
         <div class="layer-l1 text-center mb-2">
           <div class="text-3xl mb-1">🏛️</div>
-          <h3 class="l1-title text-2xl font-black leading-tight">社会逻辑</h3>
+          <h3 class="text-2xl font-black leading-tight" style="color:#251401;">社会逻辑</h3>
         </div>
 
-        <!-- L2：一级目录说明（纯文字说明，不是按钮） -->
-        <div class="layer-l2 text-center mb-2">
-          <span class="l2-subtitle">经济研究</span>
+        <!-- L2：一级目录说明 -->
+        <div class="layer-l2 flex justify-center mb-2">
+          <span class="l2-tag">经济研究</span>
         </div>
 
         <!-- 分隔线 L2 → L3 -->
-        <div class="layer-divider mb-2" style="width:50%;"></div>
+        <div class="layer-divider mb-2" style="width:38%;"></div>
         
-        <!-- L3：二级目录按钮，2×2 网格 -->
-        <div class="layer-l3 l3-grid mb-2">
+        <!-- L3：二级目录按钮 -->
+        <div class="layer-l3 flex flex-wrap justify-center gap-2 mb-2">
           <span class="l3-btn">经济史研究</span>
           <span class="l3-btn">宏观经济研究</span>
           <span class="l3-btn">国际金融研究</span>
           <span class="l3-btn">中国经济观察</span>
+          <span class="l3-btn">商业模式研究</span>
         </div>
 
         <!-- 分隔线 L3 → L4 -->
@@ -220,7 +209,7 @@
         <!-- L4：解说词 -->
         <div class="layer-l4 mb-2">
           <p class="l4-desc">
-            社会如何形成与运行。从500年霸权更迭到产业格局演变，从全球金融秩序到中国经济的现实观察。
+            社会如何形成与运行。从500年霸权更迭到产业经济分析，从全球金融秩序到商业模式的微观解剖。
           </p>
         </div>
 
@@ -254,10 +243,10 @@
 <!-- ====== 点睛语 ====== -->
 <section class="py-8">
   <div class="max-w-2xl mx-auto px-6 text-center fade-in" style="animation-delay:0.4s">
-    <p class="punchline-quote">
+    <p class="text-text-secondary text-base leading-relaxed italic mb-3">
       「天覆地载，人居其中。<br>知天以立心，知地以立身，知己以立命。」
     </p>
-    <p class="punchline-sub">
+    <p class="text-text-muted text-sm">
       三层递进 —— 世界观（哲学思想研究） → 社会逻辑（经济研究） → 回到人的安顿
     </p>
   </div>
