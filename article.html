@@ -198,12 +198,21 @@ function render(article) {
     </a>
   </div>`;
 
-  // Giscus 评论区
+  // Cusdis 评论区
+  var pageId = article.id || window.location.search;
   html += `
   <div class="mt-12 fade-in" style="animation-delay:0.2s">
     <div class="glass rounded-2xl p-6 md:p-8">
       <h2 class="text-xl font-bold mb-4" style="color:${acc}">💬 评论区</h2>
-      <div class="giscus"></div>
+      <div id="cusdis_thread"
+        data-host="https://cusdis.com"
+        data-app-id="e75bee9b-7505-440d-9a73-e9ccd1d68f7b"
+        data-page-id="${pageId}"
+        data-page-url="${window.location.href}"
+        data-page-title="${article.title}"
+        data-theme="${document.documentElement.classList.contains('scholar') ? 'light' : 'dark'}"
+        data-lang="zh-CN"
+      ></div>
     </div>
   </div>`;
 
@@ -212,40 +221,29 @@ function render(article) {
 
 init();
 
-// === Giscus 评论系统 ===
-function loadGiscus() {
-  var container = document.querySelector('.giscus');
-  if (!container) return;
-  var currentTheme = document.documentElement.classList.contains('scholar') ? 'light' : 'dark';
-  var s = document.createElement('script');
-  s.src = 'https://giscus.app/client.js';
-  s.setAttribute('data-repo', 'clawluo6-dotcom/camel-business-review');
-  s.setAttribute('data-repo-id', 'R_kgDOSwie6g');
-  s.setAttribute('data-category', 'Announcements');
-  s.setAttribute('data-category-id', 'DIC_kwDOSwie6s4C-ukC');
-  s.setAttribute('data-mapping', 'pathname');
-  s.setAttribute('data-strict', '0');
-  s.setAttribute('data-reactions-enabled', '1');
-  s.setAttribute('data-emit-metadata', '0');
-  s.setAttribute('data-input-position', 'top');
-  s.setAttribute('data-theme', currentTheme === 'light' ? 'light' : 'dark');
-  s.setAttribute('data-lang', 'zh-CN');
-  s.setAttribute('crossorigin', 'anonymous');
-  s.async = true;
-  container.innerHTML = '';
-  container.appendChild(s);
-}
+// === Cusdis 评论系统 ===
+// 页面渲染完成后加载 Cusdis 脚本
+setTimeout(function() {
+  if (!window.CUSDIS_LOADED) {
+    var s = document.createElement('script');
+    s.src = 'https://cusdis.com/js/cusdis.es.js';
+    s.async = true;
+    document.body.appendChild(s);
+    window.CUSDIS_LOADED = true;
+  }
+}, 500);
 
-// 首次加载
-setTimeout(loadGiscus, 300);
-
-// 主题切换时同步更新 Giscus 主题
+// 主题切换时更新 Cusdis 主题
 window.addEventListener('camel-theme-changed', function(e) {
   var theme = e.detail === 'scholar' ? 'light' : 'dark';
-  var msg = { giscus: { setConfig: { theme: theme } } };
-  var iframe = document.querySelector('iframe.giscus-frame');
+  var thread = document.getElementById('cusdis_thread');
+  if (thread) {
+    thread.setAttribute('data-theme', theme);
+  }
+  // 通知 Cusdis iframe 更新主题
+  var iframe = document.querySelector('#cusdis_thread iframe');
   if (iframe && iframe.contentWindow) {
-    iframe.contentWindow.postMessage(msg, 'https://giscus.app');
+    iframe.contentWindow.postMessage({ type: 'setTheme', theme: theme }, '*');
   }
 });
 </script>
