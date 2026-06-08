@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="dark">
+<html lang="zh-CN" class="scholar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 前沿速报 — 骆驼商业本质</title>
+<title>AI 经济速递 — 骆驼商业本质</title>
   <link rel="stylesheet" href="scholar-theme.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -48,6 +48,51 @@
   @keyframes pulse-glow { 0%,100% { box-shadow: 0 0 20px rgba(34,211,238,0.15); } 50% { box-shadow: 0 0 40px rgba(34,211,238,0.3); } }
   .count-pill { animation: countIn 0.8s ease-out; }
   @keyframes countIn { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+  /* Tab 切换 */
+  .tab-bar {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 32px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tab-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 20px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background: rgba(26,31,46,0.6);
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { background: rgba(36,43,61,0.8); color: #e2e8f0; }
+  .tab-btn.active-ai {
+    background: linear-gradient(135deg, rgba(34,211,238,0.15), rgba(168,85,247,0.15));
+    border-color: #22d3ee;
+    color: #22d3ee;
+    box-shadow: 0 0 30px rgba(34,211,238,0.15);
+  }
+  .tab-btn.active-econ {
+    background: linear-gradient(135deg, rgba(52,211,153,0.15), rgba(251,191,36,0.15));
+    border-color: #34d399;
+    color: #34d399;
+    box-shadow: 0 0 30px rgba(52,211,153,0.15);
+  }
+  .tab-content { display:none; }
+  .tab-content.active { display:block; }
+  .econ-iframe { width:100%; border:none; border-radius:16px; min-height:85vh; background:var(--bg-primary, #0a0e17); }
 </style>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen">
@@ -66,7 +111,7 @@
       <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">首页</a>
       <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🌌 世界观</a>
       <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🏛️ 社会逻辑</a>
-      <a href="ai-news.html" class="nav-link no-underline" style="font-size:14px;font-weight:700;color:#34d399;text-decoration:none">📡 AI 速递</a>
+      <a href="ai-news.html" class="nav-link no-underline" style="font-size:14px;font-weight:700;color:#34d399;text-decoration:none">📡 AI 经济速递</a>
       <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">✦ 关于</a>
     </div>
   </div>
@@ -74,17 +119,30 @@
 
 <section class="py-12">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-12 fade-in">
+    <div class="text-center mb-8 fade-in">
       <div class="text-4xl mb-4">📡</div>
-      <h2 class="text-3xl font-black tracking-tight mb-3">AI 前沿速报</h2>
-      <p class="text-text-muted font-mono text-xs uppercase tracking-widest mb-4">Daily AI Brief</p>
+      <h2 class="text-3xl font-black tracking-tight mb-3">AI 经济速递</h2>
+      <p class="text-text-muted font-mono text-xs uppercase tracking-widest mb-4">AI &amp; Economy Daily Brief</p>
       <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed text-sm">
-        每日自动追踪全球 AI 产业动态，涵盖大模型、智能体、硬件、开源、中国动态与政策监管六大板块。数据每日 9:00 自动更新。
+        每日自动追踪全球 AI 产业动态与核心经济数据，一文掌握前沿脉搏。
       </p>
       <div class="mt-4">
         <a href="index.html" class="text-xs text-accent-cyan hover:text-accent-purple transition inline-flex items-center gap-1">← 返回首页</a>
       </div>
     </div>
+
+    <!-- Tab 切换按钮 -->
+    <div class="tab-bar fade-in" style="animation-delay:0.1s">
+      <button class="tab-btn active-ai" id="tabAI" onclick="switchTab('ai')">
+        <span style="font-size:20px">🤖</span> AI 速递
+      </button>
+      <button class="tab-btn" id="tabEcon" onclick="switchTab('econ')">
+        <span style="font-size:20px">📊</span> 全球核心经济数据速递
+      </button>
+    </div>
+
+    <!-- ===== Tab 1: AI 速递 ===== -->
+    <div class="tab-content active" id="contentAI">
 
     <!-- Hero Banner -->
     <div class="flex flex-col lg:flex-row gap-8 items-start mb-12 fade-in" style="animation-delay:0.1s">
@@ -136,6 +194,15 @@
       <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><span class="w-1 h-5 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple"></span>新闻时间线 <span class="text-sm text-text-muted font-normal" id="timelineRange"></span></h3>
       <div class="relative pl-8 timeline-line" id="timelineContent"></div>
     </div>
+    </div><!-- end contentAI -->
+
+    <!-- ===== Tab 2: 全球核心经济数据速递 ===== -->
+    <div class="tab-content" id="contentEcon">
+      <div class="fade-in" style="min-height:85vh">
+        <iframe id="econIframe" class="econ-iframe" data-src="financial-dashboard.html" title="全球核心经济数据速递"></iframe>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1215,7 +1282,7 @@ function renderCharts() {
       type: 'bar',
       data: {
         labels: ['GPT-4', 'GPT-5', 'GPT-5.5\nInstant', 'Claude 3', 'Claude 4', 'Claude\nOpus 4.8'],
-        datasets: [{ label: '幻觉率 (%)', data: [14.3, 8.2, 3.9, 12.1, 6.5, 2.8], backgroundColor: ['#475569','#475569','#22d3ee','#475569','#475569','#a855f7'], borderRadius: 6, borderSkipped: false }]
+        datasets: [{ label: '幻觉率 (%)', data: [14.3, 8.2, 3.9, 12.1, 6.5, 2.8], backgroundColor: ['#64748b','#64748b','#22d3ee','#64748b','#64748b','#a855f7'], borderRadius: 6, borderSkipped: false }]
       },
       options: {
         responsive:true,
@@ -1256,6 +1323,53 @@ async function init() {
 }
 
 init();
+
+// === Tab 切换逻辑 ===
+function switchTab(tab) {
+  const tabAI = document.getElementById('tabAI');
+  const tabEcon = document.getElementById('tabEcon');
+  const contentAI = document.getElementById('contentAI');
+  const contentEcon = document.getElementById('contentEcon');
+  const iframe = document.getElementById('econIframe');
+
+  // 重置所有 Tab 状态
+  tabAI.className = 'tab-btn';
+  tabEcon.className = 'tab-btn';
+  contentAI.className = 'tab-content';
+  contentEcon.className = 'tab-content';
+
+  if (tab === 'ai') {
+    tabAI.className = 'tab-btn active-ai';
+    contentAI.className = 'tab-content active';
+  } else {
+    tabEcon.className = 'tab-btn active-econ';
+    contentEcon.className = 'tab-content active';
+    // 懒加载 iframe（首次点击时才加载仪表盘）
+    if (iframe && !iframe.src && iframe.dataset.src) {
+      iframe.src = iframe.dataset.src;
+    }
+  }
+  // 滚动到内容顶部
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 如果 URL 带 ?tab=econ 参数，自动切换到经济数据 Tab
+if (window.location.search.includes('tab=econ')) {
+  switchTab('econ');
+}
+
+// 主题切换时，通知已加载的 iframe
+window.addEventListener('camel-theme-changed', (e) => {
+  const iframe = document.getElementById('econIframe');
+  if (iframe && iframe.contentWindow) {
+    try {
+      iframe.contentWindow.postMessage(
+        { type: 'theme-change', theme: e.detail },
+        '*'
+      );
+    } catch(err) { /* ignore cross-origin errors */ }
+  }
+});
 </script>
   <script src="theme-toggle.js"></script>
 </body>

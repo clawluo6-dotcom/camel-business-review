@@ -66,7 +66,7 @@
       <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">首页</a>
       <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">🌌 世界观</a>
       <a href="social.html" class="nav-link active no-underline" style="color:#fbbf24;text-decoration:none">🏛️ 社会逻辑</a>
-      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 速递</a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 经济速递</a>
       <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">✦ 关于</a>
     </div>
   </div>
@@ -138,12 +138,12 @@
       <a href="index.html" class="hover:text-accent-cyan transition">首页</a> <span>·</span>
       <a href="worldview.html" class="hover:text-accent-cyan transition">世界观</a> <span>·</span>
       <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a> <span>·</span>
-      <a href="ai-news.html" class="hover:text-accent-emerald transition">AI 速递</a>
+      <a href="ai-news.html" class="hover:text-accent-emerald transition">AI 经济速递</a>
     </div>
   </div>
 </footer>
 
-<script src="articles.js"></script>
+<script src="site-data.js"></script>
 <script>
 (function() {
   const DATA = window.__ARTICLES__;
@@ -152,48 +152,13 @@
   const ACCENT = '#fbbf24';
   const PILLAR = 'social';
 
-  // ---- Module tree: 严格对齐 Obsidian 02-经济研究/ ----
-  const MODULE_TREE = [
-    {
-      module: '经济总纲',
-      icon: '🧭',
-      subdirs: [
-        { name: '经济总纲', dataSubcat: '经济总纲', desc: '经济研究体系的总体索引与知识地图' }
-      ]
-    },
-    {
-      module: '经济史研究',
-      icon: '📜',
-      subdirs: [
-        { name: '经济史研究', dataSubcat: '经济史研究', desc: '经济史研究的总体索引' },
-        { name: '世界历史', dataSubcat: '世界历史', desc: '全球历史脉络中的霸权更迭与文明兴衰' },
-        { name: '中国历史', dataSubcat: '中国历史', desc: '中国三百年朝代更替、历代发展与金融危机' }
-      ]
-    },
-    {
-      module: '宏观经济研究',
-      icon: '📊',
-      subdirs: [
-        { name: '宏观经济', dataSubcat: '宏观经济', desc: '经济周期、经济危机、财富本质与原理公式' },
-        { name: '500年大周期', dataSubcat: '500年大周期', desc: '五百年全球霸权更迭的完整逻辑推演' }
-      ]
-    },
-    {
-      module: '国际金融研究',
-      icon: '🌐',
-      subdirs: [
-        { name: '国际金融', dataSubcat: '国际金融', desc: '全球金融秩序、石油霸权、美元体系与数字货币' },
-        { name: '美国战略', dataSubcat: '美国战略', desc: '美国对外三大战略、制裁体系与全球掠夺逻辑' }
-      ]
-    },
-    {
-      module: '中国经济观察',
-      icon: '🇨🇳',
-      subdirs: [
-        { name: '中国经济', dataSubcat: '中国经济', desc: '民营企业、芯片产业、农村改革、海南封关等中国议题' }
-      ]
-    }
-  ];
+  // ---- Module tree: 从 site-data.js 的 pillarModules 动态构建（单一数据源） ----
+  const PILLAR_MODULES = (DATA.pillarModules && DATA.pillarModules[PILLAR]) || [];
+  const MODULE_TREE = PILLAR_MODULES.map(pm => ({
+    module: pm.module,
+    icon: pm.icon,
+    subdirs: pm.subcategories.map(sc => ({ name: sc, dataSubcat: sc, desc: sc }))
+  }));
 
   // ---- Build flat mapping ----
   const folderMap = {}; // folderName → { module, icon, dataSubcat, desc }
@@ -203,15 +168,24 @@
     });
   });
 
-  // ---- Filter articles ----
+  // ---- Filter articles (non-MOC for main list) ----
   const articles = DATA.articles.filter(a => a.pillar === PILLAR && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
 
-  // Group by subcategory (data field)
+  // Group by subcategory (non-MOC for article list)
   const bySub = {};
   articles.forEach(a => {
     const sc = a.subcategory || '未分类';
     if (!bySub[sc]) bySub[sc] = [];
     bySub[sc].push(a);
+  });
+
+  // Group ALL articles by subcategory (including MOC, for sidebar module counting)
+  const allArticles = DATA.articles.filter(a => a.pillar === PILLAR);
+  const bySubAll = {};
+  allArticles.forEach(a => {
+    const sc = a.subcategory || '未分类';
+    if (!bySubAll[sc]) bySubAll[sc] = [];
+    bySubAll[sc].push(a);
   });
 
   // Smart sort: 按标题中的数字/中文序号排序（一<二<...<十<十一；1<2<10）
@@ -249,11 +223,11 @@
 
     let html = '';
     MODULE_TREE.forEach(mod => {
-      // 只保留有文章的子目录
-      const activeSubdirs = mod.subdirs.filter(sd => (bySub[sd.dataSubcat] || []).length > 0);
+      // 只保留有文章的子目录（用 bySubAll 包含 MOC，确保目录页也能被统计）
+      const activeSubdirs = mod.subdirs.filter(sd => (bySubAll[sd.dataSubcat] || []).length > 0);
       if (activeSubdirs.length === 0) return; // 跳过整组空的 module
 
-      const modTotal = activeSubdirs.reduce((sum, sd) => sum + (bySub[sd.dataSubcat] || []).length, 0);
+      const modTotal = activeSubdirs.reduce((sum, sd) => sum + (bySubAll[sd.dataSubcat] || []).length, 0);
       html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
         <span>${mod.icon}</span>
         <span class="flex-1">${mod.module}</span>
@@ -261,7 +235,7 @@
       </div>`;
 
       activeSubdirs.forEach(sd => {
-        const count = (bySub[sd.dataSubcat] || []).length;
+        const count = (bySubAll[sd.dataSubcat] || []).length;
         html += `<button class="tree-subdir w-full text-left px-2 py-1.5 pl-6 rounded text-sm text-text-secondary flex items-center justify-between border-l border-transparent"
                 data-folder="${sd.name}" onclick="window.__selectFolder('${sd.name}')">
           <span class="truncate">${sd.name}</span>

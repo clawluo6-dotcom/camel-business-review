@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="dark">
+<html lang="zh-CN" class="scholar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="scholar-theme.css">
 <meta name="author" content="骆新中">
 <meta name="keywords" content="骆驼商业本质,骆新中,商业模式,哲学思想,经济研究,佛学思想,宏观经济,个人独立研究">
-<meta name="description" content="骆新中——骆驼商业本质创始人。跨领域独立研究：世界观（哲学思想研究）· 社会逻辑（经济研究）· AI 速递。">
+<meta name="description" content="骆新中——骆驼商业本质创始人。跨领域独立研究：世界观（哲学思想研究）· 社会逻辑（经济研究）· AI 经济速递。">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -97,7 +97,7 @@
       <a href="index.html" class="text-sm font-bold no-underline" style="color:#22d3ee;text-decoration:none;">首页</a>
       <a href="worldview.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">🌌 世界观</a>
       <a href="social.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none">🏛️ 社会逻辑</a>
-      <a href="ai-news.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 速递</a>
+      <a href="ai-news.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 经济速递</a>
       <a href="about.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none">✦ 关于</a>
     </div>
   </div>
@@ -125,24 +125,6 @@
         <span class="gradient-text-purple">安顿自己</span>
       </h2>
 
-      <!-- 文章统计数字 -->
-      <div class="flex items-center justify-center gap-8 mb-6">
-        <div class="stat-item text-center">
-          <div class="text-3xl font-black gradient-text" id="stat-total">--</div>
-          <div class="text-xs text-text-muted mt-1">篇研究文章</div>
-        </div>
-        <div class="w-px h-10 bg-white/10"></div>
-        <div class="stat-item text-center">
-          <div class="text-3xl font-black gradient-text-warm" id="stat-worldview">--</div>
-          <div class="text-xs text-text-muted mt-1">篇世界观</div>
-        </div>
-        <div class="w-px h-10 bg-white/10"></div>
-        <div class="stat-item text-center">
-          <div class="text-3xl font-black gradient-text-purple" id="stat-social">--</div>
-          <div class="text-xs text-text-muted mt-1">篇社会逻辑</div>
-        </div>
-      </div>
-
       <!-- 注解块：标语的具体含义 -->
       <div class="hero-note-wrapper mt-4">
         <p class="hero-note-text">
@@ -165,9 +147,9 @@
   </div>
 </section>
 
-<!-- ====== 两大研究板块入口 ====== -->
+<!-- ====== 两大核心研究板块 ====== -->
 <section class="py-8">
-  <div class="max-w-4xl mx-auto px-6">
+  <div class="max-w-6xl mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
       <!-- 🌌 世界观 → 哲学思想研究 -->
@@ -177,33 +159,22 @@
           <div class="text-3xl mb-1">🌌</div>
           <h3 class="l1-title text-2xl font-black leading-tight">世界观</h3>
         </div>
-
-        <!-- L2：一级目录说明（纯文字说明，不是按钮） -->
+        <!-- L2：一级目录说明 -->
         <div class="layer-l2 text-center mb-2">
           <span class="l2-subtitle">哲学思想研究</span>
         </div>
-
-        <!-- 分隔线 L2 → L3 -->
         <div class="layer-divider mb-2" style="width:50%;"></div>
-        
-        <!-- L3：二级目录按钮，2×2 网格 -->
-        <div class="layer-l3 l3-grid mb-2">
-          <span class="l3-btn">传统哲学研究</span>
-          <span class="l3-btn">佛学思想研究</span>
-          <span class="l3-btn">儒家思想研究</span>
-          <span class="l3-btn">自然哲学研究</span>
+        <!-- L3：二级目录按钮（由 site-data.js 动态生成） -->
+        <div class="layer-l3 l3-grid mb-2" id="worldview-l3">
+          <!-- 动态填充 -->
         </div>
-
-        <!-- 分隔线 L3 → L4 -->
         <div class="layer-divider mb-2"></div>
-
         <!-- L4：解说词 -->
         <div class="layer-l4 mb-2">
           <p class="l4-desc">
             宇宙如何运作，人如何认识自己。从意识哲学到佛学修行，从传统思想到科学范式——追问的终点是哲学。
           </p>
         </div>
-
         <!-- L5：进入研究板块 -->
         <div class="layer-l5 text-center">
           <span class="l5-cta">
@@ -219,33 +190,22 @@
           <div class="text-3xl mb-1">🏛️</div>
           <h3 class="l1-title text-2xl font-black leading-tight">社会逻辑</h3>
         </div>
-
-        <!-- L2：一级目录说明（纯文字说明，不是按钮） -->
+        <!-- L2：一级目录说明 -->
         <div class="layer-l2 text-center mb-2">
           <span class="l2-subtitle">经济研究</span>
         </div>
-
-        <!-- 分隔线 L2 → L3 -->
         <div class="layer-divider mb-2" style="width:50%;"></div>
-        
-        <!-- L3：二级目录按钮，2×2 网格 -->
-        <div class="layer-l3 l3-grid mb-2">
-          <span class="l3-btn">经济史研究</span>
-          <span class="l3-btn">宏观经济研究</span>
-          <span class="l3-btn">国际金融研究</span>
-          <span class="l3-btn">中国经济观察</span>
+        <!-- L3：二级目录按钮（由 site-data.js 动态生成） -->
+        <div class="layer-l3 l3-grid mb-2" id="social-l3">
+          <!-- 动态填充 -->
         </div>
-
-        <!-- 分隔线 L3 → L4 -->
         <div class="layer-divider mb-2"></div>
-
         <!-- L4：解说词 -->
         <div class="layer-l4 mb-2">
           <p class="l4-desc">
             社会如何形成与运行。从500年霸权更迭到产业格局演变，从全球金融秩序到中国经济的现实观察。
           </p>
         </div>
-
         <!-- L5：进入研究板块 -->
         <div class="layer-l5 text-center">
           <span class="l5-cta">
@@ -255,19 +215,28 @@
       </a>
 
     </div>
+  </div>
+</section>
 
-    <!-- AI 前沿速报入口（轻量横幅） -->
-    <div class="max-w-4xl mx-auto">
-      <a href="ai-news.html" class="rounded-xl px-4 py-3 pillar-ai glass-hover text-left no-underline flex items-center gap-4 group fade-in" style="text-decoration:none;animation-delay:0.3s;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);">
-        <div class="text-2xl">📡</div>
-        <div class="flex-1">
-          <h3 class="text-base font-bold text-accent-emerald mb-0.5">AI 速递</h3>
-          <p class="text-xs text-text-secondary">每日自动追踪全球 AI 产业动态，涵盖大模型、智能体、硬件、开源、中国动态与政策监管六大板块</p>
+<!-- ====== AI 经济速递（轻量横幅） ====== -->
+<section class="py-4">
+  <div class="max-w-6xl mx-auto px-6">
+    <a href="ai-news.html" class="glass rounded-xl p-4 glass-hover fade-in no-underline block border-l-2 border-[var(--border-color)]" style="animation-delay:0.3s;text-decoration:none;">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center gap-4">
+          <div class="text-2xl">📡</div>
+          <div>
+            <h3 class="text-lg font-bold text-text-primary mb-1">AI 经济速递</h3>
+            <p class="text-sm text-text-secondary">AI 产业动态 · 核心经济数据一览</p>
+          </div>
         </div>
-        <div class="text-accent-emerald text-xl transition-transform group-hover:translate-x-2">→</div>
-      </a>
-    </div>
-
+        <div class="flex items-center gap-3">
+          <span class="text-xs px-3 py-1 rounded-full border border-[var(--border-color)] text-text-secondary">🤖 AI 速递</span>
+          <span class="text-xs px-3 py-1 rounded-full border border-[var(--border-color)] text-text-secondary">📊 经济数据</span>
+          <span class="text-text-secondary text-sm font-medium hover:text-accent-cyan transition">进入速递专区 →</span>
+        </div>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -360,18 +329,36 @@
 </footer>
 
   <script src="theme-toggle.js"></script>
-  <script src="articles.js"></script>
+  <script src="site-data.js"></script>
   <script>
-  // 动态统计文章数量并更新首页显示
+  // 动态统计 + L3 标签（单一数据源：site-data.js 的 pillarModules）
   (function() {
     if (!window.__ARTICLES__ || !window.__ARTICLES__.articles) return;
     var articles = window.__ARTICLES__.articles;
+    var modules = window.__ARTICLES__.pillarModules;
+
+    // --- 文章数量统计 ---
     var wv = articles.filter(function(a){ return a.pillar === 'worldview'; }).length;
     var sc = articles.filter(function(a){ return a.pillar === 'social'; }).length;
     var elWV = document.getElementById('worldview-count');
     var elSC = document.getElementById('social-count');
     if (elWV) elWV.textContent = wv + ' 篇';
     if (elSC) elSC.textContent = sc + ' 篇';
+
+    // --- L3 标签：从 pillarModules 动态生成 ---
+    if (!modules) return;
+
+    function buildL3Tags(pillar, containerId) {
+      var el = document.getElementById(containerId);
+      if (!el || !modules[pillar]) return;
+      var mods = modules[pillar];
+      el.innerHTML = mods.map(function(m) {
+        return '<span class="l3-btn">' + m.module + '</span>';
+      }).join('');
+    }
+
+    buildL3Tags('worldview', 'worldview-l3');
+    buildL3Tags('social', 'social-l3');
   })();
   </script>
 </body>

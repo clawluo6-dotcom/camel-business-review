@@ -66,7 +66,7 @@
       <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">首页</a>
       <a href="worldview.html" class="nav-link active no-underline" style="color:#22d3ee;text-decoration:none">🌌 世界观</a>
       <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none">🏛️ 社会逻辑</a>
-      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 速递</a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 经济速递</a>
       <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">✦ 关于</a>
     </div>
   </div>
@@ -153,12 +153,12 @@
       <span>·</span>
       <a href="social.html" class="hover:text-accent-gold transition">社会逻辑</a>
       <span>·</span>
-      <a href="ai-news.html" class="hover:text-accent-emerald transition">AI 速递</a>
+      <a href="ai-news.html" class="hover:text-accent-emerald transition">AI 经济速递</a>
     </div>
   </div>
 </footer>
 
-<script src="articles.js"></script>
+<script src="site-data.js"></script>
 <script>
 (function() {
   const DATA = window.__ARTICLES__;
@@ -167,48 +167,13 @@
   const ACCENT = '#22d3ee';
   const PILLAR = 'worldview';
 
-  // ---- Module tree definition (matches Obsidian 01-哲学思想研究/) ----
-  const MODULE_TREE = [
-    {
-      module: '传统哲学研究',
-      icon: '📜',
-      subdirs: [
-        { name: '世界的真相', desc: '对宇宙本质、意识本源的系统性追问' },
-        { name: '传统哲学', desc: '太极图说、道德经、周易等经典解读' },
-        { name: '内圣外王', desc: '内圣外王——修己与治世之道' },
-        { name: '西游记', desc: '《西游记》中的修行密码' },
-        { name: '豆豆三部曲', desc: '《豆豆三部曲》思想解读' }
-      ]
-    },
-    {
-      module: '佛学思想研究',
-      icon: '🪷',
-      subdirs: [
-        { name: '佛陀的核心思想', desc: '八正道、十二因缘、三法印、四圣谛' },
-        { name: '佛教思想', desc: '五见、分别心、三界唯心、觉与空' },
-        { name: '金刚经', desc: '《金刚般若波罗蜜经》原文与解读' },
-        { name: '中观唯识', desc: '龙树中观、唯识学说' },
-        { name: '止观禅定', desc: '四禅八定至灭尽定与涅槃' },
-        { name: '禅宗六祖', desc: '禅宗传法与顿悟法门' },
-        { name: '心与识', desc: '心识运作机制与观心之道' },
-        { name: '修行方法', desc: '圣多纳释放法、三破法、漏尽通' }
-      ]
-    },
-    {
-      module: '儒家思想研究',
-      icon: '📖',
-      subdirs: [
-        { name: '儒家思想研究', desc: '儒家经典与义理研究' }
-      ]
-    },
-    {
-      module: '科学哲学研究',
-      icon: '🔬',
-      subdirs: [
-        { name: '科学哲学研究', desc: '太极波粒、统一场论等科学范式追问' }
-      ]
-    }
-  ];
+  // ---- Module tree: 从 site-data.js 的 pillarModules 动态构建（单一数据源） ----
+  const PILLAR_MODULES = (DATA.pillarModules && DATA.pillarModules[PILLAR]) || [];
+  const MODULE_TREE = PILLAR_MODULES.map(pm => ({
+    module: pm.module,
+    icon: pm.icon,
+    subdirs: pm.subcategories.map(sc => ({ name: sc, desc: sc }))
+  }));
 
   // ---- Build lookup: subcategory → { module, subdir } ----
   const subdirMap = {};
@@ -218,15 +183,24 @@
     });
   });
 
-  // ---- Filter articles ----
+  // ---- Filter articles (non-MOC for main list) ----
   const articles = DATA.articles.filter(a => a.pillar === PILLAR && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
 
-  // Group by subcategory
+  // Group by subcategory (non-MOC for article list)
   const bySub = {};
   articles.forEach(a => {
     const sc = a.subcategory || '未分类';
     if (!bySub[sc]) bySub[sc] = [];
     bySub[sc].push(a);
+  });
+
+  // Group ALL articles by subcategory (including MOC, for sidebar module counting)
+  const allArticles = DATA.articles.filter(a => a.pillar === PILLAR);
+  const bySubAll = {};
+  allArticles.forEach(a => {
+    const sc = a.subcategory || '未分类';
+    if (!bySubAll[sc]) bySubAll[sc] = [];
+    bySubAll[sc].push(a);
   });
 
   // Smart sort: 按标题中的数字/中文序号排序（一<二<...<十<十一；1<2<10）
@@ -280,12 +254,12 @@
     let html = '';
     let currentModule = '';
     MODULE_TREE.forEach(mod => {
-      // 只保留有文章的子目录
-      const activeSubdirs = mod.subdirs.filter(sd => (bySub[sd.name] || []).length > 0);
+      // 只保留有文章的子目录（用 bySubAll 包含 MOC，确保目录页也能被统计）
+      const activeSubdirs = mod.subdirs.filter(sd => (bySubAll[sd.name] || []).length > 0);
       if (activeSubdirs.length === 0) return; // 跳过整组空的 module
 
       // Module header
-      const modArticles = activeSubdirs.reduce((sum, sd) => sum + (bySub[sd.name] || []).length, 0);
+      const modArticles = activeSubdirs.reduce((sum, sd) => sum + (bySubAll[sd.name] || []).length, 0);
       html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
         <span>${mod.icon}</span>
         <span class="flex-1">${mod.module}</span>
@@ -294,7 +268,7 @@
 
       // Subdirs
       activeSubdirs.forEach(sd => {
-        const count = (bySub[sd.name] || []).length;
+        const count = (bySubAll[sd.name] || []).length;
         html += `<button class="tree-subdir w-full text-left px-2 py-1.5 pl-6 rounded text-sm text-text-secondary flex items-center justify-between border-l border-transparent"
                 data-sub="${sd.name}" onclick="window.__selectFolder('${sd.name}')">
           <span class="truncate">${sd.name}</span>

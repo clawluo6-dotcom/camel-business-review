@@ -1,0 +1,159 @@
+/* ================================================================
+   Cusdis Custom Theme — 匹配骆驼商业本质主站配色
+   支持 dark（默认）与 light（scholar）双主题
+   ================================================================ */
+
+/* ---------- 基础变量（对齐首页暗版色系） ---------- */
+:root {
+  --cusdis-bg:        #0a0e17;
+  --cusdis-surface:   #1a1f2e;
+  --cusdis-border:    #242b3d;
+  --cusdis-text:      #e2e8f0;
+  --cusdis-muted:     #94a3b8;
+  --cusdis-accent:    #22d3ee;
+  --cusdis-accent-hover: #a855f7;
+}
+
+/* ---------- Scholar Light 主题覆盖 ---------- */
+html[data-theme="light"] {
+  --cusdis-bg:        #fefcf7;
+  --cusdis-surface:   #f8f3e9;
+  --cusdis-border:    #d5cebd;
+  --cusdis-text:      #251401;
+  --cusdis-muted:     #8a7a6a;
+  --cusdis-accent:    #1a6b5a;
+  --cusdis-accent-hover: #0d4a3d;
+}
+
+/* ---------- 全局 ---------- */
+body, #root, .cusdis-frame {
+  background: var(--cusdis-bg) !important;
+  color: var(--cusdis-text) !important;
+  font-family: "Noto Serif SC", "PingFang SC", "Microsoft YaHei", serif !important;
+}
+
+/* ---------- 评论卡片 ---------- */
+.cusdis-comment {
+  background: var(--cusdis-surface) !important;
+  border: 1px solid var(--cusdis-border) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+}
+
+/* ---------- 输入框 ---------- */
+.cusdis-frame input[type="text"],
+.cusdis-frame input[type="email"],
+.cusdis-frame textarea,
+.cusdis-frame .cusdis-input {
+  background: var(--cusdis-surface) !important;
+  color: var(--cusdis-text) !important;
+  border: 1px solid var(--cusdis-border) !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+}
+
+.cusdis-frame input::placeholder,
+.cusdis-frame textarea::placeholder {
+  color: var(--cusdis-muted) !important;
+}
+
+.cusdis-frame input:focus,
+.cusdis-frame textarea:focus {
+  outline: none !important;
+  border-color: var(--cusdis-accent) !important;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15) !important;
+}
+
+html[data-theme="light"] .cusdis-frame input:focus,
+html[data-theme="light"] .cusdis-frame textarea:focus {
+  box-shadow: 0 0 0 3px rgba(26, 107, 90, 0.15) !important;
+}
+
+/* ---------- 按钮 ---------- */
+.cusdis-frame button,
+.cusdis-frame .cusdis-btn {
+  background: var(--cusdis-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.cusdis-frame button:hover,
+.cusdis-frame .cusdis-btn:hover {
+  background: var(--cusdis-accent-hover) !important;
+}
+
+/* ---------- 评论者名称 ---------- */
+.cusdis-frame .cusdis-name,
+.cusdis-frame .comment-author {
+  color: var(--cusdis-text) !important;
+  font-weight: 600 !important;
+}
+
+/* ---------- 评论时间 ---------- */
+.cusdis-frame .cusdis-time,
+.cusdis-frame .comment-time {
+  color: var(--cusdis-muted) !important;
+  font-size: 12px !important;
+}
+
+/* ---------- 评论内容 ---------- */
+.cusdis-frame .cusdis-content,
+.cusdis-frame .comment-content {
+  color: var(--cusdis-text) !important;
+  line-height: 1.7 !important;
+}
+
+/* ---------- 回复按钮 ---------- */
+.cusdis-frame .cusdis-reply-btn {
+  color: var(--cusdis-accent) !important;
+  font-size: 13px !important;
+}
+
+.cusdis-frame .cusdis-reply-btn:hover {
+  color: var(--cusdis-accent-hover) !important;
+}
+
+/* ---------- 评论区标题 ---------- */
+.cusdis-frame h3,
+.cusdis-frame .cusdis-title {
+  color: var(--cusdis-text) !important;
+  font-weight: 600 !important;
+  margin-bottom: 16px !important;
+}
+
+/* ---------- 无评论提示 ---------- */
+.cusdis-frame .cusdis-empty,
+.cusdis-frame .empty-state {
+  color: var(--cusdis-muted) !important;
+  text-align: center !important;
+  padding: 24px !important;
+}
+
+/* ---------- 加载中 ---------- */
+.cusdis-frame .cusdis-loading {
+  color: var(--cusdis-muted) !important;
+}
+
+/* ---------- 链接 ---------- */
+.cusdis-frame a {
+  color: var(--cusdis-accent) !important;
+  text-decoration: none !important;
+}
+
+.cusdis-frame a:hover {
+  color: var(--cusdis-accent-hover) !important;
+  text-decoration: underline !important;
+}
+
+/* ---------- 分隔线 ---------- */
+.cusdis-frame hr,
+.cusdis-frame .cusdis-divider {
+  border-color: var(--cusdis-border) !important;
+}

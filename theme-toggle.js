@@ -5,7 +5,7 @@
 
 (function() {
   const KEY = 'camel-theme';
-  const STORED = localStorage.getItem(KEY) || 'dark';
+  const STORED = localStorage.getItem(KEY) || 'scholar';
 
   // 初始化：根据 localStorage 设置 html class
   const html = document.documentElement;

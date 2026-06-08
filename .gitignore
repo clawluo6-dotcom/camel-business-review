@@ -20,3 +20,9 @@ __pycache__/
 
 # WorkBuddy workspace
 .workbuddy/
+
+# Archived build scripts (no longer used, not deployed)
+_archived/
+
+# Legacy auto-generated file (replaced by site-data.js + article-content.js)
+articles.js
