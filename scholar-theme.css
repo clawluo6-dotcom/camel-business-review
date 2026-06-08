@@ -547,16 +547,16 @@ html.scholar aside .tree-module {
   color: var(--ink-primary) !important;
   background: transparent;
   border-radius: 0;
-  padding: 10px 12px 4px !important;      /* 底部收窄，和子项贴近 */
+  padding: 10px 12px 8px !important;      /* 底部加宽，和子项之间留呼吸感 */
   margin: 0;
   border-top: none;
   line-height: 1.35;
 }
-/* 模块之间：加顶部分隔线 + 更大间距 */
+/* 模块之间：加顶部分隔线 + 更大间距（匹配暗板 mt-3 = 12px） */
 html.scholar aside .tree-module:not(:first-child) {
   border-top: 1px solid var(--ink-border);
-  margin-top: 0.6rem;
-  padding-top: 0.6rem !important;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem !important;
 }
 html.scholar aside .tree-module:first-child {
   padding-top: 8px !important;
@@ -572,12 +572,12 @@ html.scholar aside .tree-module .tree-count {
 }
 
 /* ---- L2：子文件夹 ---- */
-/* 关键：压到 12px（和 L1 的 15px 拉开 3px 差距），缩进更多，更紧凑 */
+/* 字号 13px，垂直内边距 6px 匹配暗板的 py-1.5，保持舒适呼吸感 */
 html.scholar aside .tree-subdir {
-  font-size: 12px !important;
+  font-size: 13px !important;
   font-weight: 400 !important;
   color: #951009 !important;
-  padding: 3px 12px 3px 28px !important;  /* pl-28 缩进更明显 */
+  padding: 6px 12px 6px 28px !important;  /* 匹配暗板 py-1.5 */
   margin: 0;
   border-left: none !important;
   border-radius: 0;

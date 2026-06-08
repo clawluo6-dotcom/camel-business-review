@@ -162,7 +162,7 @@
       ]
     },
     {
-      module: '一、经济史研究',
+      module: '经济史研究',
       icon: '📜',
       subdirs: [
         { name: '经济史研究', dataSubcat: '经济史研究', desc: '经济史研究的总体索引' },
@@ -171,7 +171,7 @@
       ]
     },
     {
-      module: '二、宏观经济与周期研究',
+      module: '宏观经济研究',
       icon: '📊',
       subdirs: [
         { name: '宏观经济', dataSubcat: '宏观经济', desc: '经济周期、经济危机、财富本质与原理公式' },
@@ -179,7 +179,7 @@
       ]
     },
     {
-      module: '三、国际金融与政策研究',
+      module: '国际金融研究',
       icon: '🌐',
       subdirs: [
         { name: '国际金融', dataSubcat: '国际金融', desc: '全球金融秩序、石油霸权、美元体系与数字货币' },
@@ -187,7 +187,7 @@
       ]
     },
     {
-      module: '四、中国经济观察',
+      module: '中国经济观察',
       icon: '🇨🇳',
       subdirs: [
         { name: '中国经济', dataSubcat: '中国经济', desc: '民营企业、芯片产业、农村改革、海南封关等中国议题' }
@@ -204,7 +204,7 @@
   });
 
   // ---- Filter articles ----
-  const articles = DATA.articles.filter(a => a.pillar === PILLAR);
+  const articles = DATA.articles.filter(a => a.pillar === PILLAR && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
 
   // Group by subcategory (data field)
   const bySub = {};
@@ -249,14 +249,18 @@
 
     let html = '';
     MODULE_TREE.forEach(mod => {
-      const modTotal = mod.subdirs.reduce((sum, sd) => sum + (bySub[sd.dataSubcat] || []).length, 0);
+      // 只保留有文章的子目录
+      const activeSubdirs = mod.subdirs.filter(sd => (bySub[sd.dataSubcat] || []).length > 0);
+      if (activeSubdirs.length === 0) return; // 跳过整组空的 module
+
+      const modTotal = activeSubdirs.reduce((sum, sd) => sum + (bySub[sd.dataSubcat] || []).length, 0);
       html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
         <span>${mod.icon}</span>
         <span class="flex-1">${mod.module}</span>
         <span class="tree-count">${modTotal}篇</span>
       </div>`;
 
-      mod.subdirs.forEach(sd => {
+      activeSubdirs.forEach(sd => {
         const count = (bySub[sd.dataSubcat] || []).length;
         html += `<button class="tree-subdir w-full text-left px-2 py-1.5 pl-6 rounded text-sm text-text-secondary flex items-center justify-between border-l border-transparent"
                 data-folder="${sd.name}" onclick="window.__selectFolder('${sd.name}')">

@@ -145,7 +145,7 @@ function init() {
   try {
     const data = window.__ARTICLES__;
     const articles = data.articles || data;
-    const filtered = articles.filter(a => a.pillar === pillar && a.subcategory === cat);
+    const filtered = articles.filter(a => a.pillar === pillar && a.subcategory === cat && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
     render(cfg, pillar, cat, filtered);
   } catch (err) {
     document.getElementById('app').innerHTML = `<div class="empty-state"><p class="text-text-muted text-lg">数据加载失败: ${err.message}</p></div>`;

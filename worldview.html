@@ -219,7 +219,7 @@
   });
 
   // ---- Filter articles ----
-  const articles = DATA.articles.filter(a => a.pillar === PILLAR);
+  const articles = DATA.articles.filter(a => a.pillar === PILLAR && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
 
   // Group by subcategory
   const bySub = {};
@@ -280,8 +280,12 @@
     let html = '';
     let currentModule = '';
     MODULE_TREE.forEach(mod => {
+      // 只保留有文章的子目录
+      const activeSubdirs = mod.subdirs.filter(sd => (bySub[sd.name] || []).length > 0);
+      if (activeSubdirs.length === 0) return; // 跳过整组空的 module
+
       // Module header
-      const modArticles = mod.subdirs.reduce((sum, sd) => sum + (bySub[sd.name] || []).length, 0);
+      const modArticles = activeSubdirs.reduce((sum, sd) => sum + (bySub[sd.name] || []).length, 0);
       html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
         <span>${mod.icon}</span>
         <span class="flex-1">${mod.module}</span>
@@ -289,7 +293,7 @@
       </div>`;
 
       // Subdirs
-      mod.subdirs.forEach(sd => {
+      activeSubdirs.forEach(sd => {
         const count = (bySub[sd.name] || []).length;
         html += `<button class="tree-subdir w-full text-left px-2 py-1.5 pl-6 rounded text-sm text-text-secondary flex items-center justify-between border-l border-transparent"
                 data-sub="${sd.name}" onclick="window.__selectFolder('${sd.name}')">

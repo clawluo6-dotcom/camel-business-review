@@ -132,18 +132,18 @@
 (function(){
   var CATEGORY_MAP = {
     '传统哲学研究': ['意识哲学'],
-    '佛学思想研究': ['性相不二'],
+    '佛学思想研究': ['心与识', '金刚经', '佛陀的核心思想', '西游记', '豆豆三部曲', '佛教思想'],
     '儒家思想研究': ['内圣外王', '人的本质', '处世实践', '心性修养', '文化修行'],
     '科学哲学研究': ['世界的真相', '力与物理'],
     '经济史研究': ['500年大周期'],
     '宏观经济研究': ['宏观经济'],
-    '国际金融研究': ['全球地缘'],
-    '中国经济观察': ['产业经济'],
+    '国际金融研究': ['国际金融', '美国战略', '世界历史'],
+    '中国经济观察': ['中国经济', '中国历史'],
     '商业模式研究': []
   };
   var mapped = CATEGORY_MAP['儒家思想研究'] || [];
   var articles = (window.__ARTICLES__ && window.__ARTICLES__.articles) || [];
-  var filtered = articles.filter(function(a){ return (a.pillar === 'worldview' || a.pillar === 'practice') && mapped.indexOf(a.subcategory) !== -1; });
+  var filtered = articles.filter(function(a){ return (a.pillar === 'worldview' || a.pillar === 'practice') && mapped.indexOf(a.subcategory) !== -1 && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'); });
   var ACC = '#22d3ee', html = '<div class="mb-6 fade-in" style="animation-delay:0.2s"><h3 class="text-lg font-bold" style="color:'+ACC+'">文章列表</h3><p class="text-text-secondary text-sm">共 '+filtered.length+' 篇</p></div>';
   if (filtered.length === 0) {
     html += '<div class="glass rounded-2xl p-12 empty-state"><p class="text-text-muted text-base">该分类暂无文章，敬请期待</p></div>';

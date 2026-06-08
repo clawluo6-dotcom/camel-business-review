@@ -146,7 +146,7 @@
     '文化修行': '从豆豆三部曲到西游记——以文化作品为镜，观照自我修行'
   };
 
-  const articles = DATA.articles.filter(a => a.pillar === PILLAR);
+  const articles = DATA.articles.filter(a => a.pillar === PILLAR && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
   const groups = {};
   articles.forEach(a => {
     const sc = a.subcategory || '未分类';
