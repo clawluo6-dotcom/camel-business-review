@@ -3,24 +3,24 @@
     "siteName": "骆驼商业本质",
     "siteNameCN": "骆驼商业本质",
     "version": "2.0.3",
-    "lastUpdated": "2026-06-07T08:50:00+08:00",
+    "lastUpdated": "2026-06-08T10:20:00+08:00",
     "description": "认识世界 · 理解社会 · 安顿自己"
   },
   "featured": {
-    "id": "feat-001",
-    "title": "SpaceX 锁定 IPO：发行价 135 美元，6 月 12 日上市，估值 1.77 万亿",
+    "id": "feat-002",
+    "title": "WWDC 2026 开幕：Siri 迎来 15 年最大重构",
     "titleCN": "",
-    "summary": "SpaceX 公布 IPO 路演详情：股票代码 SPCX，拟发行 5.556 亿股 A 类普通股，发行价每股 135 美元，募资约 750 亿美元，估值达 1.77 万亿美元，将成为美国史上最大规模 IPO。2025 年营收 187 亿美元，预计 6 月 12 日在纳斯达克挂牌。",
-    "category": "硬件与基建",
-    "date": "2026-06-06",
+    "summary": "苹果 WWDC 2026 于6月8日开幕，发布 Siri 2.0（代号 Project Campos），由 Google 定制 1.2 万亿参数 Gemini 模型驱动，年授权费约 10 亿美元。新版 Siri 支持跨 App 执行、第三方 AI 模型切换，成为系统级 AI Agent。这可能是 Tim Cook 最后一次主持 Keynote。",
+    "category": "大模型军备",
+    "date": "2026-06-08",
     "tags": [
-      "SpaceX",
-      "IPO",
-      "纳斯达克",
-      "马斯克"
+      "Apple",
+      "WWDC",
+      "Siri",
+      "Gemini"
     ],
     "importance": 5,
-    "source": "SpaceX / 彭博社",
+    "source": "Bloomberg / TechCrunch",
     "link": ""
   },
   "categories": [
@@ -64,108 +64,108 @@
   "news": [
     {
       "id": "n037",
-      "title": "WWDC 2026 明日开幕：Siri 15 年来最大变革，Apple Intelligence 2.0",
-      "summary": "苹果 WWDC 2026 将于 6 月 9 日开幕，市场预期将发布 Siri 独立 App、基于 Gemini 的深度 AI 集成、iOS 27 系统级 AI 功能以及 Apple Intelligence 2.0。华尔街普遍视其为苹果证明 AI 执行力的关键转折点。",
+      "title": "WWDC 2026 开幕：Siri 2.0 迎来15年最大重构",
+      "summary": "苹果WWDC 2026于6月8日开幕，发布Siri 2.0（代号Project Campos），由Google定制1.2万亿参数Gemini模型驱动，年授权费约10亿美元。新版Siri支持跨App操作、灵动岛入口和第三方AI模型切换，升级为系统级Agent。或为Tim Cook最后一次主持Keynote。",
       "category": "models",
-      "date": "2026-06-07",
+      "date": "2026-06-08",
       "tags": [
-        "苹果",
+        "Apple",
         "WWDC",
         "Siri",
-        "Apple Intelligence"
+        "Gemini"
       ],
       "importance": 5,
-      "source": "彭博社 / CNBC"
+      "source": "Bloomberg / TechCrunch"
     },
     {
       "id": "n038",
-      "title": "OpenAI 升级 ChatGPT 记忆系统：Dreaming V3 让 AI 拥有长期记忆",
-      "summary": "OpenAI 宣布升级 ChatGPT 记忆功能，新系统基于 Dreaming V3 机制，重点改善记忆过时、准确性和大规模服务能力。新系统可自动整合历史对话要点，算力消耗降至原来的 1/5，标志着 ChatGPT 首次拥有真正意义上的长期记忆。",
-      "category": "models",
-      "date": "2026-06-04",
+      "title": "Anthropic警告「AI造AI」时代逼近，呼吁开发「刹车踏板」",
+      "summary": "Anthropic 6月4日发文《当AI构建自身》，揭示Claude已编写超80%公司代码，AI正逼近「递归自我改进」能力。该公司罕见呼吁全球开发可减缓或停止自我改进AI的技术安全措施，称当前评估框架无法应对部署中自我更新的系统。",
+      "category": "policy",
+      "date": "2026-06-07",
       "tags": [
-        "OpenAI",
-        "ChatGPT",
-        "Dreaming V3",
-        "记忆系统"
+        "Anthropic",
+        "安全",
+        "自我改进",
+        "监管"
       ],
-      "importance": 4,
-      "source": "OpenAI Blog / IT之家"
+      "importance": 5,
+      "source": "Anthropic / 澎湃新闻"
     },
     {
       "id": "n039",
-      "title": "美国两党议员发布《2026 美国人工智能法案》269 页草案",
-      "summary": "美国众议院两党议员 Obernolte（R）和 Trahan（D）发布 269 页《Great American AI Act》讨论草案，要求年收入超 5 亿美元的前沿 AI 开发商每六个月接受独立安全审计，同时冻结州级 AI 专项立法三年。目前处于征求反馈阶段。",
+      "title": "Sanders提出AI主权财富基金法案：对AI巨头征收50%股权税",
+      "summary": "参议员Sanders提出《美国AI主权财富基金法案》，拟对OpenAI、Anthropic、xAI征收一次性50%股权税（以股票支付），所得股权放入联邦主权财富基金。Trump亦表态支持政府持股AI公司，左右翼在AI公共所有权上罕见趋同。",
       "category": "policy",
-      "date": "2026-06-05",
+      "date": "2026-06-07",
       "tags": [
-        "美国",
-        "立法",
-        "安全监管",
-        "两党"
+        "Sanders",
+        "主权基金",
+        "AI所有权",
+        "监管"
       ],
-      "importance": 4,
-      "source": "Congress / FedScoop"
+      "importance": 5,
+      "source": "纽约时报 / Fortune"
     },
     {
       "id": "n040",
-      "title": "智谱 AI 拟申请科创板上市，拟募资约 150 亿元",
-      "summary": "智谱 AI 在港交所公告，董事会建议申请发行 A 股并在上交所科创板上市，发行数量占完成后总股本的 2%-8%（约 910 万至 3877 万股）。智谱今年 1 月刚以「全球大模型第一股」身份登陆港交所，现再度拓宽融资渠道。",
-      "category": "china",
-      "date": "2026-06-01",
-      "tags": [
-        "智谱",
-        "IPO",
-        "科创板",
-        "大模型"
-      ],
-      "importance": 4,
-      "source": "港交所 / 证券时报"
-    },
-    {
-      "id": "n041",
-      "title": "Claude Sonnet 4.8 泄露证据增强，Anthropic ARR 达 470 亿美元",
-      "summary": "Anthropic 3 月 31 日 npm 包意外泄露的源码映射中出现了 sonnet-4-8 字符串，同期 discloses 数据显示其年化收入（ARR）已达 470 亿美元。Opus 4.7 已于 4 月发布，Sonnet 4.8 预计 6 月下旬至 7 月初跟进发布。",
-      "category": "models",
-      "date": "2026-06-06",
-      "tags": [
-        "Anthropic",
-        "Claude",
-        "Sonnet 4.8",
-        "IPO"
-      ],
-      "importance": 4,
-      "source": "AIToolsRecap / 钛媒体"
-    },
-    {
-      "id": "n042",
-      "title": "SpaceX 锁定 IPO 发行价 135 美元，6 月 12 日上市，估值 1.77 万亿",
-      "summary": "SpaceX 更新招股书，锁定 IPO 发行价为每股 135 美元，拟发行 5.556 亿股 A 类普通股，募资约 750 亿美元，估值达 1.77 万亿美元，将成为美国史上最大规模 IPO。股票代码 SPCX，预计 6 月 12 日在纳斯达克挂牌。2025 年 SpaceX 营收 187 亿美元。",
+      "title": "SpaceX IPO倒计时：6月11日定价，估值1.77万亿美元",
+      "summary": "SpaceX将于6月11日定价、6月12日纳斯达克上市，代码SPCX。发行价$135/股，发行5.556亿股，融资750亿美元，估值1.77万亿美元，成美国史上最大IPO。2025年合并营收187亿美元，30%流通股分配给零售平台。",
       "category": "hardware",
-      "date": "2026-06-06",
+      "date": "2026-06-07",
       "tags": [
         "SpaceX",
         "IPO",
-        "马斯克",
-        "纳斯达克"
+        "SPCX",
+        "马斯克"
       ],
       "importance": 5,
-      "source": "SpaceX / 彭博社"
+      "source": "S-1文件 / 新浪财经"
+    },
+    {
+      "id": "n041",
+      "title": "xAI获联邦AI合同：Grok进入美国政府，每机构仅$0.42",
+      "summary": "美国总务管理局与xAI签署18个月OneGov协议，所有联邦机构可使用Grok 4和Grok 4 Fast，费用每个机构仅$0.42，合同至2027年3月。包含xAI工程团队支持和机构培训，为联邦政府最长期AI合同。",
+      "category": "agents",
+      "date": "2026-06-07",
+      "tags": [
+        "xAI",
+        "Grok",
+        "政府合同",
+        "联邦"
+      ],
+      "importance": 4,
+      "source": "Tom's Hardware / GSA"
+    },
+    {
+      "id": "n042",
+      "title": "Grok Build发布：xAI推出终端编程代理，挑战Claude Code",
+      "summary": "xAI面向SuperGrok订阅者推出终端编程代理Grok Build，支持终端规划、并行子代理、工作树和无头模式，兼容ACP协议。直接对标Claude Code、GitHub Copilot和Cursor，AI编程代理市场五强格局形成。",
+      "category": "agents",
+      "date": "2026-06-07",
+      "tags": [
+        "xAI",
+        "Grok Build",
+        "编程代理",
+        "CLI"
+      ],
+      "importance": 4,
+      "source": "xAI / 站长之家"
     },
     {
       "id": "n043",
-      "title": "西雅图通过一年期 AI 数据中心建设禁令，亚马逊工程师公开声援",
-      "summary": "西雅图市议会通过为期一年的 AI 数据中心建设禁令，暂停受理新建或扩建 10 兆瓦及以上数据中心的申请，以便制定监管规则。多名亚马逊 AWS 工程师在听证会上公开声援该举措，将亚马逊 2000 亿美元 AI 资本支出与裁员 3 万人进行对比。",
-      "category": "policy",
-      "date": "2026-06-03",
+      "title": "2026高考引入AI监考：1290万人参考，严防智能眼镜作弊",
+      "summary": "2026年全国高考6月7日开考，报名人数1290万，设7981个考点。多地首次引入AI智能巡查系统和升级版智能安检门，严防智能眼镜等高科技作弊工具。教育部明确规定携带智能设备即构成作弊。",
+      "category": "china",
+      "date": "2026-06-08",
       "tags": [
-        "西雅图",
-        "数据中心",
-        "监管",
-        "亚马逊"
+        "高考",
+        "AI监考",
+        "智能眼镜",
+        "教育部"
       ],
-      "importance": 3,
-      "source": "新浪财经 / 经济观察网"
+      "importance": 4,
+      "source": "界面新闻 / 凤凰科技"
     },
     {
       "id": "n030",
@@ -361,32 +361,18 @@
       "source": "OpenAI Blog"
     },
     {
-      "id": "n003",
-      "title": "Google Gemini 3.5 Flash：每百万 token 仅 $0.1",
-      "summary": "Google 发布 Gemini 3.5 Flash，以每百万 token $0.1 的价格刷新性价比天花板。在多语言、代码生成和长文本理解等基准测试中全面超越同级竞品。",
-      "category": "models",
-      "date": "2026-06-03",
+      "id": "n006",
+      "title": "智能体 AI 元年：三部门联合发文推 AI Agent",
+      "summary": "国家网信办、发改委、工信部三部门联合发文推动 AI 智能体产业发展，明确将智能体列为新一代人工智能发展重点方向，支持行业应用落地。",
+      "category": "agents",
+      "date": "2026-06-02",
       "tags": [
-        "Google",
-        "Gemini",
-        "性价比"
+        "政策",
+        "智能体",
+        "三部门"
       ],
-      "importance": 4,
-      "source": "Google AI Blog"
-    },
-    {
-      "id": "n004",
-      "title": "Claude Opus 4.8：代码审查漏检率降 4 倍",
-      "summary": "Anthropic 推出 Claude Opus 4.8，代码审查漏检率降低 4 倍，可自动完成 75 万行代码迁移任务，通过率达 99.8%。在企业级代码智能领域树立新标杆。",
-      "category": "models",
-      "date": "2026-06-03",
-      "tags": [
-        "Anthropic",
-        "Claude",
-        "代码"
-      ],
-      "importance": 4,
-      "source": "Anthropic Blog"
+      "importance": 5,
+      "source": "新华社"
     },
     {
       "id": "n009",
@@ -417,87 +403,88 @@
       "source": "NVIDIA Press"
     },
     {
-      "id": "n011",
-      "title": "英伟达 Cosmos 3：全球首个全开源物理 AI 模型",
-      "summary": "英伟达发布 Cosmos 3，全球首个完全开源的全模态物理 AI 模型。支持视频理解、物理世界模拟、机器人训练等场景，开源社区反响热烈。",
+      "id": "n028",
+      "title": "COMPUTEX 2026：高通发布分布式AI PC战略",
+      "summary": "高通CEO安蒙在COMPUTEX 2026发表开幕演讲，提出「计算连续体」概念，展示分布式AI从云端到终端的完整布局。展会汇聚1500家企业，AI运算成为绝对主角。",
       "category": "hardware",
+      "date": "2026-06-05",
+      "tags": [
+        "高通",
+        "COMPUTEX",
+        "端侧AI",
+        "PC"
+      ],
+      "importance": 3,
+      "source": "环球网 / COMPUTEX"
+    },
+    {
+      "id": "n029",
+      "title": "中国AI智能体领航者榜单在京揭晓，百余企业参评",
+      "summary": "2026中国AI智能体领航者榜单在北京网络安全大会上揭晓。来自20多个行业100余家企业提交AI智能体方案参评，全面呈现中国智能体技术落地与产业创新图景。",
+      "category": "agents",
       "date": "2026-06-03",
       "tags": [
-        "英伟达",
-        "Cosmos",
-        "开源",
-        "物理AI"
+        "智能体",
+        "榜单",
+        "产业",
+        "BCS"
       ],
-      "importance": 4,
-      "source": "NVIDIA Developer"
+      "importance": 3,
+      "source": "IT之家 / BCS 2026"
     }
   ],
   "timeline": [
     {
-      "date": "2026-06-01",
-      "events": [
-        "Anthropic 提交 IPO 申请",
-        "智谱 AI 公告拟申请科创板上市",
-        "英伟达联合微软发布 RTX Spark PC 处理器",
-        "Alphabet 拟募资 800 亿美元扩张 AI 算力"
-      ]
-    },
-    {
       "date": "2026-06-02",
       "events": [
         "三部门联合发文推 AI 智能体",
-        "特朗普签署 AI 行政令：前沿模型发布前须提交安全审查"
+        "中国 AI 产业规模突破 1.2 万亿"
       ]
     },
     {
       "date": "2026-06-03",
       "events": [
         "GPT-5.5 Instant 发布",
-        "Gemini 3.5 Flash 发布",
-        "Claude Opus 4.8 发布",
-        "MiniMax M3 发布",
-        "英伟达 Cosmos 3 开源",
-        "清华 VoxCPM2 发布",
-        "微软 Build 发布 7 款 MAI 自研模型",
-        "阿里发布 Qwen3.7-Plus",
-        "西雅图通过 AI 数据中心建设禁令",
-        "欧盟技术主权一揽子计划发布"
+        "微软Build发布7款MAI自研模型",
+        "阿里发布Qwen3.7-Plus",
+        "英伟达联手微软戴尔惠普进军CPU",
+        "特朗普签署AI行政令",
+        "中国AI智能体领航者榜单揭晓"
       ]
     },
     {
       "date": "2026-06-04",
       "events": [
-        "OpenAI 升级 ChatGPT 记忆系统 Dreaming V3",
-        "BAT 等巨头集体入局智能体平台",
-        "DeepSeek 首轮融资约 500 亿元",
-        "千问 App 全面开放第三方智能体"
+        "DeepSeek首轮融资约500亿元",
+        "千问App全面开放第三方智能体",
+        "BAT等巨头集体入局智能体平台"
       ]
     },
     {
       "date": "2026-06-05",
       "events": [
-        "Google 与 SpaceX 签下 294 亿美元算力协议",
-        "特朗普宣布政府考虑入股 AI 企业",
-        "美股黑色星期五：AI 芯片遭猛烈抛售",
-        "Meta 拟融资数百亿美元加码 AI",
-        "日本数字大臣 AI 殖民地警告",
-        "中国信通院启动 Token 攀登计划",
-        "美国两党发布 Great American AI Act 草案"
-      ]
-    },
-    {
-      "date": "2026-06-06",
-      "events": [
-        "SpaceX 锁定 IPO 发行价 135 美元",
-        "Claude Sonnet 4.8 泄露证据增强",
-        "Anthropic ARR 达 470 亿美元"
+        "Google与SpaceX签下294亿美元算力协议",
+        "特朗普宣布政府考虑入股AI企业",
+        "美股黑色星期五：AI芯片遭猛烈抛售",
+        "Meta拟融资数百亿美元加码AI",
+        "COMPUTEX 2026：高通发布分布式AI PC战略"
       ]
     },
     {
       "date": "2026-06-07",
       "events": [
-        "WWDC 2026 明日开幕：Siri 15 年来最大变革",
-        "苹果 Apple Intelligence 2.0 即将发布"
+        "Anthropic警告「AI造AI」时代逼近",
+        "Sanders提出AI主权财富基金法案",
+        "SpaceX IPO倒计时：6月11日定价",
+        "xAI获联邦AI合同：Grok进入美国政府",
+        "Grok Build发布：xAI进军终端编程代理"
+      ]
+    },
+    {
+      "date": "2026-06-08",
+      "events": [
+        "WWDC 2026开幕：Siri 2.0迎来15年最大重构",
+        "2026高考引入AI监考：1290万人参考"
       ]
     }
   ],
@@ -519,12 +506,11 @@
     "googleSpacexMonthlyDeal": 0.92,
     "googleSpacexGPUs": 110000,
     "metaAICapEx": 145,
-    "spacexIpoValuation": 1770,
-    "spacexIpoPrice": 135,
-    "spacexIpoDate": "2026-06-12",
-    "anthropicARR": 47,
-    "zhipuFunding": 150,
-    "seattleBan": 1
+    "siriGeminiParams": 1.2,
+    "siriGeminiAnnualFee": 10,
+    "spacexIPOValuation": 1770,
+    "spacexIPOSharePrice": 135,
+    "spacexIPORaise": 75
   },
   "articles": {
     "worldview": [
