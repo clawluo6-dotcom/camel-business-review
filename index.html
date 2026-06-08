@@ -103,24 +103,46 @@
   </div>
 </nav>
 
-<!-- ====== Hero 区 ====== -->
-<section class="relative bg-glow-top pt-12 pb-6">
-  <div class="max-w-5xl mx-auto px-6 text-center">
+<!-- ====== Hero 区（升级版） ====== -->
+<section class="relative bg-glow-top pt-16 pb-10 overflow-hidden">
+  <!-- 动态粒子背景 -->
+  <div id="particles-bg" class="absolute inset-0 opacity-30"></div>
+
+  <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
     <div class="fade-in">
       <!-- 抬头行：站名 + 作者定位 -->
-      <div class="text-center mb-5">
+      <div class="text-center mb-6">
         <span class="site-hero-title">骆驼商业本质</span>
         <span class="site-hero-sep"> · </span>
         <span class="site-hero-author">骆新中的个人独立研究手记</span>
       </div>
 
-      <h2 class="hero-slogan text-3xl lg:text-5xl font-black tracking-tight mb-4 leading-tight">
+      <h2 class="hero-slogan text-3xl lg:text-5xl font-black tracking-tight mb-6 leading-tight">
         <span class="gradient-text">认识世界</span>
         <span class="text-text-primary"> · </span>
         <span class="gradient-text-warm">理解社会</span>
         <span class="text-text-primary"> · </span>
         <span class="gradient-text-purple">安顿自己</span>
       </h2>
+
+      <!-- 文章统计数字 -->
+      <div class="flex items-center justify-center gap-8 mb-6">
+        <div class="stat-item text-center">
+          <div class="text-3xl font-black gradient-text" id="stat-total">--</div>
+          <div class="text-xs text-text-muted mt-1">篇研究文章</div>
+        </div>
+        <div class="w-px h-10 bg-white/10"></div>
+        <div class="stat-item text-center">
+          <div class="text-3xl font-black gradient-text-warm" id="stat-worldview">--</div>
+          <div class="text-xs text-text-muted mt-1">篇世界观</div>
+        </div>
+        <div class="w-px h-10 bg-white/10"></div>
+        <div class="stat-item text-center">
+          <div class="text-3xl font-black gradient-text-purple" id="stat-social">--</div>
+          <div class="text-xs text-text-muted mt-1">篇社会逻辑</div>
+        </div>
+      </div>
+
       <!-- 注解块：标语的具体含义 -->
       <div class="hero-note-wrapper mt-4">
         <p class="hero-note-text">
@@ -169,7 +191,7 @@
           <span class="l3-btn">传统哲学研究</span>
           <span class="l3-btn">佛学思想研究</span>
           <span class="l3-btn">儒家思想研究</span>
-          <span class="l3-btn">科学哲学研究</span>
+          <span class="l3-btn">自然哲学研究</span>
         </div>
 
         <!-- 分隔线 L3 → L4 -->
@@ -185,7 +207,7 @@
         <!-- L5：进入研究板块 -->
         <div class="layer-l5 text-center">
           <span class="l5-cta">
-            进入完整研究板块 <span class="l5-count">90 篇</span>
+            进入完整研究板块 <span class="l5-count" id="worldview-count">…</span>
           </span>
         </div>
       </a>
@@ -227,7 +249,7 @@
         <!-- L5：进入研究板块 -->
         <div class="layer-l5 text-center">
           <span class="l5-cta">
-            进入完整研究板块 <span class="l5-count">22 篇</span>
+            进入完整研究板块 <span class="l5-count" id="social-count">…</span>
           </span>
         </div>
       </a>
@@ -246,6 +268,40 @@
       </a>
     </div>
 
+  </div>
+</section>
+
+<div class="section-divider max-w-5xl mx-auto my-8"></div>
+
+<!-- ====== 搜索框 ====== -->
+<section class="py-4">
+  <div class="max-w-2xl mx-auto px-6">
+    <div class="relative">
+      <input type="text" id="search-input" placeholder="搜索文章标题、内容或标签..."
+        class="w-full px-5 py-3 pl-12 rounded-xl glass border border-white/10 text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-cyan/50 focus:ring-1 focus:ring-accent-cyan/20 transition-all">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+      <div id="search-results-count" class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-text-muted hidden"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 最新文章 ====== -->
+<section class="py-8">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-xl font-bold text-text-primary">
+        <span class="gradient-text">最新研究</span>
+      </h3>
+      <a href="worldview.html" class="text-sm text-accent-cyan hover:text-accent-purple transition">查看全部 →</a>
+    </div>
+    <div id="latest-articles" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- 动态填充 -->
+    </div>
+    <div id="search-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 hidden">
+      <!-- 搜索结果 -->
+    </div>
   </div>
 </section>
 
@@ -304,5 +360,19 @@
 </footer>
 
   <script src="theme-toggle.js"></script>
+  <script src="articles.js"></script>
+  <script>
+  // 动态统计文章数量并更新首页显示
+  (function() {
+    if (!window.__ARTICLES__ || !window.__ARTICLES__.articles) return;
+    var articles = window.__ARTICLES__.articles;
+    var wv = articles.filter(function(a){ return a.pillar === 'worldview'; }).length;
+    var sc = articles.filter(function(a){ return a.pillar === 'social'; }).length;
+    var elWV = document.getElementById('worldview-count');
+    var elSC = document.getElementById('social-count');
+    if (elWV) elWV.textContent = wv + ' 篇';
+    if (elSC) elSC.textContent = sc + ' 篇';
+  })();
+  </script>
 </body>
 </html>

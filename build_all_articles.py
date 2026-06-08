@@ -8,8 +8,8 @@ import json, os, re
 from datetime import datetime
 from pathlib import Path
 
-VAULT = Path("/Users/luoclaw/Library/Mobile Documents/iCloud~md~obsidian/Documents/andy's obsidian")
-WEBSITE_DIR = "/Users/luoclaw/WorkBuddy/成果库/骆驼商业本质"
+VAULT = Path("/Users/luo/Library/Mobile Documents/iCloud~md~obsidian/Documents/andy's obsidian")
+WEBSITE_DIR = "/Users/luo/WorkBuddy/成果库/骆驼商业本质"
 OUT = os.path.join(WEBSITE_DIR, "articles.json")
 
 # ── 文章清单：用 (id, pillar, category, subcategory, filename_glob, tags, importance)
@@ -312,6 +312,28 @@ ARTICLES_SPEC = [
     ("buddha66", "worldview", "佛学思想研究", "中观唯识", "07-中观与唯识～1", ["中观唯识"], 3),
     ("buddha67", "worldview", "佛学思想研究", "中观唯识", "08-中观与唯识 ～2", ["中观唯识"], 3),
     ("buddha68", "worldview", "佛学思想研究", "中观唯识", "MOC-中观唯识", ["中观唯识"], 3),
+
+    # 🆕 补录缺失文章（Obsidian 有但之前未收录）
+    ("moc-philosophy-overview",  "worldview", "世界观",   "哲学总纲",   "MOC-哲学思想总纲",
+     ["哲学","总纲","MOC"], 2),
+    ("moc-buddhism-overview",    "worldview", "佛学思想研究", "佛学总纲", "MOC-佛学总纲",
+     ["佛学","总纲","MOC"], 2),
+    ("moc-traditional-philo",    "worldview", "世界观",   "传统哲学研究", "MOC-传统哲学思想",
+     ["传统哲学","MOC"], 2),
+    ("moc-doudou",               "worldview", "世界观",   "豆豆三部曲", "MOC-豆豆三部曲",
+     ["豆豆三部曲","MOC"], 2),
+    ("moc-inner-sage",           "worldview", "世界观",   "内圣外王",   "MOC-内圣外王",
+     ["内圣外王","MOC"], 2),
+    ("moc-world-truth",          "worldview", "世界观",   "世界的真相", "MOC-世界的真相",
+     ["世界的真相","MOC"], 2),
+    ("wealth-delusion-1",        "worldview", "世界观",   "传统哲学研究", "01-财富的谬论",
+     ["财富","谬论","哲学"], 4),
+    ("wealth-delusion-2",        "worldview", "世界观",   "传统哲学研究", "02-财富的谬论",
+     ["财富","谬论","总结","哲学"], 3),
+    ("inner-sage-unnamed",       "worldview", "世界观",   "内圣外王",   "未命名",
+     ["内圣外王","草稿"], 1),
+    ("world-bottom-logic-2",     "worldview", "世界观",   "世界的真相", "18-世界的底层逻辑",
+     ["底层逻辑","世界","真相"], 4),
 ]
 
 

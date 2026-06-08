@@ -29,6 +29,8 @@
       html.classList.add(next);
       localStorage.setItem(KEY, next);
       updateButtonText(btn, next);
+      // 发出主题变更事件，供 Giscus 等组件监听
+      window.dispatchEvent(new CustomEvent('camel-theme-changed', { detail: next }));
     });
 
     navRight.appendChild(btn);

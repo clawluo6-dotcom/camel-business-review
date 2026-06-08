@@ -198,10 +198,56 @@ function render(article) {
     </a>
   </div>`;
 
+  // Giscus 评论区
+  html += `
+  <div class="mt-12 fade-in" style="animation-delay:0.2s">
+    <div class="glass rounded-2xl p-6 md:p-8">
+      <h2 class="text-xl font-bold mb-4" style="color:${acc}">💬 评论区</h2>
+      <div class="giscus"></div>
+    </div>
+  </div>`;
+
   document.getElementById('app').innerHTML = html;
 }
 
 init();
+
+// === Giscus 评论系统 ===
+function loadGiscus() {
+  var container = document.querySelector('.giscus');
+  if (!container) return;
+  var currentTheme = document.documentElement.classList.contains('scholar') ? 'light' : 'dark';
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.setAttribute('data-repo', 'clawluo6-dotcom/camel-business-review');
+  s.setAttribute('data-repo-id', 'R_kgDOSwie6g');
+  s.setAttribute('data-category', 'Announcements');
+  s.setAttribute('data-category-id', 'DIC_kwDOSwie6s4C-ukC');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'top');
+  s.setAttribute('data-theme', currentTheme === 'light' ? 'light' : 'dark');
+  s.setAttribute('data-lang', 'zh-CN');
+  s.setAttribute('crossorigin', 'anonymous');
+  s.async = true;
+  container.innerHTML = '';
+  container.appendChild(s);
+}
+
+// 首次加载
+setTimeout(loadGiscus, 300);
+
+// 主题切换时同步更新 Giscus 主题
+window.addEventListener('camel-theme-changed', function(e) {
+  var theme = e.detail === 'scholar' ? 'light' : 'dark';
+  var msg = { giscus: { setConfig: { theme: theme } } };
+  var iframe = document.querySelector('iframe.giscus-frame');
+  if (iframe && iframe.contentWindow) {
+    iframe.contentWindow.postMessage(msg, 'https://giscus.app');
+  }
+});
 </script>
   <script src="theme-toggle.js"></script>
 </body>
