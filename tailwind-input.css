@@ -1,0 +1,4 @@
+/* Tailwind CSS input — base directives only, classes come from HTML scanning */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

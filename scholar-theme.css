@@ -63,8 +63,8 @@ html.scholar {
    Body & 页面底色
    ================================================================= */
 html.scholar body {
-  background: var(--ink-page) !important;
-  color: var(--ink-primary) !important;
+  background: var(--ink-page) ;
+  color: var(--ink-primary) ;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -73,39 +73,39 @@ html.scholar body {
 /* =================================================================
    Tailwind 工具类覆写
    ================================================================= */
-html.scholar .bg-bg-primary    { background-color: var(--ink-page) !important; }
-html.scholar .bg-bg-secondary  { background-color: var(--ink-overlay) !important; }
-html.scholar .bg-bg-card       { background-color: var(--ink-surface) !important; }
-html.scholar .bg-bg-hover      { background-color: var(--ink-hover) !important; }
+html.scholar .bg-bg-primary    { background-color: var(--ink-page) ; }
+html.scholar .bg-bg-secondary  { background-color: var(--ink-overlay) ; }
+html.scholar .bg-bg-card       { background-color: var(--ink-surface) ; }
+html.scholar .bg-bg-hover      { background-color: var(--ink-hover) ; }
 
-html.scholar .text-text-primary   { color: var(--ink-primary) !important; }
-html.scholar .text-text-secondary { color: var(--ink-secondary) !important; }
-html.scholar .text-text-muted     { color: var(--ink-muted) !important; }
+html.scholar .text-text-primary   { color: var(--ink-primary) ; }
+html.scholar .text-text-secondary { color: var(--ink-secondary) ; }
+html.scholar .text-text-muted     { color: var(--ink-muted) ; }
 
 /* 暗色主题遗留的冷色工具类 → 统一转为松烟墨色 */
 html.scholar .text-accent-cyan,
 html.scholar .text-accent-gold,
 html.scholar .text-accent-emerald,
 html.scholar .text-accent-rose,
-html.scholar .text-accent-purple { color: var(--ink-primary) !important; }
+html.scholar .text-accent-purple { color: var(--ink-primary) ; }
 
 html.scholar .bg-accent-cyan,
 html.scholar .bg-accent-gold,
-html.scholar .bg-accent-emerald { background-color: var(--ink-surface) !important; }
+html.scholar .bg-accent-emerald { background-color: var(--ink-surface) ; }
 
 /* text-white / text-gray-* 在浅色模式下全转墨色系 */
 html.scholar .text-white,
 html.scholar .text-gray-100,
 html.scholar .text-gray-200,
-html.scholar .text-gray-300 { color: var(--ink-primary) !important; }
+html.scholar .text-gray-300 { color: var(--ink-primary) ; }
 
 html.scholar .text-gray-400,
 html.scholar .text-gray-500,
-html.scholar .text-gray-600 { color: var(--ink-secondary) !important; }
+html.scholar .text-gray-600 { color: var(--ink-secondary) ; }
 
 html.scholar .text-gray-700,
 html.scholar .text-gray-800,
-html.scholar .text-gray-900 { color: var(--ink-primary) !important; }
+html.scholar .text-gray-900 { color: var(--ink-primary) ; }
 
 /* 内联 style 冷灰 → 松烟墨 muted */
 html.scholar [style*="color:#94a3b8"] { color: var(--ink-muted) !important; }
@@ -125,10 +125,10 @@ html.scholar a[style*="color:#34d399"] { color: var(--ink-primary) !important; }
    page → surface → hover
    ================================================================= */
 html.scholar .glass {
-  background: var(--ink-surface) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: 1px solid var(--ink-border) !important;
+  background: var(--ink-surface) ;
+  backdrop-filter: none ;
+  -webkit-backdrop-filter: none ;
+  border: 1px solid var(--ink-border) ;
   border-radius: var(--radius-m);
   box-shadow: var(--shadow-s);
 }
@@ -138,15 +138,15 @@ html.scholar .glass-hover {
   cursor: pointer;
 }
 html.scholar .glass-hover:hover {
-  background: var(--ink-hover) !important;
-  border-color: var(--ink-border) !important;
+  background: var(--ink-hover) ;
+  border-color: var(--ink-border) ;
   box-shadow: var(--shadow-l);
 }
 
 /* 导航栏 */
 html.scholar nav.glass {
-  background: var(--ink-page) !important;
-  border-bottom: 1px solid var(--ink-border) !important;
+  background: var(--ink-page) ;
+  border-bottom: 1px solid var(--ink-border) ;
   box-shadow: none;
 }
 
@@ -155,48 +155,48 @@ html.scholar nav.glass {
    导航链接
    ================================================================= */
 html.scholar .nav-link::after {
-  background: var(--ink-primary) !important;
+  background: var(--ink-primary) ;
 }
 
 html.scholar .hover\:text-accent-cyan:hover,
 html.scholar .hover\:text-accent-gold:hover,
 html.scholar .hover\:text-accent-emerald:hover,
-html.scholar .hover\:text-accent-purple:hover { color: var(--accent-link) !important; }
+html.scholar .hover\:text-accent-purple:hover { color: var(--accent-link) ; }
 
 
 /* =================================================================
    关于页 — 平台关注卡片（暗版深灰 → 浅版暖底+边框+阴影）
    ================================================================= */
 html.scholar .platform-link {
-  background: #f2ebe0 !important;
-  border: 1.5px solid #c5b99b !important;
+  background: #f2ebe0 ;
+  border: 1.5px solid #c5b99b ;
   box-shadow: 0 2px 8px rgba(92,83,68,0.08),
-              0 0 0 1px rgba(200,180,150,0.15) !important;
+              0 0 0 1px rgba(200,180,150,0.15) ;
 }
 html.scholar .platform-link:hover {
-  background: #ece2d2 !important;
-  border-color: #a09070 !important;
+  background: #ece2d2 ;
+  border-color: #a09070 ;
   box-shadow: 0 4px 16px rgba(92,83,68,0.14),
-              0 0 0 1px rgba(192,112,48,0.20) !important;
+              0 0 0 1px rgba(192,112,48,0.20) ;
   transform: translateY(-2px);
 }
 
 /* 每个平台卡片的颜色标记 */
-html.scholar .platform-link:nth-child(1) { border-left: 4px solid #e83a1d !important; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
-html.scholar .platform-link:nth-child(2) { border-left: 4px solid #fb7299 !important; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
-html.scholar .platform-link:nth-child(3) { border-left: 4px solid #0066ff !important; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
-html.scholar .platform-link:nth-child(4) { border-left: 4px solid #e6bc00 !important; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+html.scholar .platform-link:nth-child(1) { border-left: 4px solid #e83a1d ; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+html.scholar .platform-link:nth-child(2) { border-left: 4px solid #fb7299 ; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+html.scholar .platform-link:nth-child(3) { border-left: 4px solid #0066ff ; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+html.scholar .platform-link:nth-child(4) { border-left: 4px solid #e6bc00 ; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
 
 
 /* 渐变文字 → 单墨色（不用彩色渐变） */
 html.scholar .bg-gradient-text,
 html.scholar .gradient-text,
 html.scholar .gradient-text-warm {
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: initial !important;
-  background-clip: initial !important;
-  color: var(--ink-primary) !important;
+  background: none ;
+  -webkit-background-clip: initial ;
+  -webkit-text-fill-color: initial ;
+  background-clip: initial ;
+  color: var(--ink-primary) ;
 }
 
 
@@ -206,107 +206,107 @@ html.scholar .gradient-text-warm {
 html.scholar .hero-slogan,
 html.scholar .hero-slogan span,
 html.scholar .site-slogan {
-  color: #630A05 !important;
-  background: none !important;
-  -webkit-background-clip: border-box !important;
-  -webkit-text-fill-color: #630A05 !important;
-  background-clip: border-box !important;
+  color: #630A05 ;
+  background: none ;
+  -webkit-background-clip: border-box ;
+  -webkit-text-fill-color: #630A05 ;
+  background-clip: border-box ;
 }
 
 /* =================================================================
    抬头行 — 站名 + 作者定位（Hero 区最上方）
    ================================================================= */
 html.scholar .site-hero-title {
-  font-size: 2.4rem !important;
-  font-weight: 900 !important;
-  color: var(--ink-primary) !important;
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: var(--ink-primary) !important;
-  background-clip: initial !important;
+  font-size: 2.4rem ;
+  font-weight: 900 ;
+  color: var(--ink-primary) ;
+  background: none ;
+  -webkit-background-clip: initial ;
+  -webkit-text-fill-color: var(--ink-primary) ;
+  background-clip: initial ;
 }
 html.scholar .site-hero-sep {
-  font-size: 2rem !important;
-  color: var(--ink-border) !important;
-  margin: 0 10px !important;
+  font-size: 2rem ;
+  color: var(--ink-border) ;
+  margin: 0 10px ;
 }
 html.scholar .site-hero-author {
-  font-size: 1.05rem !important;
-  font-weight: 400 !important;
-  color: var(--ink-muted) !important;
-  letter-spacing: 0.04em !important;
+  font-size: 1.05rem ;
+  font-weight: 400 ;
+  color: var(--ink-muted) ;
+  letter-spacing: 0.04em ;
 }
 
 /* =================================================================
    Hero 注解块 — 文字底色高亮，无框（纸版）
    ================================================================= */
-html.scholar .hero-note-wrapper { max-width: 580px !important; margin: 0 auto !important; }
-html.scholar .hero-note-text { text-align: center !important; margin: 0 !important; line-height: 2.2 !important; color: var(--ink-medium) !important; font-size: 12.5px !important; }
+html.scholar .hero-note-wrapper { max-width: 580px ; margin: 0 auto ; }
+html.scholar .hero-note-text { text-align: center ; margin: 0 ; line-height: 2.2 ; color: var(--ink-medium) ; font-size: 12.5px ; }
 html.scholar .hero-note {
-  background: rgba(156,148,132,0.15) !important;
-  padding: 2px 7px !important;
-  border-radius: 3px !important;
-  box-decoration-break: clone !important;
-  -webkit-box-decoration-break: clone !important;
+  background: rgba(156,148,132,0.15) ;
+  padding: 2px 7px ;
+  border-radius: 3px ;
+  box-decoration-break: clone ;
+  -webkit-box-decoration-break: clone ;
 }
 
 /* =================================================================
    写在前面 — 仅左竖线，无背景（谦卑声明，不抢主卡片视觉权重）
    ================================================================= */
 html.scholar .preface-card {
-  background: transparent !important;
-  border: none !important;
-  border-left: 3px solid rgba(168,6,6,0.28) !important;
-  border-radius: 0 !important;
-  padding: 10px 0 10px 20px !important;
-  box-shadow: none !important;
+  background: transparent ;
+  border: none ;
+  border-left: 3px solid rgba(168,6,6,0.28) ;
+  border-radius: 0 ;
+  padding: 10px 0 10px 20px ;
+  box-shadow: none ;
 }
 html.scholar .preface-title {
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
-  color: #A80606 !important;
-  margin: 0 0 10px !important;
+  font-size: 0.9rem ;
+  font-weight: 600 ;
+  color: #A80606 ;
+  margin: 0 0 10px ;
 }
 html.scholar .preface-text {
-  font-size: 13.5px !important;
-  line-height: 1.9 !important;
-  color: var(--ink-secondary) !important;
-  margin: 0 0 5px !important;
+  font-size: 13.5px ;
+  line-height: 1.9 ;
+  color: var(--ink-secondary) ;
+  margin: 0 0 5px ;
 }
 html.scholar .preface-text:last-of-type {
-  margin-bottom: 0 !important;
+  margin-bottom: 0 ;
 }
 html.scholar .preface-signature {
-  text-align: right !important;
-  font-size: 12.5px !important;
-  color: var(--ink-muted) !important;
-  margin: 12px 0 0 !important;
-  font-style: italic !important;
+  text-align: right ;
+  font-size: 12.5px ;
+  color: var(--ink-muted) ;
+  margin: 12px 0 0 ;
+  font-style: italic ;
 }
 
 /* =================================================================
    点睛语 — 暖色调格言（纸版）
    ================================================================= */
 html.scholar .punchline-quote {
-  font-size: 15px !important;
-  line-height: 2 !important;
-  color: var(--ink-secondary) !important;
-  font-style: italic !important;
-  margin: 0 0 8px !important;
+  font-size: 15px ;
+  line-height: 2 ;
+  color: var(--ink-secondary) ;
+  font-style: italic ;
+  margin: 0 0 8px ;
 }
 html.scholar .punchline-sub {
-  font-size: 12.5px !important;
-  color: var(--ink-muted) !important;
+  font-size: 12.5px ;
+  color: var(--ink-muted) ;
 }
 
 /* =================================================================
    Gradient-text 纸版回退
    ================================================================= */
 html.scholar .gradient-text-purple {
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: #630A05 !important;
-  background-clip: initial !important;
+  background: none ;
+  -webkit-background-clip: initial ;
+  -webkit-text-fill-color: #630A05 ;
+  background-clip: initial ;
 }
 
 /* =================================================================
@@ -314,11 +314,11 @@ html.scholar .gradient-text-purple {
    ================================================================= */
 html.scholar .bg-grid {
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(92,83,68,0.04) 1px, transparent 0) !important;
-  background-size: 40px 40px !important;
+    radial-gradient(circle at 1px 1px, rgba(92,83,68,0.04) 1px, transparent 0) ;
+  background-size: 40px 40px ;
 }
 html.scholar .bg-glow-top,
-html.scholar .bg-glow-gold { background: none !important; }
+html.scholar .bg-glow-gold { background: none ; }
 
 
 /* =================================================================
@@ -326,13 +326,13 @@ html.scholar .bg-glow-gold { background: none !important; }
    ================================================================= */
 html.scholar .pillar-worldview::before,
 html.scholar .pillar-social::before,
-html.scholar .pillar-ai::before { background: var(--ink-border) !important; }
+html.scholar .pillar-ai::before { background: var(--ink-border) ; }
 
 /* AI 速递横幅纸墨版 — 轻量背景，比主卡片浅一档 */
 html.scholar a[href="ai-news.html"] {
-  background: var(--ink-overlay) !important;
-  border: 1px solid var(--ink-border) !important;
-  box-shadow: none !important;
+  background: var(--ink-overlay) ;
+  border: 1px solid var(--ink-border) ;
+  box-shadow: none ;
 }
 
 
@@ -354,13 +354,13 @@ html.scholar .article-body mark {
    分隔线
    ================================================================= */
 html.scholar .section-divider {
-  background: var(--ink-border) !important;
+  background: var(--ink-border) ;
   opacity: 1;
 }
 html.scholar hr {
   border: none;
   height: 1px;
-  background: var(--ink-border) !important;
+  background: var(--ink-border) ;
 }
 
 
@@ -374,7 +374,7 @@ html.scholar hr {
 html.scholar .layer-l1 {
   position: relative;
   padding-bottom: 1.2rem;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1.5rem ;
 }
 html.scholar .layer-l1::after {
   content: '';
@@ -388,27 +388,27 @@ html.scholar .layer-l1::after {
   border-radius: 1px;
 }
 html.scholar .l1-title {
-  font-size: 1.75rem !important;    /* 28px，与压缩后的卡片协调 */
-  font-weight: 900 !important;
-  color: #251401 !important;
+  font-size: 1.75rem ;    /* 28px，与压缩后的卡片协调 */
+  font-weight: 900 ;
+  color: #251401 ;
   letter-spacing: 0.04em;
   margin: 0;
   line-height: 1.15;
 }
 html.scholar .layer-l1 .text-3xl {
-  font-size: 2.25rem !important;     /* emoji 保持稍大 */
-  margin-bottom: 0.5rem !important;
+  font-size: 2.25rem ;     /* emoji 保持稍大 */
+  margin-bottom: 0.5rem ;
 }
 
 /* L2：一级目录说明（哲学思想研究 / 经济研究）
    — 纯文字说明，不起眼，用作一级标题的注解
    ================================================================= */
 html.scholar .l2-subtitle {
-  font-size: 13.5px !important;
-  color: var(--ink-medium) !important;
+  font-size: 13.5px ;
+  color: var(--ink-medium) ;
   font-style: italic;
   letter-spacing: 0.06em;
-  font-weight: 400 !important;
+  font-weight: 400 ;
 }
 
 /* layer-divider：L2→L3 之间的分隔线（较宽） */
@@ -417,7 +417,7 @@ html.scholar .layer-divider {
   height: 1.5px;
   margin-left: auto;
   margin-right: auto;
-  background: linear-gradient(90deg, transparent 0%, var(--ink-border) 30%, var(--ink-border) 70%, transparent 100%) !important;
+  background: linear-gradient(90deg, transparent 0%, var(--ink-border) 30%, var(--ink-border) 70%, transparent 100%) ;
   opacity: 0.8;
   border-radius: 1px;
 }
@@ -432,33 +432,33 @@ html.scholar a > .layer-divider ~ .layer-l4 {
    — 字号比 L2 小，颜色稍浅，形成递进
    ================================================================= */
 html.scholar .l3-btn {
-  display: inline-flex !important;
+  display: inline-flex ;
   align-items: center;
   gap: 4px;
-  padding: 5px 14px !important;
-  font-size: 12.5px !important;
-  font-weight: 500 !important;
-  color: #951009 !important;       /* 比 L2 的 #A80606 浅 */
-  background: var(--ink-surface) !important;
-  border: 1.5px solid var(--ink-border) !important;
-  border-radius: 10px !important;
+  padding: 5px 14px ;
+  font-size: 12.5px ;
+  font-weight: 500 ;
+  color: #951009 ;       /* 比 L2 的 #A80606 浅 */
+  background: var(--ink-surface) ;
+  border: 1.5px solid var(--ink-border) ;
+  border-radius: 10px ;
   box-shadow: 0 1px 5px rgba(92,83,68,0.12);
-  transition: all 0.2s ease !important;
+  transition: all 0.2s ease ;
   cursor: default;
 }
 html.scholar .l3-btn:hover {
-  background: rgba(168,6,6,0.08) !important;
-  border-color: #A80606 !important;
-  color: #A80606 !important;
+  background: rgba(168,6,6,0.08) ;
+  border-color: #A80606 ;
+  color: #A80606 ;
   box-shadow: 0 4px 18px rgba(168,6,6,0.22);
   transform: translateY(-2px);
 }
 
 /* L3 网格容器（2×2 布局） */
 html.scholar .l3-grid {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 9px !important;
+  display: grid ;
+  grid-template-columns: 1fr 1fr ;
+  gap: 9px ;
   min-height: 72px;
 }
 
@@ -466,17 +466,17 @@ html.scholar .l3-grid {
    — 引文样式，加深文字颜色提升对比度
    ================================================================= */
 html.scholar .layer-l4 {
-  padding: 14px 18px !important;
-  background: rgba(240,234,222,0.65) !important;
-  border-left: 3.5px solid #A80606 !important;  /* 用深红竖线，和墨色区分 */
-  border-radius: 0 10px 10px 0 !important;
+  padding: 14px 18px ;
+  background: rgba(240,234,222,0.65) ;
+  border-left: 3.5px solid #A80606 ;  /* 用深红竖线，和墨色区分 */
+  border-radius: 0 10px 10px 0 ;
   margin-left: 3px;
   box-shadow: 0 1px 4px rgba(92,83,68,0.06);
 }
 html.scholar .l4-desc {
-  font-size: 14px !important;
-  line-height: 1.75 !important;
-  color: #4a3c30 !important;    /* 加深，对比度 ~1:5 */
+  font-size: 14px ;
+  line-height: 1.75 ;
+  color: #4a3c30 ;    /* 加深，对比度 ~1:5 */
   margin: 0;
 }
 
@@ -488,31 +488,31 @@ html.scholar .layer-l5 {
   text-align: center;
 }
 html.scholar .l5-cta {
-  display: inline-flex !important;
+  display: inline-flex ;
   align-items: center;
   gap: 7px;
-  padding: 8px 22px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: #c07030 !important;
-  background: rgba(192,112,48,0.10) !important;
-  border: 1.5px solid rgba(192,112,48,0.28) !important;
-  border-radius: 28px !important;
+  padding: 8px 22px ;
+  font-size: 14px ;
+  font-weight: 600 ;
+  color: #c07030 ;
+  background: rgba(192,112,48,0.10) ;
+  border: 1.5px solid rgba(192,112,48,0.28) ;
+  border-radius: 28px ;
   box-shadow: 0 2px 8px rgba(192,112,48,0.10);
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease ;
   cursor: pointer;
 }
 html.scholar .l5-cta:hover {
-  background: rgba(192,112,48,0.18) !important;
-  border-color: #c07030 !important;
+  background: rgba(192,112,48,0.18) ;
+  border-color: #c07030 ;
   box-shadow: 0 4px 18px rgba(192,112,48,0.22);
   transform: translateY(-2px);
-  color: #a05820 !important;
+  color: #a05820 ;
 }
 html.scholar .l5-count {
-  font-size: 11.5px !important;
-  font-weight: 400 !important;
-  color: #8a7a6a !important;
+  font-size: 11.5px ;
+  font-weight: 400 ;
+  color: #8a7a6a ;
   margin-left: 3px;
   background: rgba(138,122,106,0.08);
   padding: 1px 6px;
@@ -526,15 +526,15 @@ html.scholar .l5-count {
 
 /* 侧边栏底色 — overlay 比页面深一档 */
 html.scholar aside .glass {
-  background: var(--ink-overlay) !important;
-  border-color: var(--ink-border) !important;
+  background: var(--ink-overlay) ;
+  border-color: var(--ink-border) ;
   border-radius: 0;
   box-shadow: none;
 }
 
 /* 侧边栏顶部小标题 */
 html.scholar aside .glass h4 {
-  color: var(--ink-muted) !important;
+  color: var(--ink-muted) ;
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.06em;
@@ -542,12 +542,12 @@ html.scholar aside .glass h4 {
 
 /* ---- L1：四大主题模块 ---- */
 html.scholar aside .tree-module {
-  font-size: 15px !important;
-  font-weight: 700 !important;            /* 700 比 600 明显更粗 */
-  color: var(--ink-primary) !important;
+  font-size: 15px ;
+  font-weight: 700 ;            /* 700 比 600 明显更粗 */
+  color: var(--ink-primary) ;
   background: transparent;
   border-radius: 0;
-  padding: 10px 12px 8px !important;      /* 底部加宽，和子项之间留呼吸感 */
+  padding: 10px 12px 8px ;      /* 底部加宽，和子项之间留呼吸感 */
   margin: 0;
   border-top: none;
   line-height: 1.35;
@@ -556,61 +556,61 @@ html.scholar aside .tree-module {
 html.scholar aside .tree-module:not(:first-child) {
   border-top: 1px solid var(--ink-border);
   margin-top: 0.75rem;
-  padding-top: 0.75rem !important;
+  padding-top: 0.75rem ;
 }
 html.scholar aside .tree-module:first-child {
-  padding-top: 8px !important;
+  padding-top: 8px ;
 }
 html.scholar aside .tree-module:hover {
-  background: var(--ink-hover) !important;
+  background: var(--ink-hover) ;
   border-radius: 2px;
 }
 html.scholar aside .tree-module .tree-count {
-  font-size: 12px !important;
+  font-size: 12px ;
   font-weight: 400;
-  color: #a09888 !important;   /* 比 muted 更淡，匹配 Obsidian 截图 */
+  color: #a09888 ;   /* 比 muted 更淡，匹配 Obsidian 截图 */
 }
 
 /* ---- L2：子文件夹 ---- */
 /* 字号 13px，垂直内边距 6px 匹配暗板的 py-1.5，保持舒适呼吸感 */
 html.scholar aside .tree-subdir {
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  color: #951009 !important;
-  padding: 6px 12px 6px 28px !important;  /* 匹配暗板 py-1.5 */
+  font-size: 13px ;
+  font-weight: 400 ;
+  color: #951009 ;
+  padding: 6px 12px 6px 28px ;  /* 匹配暗板 py-1.5 */
   margin: 0;
-  border-left: none !important;
+  border-left: none ;
   border-radius: 0;
   line-height: 1.4;
 }
 html.scholar aside .tree-subdir .tree-count {
-  font-size: 11px !important;
-  color: #a09888 !important;
+  font-size: 11px ;
+  color: #a09888 ;
 }
 html.scholar aside .tree-subdir:hover {
-  background: var(--ink-hover) !important;
-  color: var(--ink-primary) !important;
+  background: var(--ink-hover) ;
+  color: var(--ink-primary) ;
 }
 
 /* ---- L2 active（不用彩色，用墨色区分） ---- */
 html.scholar aside .tree-subdir.active {
-  background: var(--ink-hover) !important;
-  color: #951009 !important;
-  font-weight: 600 !important;
-  border-left: 2px solid #951009 !important;
-  padding-left: 22px !important;
+  background: var(--ink-hover) ;
+  color: #951009 ;
+  font-weight: 600 ;
+  border-left: 2px solid #951009 ;
+  padding-left: 22px ;
 }
 html.scholar aside .tree-subdir.active .tree-count {
-  color: var(--ink-muted) !important;
+  color: var(--ink-muted) ;
 }
 
 html.scholar .bg-glow-gold aside .tree-subdir.active {
-  background: var(--ink-hover) !important;
-  color: #951009 !important;
-  border-left-color: #951009 !important;
+  background: var(--ink-hover) ;
+  color: #951009 ;
+  border-left-color: #951009 ;
 }
 html.scholar .bg-glow-gold aside .tree-subdir.active .tree-count {
-  color: var(--ink-muted) !important;
+  color: var(--ink-muted) ;
 }
 
 
@@ -618,72 +618,72 @@ html.scholar .bg-glow-gold aside .tree-subdir.active .tree-count {
    首页子模块按钮（9 个 .sub-tag）→ 按钮感 + 深红字体
    ================================================================= */
 html.scholar .sub-tag {
-  display: inline-flex !important;
+  display: inline-flex ;
   align-items: center;
   gap: 3px;
-  padding: 4px 10px !important;
-  font-size: 11px !important;
-  font-weight: 500 !important;
+  padding: 4px 10px ;
+  font-size: 11px ;
+  font-weight: 500 ;
   letter-spacing: 0.3px;
-  color: #A80606 !important;
-  background: var(--ink-surface) !important;
-  border: 1px solid var(--paper-border) !important;
-  border-radius: 6px !important;
+  color: #A80606 ;
+  background: var(--ink-surface) ;
+  border: 1px solid var(--paper-border) ;
+  border-radius: 6px ;
   box-shadow: 0 1px 3px rgba(92,83,68,0.10);
-  transition: all 0.2s ease !important;
+  transition: all 0.2s ease ;
   cursor: default;
-  margin: 2px !important;
+  margin: 2px ;
 }
 html.scholar .sub-tag:hover {
-  background: var(--ink-hover) !important;
-  border-color: #A80606 !important;
+  background: var(--ink-hover) ;
+  border-color: #A80606 ;
   box-shadow: 0 2px 8px rgba(168,6,6,0.13);
   transform: translateY(-1px);
 }
 /* 覆写内联 cyan/gold 背景 —— 统一深红系 */
 html.scholar .sub-tag-cyan,
 html.scholar .sub-tag-gold {
-  background: var(--ink-surface) !important;
-  color: #A80606 !important;
-  border: 1px solid var(--paper-border) !important;
+  background: var(--ink-surface) ;
+  color: #A80606 ;
+  border: 1px solid var(--paper-border) ;
 }
 
 /* =================================================================
    右侧内容区
    ================================================================= */
 html.scholar #folder-header.glass {
-  background: var(--ink-surface) !important;
-  border-color: var(--ink-border) !important;
+  background: var(--ink-surface) ;
+  border-color: var(--ink-border) ;
   box-shadow: none;
 }
 html.scholar #folder-header #folder-title {
-  color: var(--ink-primary) !important;
+  color: var(--ink-primary) ;
   font-weight: 600;
   font-size: 1.424em;
 }
 html.scholar #folder-header #article-count {
-  color: var(--ink-secondary) !important;
+  color: var(--ink-secondary) ;
   font-size: 13px;
 }
-html.scholar .bg-glow-gold #folder-title { color: var(--ink-primary) !important; }
-html.scholar .bg-glow-gold #article-count { color: var(--ink-secondary) !important; }
+html.scholar .bg-glow-gold #folder-title { color: var(--ink-primary) ; }
+html.scholar .bg-glow-gold #article-count { color: var(--ink-secondary) ; }
 
 /* 文章列表行 */
 html.scholar #article-list .article-row {
-  border-bottom: 1px solid var(--ink-border) !important;
+  border-bottom: 1px solid var(--ink-border) ;
   transition: background 0.15s ease;
 }
 html.scholar #article-list .article-row:hover {
-  background: var(--ink-hover) !important;
+  background: var(--ink-hover) ;
   transform: none;
 }
 /* 列表中的文章标题链接 */
 html.scholar #article-list .article-row a {
-  color: var(--ink-primary) !important;
+  color: var(--ink-primary) ;
   text-decoration: none;
 }
 html.scholar #article-list .article-row a:hover {
-  color: var(--accent-link) !important;
+  color: var(--accent-link) ;
 }
 
 
@@ -699,96 +699,96 @@ html.scholar .article-body {
 
 /* 标题体系 —— 字重有层次 */
 html.scholar .article-body h1 {
-  font-size: 1.802em !important; font-weight: 800 !important;
-  color: #A80606 !important; line-height: 1.25;
+  font-size: 1.802em ; font-weight: 800 ;
+  color: #A80606 ; line-height: 1.25;
   margin: 0.8em 0 0.4em; border-bottom: none; padding-bottom: 0;
 }
 html.scholar .article-body h2 {
-  font-size: 1.602em !important; font-weight: 700 !important;
-  color: var(--ink-primary) !important; line-height: 1.3;
+  font-size: 1.602em ; font-weight: 700 ;
+  color: var(--ink-primary) ; line-height: 1.3;
   margin: 0.9em 0 0.5em;
   border-bottom: 1.5px solid var(--ink-border);
   padding-bottom: 0.35em;
 }
 html.scholar .article-body h3 {
-  font-size: 1.424em !important; font-weight: 600 !important;
-  color: var(--ink-primary) !important; line-height: 1.35;
+  font-size: 1.424em ; font-weight: 600 ;
+  color: var(--ink-primary) ; line-height: 1.35;
   margin: 1em 0 0.5em;
 }
 html.scholar .article-body h4 {
-  font-size: 1.266em !important; font-weight: 600 !important;
-  color: var(--ink-secondary) !important; line-height: 1.4;
+  font-size: 1.266em ; font-weight: 600 ;
+  color: var(--ink-secondary) ; line-height: 1.4;
   margin: 0.8em 0 0.4em;
 }
 html.scholar .article-body h5 {
-  font-size: 1.125em !important; font-weight: 500 !important;
-  color: var(--ink-secondary) !important;
+  font-size: 1.125em ; font-weight: 500 ;
+  color: var(--ink-secondary) ;
   margin: 0.6em 0 0.3em;
 }
 html.scholar .article-body h6 {
-  font-size: 1em !important; font-weight: 500 !important;
-  color: var(--ink-muted) !important;
+  font-size: 1em ; font-weight: 500 ;
+  color: var(--ink-muted) ;
   margin: 0.5em 0 0.3em;
 }
 
 /* 正文 */
-html.scholar .article-body p  { color: var(--ink-body) !important; line-height: 1.5; margin: 0 0 1em; }
-html.scholar .article-body li { color: var(--ink-body) !important; line-height: 1.5; }
-html.scholar .article-body strong { color: var(--ink-primary) !important; font-weight: 600; }
+html.scholar .article-body p  { color: var(--ink-body) ; line-height: 1.5; margin: 0 0 1em; }
+html.scholar .article-body li { color: var(--ink-body) ; line-height: 1.5; }
+html.scholar .article-body strong { color: var(--ink-primary) ; font-weight: 600; }
 
 /* 引用块 — overlay 底 + border 边 */
 html.scholar .article-body blockquote {
-  background: var(--ink-overlay) !important;
-  border-left: 2px solid var(--ink-border) !important;
-  color: var(--ink-secondary) !important;
+  background: var(--ink-overlay) ;
+  border-left: 2px solid var(--ink-border) ;
+  color: var(--ink-secondary) ;
   margin: 1em 0; padding: 0.5em 1em;
   border-radius: 0 4px 4px 0;
 }
 html.scholar .article-body blockquote p {
-  color: var(--ink-secondary) !important; margin: 0.5em 0;
+  color: var(--ink-secondary) ; margin: 0.5em 0;
 }
 
 /* 行内代码 — 淡青绿底 + accent 字 */
 html.scholar .article-body :not(pre) > code {
-  background: var(--mark-bg) !important;
-  color: var(--accent-link) !important;
+  background: var(--mark-bg) ;
+  color: var(--accent-link) ;
   padding: 0.2em 0.4em; border-radius: 3px; font-size: 0.9em;
 }
 
 /* 代码块 */
 html.scholar .article-body pre {
-  background: var(--ink-surface) !important;
-  border: 1px solid var(--ink-border) !important;
+  background: var(--ink-surface) ;
+  border: 1px solid var(--ink-border) ;
   border-radius: 4px; padding: 1em;
 }
 html.scholar .article-body pre code {
-  background: transparent !important; color: var(--ink-primary) !important;
+  background: transparent ; color: var(--ink-primary) ;
 }
 
 /* 表格 */
 html.scholar .article-body table { border-collapse: collapse; }
 html.scholar .article-body th {
-  background: var(--ink-surface) !important;
-  color: var(--ink-primary) !important;
-  border-bottom: 2px solid var(--ink-border) !important;
+  background: var(--ink-surface) ;
+  color: var(--ink-primary) ;
+  border-bottom: 2px solid var(--ink-border) ;
   font-weight: 600; padding: 8px 12px;
 }
 html.scholar .article-body td {
-  color: var(--ink-primary) !important;
-  border-bottom: 1px solid var(--ink-border) !important;
+  color: var(--ink-primary) ;
+  border-bottom: 1px solid var(--ink-border) ;
   padding: 8px 12px;
 }
 
 /* 链接 — 青绿强调 + 下划线 */
 html.scholar .article-body a {
-  color: var(--accent-link) !important;
+  color: var(--accent-link) ;
   text-decoration: underline;
   text-decoration-color: var(--accent-link);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.15em;
 }
 html.scholar .article-body a:hover {
-  color: var(--accent-hover) !important;
+  color: var(--accent-hover) ;
   text-decoration-color: var(--accent-link);
 }
 
@@ -805,14 +805,14 @@ html.scholar .article-body ol ul { margin: 0.25em 0; }
    Footer
    ================================================================= */
 html.scholar footer {
-  background-color: var(--ink-overlay) !important;
-  border-top: 1px solid var(--ink-border) !important;
+  background-color: var(--ink-overlay) ;
+  border-top: 1px solid var(--ink-border) ;
 }
 html.scholar footer .glass {
-  background: transparent !important; border: none !important;
+  background: transparent ; border: none ;
 }
-html.scholar footer a.glass:hover { color: var(--accent-link) !important; }
-html.scholar .opacity-50 { color: var(--ink-muted) !important; }
+html.scholar footer a.glass:hover { color: var(--accent-link) ; }
+html.scholar .opacity-50 { color: var(--ink-muted) ; }
 
 
 /* =================================================================
@@ -846,5 +846,5 @@ html.scholar .theme-toggle:hover {
 
 /* 文章标题 — 纸版覆盖为暖红（暗版用 className="article-title" 已是冷色 #7dd3fc） */
 html.scholar .article-title {
-  color: #A80606 !important;
+  color: #A80606 ;
 }
