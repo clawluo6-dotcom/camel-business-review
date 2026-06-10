@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/common.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 <link rel="stylesheet" href="tailwind.css">
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/marked.min.js"></script>
 <style>
   .fade-in { animation: fadeIn 0.6s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
@@ -33,6 +33,18 @@
   .article-title { color: #22d3ee; }
 </style>
 <script src="site-data.js"></script>
+<script>
+// 尽早开始加载文章正文（与 CSS/JS 并行下载）
+(function() {
+  var id = (new URLSearchParams(window.location.search)).get('id') || '';
+  if (!id) return;
+  var safeName = id.replace(/[\\\\/*?:\"<>|]/g, '_');
+  window.__ARTICLE_FETCH__ = fetch('data/articles/' + encodeURIComponent(safeName) + '.json')
+    .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(function(d) { window.__ARTICLE_DATA__ = d; return d; })
+    .catch(function() { window.__ARTICLE_DATA__ = null; });
+})();
+</script>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
 
@@ -117,19 +129,15 @@ function init() {
       document.getElementById('app').innerHTML = '<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">文章未找到: ' + id + '</p></div>';
       return;
     }
-    // 按需加载正文（从独立 JSON 文件，不再下载 2.2MB 的 article-content.js）
-    var safeName = (id || '').replace(/[\\\\/*?:\"<>|]/g, '_');
-    fetch('data/articles/' + encodeURIComponent(safeName) + '.json')
-      .then(function(r) { if (!r.ok) throw new Error('正文加载失败'); return r.json(); })
-      .then(function(d) { render(meta, d.content || ''); })
-      .catch(function() {
-        // fallback：如果拆分的 JSON 不存在，尝试从全局变量读取（兼容旧版）
-        if (window.__ARTICLE_CONTENT__ && window.__ARTICLE_CONTENT__[id]) {
-          render(meta, window.__ARTICLE_CONTENT__[id]);
-        } else {
-          render(meta, '');
-        }
-      });
+    // 使用预加载的数据（如果已完成），否则重新 fetch
+    function renderContent(d) {
+      render(meta, d && d.content ? d.content : '');
+    }
+    if (window.__ARTICLE_FETCH__) {
+      window.__ARTICLE_FETCH__.then(renderContent).catch(function() { renderContent(null); });
+    } else {
+      renderContent(null);
+    }
   } catch (err) {
     document.getElementById('app').innerHTML = '<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">数据加载失败: ' + err.message + '</p></div>';
   }
