@@ -209,25 +209,25 @@ const BUILTIN_DATA = {
   "meta": {
     "siteName": "骆驼商业本质",
     "siteNameCN": "骆驼商业本质",
-    "version": "2.0.4",
-    "lastUpdated": "2026-06-09T19:56:16+08:00",
+    "version": "2.0.5",
+    "lastUpdated": "2026-06-10T09:30:26+08:00",
     "description": "认识世界 · 理解社会 · 安顿自己"
   },
   "featured": {
-    "id": "n049",
-    "title": "WWDC 2026落幕：库克告别，新Siri上线，iOS 27发布",
+    "id": "n063",
+    "title": "OpenAI秘密提交IPO申请，AI三巨头扎堆上市潮来袭",
     "titleCN": "",
-    "summary": "苹果WWDC 2026：库克卸任前最后一场主题演讲，正式发布由Google Gemini驱动的新Siri及iOS 27等系统更新。Claude首次成为iPhone原生AI选项，潜在覆盖22亿活跃设备。",
-    "category": "中国动态",
-    "date": "2026-06-08",
+    "summary": "OpenAI宣布已向SEC秘密提交S-1招股书草案，成为继Anthropic后又一AI巨头启动IPO进程。SpaceX（6月12日上市）、Anthropic、OpenAI三家总估值近4万亿美元，形成史上最大科技IPO浪潮。OpenAI预计估值7300-8500亿美元。",
+    "category": "大模型军备",
+    "date": "2026-06-09",
     "tags": [
-      "苹果",
-      "WWDC",
-      "Siri",
-      "iOS 27"
+      "OpenAI",
+      "IPO",
+      "S-1",
+      "上市"
     ],
     "importance": 5,
-    "source": "Bloomberg / TechCrunch / Apple",
+    "source": "Bloomberg / OpenAI声明",
     "link": ""
   },
   "categories": [
@@ -269,6 +269,36 @@ const BUILTIN_DATA = {
     }
   ],
   "news": [
+    {
+      "title": "OpenAI秘密提交IPO申请，AI三巨头扎堆上市潮来袭",
+      "summary": "OpenAI宣布已向SEC秘密提交S-1招股书草案，成为继Anthropic后又一AI巨头启动IPO进程。SpaceX（6月12日上市）、Anthropic、OpenAI三家总估值近4万亿美元，形成史上最大科技IPO浪潮。OpenAI预计估值7300-8500亿美元。",
+      "category": "models",
+      "date": "2026-06-09",
+      "tags": [
+        "OpenAI",
+        "IPO",
+        "S-1",
+        "上市"
+      ],
+      "importance": 5,
+      "source": "Bloomberg / OpenAI声明",
+      "id": "n063"
+    },
+    {
+      "title": "Anthropic发布Claude Fable 5：Mythos级模型首次向公众开放",
+      "summary": "Anthropic发布Claude Fable 5，是其Mythos级前沿模型的「安全版」，首次向公众开放。该模型在几乎所有测试基准上达到最先进水平，但移除了网络攻击能力并附加严格安全护栏。此举标志AI能力从实验室走向大众市场。",
+      "category": "models",
+      "date": "2026-06-09",
+      "tags": [
+        "Anthropic",
+        "Fable 5",
+        "Mythos",
+        "安全"
+      ],
+      "importance": 5,
+      "source": "Bloomberg / TechCrunch / WSJ",
+      "id": "n064"
+    },
     {
       "title": "黄仁勋五日访韩收官：与SK海力士、现代、LG等巨头密集签署AI协议",
       "summary": "英伟达CEO黄仁勋结束为期五天的韩国访问，与SK海力士、SK电讯、现代汽车、LG电子、NAVER及三星电子密集签署AI工厂建设、机器人技术及AI云服务合作协议，巩固韩国AI供应链布局。",
@@ -388,6 +418,126 @@ const BUILTIN_DATA = {
       "importance": 4,
       "source": "AITNT / iTech",
       "id": "n062"
+    },
+    {
+      "title": "小米发布MiMo-V2.5-Pro-UltraSpeed：1T参数实现1000 tokens/s",
+      "summary": "小米与TileRT联合发布MiMo-V2.5-Pro-UltraSpeed，首个在1万亿参数规模上实现1000 tokens/s解码速度的模型，峰值约1200 tokens/s。可用「原始速度」换「思维深度」，并行跑数十条推理路径自校验，定价为标准版3倍。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "小米",
+        "MiMo",
+        "推理速度",
+        "1T参数"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n065"
+    },
+    {
+      "title": "月之暗面Kimi再融136亿元，投后估值破2000亿赴港IPO提速",
+      "summary": "Kimi母公司月之暗面完成新一轮136亿元融资，投后估值突破2000亿元。由阿里、腾讯、五源联合领投，红杉中国、IDG资本跟投。最快2026年Q4递交A1表，2027年上半年挂牌港股，中国AI企业上市潮加速。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "月之暗面",
+        "Kimi",
+        "融资",
+        "港股IPO"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n066"
+    },
+    {
+      "title": "Anthropic用Claude Code 9天重写Bun：100万行Rust、6755次提交",
+      "summary": "Anthropic使用Claude Code在9天内完成超100万行Rust代码、6755次提交，将Bun核心从Zig迁移到Rust，测试通过率达99.8%。但代码中留下超1万个unsafe块，引发「AI写代码速度远超人类审查速度」的行业讨论。",
+      "category": "agents",
+      "date": "2026-06-09",
+      "tags": [
+        "Anthropic",
+        "Claude Code",
+        "Bun",
+        "自动化编程"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n067"
+    },
+    {
+      "title": "ChatGPT将迎史上最大改版：从聊天界面变身「超级应用」",
+      "summary": "OpenAI计划将ChatGPT从单一聊天界面升级为超级应用，新增Projects项目空间、Apps SDK、GPT Store 2.0和Agent调度层四大模块。开发者可通过SDK将SaaS工具接入ChatGPT主对话流，被视为GPT-5推迟窗口期的战略反击。",
+      "category": "models",
+      "date": "2026-06-09",
+      "tags": [
+        "ChatGPT",
+        "超级应用",
+        "SDK",
+        "OpenAI"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n068"
+    },
+    {
+      "title": "白宫收紧AI测试权限：发布国家安全AI备忘录划定红线",
+      "summary": "白宫发布国家安全AI备忘录，收紧AI测试单位权限，明确哪些前沿AI测试需要政府审批。此举在推动AI发展的同时试图控制安全风险，涉及AI系统在国家安全、军事等敏感领域的测试边界。",
+      "category": "policy",
+      "date": "2026-06-09",
+      "tags": [
+        "白宫",
+        "国家安全",
+        "测试权限",
+        "AI监管"
+      ],
+      "importance": 4,
+      "source": "WSJ / Foreign Affairs",
+      "id": "n069"
+    },
+    {
+      "title": "台湾考虑立法将AI芯片出口大陆列为刑事犯罪，供应链再收紧",
+      "summary": "台湾拟立法将向中国大陆出口AI芯片定为刑事犯罪，超出此前仅针对黑名单企业的限制。此举旨在与美国芯片出口管制政策对齐，进一步收紧AI芯片供应链，走私服务器将面临刑事指控。",
+      "category": "hardware",
+      "date": "2026-06-09",
+      "tags": [
+        "台湾",
+        "芯片禁令",
+        "出口管制",
+        "半导体"
+      ],
+      "importance": 4,
+      "source": "Bloomberg / Tom's Hardware",
+      "id": "n070"
+    },
+    {
+      "title": "Broadcom联手Apollo、Blackstone推出350亿美元AI基础设施平台",
+      "summary": "Broadcom、Apollo和Blackstone联合推出350亿美元AI基础设施平台，为AI数据中心提供融资和建设支持。此举反映了华尔街对AI基建的巨大投资热情，对标此前Google与SpaceX的294亿美元算力协议。",
+      "category": "hardware",
+      "date": "2026-06-09",
+      "tags": [
+        "Broadcom",
+        "Blackstone",
+        "AI基建",
+        "数据中心"
+      ],
+      "importance": 4,
+      "source": "WSJ / Bloomberg",
+      "id": "n071"
+    },
+    {
+      "title": "腾讯拟融资47亿美元加入全球AI融资热潮，中国AI基建加速",
+      "summary": "腾讯计划融资约47亿美元用于AI基础设施建设，加入全球AI融资热潮。此前中国已传出2950亿美元AI建设计划，阿里、百度、字节等国内科技巨头加速布局AI算力和应用生态，中美AI基建竞赛白热化。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "腾讯",
+        "融资",
+        "AI基建",
+        "中国"
+      ],
+      "importance": 4,
+      "source": "Bloomberg",
+      "id": "n072"
     },
     {
       "id": "n049",
@@ -1133,7 +1283,17 @@ const BUILTIN_DATA = {
         "国家数据局印发《行业高质量数据集建设行动实施方案》，AI主题ETF全线…",
         "中国AI大模型周调用量连续六周全球第一，DeepSeek稳居榜首",
         "Anthropic发布Mythos：AI安全工具可在数小时内自动化漏洞…",
-        "AI行业迎来Token末日：微软Copilot转向按token计费，价…"
+        "AI行业迎来Token末日：微软Copilot转向按token计费，价…",
+        "OpenAI秘密提交IPO申请，AI三巨头扎堆上市潮来袭",
+        "Anthropic发布Claude Fable 5：Mythos级模型…",
+        "小米发布MiMo-V2.5-Pro-UltraSpeed：1T参数实现…",
+        "月之暗面Kimi再融136亿元，投后估值破2000亿赴港IPO提速",
+        "Anthropic用Claude Code 9天重写Bun：100万行…",
+        "ChatGPT将迎史上最大改版：从聊天界面变身「超级应用」",
+        "白宫收紧AI测试权限：发布国家安全AI备忘录划定红线",
+        "台湾考虑立法将AI芯片出口大陆列为刑事犯罪，供应链再收紧",
+        "Broadcom联手Apollo、Blackstone推出350亿美元…",
+        "腾讯拟融资47亿美元加入全球AI融资热潮，中国AI基建加速"
       ]
     }
   ],
