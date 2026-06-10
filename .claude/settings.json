@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sL *)",
+      "Bash(curl -so *)",
+      "Bash(curl -s --connect-timeout *)",
+      "Bash(curl -v --connect-timeout *)",
+      "Bash(python3 -c \"*\")",
+      "Bash(python3 -m json.tool)"
+    ]
+  }
+}
