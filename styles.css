@@ -692,7 +692,7 @@ html.scholar #article-list .article-row a:hover {
    ================================================================= */
 
 html.scholar .article-body {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--ink-primary);
 }
