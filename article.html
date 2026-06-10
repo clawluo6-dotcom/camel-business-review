@@ -33,7 +33,6 @@
   .article-title { color: #22d3ee; }
 </style>
 <script src="site-data.js"></script>
-<script src="article-content.js"></script>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
 
@@ -113,19 +112,26 @@ function init() {
   try {
     const data = window.__ARTICLES__;
     const articles = data.articles || data;
-    const article = articles.find(a => a.id === id);
-    if (!article) {
+    const meta = articles.find(a => a.id === id);
+    if (!meta) {
       document.getElementById('app').innerHTML = '<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">文章未找到: ' + id + '</p></div>';
       return;
     }
-    // 从 article-content.js 获取正文
-    var content = '';
-    if (window.__ARTICLE_CONTENT__ && window.__ARTICLE_CONTENT__[id]) {
-      content = window.__ARTICLE_CONTENT__[id];
-    }
-    render(article, content);
+    // 按需加载正文（从独立 JSON 文件，不再下载 2.2MB 的 article-content.js）
+    var safeName = (id || '').replace(/[\\\\/*?:\"<>|]/g, '_');
+    fetch('data/articles/' + encodeURIComponent(safeName) + '.json')
+      .then(function(r) { if (!r.ok) throw new Error('正文加载失败'); return r.json(); })
+      .then(function(d) { render(meta, d.content || ''); })
+      .catch(function() {
+        // fallback：如果拆分的 JSON 不存在，尝试从全局变量读取（兼容旧版）
+        if (window.__ARTICLE_CONTENT__ && window.__ARTICLE_CONTENT__[id]) {
+          render(meta, window.__ARTICLE_CONTENT__[id]);
+        } else {
+          render(meta, '');
+        }
+      });
   } catch (err) {
-    document.getElementById('app').innerHTML = `<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">数据加载失败: ${err.message}</p></div>`;
+    document.getElementById('app').innerHTML = '<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">数据加载失败: ' + err.message + '</p></div>';
   }
 }
 
