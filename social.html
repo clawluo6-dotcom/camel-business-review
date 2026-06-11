@@ -24,8 +24,18 @@
   .article-row { transition: all 0.2s ease; }
   .article-row:hover { background: rgba(36,43,61,0.6); border-color: rgba(255,255,255,0.08); transform: translateX(4px); }
   @media (max-width: 767px) {
-    #folder-header .folder-header-text { display: none; }
-    #folder-header #folder-icon { display: none; }
+    #folder-header { background: transparent !important; backdrop-filter: none !important; border: none !important; box-shadow: none !important; padding: 0 !important; margin-bottom: 4px !important; }
+    #folder-title { font-size: 17px !important; font-weight: 800 !important; letter-spacing: 0.3px !important; line-height: 1.4 !important; }
+    #folder-path { font-size: 10px !important; opacity: 0.45 !important; letter-spacing: 0.5px !important; margin-top: 1px !important; }
+    #folder-header .flex.items-center.gap-2.mt-3 { margin-top: 2px !important; }
+    #article-count { font-size: 14px !important; }
+    #folder-header .text-xs.text-text-muted { font-size: 10px !important; }
+    #folder-header::after { content: ''; display: block; height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0.12), transparent); margin: 10px 0 6px; }
+    #article-list .article-row { background: transparent !important; border: none !important; border-radius: 0 !important; padding: 8px 0 !important; box-shadow: none !important; }
+    #article-list .article-row:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.04) !important; }
+    .article-index { font-size: 11px; color: #4a5568; }
+    #mobile-selector { background: transparent !important; border: none !important; padding: 6px 0 !important; font-size: 12px !important; color: #64748b !important; }
+    #folder-icon { display: none !important; }
   }
 </style>
 </head>
@@ -253,7 +263,7 @@
         <a href="article.html?id=${a.id}" class="article-row block no-underline glass rounded-lg px-5 py-3.5 border border-white/5 fade-in"
            style="animation-delay:${i * 0.03}s;text-decoration:none;">
           <div class="flex items-center gap-4">
-            <span class="text-xs font-mono w-8 flex-shrink-0" style="color:${ACCENT}">${String(i + 1).padStart(2, '0')}</span>
+            <span class="article-index text-xs font-mono w-8 flex-shrink-0" style="color:${ACCENT}">${String(i + 1).padStart(2, '0')}</span>
             <div class="flex-1 min-w-0">
               <h4 class="text-sm font-semibold text-text-primary leading-snug truncate">${a.title}</h4>
               <p class="text-xs text-text-muted mt-1 truncate">${(a.tags || []).join(' · ')}</p>
