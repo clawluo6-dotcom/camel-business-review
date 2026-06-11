@@ -291,7 +291,7 @@
       opts += `<optgroup label="${mod.module}">`;
       mod.subdirs.forEach(sd => {
         const count = (bySub[sd.dataSubcat] || []).length;
-        opts += `<option value="${sd.name}">${sd.name}（${count}篇）</option>`;
+        opts += `<option value="${sd.name}">${sd.name}</option>`;
       });
       opts += '</optgroup>';
     });

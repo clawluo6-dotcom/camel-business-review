@@ -323,7 +323,7 @@
     MODULE_TREE.forEach(mod => {
       opts += `<optgroup label="${mod.module}">`;
       mod.subdirs.forEach(sd => {
-        opts += `<option value="${sd.name}">${sd.name}（${(bySub[sd.name]||[]).length}篇）</option>`;
+        opts += `<option value="${sd.name}">${sd.name}</option>`;
       });
       opts += '</optgroup>';
     });
