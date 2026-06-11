@@ -101,10 +101,15 @@
     </main>
   </div>
 
-  <div class="md:hidden" style="margin-top:16px">
-    <label style="font-size:10px;font-weight:600;letter-spacing:0.5px;color:#fbbf24;opacity:0.7;display:block;margin-bottom:6px;">切换文件夹</label>
-    <select id="mobile-selector" class="w-full glass rounded-xl px-4 py-3.5 text-sm font-semibold text-text-primary bg-bg-card border border-white/5 cursor-pointer" style="padding-right:36px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 12px center;background-size:16px;-webkit-appearance:none;appearance:none;">
-    </select>
+  <div class="md:hidden" style="margin-top:16px" id="mobile-dropdown-wrap">
+    <label style="font-size:10px;font-weight:600;letter-spacing:0.5px;opacity:0.55;display:block;margin-bottom:6px;color:var(--ink-muted,#888);">切换文件夹</label>
+    <div id="mobile-selector-trigger" class="w-full rounded-xl px-4 py-3.5 text-sm font-semibold cursor-pointer relative"
+      style="background:var(--ink-overlay,#f0eade);border:1.5px solid var(--ink-border,#d4c9b8);color:#A80606;padding-right:36px;">
+      <span id="mobile-selector-text">选择文件夹</span>
+      <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;color:#A80606;">▾</span>
+    </div>
+    <div id="mobile-selector-dropdown" style="display:none;position:absolute;left:0;right:0;z-index:100;background:var(--ink-surface,#f8f3e9);border:1px solid var(--ink-border,#d4c9b8);border-radius:12px;max-height:60vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-top:4px;">
+    </div>
   </div>
 </div>
 
@@ -274,31 +279,66 @@
     });
 
     // Update mobile
-    const mobile = document.getElementById('mobile-selector');
-    if (mobile && mobile.value !== folderName) {
-      mobile.value = folderName;
+    if (mobileSelected !== folderName && window.__setMobileSelected) {
+      window.__setMobileSelected(folderName);
     }
 
     window.scrollTo({ top: 200, behavior: 'smooth' });
   }
 
-  // ---- Mobile selector ----
+  // ---- Mobile selector (custom dropdown) ----
+  let mobileSelected = null;
   function buildMobile() {
-    const sel = document.getElementById('mobile-selector');
-    if (!sel) return;
-    let opts = '';
+    const trigger = document.getElementById('mobile-selector-trigger');
+    const dropdown = document.getElementById('mobile-selector-dropdown');
+    const textEl = document.getElementById('mobile-selector-text');
+    if (!trigger || !dropdown) return;
+
+    let html = '';
     MODULE_TREE.forEach(mod => {
-      opts += `<option disabled class="cat-header">${mod.module}</option>`;
+      html += `<div style="padding:6px 14px 4px;font-size:11px;font-weight:700;color:#A80606;letter-spacing:0.5px;border-top:1px solid var(--ink-border,#d4c9b8);margin-top:2px;">${mod.module}</div>`;
       mod.subdirs.forEach(sd => {
-        const count = (bySub[sd.dataSubcat] || []).length;
-        opts += `<option value="${sd.name}">${sd.name}</option>`;
+        html += `<div class="mob-opt" data-val="${sd.name}" style="padding:10px 14px 10px 24px;font-size:13px;color:var(--ink-primary,#251401);cursor:pointer;border-radius:8px;margin:2px 8px;transition:background .15s;">${sd.name}</div>`;
       });
     });
-    sel.innerHTML = opts;
-    sel.addEventListener('change', function() {
-      window.__selectFolder(this.value);
+    dropdown.innerHTML = html;
+
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const open = dropdown.style.display === 'block';
+      dropdown.style.display = open ? 'none' : 'block';
+    });
+
+    dropdown.addEventListener('click', function(e) {
+      const opt = e.target.closest('.mob-opt');
+      if (!opt) return;
+      const val = opt.getAttribute('data-val');
+      mobileSelected = val;
+      textEl.textContent = val;
+      textEl.style.color = '#A80606';
+      dropdown.style.display = 'none';
+      window.__selectFolder(val);
+    });
+
+    dropdown.addEventListener('mouseover', function(e) {
+      const opt = e.target.closest('.mob-opt');
+      if (opt) opt.style.background = 'var(--ink-hover,#e8dfd0)';
+    });
+    dropdown.addEventListener('mouseout', function(e) {
+      const opt = e.target.closest('.mob-opt');
+      if (opt) opt.style.background = '';
+    });
+
+    document.addEventListener('click', function() {
+      dropdown.style.display = 'none';
     });
   }
+
+  window.__setMobileSelected = function(val) {
+    mobileSelected = val;
+    const textEl = document.getElementById('mobile-selector-text');
+    if (textEl) { textEl.textContent = val; textEl.style.color = '#A80606'; }
+  };
 
   window.__selectFolder = renderArticles;
 

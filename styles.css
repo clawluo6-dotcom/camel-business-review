@@ -1021,8 +1021,9 @@ body {
   #folder-icon { font-size: 20px !important; }
   #article-count { font-size: 14px !important; color: var(--ink-secondary) !important; }
 
-  /* ====== 四区：文件夹切换下拉按钮（overlay 底 + 强化边框） ====== */
-  #mobile-selector, select#mobile-selector {
+  /* ====== 四区：自定义下拉（触发按钮 + 面板） ====== */
+  #mobile-dropdown-wrap { position: relative; }
+  #mobile-selector-trigger {
     background-color: var(--ink-overlay) !important;
     border: 1.5px solid var(--ink-border) !important;
     border-radius: 12px !important;
@@ -1032,25 +1033,8 @@ body {
     color: #A80606 !important;
     letter-spacing: 0.03em !important;
     box-shadow: 0 1px 4px rgba(92,83,68,0.06);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A80606' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: right 14px center !important;
-    background-size: 14px !important;
-    appearance: none !important;
-    -webkit-appearance: none !important;
   }
-  #mobile-selector:focus, select#mobile-selector:focus {
-    outline: none !important;
-    border-color: #1a6b5a !important;
-    box-shadow: 0 0 0 3px rgba(26,107,90,0.08) !important;
-  }
-  /* 分类标题（disabled option，替代 optgroup） */
-  #mobile-selector option.cat-header {
-    color: #A80606 !important;
-    font-weight: 700 !important;
-    font-size: 13px !important;
-  }
-  #mobile-selector option { color: var(--ink-primary); }
+  #mobile-selector-dropdown { position: absolute; left: 0; right: 0; }
 
   /* 切换文件夹标签 */
   #mobile-selector + label,
