@@ -1026,8 +1026,8 @@ body {
     background-color: var(--ink-overlay) !important;
     border: 1.5px solid var(--ink-border) !important;
     border-radius: 12px !important;
-    padding: 11px 36px 11px 14px !important;
-    font-size: 13px !important;
+    padding: 10px 36px 10px 14px !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     color: #A80606 !important;
     letter-spacing: 0.03em !important;
@@ -1044,6 +1044,14 @@ body {
     border-color: #1a6b5a !important;
     box-shadow: 0 0 0 3px rgba(26,107,90,0.08) !important;
   }
+  /* 分类标题（disabled option，替代 optgroup） */
+  #mobile-selector option.cat-header {
+    color: #A80606 !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+  }
+  #mobile-selector option { color: var(--ink-primary); }
+
   /* 切换文件夹标签 */
   #mobile-selector + label,
   .md\:hidden label {

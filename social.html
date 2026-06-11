@@ -288,12 +288,11 @@
     if (!sel) return;
     let opts = '';
     MODULE_TREE.forEach(mod => {
-      opts += `<optgroup label="${mod.module}">`;
+      opts += `<option disabled class="cat-header">${mod.module}</option>`;
       mod.subdirs.forEach(sd => {
         const count = (bySub[sd.dataSubcat] || []).length;
         opts += `<option value="${sd.name}">${sd.name}</option>`;
       });
-      opts += '</optgroup>';
     });
     sel.innerHTML = opts;
     sel.addEventListener('change', function() {
