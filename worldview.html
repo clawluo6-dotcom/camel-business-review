@@ -23,20 +23,24 @@
   .tree-count { font-size: 10px; color: #64748b; }
   .article-row { transition: all 0.2s ease; }
   .article-row:hover { background: rgba(36,43,61,0.6); border-color: rgba(255,255,255,0.08); transform: translateX(4px); }
-  /* ===== 移动端重新排版 ===== */
+  /* ===== 移动端：三区排版 ===== */
   @media (max-width: 767px) {
-    #folder-header { background: transparent !important; backdrop-filter: none !important; border: none !important; box-shadow: none !important; padding: 0 !important; margin-bottom: 4px !important; }
-    #folder-title { font-size: 17px !important; font-weight: 800 !important; letter-spacing: 0.3px !important; line-height: 1.4 !important; }
-    #folder-path { font-size: 10px !important; opacity: 0.45 !important; letter-spacing: 0.5px !important; margin-top: 1px !important; }
-    #folder-header .flex.items-center.gap-2.mt-3 { margin-top: 2px !important; }
+    /* ── 第一区：文件夹名称卡片 ── */
+    #folder-header { padding: 14px 16px !important; margin-bottom: 14px !important; }
+    #folder-title { font-size: 16px !important; font-weight: 700 !important; line-height: 1.4 !important; }
+    #folder-path { font-size: 10px !important; opacity: 0.5 !important; margin-top: 1px !important; }
+    #folder-icon { font-size: 20px !important; }
     #article-count { font-size: 14px !important; }
     #folder-header .text-xs.text-text-muted { font-size: 10px !important; }
-    #folder-header::after { content: ''; display: block; height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0.12), transparent); margin: 10px 0 6px; }
-    #article-list .article-row { background: transparent !important; border: none !important; border-radius: 0 !important; padding: 8px 0 !important; box-shadow: none !important; }
-    #article-list .article-row:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.04) !important; }
-    .article-index { font-size: 11px; color: #4a5568; }
-    #mobile-selector { background: transparent !important; border: none !important; padding: 6px 0 !important; font-size: 12px !important; color: #64748b !important; }
-    #folder-icon { display: none !important; }
+    #folder-header .flex.items-center.gap-2.mt-3 { margin-top: 4px !important; }
+    
+    /* ── 第二区：文章列表 ── */
+    #article-list .article-row { border-radius: 10px !important; padding: 12px 14px !important; margin-bottom: 6px !important; border: 1px solid rgba(255,255,255,0.04) !important; transition: all 0.2s ease; }
+    #article-list .article-row:last-child { margin-bottom: 0 !important; }
+    .article-index { font-size: 11px !important; opacity: 0.6 !important; }
+    
+    /* ── 第三区：文件夹选择按钮 ── */
+    #mobile-selector { border-radius: 12px !important; padding: 12px 36px 12px 16px !important; font-size: 14px !important; font-weight: 600 !important; border: 1px solid rgba(255,255,255,0.1) !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important; background-repeat: no-repeat !important; background-position: right 12px center !important; background-size: 16px !important; appearance: none !important; -webkit-appearance: none !important; }
   }
 </style>
 </head>
@@ -123,8 +127,9 @@
   </div>
 
   <!-- Mobile: dropdown selector -->
-  <div class="md:hidden mb-4">
-    <select id="mobile-selector" class="w-full glass rounded-lg px-4 py-3 text-sm text-text-primary bg-bg-card appearance-none cursor-pointer">
+  <div class="md:hidden" style="margin-top:16px">
+    <label style="font-size:10px;font-weight:600;letter-spacing:0.5px;color:#22d3ee;opacity:0.7;display:block;margin-bottom:6px;">切换文件夹</label>
+    <select id="mobile-selector" class="w-full glass rounded-xl px-4 py-3.5 text-sm font-semibold text-text-primary bg-bg-card border border-white/5 cursor-pointer" style="padding-right:36px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 12px center;background-size:16px;-webkit-appearance:none;appearance:none;">
     </select>
   </div>
 </div>
