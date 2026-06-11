@@ -23,11 +23,8 @@
   .tree-count { font-size: 10px; color: #64748b; }
   .article-row { transition: all 0.2s ease; }
   .article-row:hover { background: rgba(36,43,61,0.6); border-color: rgba(255,255,255,0.08); transform: translateX(4px); }
-  /* 移动端层级显示：子目录名称在文章列表上方 */
-  .mobile-folder-context { display: none; }
+  /* 移动端：隐藏头部卡片文字，仅保留文章计数，避免与下拉菜单重复 */
   @media (max-width: 767px) {
-    .mobile-folder-context { display: flex; }
-    /* 移动端：隐藏粘性头部的文件夹名/图标，用下方横幅代替 */
     #folder-header .folder-header-text { display: none; }
     #folder-header #folder-icon { display: none; }
   }
@@ -289,18 +286,7 @@
       if (empty) empty.classList.remove('hidden');
     } else {
       if (empty) empty.classList.add('hidden');
-      // Mobile: show folder context banner above article list
-      const moduleLabel = info.module || '';
-      const folderBanner = `<div class="mobile-folder-context flex-col gap-0.5 px-1 pb-2 mb-2 border-b border-white/5">
-        <div class="flex items-center gap-2">
-          <span style="opacity:0.5;font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:${ACCENT};">${moduleLabel}</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span style="font-size:13px;font-weight:700;color:${ACCENT};">${info.moduleIcon || '📁'} ${subKey}</span>
-          <span class="text-xs text-text-muted">· ${list.length}篇</span>
-        </div>
-      </div>`;
-      container.innerHTML = folderBanner + list.map((a, i) => `
+      container.innerHTML = list.map((a, i) => `
         <a href="article.html?id=${a.id}" class="article-row block no-underline glass rounded-lg px-5 py-3.5 border border-white/5 fade-in"
            style="animation-delay:${i * 0.03}s;text-decoration:none;">
           <div class="flex items-center gap-4">
