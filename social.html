@@ -26,6 +26,8 @@
   .mobile-folder-context { display: none; }
   @media (max-width: 767px) {
     .mobile-folder-context { display: flex; }
+    #folder-header .folder-header-text { display: none; }
+    #folder-header #folder-icon { display: none; }
   }
 </style>
 </head>
@@ -83,7 +85,7 @@
       <div id="folder-header" class="glass rounded-xl p-5 mb-4">
         <div class="flex items-center gap-3">
           <span id="folder-icon" class="text-2xl">📁</span>
-          <div>
+          <div class="folder-header-text">
             <h3 id="folder-title" class="text-lg font-bold" style="color:#fbbf24;"></h3>
             <p id="folder-path" class="text-xs text-text-muted mt-0.5"></p>
           </div>
