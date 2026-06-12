@@ -27,6 +27,9 @@ def convert_wikilinks(content):
     return content
 
 def remove_embed_links(content):
+    # 1. Convert Obsidian image embeds ![[file.ext|size]] → Markdown ![](data/images/file.ext)
+    content = re.sub(r'!\[\[([^\]]+\.\w+)(?:\|(\d+))?\]\]', r'![](data/images/\1)', content)
+    # 2. Remove remaining non-image embeds
     content = re.sub(r'^!\[\[.*?\]\]\s*$', '', content, flags=re.MULTILINE)
     content = re.sub(r'!\[\[.*?\]\]', '', content)
     return content
