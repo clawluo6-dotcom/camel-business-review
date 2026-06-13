@@ -175,11 +175,20 @@
   });
 
   // Smart sort: 按标题中的数字/中文序号排序（一<二<...<十<十一；1<2<10）
+  // Also handles numbers inside parentheses like "AI 融资（一）" → 1
   function extractNum(title) {
-    // 阿拉伯数字前缀: "01-" "1-" "01·"
+    // Parenthesized number anywhere: （一）（二） 1）（10） etc
+    var parM = title.match(/[(（]([一二三四五六七八九十零〇0-9]+)[）)]/) || title.match(/[、][ ]*([一二三四五六七八九十零〇0-9]+)[ ）]/);
+    if (parM) {
+      var ps = parM[1];
+      var cnP = {一:1,二:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9,十:10,零:0,〇:0};
+      if (/^[0-9]+$/.test(ps)) return parseInt(ps, 10);
+      if (cnP[ps]) return cnP[ps];
+    }
+    // Leading Arabic number: "01-" "1-" "01·"
     var m = title.match(/^(\d+)[-\\.、．\\s·]+/);
     if (m) return parseInt(m[1],10);
-    // 中文数字前缀: "一、" "八、" "十二、"
+    // Leading Chinese numeral: "一、" "八、" "十二、"
     var cn = {一:1,二:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9,十:10};
     m = title.match(/^([一二三四五六七八九十]+)[、，,\\s·]*/);
     if (m) {
@@ -191,6 +200,9 @@
       }
       if (s.length===3 && s[1]==='十') return (cn[s[0]]||0)*10+(cn[s[2]]||0);
     }
+    // Any digits at start
+    m = title.match(/^(\d+)/);
+    if (m) return parseInt(m[1],10);
     return 0;
   }
   var collator = new Intl.Collator('zh-Hans-CN', { numeric: true });
