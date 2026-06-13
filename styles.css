@@ -911,7 +911,7 @@ body {
 }
 
 /* --- Nav Link Underline --- */
-.nav-link { position: relative; }
+.nav-link { position: relative; display: inline-block; }
 .nav-link::after {
   content:'';
   position:absolute;

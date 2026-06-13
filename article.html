@@ -114,6 +114,38 @@ const PILLAR_CONFIG = {
 // Configure marked
 marked.setOptions({ breaks: true, gfm: true });
 
+// Process article navigation links: convert "← 下一篇：标题" or "→ 下一篇 → 标题" to clickable links
+function processNavLinks(content) {
+  if (!content) return content;
+
+  // Pattern 1: "← 上一篇：标题" or "← 上一篇：无（本系列首篇）"
+  content = content.replace(/← 上一篇：([^|\n]+)(?:\|([^|\n]+))?/g, function(match, title, linkText) {
+    return '← 上一篇：<span class="nav-link">' + (linkText || title) + '</span>';
+  });
+
+  // Pattern 2: "→ 下一篇 → 标题" or "→ 下一篇：标题"
+  content = content.replace(/(?:→ 下一页|→ 下一篇)[：→]\s*([^|\n]+)(?:\|([^|\n]+))?/g, function(match, title, linkText) {
+    return '→ 下一篇：<span class="nav-link">' + (linkText || title) + '</span>';
+  });
+
+  // Pattern 3: "[[文章标题]]" wikilinks
+  content = content.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, function(match, title, linkText) {
+    // Skip image files
+    if (/\.(jpg|png|gif|webp|jpeg)$/i.test(title)) {
+      return match;
+    }
+    // Skip MOC references
+    if (/^MOC/i.test(title)) {
+      return '';
+    }
+    // Convert to link
+    var text = linkText || title;
+    return '<a href="article.html?id=' + encodeURIComponent(title) + '" class="nav-link">' + text + '</a>';
+  });
+
+  return content;
+}
+
 function init() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id') || '';
@@ -181,10 +213,11 @@ function render(article, content) {
     ${article.summary ? `<p class="mt-3 text-text-secondary leading-relaxed text-base">${article.summary}</p>` : ''}
   </div>`;
 
-  // Article content
+  // Article content - process nav links first
+  var processedContent = processNavLinks(content);
   html += `
   <div class="glass rounded-2xl p-8 md:p-10 fade-in article-body" style="animation-delay:0.1s">
-    ${marked.parse(content || '')}
+    ${marked.parse(processedContent || '')}
   </div>`;
 
   // Back button
