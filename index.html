@@ -362,9 +362,12 @@
           return;
         }
         var hits = articles.filter(function(a) {
-          return a.title.toLowerCase().indexOf(q) !== -1
-            || a.category.toLowerCase().indexOf(q) !== -1
-            || a.subcategory.toLowerCase().indexOf(q) !== -1;
+          var title = (a.title || '').toLowerCase();
+          var category = (a.category || '').toLowerCase();
+          var subcategory = (a.subcategory || '').toLowerCase();
+          return title.indexOf(q) !== -1
+            || category.indexOf(q) !== -1
+            || subcategory.indexOf(q) !== -1;
         });
         if (hits.length === 0) {
           searchResults.innerHTML = '<div class="col-span-full text-center py-12 text-text-muted text-sm">没有找到匹配的文章</div>';

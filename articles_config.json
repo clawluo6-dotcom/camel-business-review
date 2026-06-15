@@ -1,45 +1,542 @@
 [
-  {"id":"consciousness-slicing",      "pillar":"worldview", "category":"世界观",   "subcategory":"意识哲学",   "path":"第二大脑/C-公众号/C03 · 意识切片世界观.md",                                           "tags":["意识","哲学","切片"],                "importance":5},
-  {"id":"world-essence-full",         "pillar":"worldview", "category":"世界观",   "subcategory":"世界的真相", "path":"未发布文章/哲学与思想/世界的真相/2-世界的本质-完整版.md",                         "tags":["世界本质","真相","哲学"],            "importance":5},
-  {"id":"world-fake",                "pillar":"worldview", "category":"世界观",   "subcategory":"世界的真相", "path":"未发布文章/哲学与思想/世界的真相/5-理解世界是假的.md",                               "tags":["世界是假的","认知"],                "importance":4},
-  {"id":"break-all-forms",            "pillar":"worldview", "category":"世界观",   "subcategory":"世界的真相", "path":"未发布文章/哲学与思想/世界的真相/6-破一切相.md",                                   "tags":["破相","哲学"],                    "importance":4},
-  {"id":"ding-jing-kong",            "pillar":"worldview", "category":"世界观",   "subcategory":"世界的真相", "path":"未发布文章/哲学与思想/世界的真相/7-分别定净空.md",                                   "tags":["定","净","空","哲学"],            "importance":3},
-  {"id":"mind-appears-form",          "pillar":"worldview", "category":"世界观",   "subcategory":"世界的真相", "path":"未发布文章/哲学与思想/世界的真相/8-一念花开心相一体.md",                             "tags":["一念花开","心相一体"],              "importance":4},
-  {"id":"nature-reality",             "pillar":"worldview", "category":"世界观",   "subcategory":"性相不二",   "path":"未发布文章/哲学与思想/世界的真相/9-世界是虚妄的本质性相不二的处世观.md",               "tags":["性相不二","虚妄","世界观"],        "importance":4},
-  {"id":"karma-nature",              "pillar":"worldview", "category":"世界观",   "subcategory":"世界的真相", "path":"未发布文章/哲学与思想/世界的真相/10-性相业力构成世界的原理.md",                       "tags":["业力","性相","世界原理"],          "importance":4},
-  {"id":"mind-gives-form",            "pillar":"worldview", "category":"世界观",   "subcategory":"世界的真相", "path":"未发布文章/哲学与思想/世界的真相/起心显相.md",                                   "tags":["起心显相","意识"],                "importance":3},
-  {"id":"force-unification",          "pillar":"worldview", "category":"世界观",   "subcategory":"力与物理",   "path":"第二大脑/S-学习与研究/物理与科学/S02 · 力统一理论三圈同心圆模型.md",                 "tags":["力统一","物理","三圈模型"],        "importance":5},
-  {"id":"worldview-panorama",         "pillar":"worldview", "category":"世界观",   "subcategory":"意识哲学",   "path":"未发布文章/哲学与思想/MOC-世界观全景图哲学佛学物理.md",                             "tags":["全景图","世界观","MOC"],           "importance":3},
-  {"id":"wealth-delusion",            "pillar":"social",    "category":"社会逻辑", "subcategory":"宏观经济",   "path":"未发布文章/哲学与思想/01-财富的谬论时代会让财富归零.md",                             "tags":["财富","谬论","经济"],            "importance":5},
-  {"id":"wealth-delusion-summary",    "pillar":"social",    "category":"社会逻辑", "subcategory":"宏观经济",   "path":"未发布文章/哲学与思想/02-财富的谬论时代会让财富归零-总结.md",                       "tags":["财富","总结"],                    "importance":4},
-  {"id":"500-overview",               "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/一、世界500年大周期概述.md",                               "tags":["500年","大周期","概述"],          "importance":5},
-  {"id":"500-mode-iteration",         "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/二、世界500年霸权模式更迭.md",                             "tags":["霸权","模式更迭"],                "importance":5},
-  {"id":"500-iteration-essence",      "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/三、世界500年大周期迭代的本质与优势.md",                   "tags":["迭代","周期本质"],                "importance":4},
-  {"id":"500-cycle-logic",            "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/四、世界统治霸权的周期循环逻辑.md",                         "tags":["周期循环","霸权逻辑"],              "importance":4},
-  {"id":"500-management",             "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/五、从管理维度看世界大国周期迭代.md",                       "tags":["管理维度","大国周期"],              "importance":4},
-  {"id":"500-industry",              "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/六、500年大周期产业维度与未来预测.md",                     "tags":["产业维度","预测"],                "importance":4},
-  {"id":"500-core-hegemony",          "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/七、核心霸权周期与未来预测.md",                             "tags":["核心霸权","预测"],                "importance":5},
-  {"id":"500-france1",               "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/九、法国为什么没有崛起为全球霸权1.md",                       "tags":["法国","霸权"],                    "importance":3},
-  {"id":"500-france2",               "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/十、法国没有成为霸主的核心原因2.md",                       "tags":["法国","霸主"],                    "importance":3},
-  {"id":"500-china-us",              "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/十一、中美未来争霸.md",                                   "tags":["中美","争霸","未来"],            "importance":5},
-  {"id":"500-key-nodes",             "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/十二、500年霸权周期重要节点.md",                             "tags":["重要节点","霸权周期"],              "importance":4},
-  {"id":"500-five-dimensions",         "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/十三、总结世界大周围五维霸权.md",                             "tags":["五维霸权","总结"],                "importance":5},
-  {"id":"500-control-system",          "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/十四、全球霸权控制体系.md",                                 "tags":["霸权控制","全球体系"],              "importance":4},
-  {"id":"500-three-layer",            "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/十五、三层霸权模型图解.md",                                 "tags":["三层模型","霸权图解"],              "importance":4},
-  {"id":"500-moc",                   "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/MOC-500年全球大周期全景图.md",                             "tags":["MOC","全景图"],                 "importance":3},
-  {"id":"500-germany",               "pillar":"social",    "category":"社会逻辑", "subcategory":"500年大周期","path":"未发布文章/500年全球大周期/八、德国没有崛起的原因.md",                                 "tags":["德国","崛起","霸权"],            "importance":3},
-  {"id":"us-strategy-dollar",         "pillar":"social",    "category":"社会逻辑", "subcategory":"全球地缘",   "path":"未发布文章/美国战略（2017-未来）/美国搅动全球局势的战略与美元周期.md",                       "tags":["美国","美元","地缘"],            "importance":5},
-  {"id":"us-global-looting",         "pillar":"social",    "category":"社会逻辑", "subcategory":"全球地缘",   "path":"未发布文章/美国战略（2017-未来）/美国全球掠夺.md",                                       "tags":["美国","掠夺","全球"],            "importance":4},
-  {"id":"us-2026-policy",            "pillar":"social",    "category":"社会逻辑", "subcategory":"全球地缘",   "path":"未发布文章/美国战略（2017-未来）/2026美国对外政策.md",                                    "tags":["美国","2026","对外政策"],         "importance":4},
-  {"id":"us-2017-2026-sanctions",   "pillar":"social",    "category":"社会逻辑", "subcategory":"全球地缘",   "path":"未发布文章/美国战略（2017-未来）/20017-2026美国对外制裁事件.md",                              "tags":["美国","制裁","2017-2026"],       "importance":3},
-  {"id":"china-astock",              "pillar":"social",    "category":"社会逻辑", "subcategory":"产业经济",   "path":"未发布文章/A股分析/中国A股资产分析.md",                                             "tags":["A股","资产结构","中国股市"],      "importance":5},
-  {"id":"human-essence",             "pillar":"practice",   "category":"思想与修行", "subcategory":"人的本质",   "path":"未发布文章/哲学与思想/世界的真相/1-人的本质.md",                                     "tags":["人的本质","人性","修身"],          "importance":5},
-  {"id":"one-thought-flower",         "pillar":"practice",   "category":"思想与修行", "subcategory":"心性修养",   "path":"未发布文章/哲学与思想/世界的真相/8-一念花开心相一体.md",                               "tags":["一念花开","心性","修行"],          "importance":4},
-  {"id":"inner-sage-outer-king",      "pillar":"practice",   "category":"思想与修行", "subcategory":"内圣外王",   "path":"未发布文章/哲学与思想/内圣外王/01-内圣外王的核心思想.md",                                 "tags":["内圣外王","儒家","修身"],          "importance":5},
-  {"id":"inner-sage-dao",            "pillar":"practice",   "category":"思想与修行", "subcategory":"内圣外王",   "path":"未发布文章/哲学与思想/内圣外王/02-内圣外王儒道区别.md",                                 "tags":["儒道","内圣外王","区别"],        "importance":4},
-  {"id":"inner-sage-laozi",          "pillar":"practice",   "category":"思想与修行", "subcategory":"内圣外王",   "path":"未发布文章/哲学与思想/内圣外王/03-从"内圣外王"看"老子"的思想.md",                             "tags":["老子","内圣外王","道家"],        "importance":4},
-  {"id":"inner-sage-mind-form",       "pillar":"practice",   "category":"思想与修行", "subcategory":"内圣外王",   "path":"未发布文章/哲学与思想/内圣外王/04-从"内圣外王"看心相一体.md",                             "tags":["心相一体","内圣外王"],            "importance":4},
-  {"id":"nature-form-equal-practice", "pillar":"practice",   "category":"思想与修行", "subcategory":"处世实践",   "path":"未发布文章/哲学与思想/世界的真相/9-世界是虚妄的本质性相不二的处世观.md",               "tags":["性相不二","处世","实践"],        "importance":4},
-  {"id":"dou-dou-core",              "pillar":"practice",   "category":"思想与修行", "subcategory":"文化修行",   "path":"未发布文章/哲学与思想/豆豆三部曲/解读豆豆三部曲核心思想.md",                             "tags":["豆豆三部曲","文化","修行"],        "importance":3},
-  {"id":"dou-dou-meaning",            "pillar":"practice",   "category":"思想与修行", "subcategory":"文化修行",   "path":"未发布文章/哲学与思想/豆豆三部曲/豆豆三部曲想表达什么.md",                               "tags":["豆豆三部曲","文化"],              "importance":3}
+  {
+    "id": "consciousness-slicing",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "意识哲学",
+    "path": "第二大脑/C-公众号/C03 · 意识切片世界观.md",
+    "tags": [
+      "意识",
+      "哲学",
+      "切片"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "world-essence-full",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "世界的真相",
+    "path": "未发布文章/哲学与思想/世界的真相/2-世界的本质-完整版.md",
+    "tags": [
+      "世界本质",
+      "真相",
+      "哲学"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "world-fake",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "世界的真相",
+    "path": "未发布文章/哲学与思想/世界的真相/5-理解世界是假的.md",
+    "tags": [
+      "世界是假的",
+      "认知"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "break-all-forms",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "世界的真相",
+    "path": "未发布文章/哲学与思想/世界的真相/6-破一切相.md",
+    "tags": [
+      "破相",
+      "哲学"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "ding-jing-kong",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "世界的真相",
+    "path": "未发布文章/哲学与思想/世界的真相/7-分别定净空.md",
+    "tags": [
+      "定",
+      "净",
+      "空",
+      "哲学"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "mind-appears-form",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "世界的真相",
+    "path": "未发布文章/哲学与思想/世界的真相/8-一念花开心相一体.md",
+    "tags": [
+      "一念花开",
+      "心相一体"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "nature-reality",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "性相不二",
+    "path": "未发布文章/哲学与思想/世界的真相/9-世界是虚妄的本质性相不二的处世观.md",
+    "tags": [
+      "性相不二",
+      "虚妄",
+      "世界观"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "karma-nature",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "世界的真相",
+    "path": "未发布文章/哲学与思想/世界的真相/10-性相业力构成世界的原理.md",
+    "tags": [
+      "业力",
+      "性相",
+      "世界原理"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "mind-gives-form",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "世界的真相",
+    "path": "未发布文章/哲学与思想/世界的真相/起心显相.md",
+    "tags": [
+      "起心显相",
+      "意识"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "force-unification",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "力与物理",
+    "path": "第二大脑/S-学习与研究/物理与科学/S02 · 力统一理论三圈同心圆模型.md",
+    "tags": [
+      "力统一",
+      "物理",
+      "三圈模型"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "worldview-panorama",
+    "pillar": "worldview",
+    "category": "世界观",
+    "subcategory": "意识哲学",
+    "path": "未发布文章/哲学与思想/MOC-世界观全景图哲学佛学物理.md",
+    "tags": [
+      "全景图",
+      "世界观",
+      "MOC"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "wealth-delusion",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "宏观经济",
+    "path": "未发布文章/哲学与思想/01-财富的谬论时代会让财富归零.md",
+    "tags": [
+      "财富",
+      "谬论",
+      "经济"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "wealth-delusion-summary",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "宏观经济",
+    "path": "未发布文章/哲学与思想/02-财富的谬论时代会让财富归零-总结.md",
+    "tags": [
+      "财富",
+      "总结"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "500-overview",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/一、世界500年大周期概述.md",
+    "tags": [
+      "500年",
+      "大周期",
+      "概述"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "500-mode-iteration",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/二、世界500年霸权模式更迭.md",
+    "tags": [
+      "霸权",
+      "模式更迭"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "500-iteration-essence",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/三、世界500年大周期迭代的本质与优势.md",
+    "tags": [
+      "迭代",
+      "周期本质"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "500-cycle-logic",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/四、世界统治霸权的周期循环逻辑.md",
+    "tags": [
+      "周期循环",
+      "霸权逻辑"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "500-management",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/五、从管理维度看世界大国周期迭代.md",
+    "tags": [
+      "管理维度",
+      "大国周期"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "500-industry",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/六、500年大周期产业维度与未来预测.md",
+    "tags": [
+      "产业维度",
+      "预测"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "500-core-hegemony",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/七、核心霸权周期与未来预测.md",
+    "tags": [
+      "核心霸权",
+      "预测"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "500-france1",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/九、法国为什么没有崛起为全球霸权1.md",
+    "tags": [
+      "法国",
+      "霸权"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "500-france2",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/十、法国没有成为霸主的核心原因2.md",
+    "tags": [
+      "法国",
+      "霸主"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "500-china-us",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/十一、中美未来争霸.md",
+    "tags": [
+      "中美",
+      "争霸",
+      "未来"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "500-key-nodes",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/十二、500年霸权周期重要节点.md",
+    "tags": [
+      "重要节点",
+      "霸权周期"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "500-five-dimensions",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/十三、总结世界大周围五维霸权.md",
+    "tags": [
+      "五维霸权",
+      "总结"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "500-control-system",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/十四、全球霸权控制体系.md",
+    "tags": [
+      "霸权控制",
+      "全球体系"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "500-three-layer",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/十五、三层霸权模型图解.md",
+    "tags": [
+      "三层模型",
+      "霸权图解"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "500-moc",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/MOC-500年全球大周期全景图.md",
+    "tags": [
+      "MOC",
+      "全景图"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "500-germany",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "500年大周期",
+    "path": "未发布文章/500年全球大周期/八、德国没有崛起的原因.md",
+    "tags": [
+      "德国",
+      "崛起",
+      "霸权"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "us-strategy-dollar",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "全球地缘",
+    "path": "未发布文章/美国战略（2017-未来）/美国搅动全球局势的战略与美元周期.md",
+    "tags": [
+      "美国",
+      "美元",
+      "地缘"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "us-global-looting",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "全球地缘",
+    "path": "未发布文章/美国战略（2017-未来）/美国全球掠夺.md",
+    "tags": [
+      "美国",
+      "掠夺",
+      "全球"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "us-2026-policy",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "全球地缘",
+    "path": "未发布文章/美国战略（2017-未来）/2026美国对外政策.md",
+    "tags": [
+      "美国",
+      "2026",
+      "对外政策"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "us-2017-2026-sanctions",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "全球地缘",
+    "path": "未发布文章/美国战略（2017-未来）/20017-2026美国对外制裁事件.md",
+    "tags": [
+      "美国",
+      "制裁",
+      "2017-2026"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "china-astock",
+    "pillar": "social",
+    "category": "社会逻辑",
+    "subcategory": "产业经济",
+    "path": "未发布文章/A股分析/中国A股资产分析.md",
+    "tags": [
+      "A股",
+      "资产结构",
+      "中国股市"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "human-essence",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "人的本质",
+    "path": "未发布文章/哲学与思想/世界的真相/1-人的本质.md",
+    "tags": [
+      "人的本质",
+      "人性",
+      "修身"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "one-thought-flower",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "心性修养",
+    "path": "未发布文章/哲学与思想/世界的真相/8-一念花开心相一体.md",
+    "tags": [
+      "一念花开",
+      "心性",
+      "修行"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "inner-sage-outer-king",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "内圣外王",
+    "path": "未发布文章/哲学与思想/内圣外王/01-内圣外王的核心思想.md",
+    "tags": [
+      "内圣外王",
+      "儒家",
+      "修身"
+    ],
+    "importance": 5
+  },
+  {
+    "id": "inner-sage-dao",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "内圣外王",
+    "path": "未发布文章/哲学与思想/内圣外王/02-内圣外王儒道区别.md",
+    "tags": [
+      "儒道",
+      "内圣外王",
+      "区别"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "inner-sage-laozi",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "内圣外王",
+    "path": "未发布文章/哲学与思想/内圣外王/03-从\"内圣外王\"看\"老子\"的思想.md",
+    "tags": [
+      "老子",
+      "内圣外王",
+      "道家"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "inner-sage-mind-form",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "内圣外王",
+    "path": "未发布文章/哲学与思想/内圣外王/04-从\"内圣外王\"看心相一体.md",
+    "tags": [
+      "心相一体",
+      "内圣外王"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "nature-form-equal-practice",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "处世实践",
+    "path": "未发布文章/哲学与思想/世界的真相/9-世界是虚妄的本质性相不二的处世观.md",
+    "tags": [
+      "性相不二",
+      "处世",
+      "实践"
+    ],
+    "importance": 4
+  },
+  {
+    "id": "dou-dou-core",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "文化修行",
+    "path": "未发布文章/哲学与思想/豆豆三部曲/解读豆豆三部曲核心思想.md",
+    "tags": [
+      "豆豆三部曲",
+      "文化",
+      "修行"
+    ],
+    "importance": 3
+  },
+  {
+    "id": "dou-dou-meaning",
+    "pillar": "practice",
+    "category": "思想与修行",
+    "subcategory": "文化修行",
+    "path": "未发布文章/哲学与思想/豆豆三部曲/豆豆三部曲想表达什么.md",
+    "tags": [
+      "豆豆三部曲",
+      "文化"
+    ],
+    "importance": 3
+  }
 ]
