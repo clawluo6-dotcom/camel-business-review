@@ -95,31 +95,45 @@
 const PILLAR_CONFIG = {
   worldview: {
     name: '🌌 世界观 · 哲学思想研究', slug: 'worldview.html', accent: '#22d3ee',
-    subAccent: '#06b6d4', accentRgb: '34,211,238'
+    subAccent: '#06b6d4', accentRgb: '34,211,238',
+    pillarName: '一、传统哲学研究'
   },
   social: {
     name: '🏛️ 社会逻辑 · 经济研究', slug: 'social.html', accent: '#f59e0b',
-    subAccent: '#d97706', accentRgb: '245,158,11'
+    subAccent: '#d97706', accentRgb: '245,158,11',
+    pillarName: '二、经济研究'
+  },
+  practice: {
+    name: '🧘 思想与修行', slug: 'practice.html', accent: '#a855f7',
+    subAccent: '#7c3aed', accentRgb: '168,85,247',
+    pillarName: '三、思想与修行'
   }
 };
 
 function init() {
   const params = new URLSearchParams(window.location.search);
-  const pillar = params.get('pillar') || '';
+  const pillar = (params.get('pillar') || '').trim();
+  const sub_raw = (params.get('sub') || '').trim();  // 兼容 sub 参数
 
   // 安全解析 cat 参数，防止 decodeURIComponent 出错
   let cat = '';
   const catParam = params.get('cat');
   if (catParam) {
     try {
-      cat = decodeURIComponent(catParam);
+      cat = decodeURIComponent(catParam).trim();
     } catch (e) {
-      cat = catParam; // 解码失败时使用原始值
+      cat = catParam.trim(); // 解码失败时使用原始值
     }
   }
 
+  // 调试：显示实际收到的参数值（发布前删掉）
+  console.log('[category] pillar=', JSON.stringify(pillar), 'cat=', JSON.stringify(cat));
+
   if (!pillar || !cat || !PILLAR_CONFIG[pillar]) {
-    document.getElementById('app').innerHTML = '<div class="empty-state"><p class="text-text-muted text-lg">未找到分类参数</p></div>';
+    const msg = !PILLAR_CONFIG[pillar]
+      ? `未知 pillar 值：${JSON.stringify(pillar)}，有效值仅为：worldview / social`
+      : '未找到分类参数';
+    document.getElementById('app').innerHTML = `<div class="empty-state"><p class="text-text-muted text-lg">${msg}</p></div>`;
     return;
   }
 
@@ -129,7 +143,7 @@ function init() {
   try {
     const data = window.__ARTICLES__;
     const articles = data.articles || data;
-    // 模糊匹配：cat 包含 subcategory，或 subcategory 包含 cat，都能命中
+    // 用 English pillar key 匹配文章的 pillar 字段（不是用中文 pillarName）
     const filtered = articles.filter(a => {
       if (a.pillar !== pillar) return false;
       if (a.id.startsWith('moc-') || (a.title && a.title.startsWith('MOC-'))) return false;
@@ -147,6 +161,14 @@ function init() {
 }
 
 function render(cfg, pillar, cat, articles) {
+  // 防护：cfg 为 undefined 时给默认值，避免页面出现 "undefined" 字符串
+  if (!cfg) {
+    document.getElementById('app').innerHTML =
+      '<div class="glass rounded-2xl p-12 text-center">' +
+      '<p class="text-text-muted text-lg">配置加载失败，请检查 URL 参数 pillar 值是否为 worldview / social / practice</p>' +
+      '</div>';
+    return;
+  }
   const acc = cfg.accent;
   const accDim = cfg.accentRgb;
   let html = '';

@@ -35,16 +35,13 @@
   .article-title { color: #22d3ee; }
 </style>
 <script src="site-data.js"></script>
+<script src="article-content.js"></script>
 <script>
-// 尽早开始加载文章正文（与 CSS/JS 并行下载）
+// 文章内容已在 article-content.js 中内联，无需再 fetch
 (function() {
   var id = (new URLSearchParams(window.location.search)).get('id') || '';
   if (!id) return;
-  var safeName = id.replace(/[\\\\/*?:\"<>|]/g, '_');
-  window.__ARTICLE_FETCH__ = fetch('data/articles/' + encodeURIComponent(safeName) + '.json')
-    .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
-    .then(function(d) { window.__ARTICLE_DATA__ = d; return d; })
-    .catch(function() { window.__ARTICLE_DATA__ = null; });
+  window.__ARTICLE_FETCH__ = Promise.resolve(true);
 })();
 </script>
 </head>
@@ -165,7 +162,9 @@ function init() {
     }
     // 使用预加载的数据（如果已完成），否则重新 fetch
     function renderContent(d) {
-      render(meta, d && d.content ? d.content : '');
+      // 从 article-content.js 内联数据读取
+      var content = window.__ARTICLE_CONTENT__ && window.__ARTICLE_CONTENT__[meta.id];
+      render(meta, content || '');
     }
     if (window.__ARTICLE_FETCH__) {
       window.__ARTICLE_FETCH__.then(renderContent).catch(function() { renderContent(null); });
@@ -179,7 +178,11 @@ function init() {
 
 function render(article, content) {
   const cfg = PILLAR_CONFIG[article.pillar];
+  // 防护：cfg 为 undefined 时给默认值，避免页面出现 "undefined" 字符串
   const acc = cfg ? cfg.accent : '#f59e0b';
+  const accRgb = cfg ? cfg.accentRgb : '245,158,11';
+  const slug = cfg ? cfg.slug : 'worldview.html';
+  const pillarName = cfg ? cfg.name : '世界观';
   document.title = `${article.title} — 骆驼商业本质`;
 
   let html = '';
@@ -190,7 +193,7 @@ function render(article, content) {
     <div class="mb-8 fade-in">
       <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm text-text-muted hover:opacity-70 transition" style="color:${acc}">← 返回首页</a>
       <span class="text-text-muted mx-2">/</span>
-      <a href="${cfg.slug}" class="text-sm hover:underline transition" style="color:${acc}">${cfg.name}</a>
+      <a href="${slug}" class="text-sm hover:underline transition" style="color:${acc}">${pillarName}</a>
     `;
     if (article.subcategory) {
       html += `
@@ -205,7 +208,7 @@ function render(article, content) {
   html += `
   <div class="glass rounded-2xl p-8 mb-8 fade-in" style="border-left: 3px solid ${acc}">
     <div class="flex items-center gap-3 mb-4">
-      <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color:rgba(${cfg.accentRgb},0.3);color:${acc};background:rgba(${cfg.accentRgb},0.08);">${article.category || ''}</span>
+      <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color:rgba(${accRgb},0.3);color:${acc};background:rgba(${accRgb},0.08);">${article.category || ''}</span>
       <span class="text-xs text-text-muted">${article.date || ''}</span>
       ${article.importance >= 5 ? '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(34,211,238,0.12);color:#22d3ee">精选</span>' : ''}
     </div>
@@ -223,7 +226,7 @@ function render(article, content) {
   // Back button
   html += `
   <div class="mt-8 text-center">
-    <a href="category.html?pillar=${article.pillar}&cat=${encodeURIComponent(article.subcategory || '')}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-hover text-sm font-medium transition" style="color:${acc};border-color:rgba(${cfg.accentRgb},0.2);background:rgba(${cfg.accentRgb},0.06);border:1px solid rgba(${cfg.accentRgb},0.2);">
+    <a href="category.html?pillar=${article.pillar}&cat=${encodeURIComponent(article.subcategory || '')}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-hover text-sm font-medium transition" style="color:${acc};border-color:rgba(${accRgb},0.2);background:rgba(${accRgb},0.06);border:1px solid rgba(${accRgb},0.2);">
       ← 返回「${article.subcategory || '分类'}」文章列表
     </a>
   </div>`;
