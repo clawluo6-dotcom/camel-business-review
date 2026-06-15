@@ -261,6 +261,24 @@ def clean_content(raw_content):
     return content
 
 
+def extract_summary(content, max_length=120):
+    """从文章内容中提取摘要（取第一段前N个字符）"""
+    if not content:
+        return ""
+    lines = content.split('\n')
+    for line in lines:
+        stripped = line.strip()
+        # 跳过空行、标题行、引用行
+        if not stripped or stripped.startswith('#') or stripped.startswith('>'):
+            continue
+        # 去掉 Markdown 格式符号
+        summary = re.sub(r'[*_`#>\-\[\]]', '', stripped)
+        summary = re.sub(r'\s+', ' ', summary).strip()
+        if summary:
+            return summary[:max_length]
+    return ""
+
+
 def should_skip(filename):
     """判断是否应该跳过此文件"""
     for pattern in SKIP_PATTERNS:
@@ -359,6 +377,7 @@ def scan_directory():
                         date = get_file_modified_time(filepath)
                         raw_content = read_file_safe(filepath)
                         cleaned = clean_content(raw_content)
+                        summary = extract_summary(cleaned)
 
                         articles.append({
                             "id": article_id,
@@ -367,6 +386,8 @@ def scan_directory():
                             "subcategory": subcat_name,
                             "title": title,
                             "date": date,
+                            "summary": summary,
+                            "importance": 3,
                         })
                         article_contents[article_id] = cleaned
                         total += 1
@@ -393,15 +414,18 @@ def scan_directory():
                     date = get_file_modified_time(filepath)
                     raw_content = read_file_safe(filepath)
                     cleaned = clean_content(raw_content)
+                    summary = extract_summary(cleaned)
 
                     articles.append({
-                        "id": article_id,
-                        "pillar": pillar,
-                        "category": module_name,
-                        "subcategory": module_name,
-                        "title": title,
-                        "date": date,
-                    })
+                            "id": article_id,
+                            "pillar": pillar,
+                            "category": module_name,
+                            "subcategory": module_name,
+                            "title": title,
+                            "date": date,
+                            "summary": summary,
+                            "importance": 3,
+                        })
                     article_contents[article_id] = cleaned
                     total += 1
 

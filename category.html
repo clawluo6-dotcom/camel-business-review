@@ -115,7 +115,17 @@ const PILLAR_CONFIG = {
 function init() {
   const params = new URLSearchParams(window.location.search);
   const pillar = params.get('pillar') || '';
-  const cat = decodeURIComponent(params.get('cat') || '');
+
+  // 安全解析 cat 参数，防止 decodeURIComponent 出错
+  let cat = '';
+  const catParam = params.get('cat');
+  if (catParam) {
+    try {
+      cat = decodeURIComponent(catParam);
+    } catch (e) {
+      cat = catParam; // 解码失败时使用原始值
+    }
+  }
 
   if (!pillar || !cat || !PILLAR_CONFIG[pillar]) {
     document.getElementById('app').innerHTML = '<div class="empty-state"><p class="text-text-muted text-lg">未找到分类参数</p></div>';
@@ -128,7 +138,17 @@ function init() {
   try {
     const data = window.__ARTICLES__;
     const articles = data.articles || data;
-    const filtered = articles.filter(a => a.pillar === pillar && a.subcategory === cat && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
+    // 模糊匹配：cat 包含 subcategory，或 subcategory 包含 cat，都能命中
+    const filtered = articles.filter(a => {
+      if (a.pillar !== pillar) return false;
+      if (a.id.startsWith('moc-') || (a.title && a.title.startsWith('MOC-'))) return false;
+      // 精确匹配 subcategory
+      if (a.subcategory === cat) return true;
+      // 兼容：cat 参数如果包含额外前缀（如"（一）"），也尝试用 subcategory 反匹配
+      if (cat.indexOf(a.subcategory) !== -1) return true;
+      if (a.subcategory.indexOf(cat) !== -1) return true;
+      return false;
+    });
     render(cfg, pillar, cat, filtered);
   } catch (err) {
     document.getElementById('app').innerHTML = `<div class="empty-state"><p class="text-text-muted text-lg">数据加载失败: ${err.message}</p></div>`;
@@ -173,7 +193,7 @@ function render(cfg, pillar, cat, articles) {
           ${a.importance >= 5 ? '<span class="text-[10px] px-2 py-0.5 rounded-full" style="background:rgba(34,211,238,0.12);color:#22d3ee">精选</span>' : ''}
         </div>
         <h3 class="font-semibold text-base mb-2 leading-snug" style="color:${acc}">${a.title}</h3>
-        <p class="text-sm text-text-secondary leading-relaxed">${a.summary}</p>
+        <p class="text-sm text-text-secondary leading-relaxed">${a.summary || ''}</p>
       </a>`;
     });
     html += '</div>';
