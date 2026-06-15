@@ -2,46 +2,51 @@
 <html lang="zh-CN" class="scholar">
 <head>
 <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>文章详情 — 骆驼商业本质</title>
-  <link rel="stylesheet" href="scholar-theme.css">
+  
+  
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
-<link rel="stylesheet" href="tailwind.css">
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="js/marked.min.js"></script>
 <style>
-  * { box-sizing: border-box; }
-  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
-  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
-  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
-  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
-  .nav-link { position: relative; }
-  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
-  .nav-link:hover::after { width: 100%; }
   .fade-in { animation: fadeIn 0.6s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
   .back-link { transition: all 0.3s ease; }
   .back-link:hover { transform: translateX(-4px); }
-  /* Article typography */
+  /* Article typography — 字体缩小 15% (×0.85)，间距拉大 */
   .article-body { max-width: 780px; }
-  .article-body h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; margin-top: 2rem; line-height: 1.3; }
-  .article-body h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; margin-top: 2.5rem; line-height: 1.4; }
-  .article-body h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 2rem; line-height: 1.4; }
-  .article-body p { font-size: 1.05rem; line-height: 1.85; margin-bottom: 1.25rem; color: #94a3b8; }
-  .article-body blockquote { border-left: 3px solid rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: rgba(255,255,255,0.03); border-radius: 0 8px 8px 0; font-style: italic; color: #94a3b8; }
-  .article-body blockquote p { color: #94a3b8; font-size: 1rem; margin-bottom: 0.5rem; }
-  .article-body ul, .article-body ol { margin: 1rem 0 1.5rem 1.5rem; }
-  .article-body li { font-size: 1.05rem; line-height: 1.85; margin-bottom: 0.35rem; color: #94a3b8; }
+  .article-body h1 { font-size: 1.7rem; font-weight: 800; margin-bottom: 1.4rem; margin-top: 1.8rem; line-height: 1.25; }
+  .article-body h2 { font-size: 1.28rem; font-weight: 700; margin-bottom: 1rem; margin-top: 2.2rem; line-height: 1.35; }
+  .article-body h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 1.8rem; line-height: 1.35; }
+  .article-body h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; margin-top: 1.5rem; line-height: 1.35; color: #22d3ee; }
+  .article-body p { font-size: 0.89rem; line-height: 1.65; margin-bottom: 1.35rem; color: #94a3b8; }
+  .article-body blockquote { border-left: 3px solid rgba(255,255,255,0.15); padding: 0.7rem 1.15rem; margin: 1.4rem 0; background: rgba(255,255,255,0.03); border-radius: 0 8px 8px 0; font-style: italic; color: #94a3b8; }
+  .article-body blockquote p { color: #94a3b8; font-size: 0.85rem; margin-bottom: 0.45rem; }
+  .article-body ul, .article-body ol { margin: 0.95rem 0 1.4rem 1.5rem; }
+  .article-body li { font-size: 0.89rem; line-height: 1.65; margin-bottom: 0.35rem; color: #94a3b8; }
   .article-body strong { color: #e2e8f0; }
-  .article-body hr { border: none; height: 1px; margin: 2.5rem 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
+  .article-body hr { border: none; height: 1px; margin: 2.2rem 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
   .article-body code { background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
-  .article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
-  .article-body th { background: rgba(255,255,255,0.06); padding: 0.6rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid rgba(255,255,255,0.1); }
-  .article-body td { padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: #94a3b8; }
+  .article-body table { width: 100%; border-collapse: collapse; margin: 1.4rem 0; font-size: 0.85rem; }
+  .article-body th { background: rgba(255,255,255,0.06); padding: 0.55rem 0.9rem; text-align: left; font-weight: 600; border-bottom: 2px solid rgba(255,255,255,0.1); }
+  .article-body td { padding: 0.45rem 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: #94a3b8; }
   .article-title { color: #22d3ee; }
 </style>
 <script src="site-data.js"></script>
-<script src="article-content.js"></script>
+<script>
+// 尽早开始加载文章正文（与 CSS/JS 并行下载）
+(function() {
+  var id = (new URLSearchParams(window.location.search)).get('id') || '';
+  if (!id) return;
+  var safeName = id.replace(/[\\\\/*?:\"<>|]/g, '_');
+  window.__ARTICLE_FETCH__ = fetch('data/articles/' + encodeURIComponent(safeName) + '.json')
+    .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(function(d) { window.__ARTICLE_DATA__ = d; return d; })
+    .catch(function() { window.__ARTICLE_DATA__ = null; });
+})();
+</script>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
 
@@ -109,6 +114,38 @@ const PILLAR_CONFIG = {
 // Configure marked
 marked.setOptions({ breaks: true, gfm: true });
 
+// Process article navigation links: convert "← 下一篇：标题" or "→ 下一篇 → 标题" to clickable links
+function processNavLinks(content) {
+  if (!content) return content;
+
+  // Pattern 1: "← 上一篇：标题" or "← 上一篇：无（本系列首篇）"
+  content = content.replace(/← 上一篇：([^|\n]+)(?:\|([^|\n]+))?/g, function(match, title, linkText) {
+    return '← 上一篇：<span class="nav-link">' + (linkText || title) + '</span>';
+  });
+
+  // Pattern 2: "→ 下一篇 → 标题" or "→ 下一篇：标题"
+  content = content.replace(/(?:→ 下一页|→ 下一篇)[：→]\s*([^|\n]+)(?:\|([^|\n]+))?/g, function(match, title, linkText) {
+    return '→ 下一篇：<span class="nav-link">' + (linkText || title) + '</span>';
+  });
+
+  // Pattern 3: "[[文章标题]]" wikilinks
+  content = content.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, function(match, title, linkText) {
+    // Skip image files
+    if (/\.(jpg|png|gif|webp|jpeg)$/i.test(title)) {
+      return match;
+    }
+    // Skip MOC references
+    if (/^MOC/i.test(title)) {
+      return '';
+    }
+    // Convert to link
+    var text = linkText || title;
+    return '<a href="article.html?id=' + encodeURIComponent(title) + '" class="nav-link">' + text + '</a>';
+  });
+
+  return content;
+}
+
 function init() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id') || '';
@@ -121,19 +158,22 @@ function init() {
   try {
     const data = window.__ARTICLES__;
     const articles = data.articles || data;
-    const article = articles.find(a => a.id === id);
-    if (!article) {
+    const meta = articles.find(a => a.id === id);
+    if (!meta) {
       document.getElementById('app').innerHTML = '<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">文章未找到: ' + id + '</p></div>';
       return;
     }
-    // 从 article-content.js 获取正文
-    var content = '';
-    if (window.__ARTICLE_CONTENT__ && window.__ARTICLE_CONTENT__[id]) {
-      content = window.__ARTICLE_CONTENT__[id];
+    // 使用预加载的数据（如果已完成），否则重新 fetch
+    function renderContent(d) {
+      render(meta, d && d.content ? d.content : '');
     }
-    render(article, content);
+    if (window.__ARTICLE_FETCH__) {
+      window.__ARTICLE_FETCH__.then(renderContent).catch(function() { renderContent(null); });
+    } else {
+      renderContent(null);
+    }
   } catch (err) {
-    document.getElementById('app').innerHTML = `<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">数据加载失败: ${err.message}</p></div>`;
+    document.getElementById('app').innerHTML = '<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">数据加载失败: ' + err.message + '</p></div>';
   }
 }
 
@@ -169,14 +209,15 @@ function render(article, content) {
       <span class="text-xs text-text-muted">${article.date || ''}</span>
       ${article.importance >= 5 ? '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(34,211,238,0.12);color:#22d3ee">精选</span>' : ''}
     </div>
-    <h1 class="text-3xl font-extrabold leading-tight article-title">${article.title}</h1>
-    ${article.summary ? `<p class="mt-4 text-text-secondary leading-relaxed text-lg">${article.summary}</p>` : ''}
+    <h1 class="text-2xl font-extrabold leading-snug article-title">${article.title}</h1>
+    ${article.summary ? `<p class="mt-3 text-text-secondary leading-relaxed text-base">${article.summary}</p>` : ''}
   </div>`;
 
-  // Article content
+  // Article content - process nav links first
+  var processedContent = processNavLinks(content);
   html += `
   <div class="glass rounded-2xl p-8 md:p-10 fade-in article-body" style="animation-delay:0.1s">
-    ${marked.parse(content || '')}
+    ${marked.parse(processedContent || '')}
   </div>`;
 
   // Back button

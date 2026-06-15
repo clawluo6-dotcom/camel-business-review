@@ -2,28 +2,16 @@
 <html lang="zh-CN" class="scholar">
 <head>
 <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>骆驼商业本质 — 个人跨领域独立研究</title>
-  <link rel="stylesheet" href="scholar-theme.css">
+
 <meta name="author" content="骆新中">
 <meta name="keywords" content="骆驼商业本质,骆新中,商业模式,哲学思想,经济研究,佛学思想,宏观经济,个人独立研究">
 <meta name="description" content="骆新中——骆驼商业本质创始人。跨领域独立研究：世界观（哲学思想研究）· 社会逻辑（经济研究）· AI 经济速递。">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
-<link rel="stylesheet" href="tailwind.css">
+
 <style>
-  * { box-sizing: border-box; }
-  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
-  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
-  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
-  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .gradient-text-warm { background: linear-gradient(135deg, #fbbf24, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .gradient-text-purple { background: linear-gradient(135deg, #a855f7, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
-  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
-  .nav-link { position: relative; }
-  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
-  .nav-link:hover::after { width: 100%; }
   .pillar-card { position: relative; overflow: hidden; border-radius: 1.5rem; }
   .pillar-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 3px 3px 0 0; }
   .pillar-worldview::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
@@ -31,7 +19,6 @@
   .pillar-ai::before { background: linear-gradient(90deg, #34d399, #059669); }
   .fade-in { animation: fadeIn 0.8s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
   /* 子模块标签 */
   .sub-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; letter-spacing: 0.3px; margin: 2px; }
   .sub-tag-cyan { background: rgba(34,211,238,0.08); color: rgba(34,211,238,0.8); }
@@ -77,20 +64,17 @@
       </div>
     </a>
     <div class="flex items-center gap-8">
-      <a href="index.html" class="text-sm font-bold no-underline" style="color:#22d3ee;text-decoration:none;">首页</a>
-      <a href="worldview.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">🌌 世界观</a>
-      <a href="social.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none">🏛️ 社会逻辑</a>
-      <a href="ai-news.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 经济速递</a>
-      <a href="about.html" class="nav-link text-sm font-bold text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none">✦ 关于</a>
-    </div>
-  </div>
+
+      <a href="index.html" class="nav-link active no-underline" style="color:#22d3ee;text-decoration:none"><span>首页</span></a>
+      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>世界观</span></a>
+      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none"><span>社会逻辑</span></a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none"><span>AI速递</span></a>
+      <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none"><span>关于</span></a>
+    
 </nav>
 
 <!-- ====== Hero 区（升级版） ====== -->
 <section class="relative bg-glow-top pt-16 pb-10 overflow-hidden">
-  <!-- 动态粒子背景 -->
-  <div id="particles-bg" class="absolute inset-0 opacity-30"></div>
-
   <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
     <div class="fade-in">
       <!-- 抬头行：站名 + 作者定位 -->
@@ -296,8 +280,6 @@
       </div>
     </div>
     <div class="flex items-center justify-center gap-3 text-[11px] text-text-muted">
-      <span>web-db-user</span>
-      <span>·</span>
       <span>Tailwind CSS</span>
       <span>·</span>
       <span>Chart.js</span>
@@ -342,6 +324,73 @@
 
     buildL3Tags('worldview', 'worldview-l3');
     buildL3Tags('social', 'social-l3');
+
+    // --- 最新文章（按日期降序，取前 6 篇）---
+    var latestEl = document.getElementById('latest-articles');
+    if (latestEl) {
+      var sorted = articles.slice().sort(function(a,b){ return b.date.localeCompare(a.date); });
+      var html = '';
+      for (var i = 0; i < Math.min(6, sorted.length); i++) {
+        var a = sorted[i];
+        var pillarName = a.pillar === 'worldview' ? '世界观' : '社会逻辑';
+        var pillarColor = a.pillar === 'worldview' ? '#22d3ee' : '#fbbf24';
+        html += '<a href="article.html?id=' + encodeURIComponent(a.id) + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
+          + '<div class="flex items-center gap-2 mb-2">'
+          + '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,0.06);color:' + pillarColor + '">' + pillarName + '</span>'
+          + '<span class="text-xs text-text-muted">' + a.date + '</span>'
+          + '</div>'
+          + '<h4 class="text-sm font-bold text-text-primary leading-snug line-clamp-2">' + a.title + '</h4>'
+          + '<p class="text-xs text-text-muted mt-1 truncate">' + (a.subcategory || a.category) + '</p>'
+          + '</a>';
+      }
+      latestEl.innerHTML = html;
+    }
+
+    // --- 搜索功能 ---
+    var searchInput = document.getElementById('search-input');
+    var searchResults = document.getElementById('search-results');
+    var latestArticles = document.getElementById('latest-articles');
+    var resultsCount = document.getElementById('search-results-count');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        var q = searchInput.value.trim().toLowerCase();
+        if (!q) {
+          searchResults.classList.add('hidden');
+          latestArticles.classList.remove('hidden');
+          resultsCount.classList.add('hidden');
+          return;
+        }
+        var hits = articles.filter(function(a) {
+          return a.title.toLowerCase().indexOf(q) !== -1
+            || a.category.toLowerCase().indexOf(q) !== -1
+            || a.subcategory.toLowerCase().indexOf(q) !== -1;
+        });
+        if (hits.length === 0) {
+          searchResults.innerHTML = '<div class="col-span-full text-center py-12 text-text-muted text-sm">没有找到匹配的文章</div>';
+        } else {
+          var h = '';
+          for (var i = 0; i < hits.length; i++) {
+            var a = hits[i];
+            var pillarName = a.pillar === 'worldview' ? '世界观' : '社会逻辑';
+            var pillarColor = a.pillar === 'worldview' ? '#22d3ee' : '#fbbf24';
+            h += '<a href="article.html?id=' + encodeURIComponent(a.id) + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
+              + '<div class="flex items-center gap-2 mb-2">'
+              + '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,0.06);color:' + pillarColor + '">' + pillarName + '</span>'
+              + '<span class="text-xs text-text-muted">' + a.date + '</span>'
+              + '</div>'
+              + '<h4 class="text-sm font-bold text-text-primary leading-snug line-clamp-2">' + a.title + '</h4>'
+              + '<p class="text-xs text-text-muted mt-1 truncate">' + (a.subcategory || a.category) + '</p>'
+              + '</a>';
+          }
+          searchResults.innerHTML = h;
+        }
+        searchResults.classList.remove('hidden');
+        latestArticles.classList.add('hidden');
+        resultsCount.classList.remove('hidden');
+        resultsCount.textContent = hits.length + ' 篇';
+      });
+    }
   })();
   </script>
 </body>

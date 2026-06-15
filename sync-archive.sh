@@ -30,7 +30,14 @@ mv "$HOME/.workbuddy/projects/Users-luoclaw-WorkBuddy-2026-06-04-08-26-23" "$HOM
 echo "✅ projects 目录已重命名"
 
 echo ""
-echo "Step 4: 写入今日记忆..."
+echo "Step 4: 同步到 iCloud 云盘..."
+ICLOUD_DST="$HOME/Library/Mobile Documents/com~apple~CloudDocs/骆驼商业本质-成果库备份"
+mkdir -p "$ICLOUD_DST"
+rsync -av --delete --exclude='.git' --exclude='.workbuddy' --exclude='.DS_Store' --exclude='__pycache__' --exclude='_archived' --exclude='*.bak-*' "$SRC/" "$ICLOUD_DST/"
+echo "✅ iCloud 同步完成"
+
+echo ""
+echo "Step 5: 写入今日记忆..."
 MEMORY_FILE="$DST/.workbuddy/memory/2026-06-06.md"
 mkdir -p "$(dirname "$MEMORY_FILE")"
 if [ ! -f "$MEMORY_FILE" ]; then

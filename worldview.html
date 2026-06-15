@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="dark">
+<html lang="zh-CN" class="scholar">
 <head>
 <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>世界观 — 骆驼商业本质</title>
-  <link rel="stylesheet" href="scholar-theme.css">
+  
+  
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
-<link rel="stylesheet" href="tailwind.css">
+
 <style>
-  * { box-sizing: border-box; }
-  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
-  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
-  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
-  .bg-glow-top { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%); }
-  .nav-link { position: relative; font-size: 14px; font-weight: 700; }
-  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
-  .nav-link:hover::after { width: 100%; }
   .nav-link.active::after { width: 100%; }
   .fade-in { animation: fadeIn 0.4s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
@@ -30,6 +23,7 @@
   .tree-count { font-size: 10px; color: #64748b; }
   .article-row { transition: all 0.2s ease; }
   .article-row:hover { background: rgba(36,43,61,0.6); border-color: rgba(255,255,255,0.08); transform: translateX(4px); }
+  /* 移动端样式已统一迁移到 styles.css */
 </style>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
@@ -46,13 +40,13 @@
       </div>
     </a>
     <div class="flex items-center gap-8">
-      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none">首页</a>
-      <a href="worldview.html" class="nav-link active no-underline" style="color:#22d3ee;text-decoration:none">🌌 世界观</a>
-      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none">🏛️ 社会逻辑</a>
-      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none">📡 AI 经济速递</a>
-      <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">✦ 关于</a>
-    </div>
-  </div>
+
+      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>首页</span></a>
+      <a href="worldview.html" class="nav-link active no-underline" style="color:#22d3ee;text-decoration:none"><span>世界观</span></a>
+      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none"><span>社会逻辑</span></a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none"><span>AI速递</span></a>
+      <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none"><span>关于</span></a>
+    
 </nav>
 
 <!-- Hero -->
@@ -90,7 +84,7 @@
       <div id="folder-header" class="glass rounded-xl p-5 mb-4">
         <div class="flex items-center gap-3">
           <span id="folder-icon" class="text-2xl">📁</span>
-          <div>
+          <div class="folder-header-text">
             <h3 id="folder-title" class="text-lg font-bold" style="color:#22d3ee;"></h3>
             <p id="folder-path" class="text-xs text-text-muted mt-0.5"></p>
           </div>
@@ -114,10 +108,16 @@
     </main>
   </div>
 
-  <!-- Mobile: dropdown selector -->
-  <div class="md:hidden mb-4">
-    <select id="mobile-selector" class="w-full glass rounded-lg px-4 py-3 text-sm text-text-primary bg-bg-card appearance-none cursor-pointer">
-    </select>
+  <!-- Mobile: custom dropdown selector -->
+  <div class="md:hidden" style="margin-top:16px" id="mobile-dropdown-wrap">
+    <label style="font-size:10px;font-weight:600;letter-spacing:0.5px;opacity:0.55;display:block;margin-bottom:6px;color:var(--ink-muted,#888);">切换文件夹</label>
+    <div id="mobile-selector-trigger" class="w-full rounded-xl px-4 py-3.5 text-sm font-semibold cursor-pointer relative"
+      style="background:var(--ink-overlay,#f0eade);border:1.5px solid var(--ink-border,#d4c9b8);color:#A80606;padding-right:36px;">
+      <span id="mobile-selector-text">选择文件夹</span>
+      <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;color:#A80606;">▾</span>
+    </div>
+    <div id="mobile-selector-dropdown" style="display:none;position:absolute;left:0;right:0;z-index:100;background:var(--ink-surface,#f8f3e9);border:1px solid var(--ink-border,#d4c9b8);border-radius:12px;max-height:60vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-top:4px;">
+    </div>
   </div>
 </div>
 
@@ -278,6 +278,10 @@
     if (pathEl) pathEl.textContent = info.module ? `${info.module} / ${subKey}` : subKey;
     if (iconEl) iconEl.textContent = info.moduleIcon || '📁';
     if (countEl) countEl.textContent = list.length;
+    // 移动端：给文件夹加上层级标记
+    if (iconEl) iconEl.style.color = ACCENT;
+    if (titleEl) titleEl.style.color = ACCENT;
+    if (countEl) countEl.style.color = ACCENT;
 
     if (list.length === 0) {
       container.innerHTML = '';
@@ -288,7 +292,7 @@
         <a href="article.html?id=${a.id}" class="article-row block no-underline glass rounded-lg px-5 py-3.5 border border-white/5 fade-in"
            style="animation-delay:${i * 0.03}s;text-decoration:none;">
           <div class="flex items-center gap-4">
-            <span class="text-xs font-mono w-8 flex-shrink-0" style="color:${ACCENT}">${String(i + 1).padStart(2, '0')}</span>
+            <span class="article-index text-xs font-mono w-8 flex-shrink-0" style="color:${ACCENT}">${String(i + 1).padStart(2, '0')}</span>
             <div class="flex-1 min-w-0">
               <h4 class="text-sm font-semibold text-text-primary leading-snug truncate">${a.title}</h4>
               <p class="text-xs text-text-muted mt-1 truncate">${(a.tags || []).join(' · ')}</p>
@@ -308,31 +312,70 @@
     });
 
     // Update mobile
-    const mobile = document.getElementById('mobile-selector');
-    if (mobile && mobile.value !== subKey) {
-      mobile.value = subKey;
+    if (mobileSelected !== subKey && window.__setMobileSelected) {
+      window.__setMobileSelected(subKey);
     }
 
     window.scrollTo({ top: 200, behavior: 'smooth' });
   }
 
-  // ---- Mobile selector ----
+  // ---- Mobile selector (custom dropdown) ----
+  let mobileSelected = null;
   function buildMobile() {
-    const sel = document.getElementById('mobile-selector');
-    if (!sel) return;
-    let opts = '';
+    const trigger = document.getElementById('mobile-selector-trigger');
+    const dropdown = document.getElementById('mobile-selector-dropdown');
+    const textEl = document.getElementById('mobile-selector-text');
+    if (!trigger || !dropdown) return;
+
+    let html = '';
     MODULE_TREE.forEach(mod => {
-      opts += `<optgroup label="${mod.module}">`;
+      html += `<div style="padding:6px 14px 4px;font-size:11px;font-weight:700;color:#A80606;letter-spacing:0.5px;border-top:1px solid var(--ink-border,#d4c9b8);margin-top:2px;">${mod.module}</div>`;
       mod.subdirs.forEach(sd => {
-        opts += `<option value="${sd.name}">${sd.name}（${(bySub[sd.name]||[]).length}篇）</option>`;
+        html += `<div class="mob-opt" data-val="${sd.name}" style="padding:10px 14px 10px 24px;font-size:13px;color:var(--ink-primary,#251401);cursor:pointer;border-radius:8px;margin:2px 8px;transition:background .15s;">${sd.name}</div>`;
       });
-      opts += '</optgroup>';
     });
-    sel.innerHTML = opts;
-    sel.addEventListener('change', function() {
-      window.__selectFolder(this.value);
+    dropdown.innerHTML = html;
+
+    // Toggle open/close
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const open = dropdown.style.display === 'block';
+      dropdown.style.display = open ? 'none' : 'block';
+    });
+
+    // Select item
+    dropdown.addEventListener('click', function(e) {
+      const opt = e.target.closest('.mob-opt');
+      if (!opt) return;
+      const val = opt.getAttribute('data-val');
+      mobileSelected = val;
+      textEl.textContent = val;
+      textEl.style.color = '#A80606';
+      dropdown.style.display = 'none';
+      window.__selectFolder(val);
+    });
+
+    // Hover effect
+    dropdown.addEventListener('mouseover', function(e) {
+      const opt = e.target.closest('.mob-opt');
+      if (opt) opt.style.background = 'var(--ink-hover,#e8dfd0)';
+    });
+    dropdown.addEventListener('mouseout', function(e) {
+      const opt = e.target.closest('.mob-opt');
+      if (opt) opt.style.background = '';
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function() {
+      dropdown.style.display = 'none';
     });
   }
+
+  window.__setMobileSelected = function(val) {
+    mobileSelected = val;
+    const textEl = document.getElementById('mobile-selector-text');
+    if (textEl) { textEl.textContent = val; textEl.style.color = '#A80606'; }
+  };
 
   // Expose
   window.__selectFolder = renderArticles;

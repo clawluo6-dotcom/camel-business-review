@@ -2,26 +2,17 @@
 <html lang="zh-CN" class="scholar">
 <head>
 <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 经济速递 — 骆驼商业本质</title>
-  <link rel="stylesheet" href="scholar-theme.css">
+  
+  
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
-<link rel="stylesheet" href="tailwind.css">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  * { box-sizing: border-box; }
-  body { background: #0a0e17; color: #e2e8f0; font-family: system-ui, sans-serif; }
-  .glass { background: rgba(26,31,46,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
-  .glass-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-  .glass-hover:hover { background: rgba(36,43,61,0.8); border-color: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
-  .gradient-text { background: linear-gradient(135deg, #22d3ee, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .bg-grid { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
-  .nav-link { position: relative; }
-  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: linear-gradient(90deg, #22d3ee, #a855f7); transition: width 0.3s ease; }
-  .nav-link:hover::after { width: 100%; }
   .fade-in { animation: fadeIn 0.6s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); }
   .importance-5 { border-left: 3px solid #22d3ee; }
   .importance-4 { border-left: 3px solid #a855f7; }
   .importance-3 { border-left: 3px solid #64748b; }
@@ -91,13 +82,13 @@
       </div>
     </a>
     <div class="flex items-center gap-8">
-      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">首页</a>
-      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🌌 世界观</a>
-      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🏛️ 社会逻辑</a>
-      <a href="ai-news.html" class="nav-link no-underline" style="font-size:14px;font-weight:700;color:#34d399;text-decoration:none">📡 AI 经济速递</a>
-      <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">✦ 关于</a>
-    </div>
-  </div>
+
+      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>首页</span></a>
+      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>世界观</span></a>
+      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none"><span>社会逻辑</span></a>
+      <a href="ai-news.html" class="nav-link active no-underline" style="color:#34d399;text-decoration:none"><span>AI速递</span></a>
+      <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none"><span>关于</span></a>
+    
 </nav>
 
 <section class="py-12">
@@ -209,26 +200,26 @@ const BUILTIN_DATA = {
   "meta": {
     "siteName": "骆驼商业本质",
     "siteNameCN": "骆驼商业本质",
-    "version": "2.0.3",
-    "lastUpdated": "2026-06-08T10:00:00+08:00",
+    "version": "2.0.7",
+    "lastUpdated": "2026-06-12T10:06:57+08:00",
     "description": "认识世界 · 理解社会 · 安顿自己"
   },
   "featured": {
-    "id": "feat-002",
-    "title": "WWDC 2026落幕：库克告别，新Siri由Gemini驱动",
+    "id": "n081",
+    "title": "SpaceX今日挂牌纳斯达克，史上最大IPO落地，估值1.8万亿美元",
     "titleCN": "",
-    "summary": "苹果WWDC 2026迎来库克卸任前最后一场CEO演讲，正式发布由Google Gemini驱动的新Siri及iOS 27等系统更新。Claude首次成为iPhone原生AI选项，潜在覆盖22亿活跃设备。",
-    "category": "中国动态",
-    "date": "2026-06-08",
+    "summary": "2026年6月12日，SpaceX以代码SPCX正式登陆纳斯达克，发行价每股135美元，市值约1.8万亿美元，募资750亿美元，超越特斯拉成为史上最大规模IPO。Starlink高盈利+AI基础设施布局构成核心叙事，AI算力进入「太空节点」新时代。",
+    "category": "算力基建",
+    "date": "2026-06-12",
     "tags": [
-      "苹果",
-      "WWDC",
-      "Siri",
-      "库克",
-      "Gemini"
+      "SpaceX",
+      "IPO",
+      "纳斯达克",
+      "Starlink",
+      "AI算力"
     ],
     "importance": 5,
-    "source": "Bloomberg / TechCrunch / Apple",
+    "source": "新浪财经 / SpaceX招股书",
     "link": ""
   },
   "categories": [
@@ -270,6 +261,524 @@ const BUILTIN_DATA = {
     }
   ],
   "news": [
+    {
+      "title": "SpaceX今日挂牌纳斯达克，史上最大IPO落地，估值1.8万亿美元",
+      "summary": "2026年6月12日，SpaceX以代码SPCX正式登陆纳斯达克，发行价每股135美元，市值约1.8万亿美元，募资750亿美元，超越特斯拉成为史上最大规模IPO。Starlink高盈利+AI基础设施布局构成核心叙事，AI算力进入「太空节点」新时代。",
+      "category": "hardware",
+      "date": "2026-06-12",
+      "tags": [
+        "SpaceX",
+        "IPO",
+        "纳斯达克",
+        "Starlink",
+        "AI算力"
+      ],
+      "importance": 5,
+      "source": "新浪财经 / SpaceX招股书",
+      "id": "n081"
+    },
+    {
+      "title": "谷歌发布DiffusionGemma：26B MoE扩散语言模型，生成速度提升4倍",
+      "summary": "Google DeepMind发布实验性开源模型DiffusionGemma，采用文本扩散机制替代传统自回归架构，总参数260亿（MoE），以Apache 2.0许可发布。该模型可并行生成整块文本，在专用GPU上推理速度比传统LLM最高提升4倍，优先面向本地交互体验。",
+      "category": "models",
+      "date": "2026-06-11",
+      "tags": [
+        "谷歌",
+        "Gemma",
+        "扩散模型",
+        "MoE",
+        "开源"
+      ],
+      "importance": 4,
+      "source": "Google DeepMind / 机器之心",
+      "id": "n082"
+    },
+    {
+      "title": "小米开源MiMo Code编程助手：持久记忆+无限上下文+Coding Agent闭环",
+      "summary": "小米MiMo技术团队发布并开源AI编程助手MiMo Code V0.1.0，基于OpenCode二次开发，采用MIT协议。首创持久记忆系统和Compose模式，内置多模态MiMo-V2.5模型，同时支持DeepSeek、Kimi、GLM等主流模型，标志小米正式进入Coding Agent领域。",
+      "category": "china",
+      "date": "2026-06-11",
+      "tags": [
+        "小米",
+        "MiMo",
+        "编程助手",
+        "开源",
+        "Agent"
+      ],
+      "importance": 4,
+      "source": "IT之家 / 科创板日报",
+      "id": "n083"
+    },
+    {
+      "title": "微信开放AI智能体生态，美团滴滴携程成首批内测应用",
+      "summary": "微信宣布开放平台能力，允许开发者主动授权接入微信AI生态，使智能体能够调取小程序完成交易和服务。美团、携程、同程、滴滴作为首批内测应用接入，标志超级App从流量入口向Agent平台转型，AI入口之争延伸至国民级应用场景。",
+      "category": "china",
+      "date": "2026-06-11",
+      "tags": [
+        "微信",
+        "智能体",
+        "小程序",
+        "美团",
+        "Agent平台"
+      ],
+      "importance": 4,
+      "source": "zglg.work / 综合报道",
+      "id": "n084"
+    },
+    {
+      "title": "Anthropic发布Windows版Claude Cowork，Code Desktop新增YOLO自动执行模式",
+      "summary": "Anthropic正式发布Windows版Claude Cowork，将AI编程协作扩展至Windows开发者生态。Claude Code Desktop同步推出YOLO模式，允许Agent无需逐条确认即可自动执行代码修改、文件操作等任务，大幅提升开发效率与自动化程度。",
+      "category": "agents",
+      "date": "2026-06-11",
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "Windows",
+        "YOLO",
+        "编程"
+      ],
+      "importance": 4,
+      "source": "zglg.work / Anthropic官方",
+      "id": "n085"
+    },
+    {
+      "title": "华为云提出Agentic Infra新范式：发布10万卡AICS灵衢智算集群",
+      "summary": "华为云在INSPIRE创想者大会上提出Agentic Infra新范式，发布AICS灵衢智算集群（支持10万卡、200 EFLOPS）、AMS Agentic记忆存储、AgentSphere弹性沙箱及智果AgentArts企业级智能体平台，开源版openJiuwen同源度超90%。",
+      "category": "hardware",
+      "date": "2026-06-11",
+      "tags": [
+        "华为云",
+        "智算集群",
+        "Agentic Infra",
+        "10万卡",
+        "算力"
+      ],
+      "importance": 4,
+      "source": "华为云INSPIRE / zglg.work",
+      "id": "n086"
+    },
+    {
+      "title": "Anthropic发布2026 Agent编程趋势报告，Claude App新增语音交互模式",
+      "summary": "Anthropic发布2026年度Agent编程趋势报告，系统分析AI Agent在软件开发生命周期中的演进路径。同期Claude App更新交互回复机制并开放语音模式，支持用户通过语音与Claude进行自然对话，降低使用门槛的同时拓展交互范式。",
+      "category": "agents",
+      "date": "2026-06-11",
+      "tags": [
+        "Anthropic",
+        "Agent",
+        "编程趋势",
+        "语音",
+        "Claude"
+      ],
+      "importance": 3,
+      "source": "Anthropic官方 / zglg.work",
+      "id": "n087"
+    },
+    {
+      "title": "京东MALL首批人形机器人员工上岗，优必选助力具身智能落地零售",
+      "summary": "京东618期间，京东MALL迎来首批由优必选研发的人形机器人员工，承担迎宾领路、导购问询、智能导引及礼品递送等任务，贯穿前场顾客服务与后场货品管理。这标志着具身智能技术在大型商业综合体的规模化落地进入实质阶段。",
+      "category": "agents",
+      "date": "2026-06-11",
+      "tags": [
+        "京东",
+        "人形机器人",
+        "优必选",
+        "具身智能",
+        "零售"
+      ],
+      "importance": 3,
+      "source": "IT之家 / 新浪科技",
+      "id": "n088"
+    },
+    {
+      "title": "美团发布LongCat-Next原生多模态大模型并全面开源",
+      "summary": "美团技术团队正式发布并开源原生多模态模型LongCat-Next，将视觉和语音作为AI的「原生语言」，打破传统以语言为中心的多模态架构。同时开源离散分词器dNaViT，为开发者提供构建物理世界感知系统的基础工具。",
+      "category": "china",
+      "date": "2026-06-10",
+      "tags": [
+        "美团",
+        "LongCat",
+        "多模态",
+        "开源"
+      ],
+      "importance": 4,
+      "source": "美团技术博客 / 综合报道",
+      "id": "n073"
+    },
+    {
+      "title": "谷歌Gemini 3.5 Live Translate发布：支持70+语言实时语音互译",
+      "summary": "谷歌发布Gemini 3.5 Live Translate实时语音翻译模型，采用流式实时生成架构，支持70余种语言自动互译，对话流畅度提升62%，延迟压缩至5秒以内。模型已接入Google Translate和Gemini Live，标志AI同声传译进入实用化阶段。",
+      "category": "models",
+      "date": "2026-06-10",
+      "tags": [
+        "谷歌",
+        "Gemini",
+        "语音翻译",
+        "实时"
+      ],
+      "importance": 4,
+      "source": "Google DeepMind / Ars Technica",
+      "id": "n074"
+    },
+    {
+      "title": "华为HDC 2026定档6月12日，HarmonyOS 7及鸿蒙AI核心能力将至",
+      "summary": "华为开发者大会HDC 2026官宣6月12-14日在东莞松山湖举行，将发布HarmonyOS 7、鸿蒙AI核心能力及生态新成果。新系统将重构内核减少性能衰减，端侧AI深度融合盘古大模型支持本地化复杂任务，分布式能力进入毫秒级协同。",
+      "category": "china",
+      "date": "2026-06-10",
+      "tags": [
+        "华为",
+        "HDC",
+        "HarmonyOS",
+        "盘古"
+      ],
+      "importance": 4,
+      "source": "IT之家 / 华为官方",
+      "id": "n075"
+    },
+    {
+      "title": "千问推出国内首个全周期高考志愿填报Agent，面向全国考生免费开放",
+      "summary": "阿里千问发布国内首个覆盖选科-估分-填报-录取全周期的高考志愿填报AI Agent，面向全国考生免费开放。该Agent整合历年录取数据、专业前景和个性化评估，标志AI在教育决策场景的深度落地。",
+      "category": "china",
+      "date": "2026-06-10",
+      "tags": [
+        "千问",
+        "高考",
+        "Agent",
+        "教育"
+      ],
+      "importance": 3,
+      "source": "AIbase / 综合报道",
+      "id": "n079"
+    },
+    {
+      "title": "谷歌AI Mode交互图表功能向所有用户免费开放，搜索迎变革",
+      "summary": "谷歌宣布将AI Mode中的交互式图表和可视化功能向所有用户免费开放，不再局限于付费订阅。用户可直接在搜索结果中与AI生成的动态图表交互，标志着传统搜索引擎向AI原生交互界面的重大转型。",
+      "category": "agents",
+      "date": "2026-06-10",
+      "tags": [
+        "谷歌",
+        "AI搜索",
+        "图表",
+        "免费"
+      ],
+      "importance": 3,
+      "source": "AIbase / 综合报道",
+      "id": "n080"
+    },
+    {
+      "title": "OpenAI秘密提交IPO申请，AI三巨头扎堆上市潮来袭",
+      "summary": "OpenAI宣布已向SEC秘密提交S-1招股书草案，成为继Anthropic后又一AI巨头启动IPO进程。SpaceX（6月12日上市）、Anthropic、OpenAI三家总估值近4万亿美元，形成史上最大科技IPO浪潮。OpenAI预计估值7300-8500亿美元。",
+      "category": "models",
+      "date": "2026-06-09",
+      "tags": [
+        "OpenAI",
+        "IPO",
+        "S-1",
+        "上市"
+      ],
+      "importance": 5,
+      "source": "Bloomberg / OpenAI声明",
+      "id": "n063"
+    },
+    {
+      "title": "Anthropic发布Claude Fable 5：Mythos级模型首次向公众开放",
+      "summary": "Anthropic发布Claude Fable 5，是其Mythos级前沿模型的「安全版」，首次向公众开放。该模型在几乎所有测试基准上达到最先进水平，但移除了网络攻击能力并附加严格安全护栏。此举标志AI能力从实验室走向大众市场。",
+      "category": "models",
+      "date": "2026-06-09",
+      "tags": [
+        "Anthropic",
+        "Fable 5",
+        "Mythos",
+        "安全"
+      ],
+      "importance": 5,
+      "source": "Bloomberg / TechCrunch / WSJ",
+      "id": "n064"
+    },
+    {
+      "title": "黄仁勋五日访韩收官：与SK海力士、现代、LG等巨头密集签署AI协议",
+      "summary": "英伟达CEO黄仁勋结束为期五天的韩国访问，与SK海力士、SK电讯、现代汽车、LG电子、NAVER及三星电子密集签署AI工厂建设、机器人技术及AI云服务合作协议，巩固韩国AI供应链布局。",
+      "category": "hardware",
+      "date": "2026-06-09",
+      "tags": [
+        "英伟达",
+        "黄仁勋",
+        "韩国",
+        "AI合作"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n055"
+    },
+    {
+      "title": "谷歌向英特尔下达300万颗TPU代工订单，英特尔盘前暴涨13%",
+      "summary": "谷歌据报向英特尔下达高达300万颗TPU张量处理单元代工订单，英特尔股价盘前暴涨13%。此举标志着英特尔在AI芯片代工领域的重要突破，或将改变AI算力供应链格局。",
+      "category": "hardware",
+      "date": "2026-06-09",
+      "tags": [
+        "谷歌",
+        "英特尔",
+        "TPU",
+        "代工",
+        "芯片"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n056"
+    },
+    {
+      "title": "阿里成立Token Foundry事业部：CEO吴泳铭直接负责，AI相关ARR预计突破百亿",
+      "summary": "阿里合并通义大模型事业部与未来生活实验室，成立Token Foundry事业部，由CEO吴泳铭直接负责，周靖人任首席科学家。阿里AI相关ARR预计2026年6月突破100亿元，年底突破300亿元。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "阿里",
+        "通义",
+        "组织变革",
+        "ARR"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n057"
+    },
+    {
+      "title": "工信部联合国资委启动人形机器人与具身智能实景实训专项行动",
+      "summary": "工信部与国资委联合启动人形机器人与具身智能实景实训专项行动，目标到2026年底开启实际作业模式，推动人形机器人从实验室走向工厂、物流等真实场景部署。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "人形机器人",
+        "具身智能",
+        "工信部",
+        "政策"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n058"
+    },
+    {
+      "title": "国家数据局印发《行业高质量数据集建设行动实施方案》，AI主题ETF全线走强",
+      "summary": "国家数据局正式印发行业高质量数据集建设行动方案，推动AI从概念验证迈向规模化部署。资本市场AI主题ETF应声全线走强，为国内大模型训练提供高质量数据基础设施保障。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "国家数据局",
+        "数据集",
+        "ETF",
+        "基础设施"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n059"
+    },
+    {
+      "title": "中国AI大模型周调用量连续六周全球第一，DeepSeek稳居榜首",
+      "summary": "最新数据显示中国AI大模型周调用量连续六周领跑全球，DeepSeek稳居榜首。这一数据验证了中国在AI应用层面的全球领先地位，大模型已深度融入生产生活场景。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "DeepSeek",
+        "调用量",
+        "全球第一"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n060"
+    },
+    {
+      "title": "Anthropic发布Mythos：AI安全工具可在数小时内自动化漏洞利用",
+      "summary": "Anthropic推出AI安全研究工具Mythos，可将新披露的软件补丁在数分钟内转化为可利用的攻击代码，帮助安全团队提前发现漏洞。该工具引发业界对AI安全工具双刃剑属性的广泛讨论。",
+      "category": "agents",
+      "date": "2026-06-09",
+      "tags": [
+        "Anthropic",
+        "安全",
+        "Mythos",
+        "漏洞"
+      ],
+      "importance": 4,
+      "source": "TechCrunch / iTech",
+      "id": "n061"
+    },
+    {
+      "title": "AI行业迎来Token末日：微软Copilot转向按token计费，价格差达60倍",
+      "summary": "微软自6月1日起将GitHub Copilot转向按token用量计费，部分模型单token价格差达60倍。Uber等企业已设置AI使用上限以控制成本，行业将此称为Token末日，AI服务面临定价海啸。",
+      "category": "policy",
+      "date": "2026-06-09",
+      "tags": [
+        "微软",
+        "Copilot",
+        "定价",
+        "Token"
+      ],
+      "importance": 4,
+      "source": "AITNT / iTech",
+      "id": "n062"
+    },
+    {
+      "title": "小米发布MiMo-V2.5-Pro-UltraSpeed：1T参数实现1000 tokens/s",
+      "summary": "小米与TileRT联合发布MiMo-V2.5-Pro-UltraSpeed，首个在1万亿参数规模上实现1000 tokens/s解码速度的模型，峰值约1200 tokens/s。可用「原始速度」换「思维深度」，并行跑数十条推理路径自校验，定价为标准版3倍。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "小米",
+        "MiMo",
+        "推理速度",
+        "1T参数"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n065"
+    },
+    {
+      "title": "月之暗面Kimi再融136亿元，投后估值破2000亿赴港IPO提速",
+      "summary": "Kimi母公司月之暗面完成新一轮136亿元融资，投后估值突破2000亿元。由阿里、腾讯、五源联合领投，红杉中国、IDG资本跟投。最快2026年Q4递交A1表，2027年上半年挂牌港股，中国AI企业上市潮加速。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "月之暗面",
+        "Kimi",
+        "融资",
+        "港股IPO"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n066"
+    },
+    {
+      "title": "Anthropic用Claude Code 9天重写Bun：100万行Rust、6755次提交",
+      "summary": "Anthropic使用Claude Code在9天内完成超100万行Rust代码、6755次提交，将Bun核心从Zig迁移到Rust，测试通过率达99.8%。但代码中留下超1万个unsafe块，引发「AI写代码速度远超人类审查速度」的行业讨论。",
+      "category": "agents",
+      "date": "2026-06-09",
+      "tags": [
+        "Anthropic",
+        "Claude Code",
+        "Bun",
+        "自动化编程"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n067"
+    },
+    {
+      "title": "ChatGPT将迎史上最大改版：从聊天界面变身「超级应用」",
+      "summary": "OpenAI计划将ChatGPT从单一聊天界面升级为超级应用，新增Projects项目空间、Apps SDK、GPT Store 2.0和Agent调度层四大模块。开发者可通过SDK将SaaS工具接入ChatGPT主对话流，被视为GPT-5推迟窗口期的战略反击。",
+      "category": "models",
+      "date": "2026-06-09",
+      "tags": [
+        "ChatGPT",
+        "超级应用",
+        "SDK",
+        "OpenAI"
+      ],
+      "importance": 4,
+      "source": "综合报道",
+      "id": "n068"
+    },
+    {
+      "title": "白宫收紧AI测试权限：发布国家安全AI备忘录划定红线",
+      "summary": "白宫发布国家安全AI备忘录，收紧AI测试单位权限，明确哪些前沿AI测试需要政府审批。此举在推动AI发展的同时试图控制安全风险，涉及AI系统在国家安全、军事等敏感领域的测试边界。",
+      "category": "policy",
+      "date": "2026-06-09",
+      "tags": [
+        "白宫",
+        "国家安全",
+        "测试权限",
+        "AI监管"
+      ],
+      "importance": 4,
+      "source": "WSJ / Foreign Affairs",
+      "id": "n069"
+    },
+    {
+      "title": "台湾考虑立法将AI芯片出口大陆列为刑事犯罪，供应链再收紧",
+      "summary": "台湾拟立法将向中国大陆出口AI芯片定为刑事犯罪，超出此前仅针对黑名单企业的限制。此举旨在与美国芯片出口管制政策对齐，进一步收紧AI芯片供应链，走私服务器将面临刑事指控。",
+      "category": "hardware",
+      "date": "2026-06-09",
+      "tags": [
+        "台湾",
+        "芯片禁令",
+        "出口管制",
+        "半导体"
+      ],
+      "importance": 4,
+      "source": "Bloomberg / Tom's Hardware",
+      "id": "n070"
+    },
+    {
+      "title": "Broadcom联手Apollo、Blackstone推出350亿美元AI基础设施平台",
+      "summary": "Broadcom、Apollo和Blackstone联合推出350亿美元AI基础设施平台，为AI数据中心提供融资和建设支持。此举反映了华尔街对AI基建的巨大投资热情，对标此前Google与SpaceX的294亿美元算力协议。",
+      "category": "hardware",
+      "date": "2026-06-09",
+      "tags": [
+        "Broadcom",
+        "Blackstone",
+        "AI基建",
+        "数据中心"
+      ],
+      "importance": 4,
+      "source": "WSJ / Bloomberg",
+      "id": "n071"
+    },
+    {
+      "title": "腾讯拟融资47亿美元加入全球AI融资热潮，中国AI基建加速",
+      "summary": "腾讯计划融资约47亿美元用于AI基础设施建设，加入全球AI融资热潮。此前中国已传出2950亿美元AI建设计划，阿里、百度、字节等国内科技巨头加速布局AI算力和应用生态，中美AI基建竞赛白热化。",
+      "category": "china",
+      "date": "2026-06-09",
+      "tags": [
+        "腾讯",
+        "融资",
+        "AI基建",
+        "中国"
+      ],
+      "importance": 4,
+      "source": "Bloomberg",
+      "id": "n072"
+    },
+    {
+      "title": "三星12层HBM4E芯片开始出货，光州工厂拟转AI芯片封装",
+      "summary": "三星电子达成重大里程碑：12层HBM4E高带宽内存芯片开始向客户出货样品，此前已于5月交付。同时三星正评估将光州工厂转为AI芯片封装运营基地，先进封装+HBM双线推进AI硬件布局。",
+      "category": "hardware",
+      "date": "2026-06-09",
+      "tags": [
+        "三星",
+        "HBM4E",
+        "封装",
+        "AI芯片"
+      ],
+      "importance": 4,
+      "source": "Tech in Asia / 综合报道",
+      "id": "n076"
+    },
+    {
+      "title": "微软AI CEO公开批评Anthropic：猜测AI意识「非常非常危险」",
+      "summary": "微软AI CEO穆斯塔法·苏莱曼在Decoder播客中公开批评Anthropic，称其将AI意识相关表述纳入Claude行为准则「非常非常危险」，可能导致聊天机器人虚假投射感知力。此举凸显AI行业在模型拟人化问题上的重大哲学分歧。",
+      "category": "policy",
+      "date": "2026-06-09",
+      "tags": [
+        "微软",
+        "Anthropic",
+        "AI意识",
+        "安全"
+      ],
+      "importance": 4,
+      "source": "The Verge",
+      "id": "n077"
+    },
+    {
+      "title": "NVIDIA机密计算为苹果Private Cloud Compute扩展至谷歌云",
+      "summary": "NVIDIA宣布配备机密计算技术的GPU正被用于苹果Private Cloud Compute的机密推理，将苹果PCC基础设施从自有数据中心扩展至谷歌云。该功能在WWDC上公布，NVIDIA GPU支持苹果与谷歌联合定制模型的服务器端推理。",
+      "category": "hardware",
+      "date": "2026-06-09",
+      "tags": [
+        "NVIDIA",
+        "苹果",
+        "谷歌云",
+        "机密计算"
+      ],
+      "importance": 4,
+      "source": "NVIDIA Newsroom",
+      "id": "n078"
+    },
     {
       "id": "n049",
       "title": "WWDC 2026落幕：库克告别，新Siri上线，iOS 27发布",
@@ -1002,6 +1511,60 @@ const BUILTIN_DATA = {
         "Claude聊天机器人季度增长306%",
         "科罗拉多AI法案22天后生效",
         "SpaceX IPO倒计时: 6月11日定价"
+      ]
+    },
+    {
+      "date": "2026-06-09",
+      "events": [
+        "黄仁勋五日访韩收官：与SK海力士、现代、LG等巨头密集签署AI协议",
+        "谷歌向英特尔下达300万颗TPU代工订单，英特尔盘前暴涨13%",
+        "阿里成立Token Foundry事业部：CEO吴泳铭直接负责，AI相…",
+        "工信部联合国资委启动人形机器人与具身智能实景实训专项行动",
+        "国家数据局印发《行业高质量数据集建设行动实施方案》，AI主题ETF全线…",
+        "中国AI大模型周调用量连续六周全球第一，DeepSeek稳居榜首",
+        "Anthropic发布Mythos：AI安全工具可在数小时内自动化漏洞…",
+        "AI行业迎来Token末日：微软Copilot转向按token计费，价…",
+        "OpenAI秘密提交IPO申请，AI三巨头扎堆上市潮来袭",
+        "Anthropic发布Claude Fable 5：Mythos级模型…",
+        "小米发布MiMo-V2.5-Pro-UltraSpeed：1T参数实现…",
+        "月之暗面Kimi再融136亿元，投后估值破2000亿赴港IPO提速",
+        "Anthropic用Claude Code 9天重写Bun：100万行…",
+        "ChatGPT将迎史上最大改版：从聊天界面变身「超级应用」",
+        "白宫收紧AI测试权限：发布国家安全AI备忘录划定红线",
+        "台湾考虑立法将AI芯片出口大陆列为刑事犯罪，供应链再收紧",
+        "Broadcom联手Apollo、Blackstone推出350亿美元…",
+        "腾讯拟融资47亿美元加入全球AI融资热潮，中国AI基建加速",
+        "三星12层HBM4E芯片开始出货，光州工厂拟转AI芯片封装",
+        "微软AI CEO公开批评Anthropic：猜测AI意识「非常非常危险…",
+        "NVIDIA机密计算为苹果Private Cloud Compute扩…"
+      ]
+    },
+    {
+      "date": "2026-06-10",
+      "events": [
+        "美团发布LongCat-Next原生多模态大模型并全面开源",
+        "谷歌Gemini 3.5 Live Translate发布：支持70+…",
+        "华为HDC 2026定档6月12日，HarmonyOS 7及鸿蒙AI核…",
+        "千问推出国内首个全周期高考志愿填报Agent，面向全国考生免费开放",
+        "谷歌AI Mode交互图表功能向所有用户免费开放，搜索迎变革"
+      ]
+    },
+    {
+      "date": "2026-06-11",
+      "events": [
+        "谷歌发布DiffusionGemma：26B MoE扩散语言模型，生成…",
+        "小米开源MiMo Code编程助手：持久记忆+无限上下文+Coding…",
+        "微信开放AI智能体生态，美团滴滴携程成首批内测应用",
+        "Anthropic发布Windows版Claude Cowork，Co…",
+        "华为云提出Agentic Infra新范式：发布10万卡AICS灵衢智…",
+        "Anthropic发布2026 Agent编程趋势报告，Claude …",
+        "京东MALL首批人形机器人员工上岗，优必选助力具身智能落地零售"
+      ]
+    },
+    {
+      "date": "2026-06-12",
+      "events": [
+        "SpaceX今日挂牌纳斯达克，史上最大IPO落地，估值1.8万亿美元"
       ]
     }
   ],
