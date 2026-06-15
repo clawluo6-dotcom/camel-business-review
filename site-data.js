@@ -1616,7 +1616,8 @@ window.__ARTICLES__ = {
       "title": "02-统一场论：宇宙统一力学理论推导-4.0",
       "date": "2026-06-04",
       "summary": "作者：骆新中",
-      "importance": 3,
+      "importance": 3
+    },
     {
       "id": "三、国际金融研究-（三）2026美国\"太空战略\"重演-01",
       "pillar": "social",
@@ -1648,6 +1649,5 @@ window.__ARTICLES__ = {
       "importance": 5
     }
 
-    }
   ]
 };
