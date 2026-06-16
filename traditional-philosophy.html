@@ -164,7 +164,7 @@
       html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-5">';
       articles.forEach(function(a, i){
         var impClass = a.importance >= 5 ? 'importance-5' : a.importance >= 4 ? 'importance-4' : 'importance-3';
-        html += '<a href="article.html?id='+a.id+'" class="glass rounded-xl p-6 glass-hover fade-in '+impClass+' block no-underline" style="animation-delay:'+(0.05*(i+1))+'s">';
+        html += '<a href="article.html?id='+encodeURIComponent(a.id)+'" class="glass rounded-xl p-6 glass-hover fade-in '+impClass+' block no-underline" style="animation-delay:'+(0.05*(i+1))+'s">';
         html += '<div class="flex items-center justify-between mb-3">';
         html += '<span class="text-[10px] text-text-muted font-mono">'+(a.date||'')+'</span>';
         if (a.importance >= 5) html += '<span class="text-[10px] px-2 py-0.5 rounded-full" style="background:rgba(34,211,238,0.12);color:#22d3ee">精选</span>';

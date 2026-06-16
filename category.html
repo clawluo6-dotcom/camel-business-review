@@ -200,7 +200,7 @@ function render(cfg, pillar, cat, articles) {
       const impClass = a.importance >= 5 ? 'importance-5' : a.importance >= 4 ? 'importance-4' : 'importance-3';
       const delay = 0.05 * (i + 1);
       html += `
-      <a href="article.html?id=${a.id}" class="glass rounded-xl p-6 glass-hover fade-in ${impClass} block no-underline" style="animation-delay:${delay}s">
+      <a href="article.html?id=${encodeURIComponent(a.id)}" class="glass rounded-xl p-6 glass-hover fade-in ${impClass} block no-underline" style="animation-delay:${delay}s">
         <div class="flex items-center justify-between mb-3">
           <span class="text-[10px] text-text-muted font-mono">${a.date || ''}</span>
           ${a.importance >= 5 ? '<span class="text-[10px] px-2 py-0.5 rounded-full" style="background:rgba(34,211,238,0.12);color:#22d3ee">精选</span>' : ''}

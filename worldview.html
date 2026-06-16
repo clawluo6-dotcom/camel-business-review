@@ -289,7 +289,7 @@
     } else {
       if (empty) empty.classList.add('hidden');
       container.innerHTML = list.map((a, i) => `
-        <a href="article.html?id=${a.id}" class="article-row block no-underline glass rounded-lg px-5 py-3.5 border border-white/5 fade-in"
+        <a href="article.html?id=${encodeURIComponent(a.id)}" class="article-row block no-underline glass rounded-lg px-5 py-3.5 border border-white/5 fade-in"
            style="animation-delay:${i * 0.03}s;text-decoration:none;">
           <div class="flex items-center gap-4">
             <span class="article-index text-xs font-mono w-8 flex-shrink-0" style="color:${ACCENT}">${String(i + 1).padStart(2, '0')}</span>

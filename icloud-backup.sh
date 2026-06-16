@@ -5,7 +5,7 @@
 
 set -e
 
-SRC="/Users/luoclaw/WorkBuddy/成果库/骆驼商业本质"
+SRC="$HOME/WorkBuddy/成果库/骆驼商业本质"
 DST="$HOME/Library/Mobile Documents/com~apple~CloudDocs/骆驼商业本质-成果库备份"
 
 echo "=========================================="
