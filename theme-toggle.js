@@ -12,10 +12,10 @@
   html.classList.remove('dark', 'scholar');
   html.classList.add(STORED);
 
-  // 注入切换按钮到导航栏
+  // 注入切换按钮到导航栏（放在 nav-links 容器之外，不进入药丸条背景）
   function injectToggle() {
-    const navRight = document.querySelector('nav .flex.items-center.gap-8');
-    if (!navRight) return;
+    const navLinks = document.querySelector('nav .flex.items-center.gap-8');
+    if (!navLinks) return;
 
     const btn = document.createElement('button');
     btn.className = 'theme-toggle';
@@ -33,7 +33,11 @@
       window.dispatchEvent(new CustomEvent('camel-theme-changed', { detail: next }));
     });
 
-    navRight.appendChild(btn);
+    // 在 nav-links 容器后创建一个专属容器来放切换按钮
+    const toggleWrap = document.createElement('div');
+    toggleWrap.className = 'flex items-center shrink-0 ml-2';
+    toggleWrap.appendChild(btn);
+    navLinks.parentNode.insertBefore(toggleWrap, navLinks.nextSibling);
   }
 
   function updateButtonText(btn, theme) {

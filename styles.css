@@ -151,12 +151,6 @@ html.scholar nav.glass {
 }
 
 
-/* =================================================================
-   导航链接
-   ================================================================= */
-html.scholar .nav-link::after {
-  background: var(--ink-primary) ;
-}
 
 html.scholar .hover\:text-accent-cyan:hover,
 html.scholar .hover\:text-accent-gold:hover,
@@ -328,12 +322,7 @@ html.scholar .pillar-worldview::before,
 html.scholar .pillar-social::before,
 html.scholar .pillar-ai::before { background: var(--ink-border) ; }
 
-/* AI 速递横幅纸墨版 — 轻量背景，比主卡片浅一档 */
-html.scholar a[href="ai-news.html"] {
-  background: var(--ink-overlay) ;
-  border: 1px solid var(--ink-border) ;
-  box-shadow: none ;
-}
+/* 资产速报横幅纸墨版 — 轻量背景，比主卡片浅一档 */
 
 
 /* =================================================================
@@ -910,22 +899,55 @@ body {
   background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%);
 }
 
-/* --- Nav Link Underline --- */
-.nav-link { position: relative; display: inline-block; }
-.nav-link::after {
-  content:'';
-  position:absolute;
-  bottom:-2px;
-  left:4px;
-  right:4px;
-  width:auto;
-  height:1px;
-  background: rgba(255,255,255,0.3);
-  transition: all 0.3s ease;
-  transform: scaleX(0);
+/* --- Nav 链接容器 — 无外框，自然间距 --- */
+nav .flex.items-center.gap-8 {
+  gap: 14px;
+  padding: 0;
+  background: none;
+  border: none;
 }
-.nav-link:hover::after { transform: scaleX(1); }
-.nav-link.active::after { transform: scaleX(1); background: rgba(255,255,255,0.5); }
+
+/* --- Nav link — 独立药丸，融入页面调性 --- */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Hover：仅微显底色，不浮起，保持内敛 */
+html.dark .nav-link:hover {
+  background: rgba(255,255,255,0.05);
+}
+html.scholar .nav-link:hover {
+  background: rgba(92,83,68,0.04);
+}
+
+/* Active — 暗色：轻透光晕 + 亮青字 */
+html.dark .nav-link.active {
+  background: linear-gradient(135deg, rgba(34,211,238,0.14), rgba(34,211,238,0.06));
+  color: #22d3ee;
+  font-weight: 600;
+  box-shadow: 0 0 0 1px rgba(34,211,238,0.15), 0 2px 8px rgba(34,211,238,0.08);
+}
+
+/* Active — 纸墨：暖底轻浮 + 青绿字 */
+html.scholar .nav-link.active {
+  background: var(--ink-surface);
+  color: var(--accent-link);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(92,83,68,0.06);
+}
+
+/* 统一覆盖各页面内联强调色 */
+.nav-link.active { color: #22d3ee !important; }
+html.scholar .nav-link.active { color: var(--accent-link) !important; }
 
 /* --- Section Divider --- */
 .section-divider {

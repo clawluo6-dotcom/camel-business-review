@@ -12,10 +12,10 @@
 <style>
   .fade-in { animation: fadeIn 0.6s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-  .dash-wrap { width:100%; min-height:6000px; overflow:hidden; border:none; border-radius:16px; background:var(--bg-primary, #0a0e17); }
+  .dash-wrap { width:100%; min-height:6000px; overflow:hidden; border:none; }
 </style>
 </head>
-<body class="bg-bg-primary bg-grid min-h-screen">
+<body class="bg-bg-primary min-h-screen">
 
 <nav class="sticky top-0 z-50 glass border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -32,27 +32,15 @@
       <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>首页</span></a>
       <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>世界观</span></a>
       <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none"><span>社会逻辑</span></a>
-      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>资产速报</span></a>
+      <a href="ai-news.html" class="nav-link active no-underline" style="color:#34d399;text-decoration:none"><span>资产速报</span></a>
       <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none"><span>关于</span></a>
     
 </nav>
 
-<section class="py-12">
+<section class="py-4">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-8 fade-in">
-      <div class="text-4xl mb-4">🌐</div>
-      <h2 class="text-3xl font-black tracking-tight mb-3">全球核心资产速报</h2>
-      <p class="text-text-muted font-mono text-xs uppercase tracking-widest mb-4">Global Core Assets Brief</p>
-      <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed text-sm">
-        全球核心经济数据速递，一文掌握前沿脉搏。
-      </p>
-      <div class="mt-4">
-        <a href="index.html" class="text-xs text-accent-cyan hover:text-accent-purple transition inline-flex items-center gap-1">← 返回首页</a>
-      </div>
-    </div>
-
-    <div class="flex items-center gap-2 text-text-muted text-sm mb-6 fade-in" style="animation-delay:0.1s">
-      <span style="font-size:20px">🌐</span> 全球核心资产速报
+    <div class="mb-4 fade-in text-right">
+      <a href="index.html" class="text-xs text-text-muted hover:text-accent-cyan transition inline-flex items-center gap-1">← 返回首页</a>
     </div>
 
     <div class="dash-wrap">
