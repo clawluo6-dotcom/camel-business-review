@@ -12,7 +12,7 @@
 <style>
   .fade-in { animation: fadeIn 0.6s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-  .econ-iframe { width:100%; border:none; border-radius:16px; min-height:85vh; background:var(--bg-primary, #0a0e17); }
+  .dash-wrap { width:100%; min-height:6000px; overflow:hidden; border:none; border-radius:16px; background:var(--bg-primary, #0a0e17); }
 </style>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen">
@@ -32,7 +32,7 @@
       <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>首页</span></a>
       <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>世界观</span></a>
       <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none"><span>社会逻辑</span></a>
-      <a href="ai-news.html" class="nav-link active no-underline" style="color:#34d399;text-decoration:none"><span>资产速报</span></a>
+      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>资产速报</span></a>
       <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none"><span>关于</span></a>
     
 </nav>
@@ -55,9 +55,9 @@
       <span style="font-size:20px">🌐</span> 全球核心资产速报
     </div>
 
-    <div class="fade-in" style="min-height:85vh">
-        <iframe id="econIframe" class="econ-iframe" style="width:100%;height:calc(100vh - 280px);border:none;border-radius:12px" data-src="financial-dashboard.html" title="全球核心资产速报"></iframe>
-      </div>
+    <div class="dash-wrap">
+      <object id="dashObject" data="financial-dashboard.html" type="text/html" style="width:100%;height:6000px;border:none;overflow:hidden;"></object>
+    </div>
 
   </div>
 </section>
@@ -77,25 +77,19 @@
 </footer>
 
 <script>
-// 页面加载后加载 iframe
-document.addEventListener('DOMContentLoaded', function() {
-  const iframe = document.getElementById('econIframe');
-  if (iframe && iframe.dataset.src) {
-    iframe.src = iframe.dataset.src;
-  }
-});
-
-// 主题切换时，通知已加载的 iframe
-window.addEventListener('camel-theme-changed', (e) => {
-  const iframe = document.getElementById('econIframe');
-  if (iframe && iframe.contentWindow) {
+// 主题切换同步（同样同步到 object 内部）
+function syncTheme(theme) {
+  document.documentElement.className = theme || 'scholar';
+  var obj = document.getElementById('dashObject');
+  if (obj && obj.contentWindow) {
     try {
-      iframe.contentWindow.postMessage(
-        { type: 'theme-change', theme: e.detail },
-        '*'
-      );
-    } catch(err) { /* ignore cross-origin errors */ }
+      obj.contentWindow.postMessage({ type: 'theme-change', theme: theme || 'scholar' }, '*');
+    } catch(e) {}
   }
+}
+
+window.addEventListener('camel-theme-changed', function(e) {
+  syncTheme(e.detail);
 });
 </script>
   <script src="theme-toggle.js"></script>
