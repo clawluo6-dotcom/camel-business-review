@@ -156,6 +156,9 @@
 
   // ---- Filter articles (non-MOC for main list) ----
   const articles = DATA.articles.filter(a => a.pillar === PILLAR && !a.id.startsWith('moc-') && !a.title.startsWith('MOC-'));
+  
+  // 保留原始数组顺序，供排序回退使用
+  articles.forEach(function(a, idx) { a._sortIndex = idx; });
 
   // Group by subcategory (non-MOC for article list)
   const bySub = {};
@@ -208,8 +211,8 @@
   var collator = new Intl.Collator('zh-Hans-CN', { numeric: true });
   Object.keys(bySub).forEach(function(k) {
     bySub[k].sort(function(a,b) {
-      var na=extractNum(a.title), nb=extractNum(b.title);
-      if (na!==nb) return na-nb;
+      // 按 site-data.js 中的原始顺序排列（匹配 Obsidian 文件夹编号顺序）
+      if (a._sortIndex !== b._sortIndex) return a._sortIndex - b._sortIndex;
       return collator.compare(a.title, b.title);
     });
   });
