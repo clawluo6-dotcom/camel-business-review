@@ -334,7 +334,7 @@
         var a = sorted[i];
         var pillarName = a.pillar === 'worldview' ? '世界观' : '经济逻辑';
         var pillarColor = a.pillar === 'worldview' ? '#22d3ee' : '#fbbf24';
-        html += '<a href="article.html?id=' + encodeURIComponent(a.id) + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
+        html += '<a href="article.html?id=' + a.id.split('-').pop() + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
           + '<div class="flex items-center gap-2 mb-2">'
           + '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,0.06);color:' + pillarColor + '">' + pillarName + '</span>'
           + '<span class="text-xs text-text-muted">' + a.date + '</span>'
@@ -374,7 +374,7 @@
             var a = hits[i];
             var pillarName = a.pillar === 'worldview' ? '世界观' : '经济逻辑';
             var pillarColor = a.pillar === 'worldview' ? '#22d3ee' : '#fbbf24';
-            h += '<a href="article.html?id=' + encodeURIComponent(a.id) + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
+            h += '<a href="article.html?id=' + a.id.split('-').pop() + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
               + '<div class="flex items-center gap-2 mb-2">'
               + '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,0.06);color:' + pillarColor + '">' + pillarName + '</span>'
               + '<span class="text-xs text-text-muted">' + a.date + '</span>'
