@@ -135,9 +135,12 @@ function processNavLinks(content) {
     if (/^MOC/i.test(title)) {
       return '';
     }
-    // Convert to link
+    // Convert to link — look up article by title to get short hash
     var text = linkText || title;
-    return '<a href="article.html?id=' + encodeURIComponent(title) + '" class="nav-link">' + text + '</a>';
+    var arts = (window.__ARTICLES__ && (window.__ARTICLES__.articles || window.__ARTICLES__)) || [];
+    var found = arts.find(function(a) { return a.title === title; });
+    var shortId = found ? found.id.split('-').pop() : encodeURIComponent(title);
+    return '<a href="article.html?id=' + shortId + '" class="nav-link">' + text + '</a>';
   });
 
   return content;
@@ -155,7 +158,9 @@ function init() {
   try {
     const data = window.__ARTICLES__;
     const articles = data.articles || data;
-    const meta = articles.find(a => a.id === id);
+    let meta = articles.find(a => a.id === id);
+    if (!meta) meta = articles.find(a => a.id.endsWith('-' + id));   // 短哈希 URL
+    if (!meta) meta = articles.find(a => a.title === id);             // wikilink 标题
     if (!meta) {
       document.getElementById('app').innerHTML = '<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">文章未找到: ' + id + '</p></div>';
       return;
