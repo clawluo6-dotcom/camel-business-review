@@ -65,6 +65,202 @@
 </footer>
 
 <script>
+// AI 速递新闻数据
+const BUILTIN_DATA = {
+  "meta": {
+    "version": "1.0.1",
+    "lastUpdated": "2026-06-21T09:59:15+08:00"
+  },
+  "news": [
+    {
+      "title": "Google DeepMind 48小时连失两员大将：Noam Shazeer 跳槽 OpenAI，John Jumper 投奔 Anthropic",
+      "summary": "Transformer 共同发明人 Noam Shazeer 加入 OpenAI，诺贝尔奖得主 John Jumper 加入 Anthropic。这场从 Google DeepMind 的人才外流被业界视为历史性事件，凸显 AI 人才争夺战的激烈程度。",
+      "category": "models",
+      "date": "2026-06-21",
+      "tags": [
+        "Google DeepMind",
+        "OpenAI",
+        "Anthropic",
+        "人才争夺"
+      ],
+      "importance": 5,
+      "source": "Creati.ai",
+      "id": "n001"
+    },
+    {
+      "title": "Apple iOS 27 发布：Apple Intelligence 全面赋能 Siri，带来账单分摊等新功能",
+      "summary": "苹果 iOS 27 正式发布，引入 Apple Intelligence 驱动的 Siri 升级、智能账单分摊功能，以及 Maps、Wallet 等核心应用全面 AI 化更新。",
+      "category": "agents",
+      "date": "2026-06-21",
+      "tags": [
+        "Apple",
+        "Siri",
+        "Apple Intelligence",
+        "iOS 27"
+      ],
+      "importance": 5,
+      "source": "Creati.ai",
+      "id": "n002"
+    },
+    {
+      "title": "Signal 总裁警告：AI 聊天机器人不是你的朋友，是监控工具",
+      "summary": "Signal 总裁 Meredith Whittaker 警告用户，ChatGPT 和 Claude 等 AI 聊天机器人是监控工具而非值得信赖的伙伴，引发 AI 隐私伦理讨论。",
+      "category": "policy",
+      "date": "2026-06-21",
+      "tags": [
+        "Signal",
+        "AI隐私",
+        "监控",
+        "ChatGPT"
+      ],
+      "importance": 3,
+      "source": "Creati.ai",
+      "id": "n008"
+    },
+    {
+      "title": "前 OpenAI 员工发布「In the Weights」工具：可检测你是否存在于 AI 训练数据中",
+      "summary": "前 OpenAI 员工推出「In the Weights」工具，可查询多个 AI 模型对个人存在感的记忆程度，引发训练数据隐私关注。",
+      "category": "policy",
+      "date": "2026-06-21",
+      "tags": [
+        "OpenAI",
+        "训练数据",
+        "隐私",
+        "AI工具"
+      ],
+      "importance": 3,
+      "source": "Creati.ai",
+      "id": "n009"
+    },
+    {
+      "title": "国产昇腾 910C 集群完成 1.6 万亿参数 DeepSeek-V4-Pro 全流程训练",
+      "summary": "国产昇腾 910C 算力集群顺利完成 1.6 万亿参数 DeepSeek-V4-Pro 全流程训练，实现超大规模 MoE 大模型全栈国产化训练落地，标志着中国 AI 芯片从推理侧向训练侧的关键跨越。",
+      "category": "china",
+      "date": "2026-06-20",
+      "tags": [
+        "昇腾910C",
+        "DeepSeek",
+        "国产芯片",
+        "训练"
+      ],
+      "importance": 5,
+      "source": "搜狐",
+      "id": "n006"
+    },
+    {
+      "title": "Fable 5 下线第8天：以70% PASS@1 登顶 DeepSWE 编码基准，特朗普称谈判「进展顺利」",
+      "summary": "Anthropic 的 Fable 5 确认以70% PASS@1 登顶 DeepSWE 编码基准，领先 GPT-5.5 3个百分点。模型已下线第8天，特朗普首次就禁令公开评论称谈判「进展顺利」。Google 将 Gemini 2.5 Flash 设为所有 Gemini 产品默认模型。",
+      "category": "models",
+      "date": "2026-06-20",
+      "tags": [
+        "Anthropic",
+        "Fable 5",
+        "DeepSWE",
+        "GPT-5.5",
+        "Gemini"
+      ],
+      "importance": 4,
+      "source": "AIToolsRecap",
+      "id": "n003"
+    },
+    {
+      "title": "OpenAI 发布突破性药物发现研究",
+      "summary": "OpenAI 发布了突破性的药物发现研究，标志着 AI 在生物医药领域的应用迈出重要一步。",
+      "category": "models",
+      "date": "2026-06-20",
+      "tags": [
+        "OpenAI",
+        "药物发现",
+        "生物医药"
+      ],
+      "importance": 4,
+      "source": "AIToolsRecap",
+      "id": "n004"
+    },
+    {
+      "title": "Anthropic 称 Fable 5 将「数日内」恢复，韩国电信公司触发禁令",
+      "summary": "Anthropic 国际董事总经理在首尔记者会上表示「非常有信心未来数日内模型将重新上线」。《华盛顿邮报》披露触发禁令的是一家与中国有疑似关联的韩国电信公司。Anthropic 已开始为订阅用户发放退款。",
+      "category": "policy",
+      "date": "2026-06-19",
+      "tags": [
+        "Anthropic",
+        "Fable 5",
+        "出口管制",
+        "韩国"
+      ],
+      "importance": 4,
+      "source": "AIToolsRecap",
+      "id": "n005"
+    },
+    {
+      "title": "智谱 GLM-5.2 发布：中文理解与多轮对话全面优化",
+      "summary": "智谱 GLM-5.2 正式发布，在中文理解、多轮对话和知识密度方面均有优化。GLM 在国内 ToC 场景普及度较高，AAII 综合得分约51分，针对中文场景的专项表现突出。",
+      "category": "china",
+      "date": "2026-06-16",
+      "tags": [
+        "智谱",
+        "GLM-5.2",
+        "国产大模型"
+      ],
+      "importance": 3,
+      "source": "搜狐",
+      "id": "n007"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-06-16",
+      "events": [
+        "智谱 GLM-5.2 发布：中文理解与多轮对话全面优化"
+      ]
+    },
+    {
+      "date": "2026-06-19",
+      "events": [
+        "Anthropic 称 Fable 5 将「数日内」恢复，韩国电信公司…"
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "events": [
+        "Fable 5 下线第8天：以70% PASS@1 登顶 DeepSW…",
+        "OpenAI 发布突破性药物发现研究",
+        "国产昇腾 910C 集群完成 1.6 万亿参数 DeepSeek-V4…"
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "events": [
+        "Google DeepMind 48小时连失两员大将：Noam Sha…",
+        "Apple iOS 27 发布：Apple Intelligence …",
+        "Signal 总裁警告：AI 聊天机器人不是你的朋友，是监控工具",
+        "前 OpenAI 员工发布「In the Weights」工具：可检测…"
+      ]
+    }
+  ],
+  "featured": {
+    "id": "n001",
+    "title": "Google DeepMind 48小时连失两员大将：Noam Shazeer 跳槽 OpenAI，John Jumper 投奔 Anthropic",
+    "titleCN": "",
+    "summary": "Transformer 共同发明人 Noam Shazeer 加入 OpenAI，诺贝尔奖得主 John Jumper 加入 Anthropic。这场从 Google DeepMind 的人才外流被业界视为历史性事件，凸显 AI 人才争夺战的激烈程度。",
+    "category": "大模型军备",
+    "date": "2026-06-21",
+    "tags": [
+      "Google DeepMind",
+      "OpenAI",
+      "Anthropic",
+      "人才争夺"
+    ],
+    "importance": 5,
+    "source": "Creati.ai",
+    "link": ""
+  }
+};
+
+let DATA = BUILTIN_DATA;
+</script>
+
+<script>
 // 主题切换同步（同样同步到 object 内部）
 function syncTheme(theme) {
   document.documentElement.className = theme || 'scholar';
