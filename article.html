@@ -38,6 +38,7 @@
 <script src="article-content.js"></script>
 <script>
 // 文章内容已在 article-content.js 中内联，无需再 fetch
+window.__ARTICLE_CONTENT__ = articleContent;
 (function() {
   var id = (new URLSearchParams(window.location.search)).get('id') || '';
   if (!id) return;
