@@ -439,10 +439,28 @@ def scan_directory():
     return articles, article_contents, pillar_modules
 
 
+def chinese_numeral_sort_key(title):
+    """提取标题中的中文数字序号用于排序，'一'→1、'十二'→12"""
+    cn = {'一':1,'二':2,'三':3,'四':4,'五':5,'六':6,'七':7,'八':8,'九':9,'十':10}
+    m = __import__('re').match(r'^([一二三四五六七八九十]+)[、，,\s·]*', title)
+    if m:
+        s = m.group(1)
+        if len(s) == 1:
+            return cn.get(s, 0)
+        if len(s) == 2:
+            if s[0] == '十':
+                return 10 + cn.get(s[1], 0)
+            if s[1] == '十':
+                return cn.get(s[0], 0) * 10
+        if len(s) == 3 and s[1] == '十':
+            return cn.get(s[0], 0) * 10 + cn.get(s[2], 0)
+    return 999  # 无中文序号时排最后
+
+
 def generate_site_data_js(articles, pillar_modules):
     """生成 site-data.js"""
-    # 按 category -> subcategory -> title 排序
-    articles.sort(key=lambda a: (a["category"], a["subcategory"], a["title"]))
+    # 按 category -> subcategory -> 中文数字序号 排序
+    articles.sort(key=lambda a: (a["category"], a["subcategory"], chinese_numeral_sort_key(a["title"])))
 
     header = '''// ============================================================
 // 骆驼商业本质 — 网站数据（静态维护，不自动同步）
