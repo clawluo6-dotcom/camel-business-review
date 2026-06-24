@@ -38,9 +38,13 @@
 <script src="article-content.js"></script>
 <script>
 // 文章内容已在 article-content.js 中内联，无需再 fetch
-// 数据加载防护：article-content.js 加载失败时提供空对象兜底
+// 数据加载防护：兼容旧格式（var articleContent）和新格式（IIFE window.__ARTICLE_CONTENT__）
 if (typeof window.__ARTICLE_CONTENT__ !== 'object') {
-    window.__ARTICLE_CONTENT__ = {};
+    if (typeof articleContent !== 'undefined') {
+        window.__ARTICLE_CONTENT__ = articleContent;
+    } else {
+        window.__ARTICLE_CONTENT__ = {};
+    }
 }
 (function() {
   var id = (new URLSearchParams(window.location.search)).get('id') || '';
