@@ -201,6 +201,23 @@ function render(article, content) {
   const pillarName = cfg ? cfg.name : '世界观';
   document.title = `${article.title} — 骆驼商业本质`;
 
+  // ── Open Graph 动态标签 ──────────────────────────
+  // 清理旧 OG 标签（防止多次 render 重复添加）
+  document.querySelectorAll('meta[property^="og:"]').forEach(el => el.remove());
+  var ogTags = [
+    ['og:title', article.title + ' — 骆驼商业本质'],
+    ['og:description', article.summary || article.title],
+    ['og:type', 'article'],
+    ['og:url', window.location.href],
+    ['og:site_name', '骆驼商业本质'],
+  ];
+  ogTags.forEach(function(t) {
+    var m = document.createElement('meta');
+    m.setAttribute('property', t[0]);
+    m.setAttribute('content', t[1]);
+    document.head.appendChild(m);
+  });
+
   let html = '';
 
   // Breadcrumb
