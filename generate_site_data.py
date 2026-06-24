@@ -13,6 +13,8 @@ generate_site_data.py — 从 Obsidian 目录重新生成网站数据
 
 import os
 import re
+import subprocess
+import sys
 import json
 import hashlib
 from pathlib import Path
@@ -487,7 +489,7 @@ def generate_site_data_js(articles, pillar_modules):
 
 
 def generate_article_content_js(article_contents):
-    """生成 article-content.js"""
+    """生成 article-content.js — 逐条赋值，单篇异常不影响整体"""
     header = '''// ============================================================
 // 骆驼商业本质 — 文章正文数据（静态维护，不自动同步）
 // ============================================================
@@ -496,14 +498,26 @@ def generate_article_content_js(article_contents):
 // ============================================================
 '''
 
-    # 逐条构建，避免大 JSON 一次性序列化问题
     entries = []
+    failed = []
     for aid, content in article_contents.items():
-        # JSON 转义内容
-        content_json = json.dumps(content, ensure_ascii=False)
-        entries.append(f'  {json.dumps(aid, ensure_ascii=False)}: {content_json}')
+        try:
+            content_json = json.dumps(content, ensure_ascii=False)
+            entries.append(f'  __D[{json.dumps(aid, ensure_ascii=False)}] = {content_json};')
+        except Exception as e:
+            failed.append(aid)
+            print(f'  ⚠️ 跳过问题文章: {aid} ({e})')
 
-    js_content = f'{header}window.__ARTICLE_CONTENT__ = {{\n{",\n".join(entries)}\n}};\n'
+    # IIFE 隔离：单条赋值出错不影响 window.__ARTICLE_CONTENT__ 的最终赋值
+    body = '\n'.join(entries)
+    js_content = f'''{header}(function() {{
+var __D = {{}};
+{body}
+window.__ARTICLE_CONTENT__ = __D;
+}})();
+'''
+    if failed:
+        print(f'  ⚠️ 共跳过 {len(failed)} 篇问题文章')
     return js_content
 
 
@@ -556,6 +570,18 @@ def main():
         print(f"     内容预览: {content_preview}...")
 
     print(f"\n✅ 全部完成！")
+
+    # ── 语法验证 ──────────────────────────────────────────
+    print("\n🔍 语法验证 ...")
+    for f in ['site-data.js', 'article-content.js']:
+        path = os.path.join(OUTPUT_DIR, f)
+        r = subprocess.run(['node', '--check', path], capture_output=True, text=True)
+        if r.returncode != 0:
+            print(f'   ❌ {f} 语法错误！')
+            print(f'      {r.stderr.strip()}')
+            sys.exit(1)
+        else:
+            print(f'   ✅ {f} 通过')
 
 
 if __name__ == "__main__":
