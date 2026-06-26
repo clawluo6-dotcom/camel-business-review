@@ -39,7 +39,11 @@
 // 动态加载文章正文：先解析文章 ID，确定 pillar，只加载对应文件
 (function() {
   var id = (new URLSearchParams(window.location.search)).get('id') || '';
-  if (!id) { window.__ARTICLE_CONTENT__ = {}; return; }
+  if (!id) { window.__ARTICLE_CONTENT__ = {}; window.__ARTICLE_FETCH__ = Promise.resolve(true); return; }
+
+  // 先创建等待中的 Promise，init() 会通过 .then() 等它完成
+  var resolveFetch;
+  window.__ARTICLE_FETCH__ = new Promise(function(r) { resolveFetch = r; });
 
   // 从 site-data.js（已加载）查找文章元数据
   var arts = (window.__ARTICLES__ && (window.__ARTICLES__.articles || window.__ARTICLES__)) || [];
@@ -60,7 +64,7 @@
         window.__ARTICLE_CONTENT__ = {};
       }
     }
-    window.__ARTICLE_FETCH__ = Promise.resolve(true);
+    if (resolveFetch) resolveFetch(true);
   };
   document.head.appendChild(s);
 })();
