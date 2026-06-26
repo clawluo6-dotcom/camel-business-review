@@ -211,16 +211,19 @@ def remove_standalone_tag_words(content):
     result = []
     for i, line in enumerate(lines):
         stripped = line.strip()
-        # 如果整行只有1-3个短词（没有标点、没有标题标记），且不是第一行（可能是标题下的空行）
-        # 这类行是 [[思考]] [[哲学]] 被转换后的残留
-        if stripped and not re.match(r'^#{1,6}\s', stripped) and not re.match(r'^[-*|>]', stripped):
-            # 只包含短词和空格的行（1-3个词，每个词2-6个字）
-            words = stripped.split()
-            if 1 <= len(words) <= 3 and all(len(w) <= 8 for w in words):
-                # 检查是不是有意义的内容（如果上一行是标题，下一行是正文，这行可能是无意义的标签残留）
-                # 安全起见，只在行首出现时删除
-                if i == 0 or (i > 0 and lines[i-1].strip() == ''):
-                    continue
+        # 跳过 fenced code block 标记行、标题行、列表行、引用行
+        if stripped.startswith('```') or stripped == '```':
+            result.append(line)
+            continue
+        if re.match(r'^#{1,6}\s', stripped) or re.match(r'^[-*|>]', stripped):
+            result.append(line)
+            continue
+        # 只包含短词和空格的行（1-3个词，每个词2-6个字）→ 可能是标签残留
+        words = stripped.split()
+        if 1 <= len(words) <= 3 and all(len(w) <= 8 for w in words):
+            # 只在行首或上一行为空行时删除（避免误删正文行）
+            if i == 0 or (i > 0 and lines[i-1].strip() == ''):
+                continue
         result.append(line)
     return '\n'.join(result)
 
@@ -293,7 +296,7 @@ def validate_markdown(content, article_id, title=""):
     start_line = 0
     for i, line in enumerate(lines, 1):
         stripped = line.strip()
-        if stripped.startswith('\`\`\`') or stripped == '\`\`\`':
+        if stripped.startswith('```') or stripped == '```':
             if in_code:
                 in_code = False
             else:
@@ -305,7 +308,7 @@ def validate_markdown(content, article_id, title=""):
     # 2. 孤立的 closing ``` 没有 matching opening（第 1 行就是 ```）
     for i, line in enumerate(lines, 1):
         stripped = line.strip()
-        if (stripped.startswith('\`\`\`') or stripped == '\`\`\`'):
+        if (stripped.startswith('```') or stripped == '```'):
             if i == 1:
                 issues.append(f"第 1 行: 孤立的 \`\`\`（可能是前一代码块缺失开头标记）")
             # Check if the line immediately before a heading is ```
