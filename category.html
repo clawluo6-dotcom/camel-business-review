@@ -5,9 +5,14 @@
   <link rel="stylesheet" href="styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>分类文章 — 骆驼商业本质</title>
-  
-  
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
+<meta name="description" content="分类文章浏览 — 骆驼商业本质">
+<meta property="og:title" content="分类文章 — 骆驼商业本质">
+<meta property="og:description" content="分类文章浏览 — 骆驼商业本质">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="骆驼商业本质">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
 
 <style>
   .fade-in { animation: fadeIn 0.6s ease-out; }
@@ -16,11 +21,12 @@
   .nav-pillar .nav-macro { font-size: 14px; font-weight: 600; line-height: 1.2; }
   .nav-pillar .nav-research { font-size: 10px; font-weight: 400; opacity: 0.6; letter-spacing: 0.5px; line-height: 1.2; }
   .back-link { transition: all 0.3s ease; }
-  .back-link:hover { transform: translateX(-4px); }
-  .importance-5 { border-left: 3px solid #22d3ee; }
-  .importance-4 { border-left: 3px solid #a855f7; }
-  .importance-3 { border-left: 3px solid #64748b; }
-  .empty-state { min-height: 200px; display: flex; align-items: center; justify-content: center; }
+.back-link:hover { transform: translateX(-4px); }
+ .importance-5 { border-left: 3px solid var(--imp-5, #22d3ee); }
+ .importance-4 { border-left: 3px solid var(--imp-4, #a855f7); }
+ .importance-3 { border-left: 3px solid var(--imp-3, #64748b); }
+ .badge-essence { background:rgba(34,211,238,0.12); color:var(--badge-essence, #22d3ee); }
+.empty-state { min-height: 200px; display: flex; align-items: center; justify-content: center; }
 </style>
 <script src="site-data.js"></script>
 </head>
@@ -49,6 +55,11 @@
 <div class="max-w-7xl mx-auto px-6 pt-12 pb-16">
   <div id="app">
     <div class="text-center text-text-muted py-20">加载中...</div>
+  <noscript>
+    <div style="background:#A80606;color:#fff;text-align:center;padding:14px;font-size:14px">
+      您的浏览器未启用 JavaScript，页面部分功能无法正常显示。
+    </div>
+  </noscript>
   </div>
 </div>
 
@@ -126,9 +137,6 @@ function init() {
     }
   }
 
-  // 调试：显示实际收到的参数值（发布前删掉）
-  console.log('[category] pillar=', JSON.stringify(pillar), 'cat=', JSON.stringify(cat));
-
   if (!pillar || !cat || !PILLAR_CONFIG[pillar]) {
     const msg = !PILLAR_CONFIG[pillar]
       ? `未知 pillar 值：${JSON.stringify(pillar)}，有效值仅为：worldview / social`
@@ -138,7 +146,12 @@ function init() {
   }
 
   const cfg = PILLAR_CONFIG[pillar];
-  document.title = `${cat} — ${cfg.name.replace(/[^\u4e00-\u9fa5]/g,'')} — 骆驼商业本质`;
+  // 动态设置页面标题与 SEO meta
+  const pageTitle = `${cat} — ${cfg.name.replace(/[^\u4e00-\u9fa5]/g,'')} — 骆驼商业本质`;
+  document.title = pageTitle;
+  document.querySelector('meta[name="description"]')?.setAttribute('content', `${cfg.name} - ${cat} 分类文章`);
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', pageTitle);
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', `${cfg.name} - ${cat}`);
 
   try {
     const data = window.__ARTICLES__;
@@ -203,7 +216,7 @@ function render(cfg, pillar, cat, articles) {
       <a href="article.html?id=${a.id.split('-').pop()}" class="glass rounded-xl p-6 glass-hover fade-in ${impClass} block no-underline" style="animation-delay:${delay}s">
         <div class="flex items-center justify-between mb-3">
           <span class="text-[10px] text-text-muted font-mono">${a.date || ''}</span>
-          ${a.importance >= 5 ? '<span class="text-[10px] px-2 py-0.5 rounded-full" style="background:rgba(34,211,238,0.12);color:#22d3ee">精选</span>' : ''}
+          ${a.importance >= 5 ? '<span class="text-[10px] px-2 py-0.5 rounded-full badge-essence">精选</span>' : ''}
         </div>
         <h3 class="font-semibold text-base mb-2 leading-snug" style="color:${acc}">${a.title}</h3>
         <p class="text-sm text-text-secondary leading-relaxed">${a.summary || ''}</p>

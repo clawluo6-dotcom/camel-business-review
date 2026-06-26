@@ -59,6 +59,12 @@ html.scholar {
 }
 
 
+/* 分类页重要性色条 — scholar 模式的暖色适配 */
+html.scholar .importance-5 { --imp-5: #1a6b5a; }
+html.scholar .importance-4 { --imp-4: #A80606; }
+html.scholar .importance-3 { --imp-3: #8a7a6a; }
+html.scholar .badge-essence { --badge-essence: #1a6b5a; }
+
 /* =================================================================
    Body & 页面底色
    ================================================================= */
