@@ -11,7 +11,7 @@ set -e
 
 VAULT="/Users/luoclaw/Library/Mobile Documents/iCloud~md~obsidian/Documents/andy's obsidian"
 SITE_DIR="$(cd "$(dirname "$0")" && pwd)"
-BUILD_SCRIPT="$SITE_DIR/build_all_articles.py"
+BUILD_SCRIPT="$SITE_DIR/generate_site_data.py"
 GIT_REMOTE="origin"
 GIT_BRANCH="main"
 
@@ -23,7 +23,7 @@ echo ""
 echo "📦 Step 1: 从 Obsidian 构建文章数据..."
 cd "$SITE_DIR"
 if ! python3 "$BUILD_SCRIPT"; then
-    echo "❌ 构建失败，检查 build_all_articles.py 输出"
+    echo "❌ 构建失败，检查 generate_site_data.py 输出"
     exit 1
 fi
 echo "✅ 构建完成"

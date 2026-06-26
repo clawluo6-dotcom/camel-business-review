@@ -36,44 +36,30 @@
 </style>
 <script src="site-data.js"></script>
 <script>
-// 动态加载文章正文：先解析文章 ID，确定 pillar，只加载对应文件
+// 动态加载文章正文 — 按需 fetch 单篇 JSON，不再加载全量 JS
 (function() {
   var id = (new URLSearchParams(window.location.search)).get('id') || '';
-  if (!id) { window.__ARTICLE_CONTENT__ = {}; window.__ARTICLE_FETCH__ = Promise.resolve(true); return; }
-
-  // 先创建等待中的 Promise，init() 会通过 .then() 等它完成
-  var resolveFetch;
-  window.__ARTICLE_FETCH__ = new Promise(function(r) { resolveFetch = r; });
-
-  // 从 site-data.js（已加载）查找文章元数据
-  var arts = (window.__ARTICLES__ && (window.__ARTICLES__.articles || window.__ARTICLES__)) || [];
-  var meta = arts.find(function(a) { return a.id === id || a.id.endsWith('-' + id) || a.short_id === id; });
-  var pillarFile = 'article-content.js'; // 默认完整文件
-  if (meta && meta.pillar) {
-    pillarFile = 'article-content-' + meta.pillar + '.js';
+  if (!id) {
+    window.__ARTICLE_CONTENT__ = {};
+    window.__ARTICLE_FETCH__ = Promise.resolve(true);
+    return;
   }
 
-  var s = document.createElement('script');
-  s.src = pillarFile;
-  s.onload = s.onreadystatechange = function() {
-    // 兼容旧格式
-    if (typeof window.__ARTICLE_CONTENT__ !== 'object') {
-      if (typeof articleContent !== 'undefined') {
-        window.__ARTICLE_CONTENT__ = articleContent;
-      } else {
-        window.__ARTICLE_CONTENT__ = {};
-      }
-    }
-    if (resolveFetch) resolveFetch(true);
-  };
-  // 如果拆分文件加载失败，回退到主文件
-  s.onerror = function() {
-    if (pillarFile !== 'article-content.js') {
-      s.src = 'article-content.js';
-      s.onerror = null;
-    }
-  };
-  document.head.appendChild(s);
+  window.__ARTICLE_FETCH__ = fetch('data/articles/' + id + '.json')
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      window.__ARTICLE_CONTENT__ = {};
+      window.__ARTICLE_CONTENT__[data.id] = data.content;
+      return true;
+    })
+    .catch(function(err) {
+      console.warn('文章内容加载失败:', err);
+      window.__ARTICLE_CONTENT__ = {};
+      return true;
+    });
 })();
 </script>
 </head>

@@ -135,11 +135,9 @@ def convert_wikilinks(content):
 
 
 def remove_embed_links(content):
-    """删除嵌入链接 ![[...]]"""
-    # 删除整行如果只有嵌入链接
-    content = re.sub(r'^!\[\[.*?\]\]\s*$', '', content, flags=re.MULTILINE)
-    # 行内的也删除
-    content = re.sub(r'!\[\[.*?\]\]', '', content)
+    """转换 Obsidian 嵌入链接 ![[...]] 为 Markdown 图片语法"""
+    # ![[filename.ext|size]] 或 ![[filename.ext]] → ![filename](data/images/filename.ext)
+    content = re.sub(r'!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]', r'![\1](data/images/\1)', content)
     return content
 
 
@@ -238,11 +236,11 @@ def clean_content(raw_content):
     # 2. 删除系列导航行
     content = remove_navigation_lines(content)
 
-    # 3. 转换双向链接 [[...]]
-    content = convert_wikilinks(content)
-
-    # 4. 删除嵌入链接 ![[...]]
+    # 3. 转换嵌入链接 ![[...]] → Markdown 图片（必须先处理，否则 [[ 会被 convert_wikilinks 吃掉）
     content = remove_embed_links(content)
+
+    # 4. 转换双向链接 [[...]]
+    content = convert_wikilinks(content)
 
     # 5. 删除行内标签
     content = remove_inline_tags(content)
@@ -633,6 +631,25 @@ window.__ARTICLE_CONTENT__ = __D;
         print(f"   ✅ {filename} ({size_kb:.1f} KB, {info['ok']} 篇)")
 
 
+
+def generate_article_content_json_files(articles, article_contents, output_dir):
+    """每篇文章生成独立的 data/articles/{short_id}.json"""
+    articles_dir = os.path.join(output_dir, "data", "articles")
+    os.makedirs(articles_dir, exist_ok=True)
+    ok = 0
+    for a in articles:
+        short_id = a.get("short_id")
+        if not short_id:
+            continue
+        c = article_contents.get(a["id"])
+        if c is None:
+            continue
+        filepath = os.path.join(articles_dir, f"{short_id}.json")
+        with open(filepath, 'w', encoding='utf-8') as f2:
+            json.dump({"id": a["id"], "content": c}, f2, ensure_ascii=False)
+        ok += 1
+    print(f"   ✅ data/articles/: {ok} 个 JSON 文件")
+
 def main():
     print("=" * 60)
     print("骆驼商业本质 — 数据生成脚本")
@@ -663,6 +680,10 @@ def main():
     # 按 pillar 拆分
     print("📝 按 pillar 拆分 article-content …")
     generate_article_content_by_pillar(articles, article_contents, OUTPUT_DIR)
+
+    # 按文章生成独立 JSON
+    print("📝 按文章生成独立 JSON …")
+    generate_article_content_json_files(articles, article_contents, OUTPUT_DIR)
 
     # 统计
     print(f"\n{'=' * 60}")

@@ -743,7 +743,7 @@ window.__ARTICLES__ = {
       "subcategory": "（二）、美国研究",
       "title": "08-美元双向流动",
       "date": "2026-06-09",
-      "summary": "",
+      "summary": "!07美元双向流动1780969508099.webp(data/images/07美元双向流动1780969508099.webp)",
       "importance": 3,
       "short_id": "b85549"
     },
@@ -841,7 +841,7 @@ window.__ARTICLES__ = {
       "category": "二、佛学思想研究",
       "subcategory": "（七）、心与识",
       "title": "02-破分别心：直击“比较”分别心的核心",
-      "date": "2026-06-12",
+      "date": "2026-06-26",
       "summary": "比较，是「分别心」自动把「取相的结果」和「种子里的旧标准」做对照。",
       "importance": 3,
       "short_id": "a9aa3b"
