@@ -66,6 +66,13 @@
     }
     if (resolveFetch) resolveFetch(true);
   };
+  // 如果拆分文件加载失败，回退到主文件
+  s.onerror = function() {
+    if (pillarFile !== 'article-content.js') {
+      s.src = 'article-content.js';
+      s.onerror = null;
+    }
+  };
   document.head.appendChild(s);
 })();
 </script>
@@ -300,7 +307,7 @@ setTimeout(function() {
       '<p class="text-sm mt-2 text-text-muted">数据文件可能较大或网络较慢，<br>请尝试 <a href="javascript:location.reload()" class="underline" style="color:#22d3ee">刷新页面</a></p>' +
       '</div>';
   }
-}, 8000);
+}, 20000);
 
 // === Cusdis 评论系统 ===
 // 页面渲染完成后加载 Cusdis 脚本
