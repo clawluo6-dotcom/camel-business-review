@@ -62,6 +62,17 @@
   </div>
     </main>
   </div>
+  <!-- 移动端分类选择器 -->
+  <div class="md:hidden" id="mobile-dropdown-wrap" style="margin-top:16px;position:relative">
+    <label style="font-size:10px;font-weight:600;letter-spacing:0.5px;opacity:0.55;display:block;margin-bottom:6px;color:var(--ink-muted,#888);">切换分类</label>
+    <div id="mobile-selector-trigger" class="w-full rounded-xl px-4 py-3.5 text-sm font-semibold cursor-pointer relative"
+      style="background:var(--ink-overlay,#f0eade);border:1.5px solid var(--ink-border,#d4c9b8);color:#A80606;padding-right:36px;">
+      <span id="mobile-selector-text" style="color:#A80606;">选择分类</span>
+      <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;color:#A80606;">▾</span>
+    </div>
+    <div id="mobile-selector-dropdown" style="display:none;position:absolute;left:0;right:0;z-index:100;background:var(--ink-surface,#f8f3e9);border:1px solid var(--ink-border,#d4c9b8);border-radius:12px;max-height:60vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-top:4px;">
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -259,6 +270,81 @@ function buildSidebar(pillar, activeCat) {
       '</div>' + subdirHtml;
   });
   sidebar.innerHTML = html;
+  // 渲染移动端下拉选择器
+  buildMobile(pillar, activeCat);
+}
+
+function buildMobile(pillar, activeCat) {
+  var trigger = document.getElementById('mobile-selector-trigger');
+  var dropdown = document.getElementById('mobile-selector-dropdown');
+  var textEl = document.getElementById('mobile-selector-text');
+  if (!trigger || !dropdown || !window.__ARTICLES__) return;
+
+  var modules = window.__ARTICLES__.pillarModules && window.__ARTICLES__.pillarModules[pillar];
+  if (!modules) return;
+
+  var html = '';
+  modules.forEach(function(mod) {
+    var hasContent = false;
+    var subHtml = '';
+    (mod.subcategories || []).forEach(function(sub) {
+      hasContent = true;
+      var activeAttr = (sub === activeCat) ? ' style="background:rgba(34,211,238,0.10);font-weight:600;color:#22d3ee;"' : '';
+      subHtml += '<div class="mob-opt" data-val="' + sub + '"' + activeAttr + ' style="padding:10px 14px 10px 24px;font-size:13px;color:var(--ink-primary,#251401);cursor:pointer;border-radius:8px;margin:2px 8px;transition:background .15s;">' + sub + '</div>';
+    });
+    if (!hasContent) return;
+    html += '<div style="padding:6px 14px 4px;font-size:11px;font-weight:700;color:#A80606;letter-spacing:0.5px;border-top:1px solid var(--ink-border,#d4c9b8);margin-top:2px;">' + (mod.icon || '') + ' ' + mod.module + '</div>' + subHtml;
+  });
+  dropdown.innerHTML = html;
+
+  // 设置当前选中文本
+  if (textEl) textEl.textContent = activeCat;
+
+  trigger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var open = dropdown.style.display === 'block';
+    if (!open) {
+      var rect = trigger.getBoundingClientRect();
+      var spaceBelow = window.innerHeight - rect.bottom;
+      if (spaceBelow < 300) {
+        dropdown.style.marginTop = '0';
+        dropdown.style.bottom = '100%';
+        dropdown.style.marginBottom = '4px';
+      } else {
+        dropdown.style.marginTop = '4px';
+        dropdown.style.bottom = 'auto';
+        dropdown.style.marginBottom = '0';
+      }
+    } else {
+      dropdown.style.marginTop = '4px';
+      dropdown.style.bottom = 'auto';
+      dropdown.style.marginBottom = '0';
+    }
+    dropdown.style.display = open ? 'none' : 'block';
+  });
+
+  dropdown.addEventListener('click', function(e) {
+    var opt = e.target.closest('.mob-opt');
+    if (!opt) return;
+    var val = opt.getAttribute('data-val');
+    if (textEl) textEl.textContent = val;
+    dropdown.style.display = 'none';
+    // 跳转到所选分类
+    window.location.href = 'category.html?pillar=' + pillar + '&cat=' + encodeURIComponent(val);
+  });
+
+  dropdown.addEventListener('mouseover', function(e) {
+    var opt = e.target.closest('.mob-opt');
+    if (opt) opt.style.background = 'var(--ink-hover,#e8dfd0)';
+  });
+  dropdown.addEventListener('mouseout', function(e) {
+    var opt = e.target.closest('.mob-opt');
+    if (opt) opt.style.background = '';
+  });
+
+  document.addEventListener('click', function() {
+    dropdown.style.display = 'none';
+  });
 }
 
 init();
