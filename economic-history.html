@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scholar">
+<html lang="zh-CN" class="scholar" data-nav="social">
 <head>
 <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
@@ -31,21 +31,7 @@
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
 
-<nav class="sticky top-0 z-50 glass border-b border-white/5">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 no-underline shrink-0">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
-        <span class="text-white font-bold text-sm">✦</span>
-      </div>
-      <div><h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼</span>🐫 <span class="text-text-secondary font-normal">商业本质</span></h1></div>
-        <div class="flex items-center gap-8">
-      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">首页</a>
-      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🌌 世界观</a>
-      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🏛️ 经济逻辑</a>
-      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none"><span>资产速报</span></a>
-    </div>
-  </div>
-</nav>
+<div id="site-nav"></div>
 
 <div class="max-w-5xl mx-auto px-6 pt-8 pb-2 fade-in">
   <a href="index.html" class="back-link inline-flex items-center gap-2 text-sm no-underline transition" style="color:#f59e0b;"><span>←</span> <span>返回首页</span></a>
@@ -127,7 +113,7 @@
     html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-5">';
     filtered.forEach(function(a,i){
       var cls = a.importance>=5?'importance-5':a.importance>=4?'importance-4':'importance-3';
-      html += '<a href="article.html?id='+a.id.split('-').pop()+'" class="glass rounded-xl p-6 glass-hover fade-in '+cls+' block no-underline" style="animation-delay:'+(0.05*(i+1))+'s">';
+      html += '<a href="article.html?id='+a.short_id+'" class="glass rounded-xl p-6 glass-hover fade-in '+cls+' block no-underline" style="animation-delay:'+(0.05*(i+1))+'s">';
       html += '<div class="flex items-center justify-between mb-3"><span class="text-[10px] text-text-muted font-mono">'+(a.date||'')+'</span>';
       if (a.importance>=5) html += '<span class="text-[10px] px-2 py-0.5 rounded-full" style="background:rgba(245,158,11,0.12);color:#f59e0b">精选</span>';
       html += '</div><h4 class="font-semibold text-sm mb-2 leading-snug" style="color:'+ACC+'">'+a.title+'</h4>';
@@ -138,6 +124,7 @@
   document.getElementById('app').innerHTML = html;
 })();
 </script>
+  <script src="components.js"></script>
   <script src="theme-toggle.js"></script>
 </body>
 </html>

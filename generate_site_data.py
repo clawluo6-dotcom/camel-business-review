@@ -281,6 +281,68 @@ def extract_summary(content, max_length=120):
     return ""
 
 
+def validate_markdown(content, article_id, title=""):
+    """检查 markdown 内容的常见语法错误，返回问题列表"""
+    if not content:
+        return []
+    issues = []
+    lines = content.split('\n')
+
+    # 1. fenced code block 是否闭合
+    in_code = False
+    start_line = 0
+    for i, line in enumerate(lines, 1):
+        stripped = line.strip()
+        if stripped.startswith('\`\`\`') or stripped == '\`\`\`':
+            if in_code:
+                in_code = False
+            else:
+                in_code = True
+                start_line = i
+    if in_code:
+        issues.append(f"fenced code block 未闭合（第 {start_line} 行以 \`\`\` 开头）")
+
+    # 2. 孤立的 closing ``` 没有 matching opening（第 1 行就是 ```）
+    for i, line in enumerate(lines, 1):
+        stripped = line.strip()
+        if (stripped.startswith('\`\`\`') or stripped == '\`\`\`'):
+            if i == 1:
+                issues.append(f"第 1 行: 孤立的 \`\`\`（可能是前一代码块缺失开头标记）")
+            # Check if the line immediately before a heading is ```
+            if i > 1 and stripped in ('\`\`\`',):
+                prev = lines[i-2].strip() if i-2 >= 0 else ''
+                next_line = lines[i] if i < len(lines) else ''
+                nxt_stripped = next_line.strip()
+                # If ``` is followed by a heading and not preceded by non-empty content,
+                # it might be an orphaned closer
+                if nxt_stripped.startswith('#'):
+                    # Check if this ``` closes anything — look backwards
+                    # If we're not in a code block now, this was an orphan
+                    issues.append(f"第 {i} 行: 孤立的 \`\`\` 后面紧跟标题，可能是缺失开头的代码块标记")
+
+    # 3. GFM 表格列数一致性检查
+    in_table = False
+    expected_cols = 0
+    for i, line in enumerate(lines, 1):
+        stripped = line.strip()
+        if '|' in stripped and stripped.startswith('|'):
+            parts = [p for p in stripped.split('|') if p.strip()]
+            n_cols = len(parts)
+            if re.match(r'^\|[\s:-]+\|', stripped):
+                continue
+            if not in_table:
+                in_table = True
+                expected_cols = n_cols
+            elif expected_cols > 0 and n_cols != expected_cols and n_cols >= 2:
+                issues.append(f"第 {i} 行: 表格列数不一致（期望 {expected_cols} 列，实际 {n_cols} 列）")
+                # 更新 expectation 避免重复告警
+                expected_cols = n_cols
+        else:
+            in_table = False
+            expected_cols = 0
+
+    return issues
+
 def should_skip(filename):
     """判断是否应该跳过此文件"""
     for pattern in SKIP_PATTERNS:
@@ -292,15 +354,14 @@ def should_skip(filename):
 
 
 def make_article_id(category, subcategory, filename):
-    """生成文章 ID：category-subcategory-filename-hash"""
+    """生成文章 ID（含短 hash）和 short_id"""
     # 去掉 .md 后缀
     name = filename.replace('.md', '')
     # 构造 ID 的 key 部分
     parts = [category, subcategory, name] if subcategory else [category, name]
     id_base = '-'.join(parts)
-    # 加 hash 防止重复
-    hash_val = hashlib.md5(id_base.encode('utf-8')).hexdigest()[:6]
-    return f"{id_base}-{hash_val}"
+    short_id = hashlib.md5(id_base.encode('utf-8')).hexdigest()[:6]
+    return f"{id_base}-{short_id}", short_id
 
 
 def extract_title(filename):
@@ -375,11 +436,14 @@ def scan_directory():
                             continue
 
                         title = extract_title(filename)
-                        article_id = make_article_id(module_name, subcat_name, filename)
+                        article_id, short_id = make_article_id(module_name, subcat_name, filename)
                         date = get_file_modified_time(filepath)
                         raw_content = read_file_safe(filepath)
                         cleaned = clean_content(raw_content)
                         summary = extract_summary(cleaned)
+                        issues = validate_markdown(cleaned, article_id, title)
+                        for issue in issues:
+                            print(f"  ⚠️ [{article_id}] {issue}")
 
                         articles.append({
                             "id": article_id,
@@ -390,6 +454,7 @@ def scan_directory():
                             "date": date,
                             "summary": summary,
                             "importance": 3,
+                            "short_id": short_id,
                         })
                         article_contents[article_id] = cleaned
                         total += 1
@@ -412,11 +477,14 @@ def scan_directory():
                         continue
 
                     title = extract_title(filename)
-                    article_id = make_article_id(module_name, "", filename)
+                    article_id, short_id = make_article_id(module_name, "", filename)
                     date = get_file_modified_time(filepath)
                     raw_content = read_file_safe(filepath)
                     cleaned = clean_content(raw_content)
                     summary = extract_summary(cleaned)
+                    issues = validate_markdown(cleaned, article_id, title)
+                    for issue in issues:
+                        print(f"  ⚠️ [{article_id}] {issue}")
 
                     articles.append({
                             "id": article_id,
@@ -427,6 +495,7 @@ def scan_directory():
                             "date": date,
                             "summary": summary,
                             "importance": 3,
+                            "short_id": short_id,
                         })
                     article_contents[article_id] = cleaned
                     total += 1
@@ -521,6 +590,46 @@ window.__ARTICLE_CONTENT__ = __D;
     return js_content
 
 
+def generate_article_content_by_pillar(articles, article_contents, output_dir):
+    """按 pillar 拆分 article-content.js，每篇文章独立赋值"""
+    pillar_groups = {}
+    for a in articles:
+        p = a["pillar"]
+        pillar_groups.setdefault(p, {"ids": [], "ok": 0, "skip": 0})
+        pillar_groups[p]["ids"].append(a["id"])
+
+    for pillar, info in pillar_groups.items():
+        entries = []
+        for aid in info["ids"]:
+            content = article_contents.get(aid)
+            if not content:
+                info["skip"] += 1
+                continue
+            try:
+                content_json = json.dumps(content, ensure_ascii=False)
+                entries.append(f'  __D[{json.dumps(aid, ensure_ascii=False)}] = {content_json};')
+                info["ok"] += 1
+            except Exception as e:
+                info["skip"] += 1
+                print(f'  ⚠️ 跳过 {aid} ({e})')
+
+        body = '\n'.join(entries)
+        body = body or '  // 无文章'
+        filename = f'article-content-{pillar}.js'
+        filepath = os.path.join(output_dir, filename)
+        js_content = f'''// 骆驼商业本质 — {pillar} 文章正文
+(function() {{
+var __D = {{}};
+{body}
+window.__ARTICLE_CONTENT__ = __D;
+}})();
+'''
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(js_content)
+        size_kb = os.path.getsize(filepath) / 1024
+        print(f"   ✅ {filename} ({size_kb:.1f} KB, {info['ok']} 篇)")
+
+
 def main():
     print("=" * 60)
     print("骆驼商业本质 — 数据生成脚本")
@@ -548,6 +657,9 @@ def main():
         f.write(article_content_js)
     size_mb = os.path.getsize(article_content_path) / 1024 / 1024
     print(f"   ✅ {article_content_path} ({size_mb:.1f} MB)")
+    # 按 pillar 拆分
+    print("📝 按 pillar 拆分 article-content …")
+    generate_article_content_by_pillar(articles, article_contents, OUTPUT_DIR)
 
     # 统计
     print(f"\n{'=' * 60}")

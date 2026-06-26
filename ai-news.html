@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scholar">
+<html lang="zh-CN" class="scholar" data-nav="ai-news">
 <head>
 <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
@@ -17,25 +17,7 @@
 </head>
 <body class="bg-bg-primary min-h-screen">
 
-<nav class="sticky top-0 z-50 glass border-b border-white/5">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 no-underline">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
-        <span class="text-white font-bold text-sm">✦</span>
-      </div>
-      <div>
-        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼</span>🐫 <span class="text-text-secondary font-normal">商业本质</span></h1>
-      </div>
-    </a>
-    <div class="flex items-center gap-8">
-
-      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>首页</span></a>
-      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>世界观</span></a>
-      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none"><span>经济逻辑</span></a>
-      <a href="ai-news.html" class="nav-link active no-underline" style="color:#34d399;text-decoration:none"><span>资产速报</span></a>
-      <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none"><span>关于</span></a>
-    
-</nav>
+<div id="site-nav"></div>
 
 <section class="py-4">
   <div class="max-w-7xl mx-auto px-6">
@@ -720,6 +702,7 @@ window.addEventListener('camel-theme-changed', function(e) {
   syncTheme(e.detail);
 });
 </script>
+  <script src="components.js"></script>
   <script src="theme-toggle.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scholar">
+<html lang="zh-CN" class="scholar" data-nav="index">
 <head>
 <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
@@ -65,25 +65,7 @@
 <body class="bg-bg-primary bg-grid min-h-screen">
 
 <!-- ====== 导航 —— 统一 4 项 + 关于 ====== -->
-<nav class="sticky top-0 z-50 glass border-b border-white/5">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 no-underline shrink-0" style="text-decoration:none">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
-        <span class="text-white font-bold text-sm">✦</span>
-      </div>
-      <div>
-        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼</span>🐫 <span class="text-text-secondary font-normal">商业本质</span></h1>
-      </div>
-    </a>
-    <div class="flex items-center gap-8">
-
-      <a href="index.html" class="nav-link active no-underline" style="color:#22d3ee;text-decoration:none"><span>首页</span></a>
-      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="text-decoration:none"><span>世界观</span></a>
-      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="text-decoration:none"><span>经济逻辑</span></a>
-      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none"><span>资产速报</span></a>
-      <a href="about.html" class="nav-link text-text-secondary hover:text-accent-purple transition no-underline" style="text-decoration:none"><span>关于</span></a>
-    
-</nav>
+<div id="site-nav"></div>
 
 <!-- ====== Hero 区（升级版） ====== -->
 <section class="relative bg-glow-top pt-16 pb-10 overflow-hidden">
@@ -305,6 +287,7 @@
   </div>
 </footer>
 
+  <script src="components.js"></script>
   <script src="theme-toggle.js"></script>
   <script src="site-data.js"></script>
   <script>
@@ -346,7 +329,7 @@
         var a = sorted[i];
         var pillarName = a.pillar === 'worldview' ? '世界观' : '经济逻辑';
         var pillarColor = a.pillar === 'worldview' ? '#22d3ee' : '#fbbf24';
-        html += '<a href="article.html?id=' + a.id.split('-').pop() + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
+        html += '<a href="article.html?id=' + a.short_id + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
           + '<div class="flex items-center gap-2 mb-2">'
           + '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,0.06);color:' + pillarColor + '">' + pillarName + '</span>'
           + '<span class="text-xs text-text-muted">' + a.date + '</span>'
@@ -386,7 +369,7 @@
             var a = hits[i];
             var pillarName = a.pillar === 'worldview' ? '世界观' : '经济逻辑';
             var pillarColor = a.pillar === 'worldview' ? '#22d3ee' : '#fbbf24';
-            h += '<a href="article.html?id=' + a.id.split('-').pop() + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
+            h += '<a href="article.html?id=' + a.short_id + '" class="glass rounded-xl p-4 glass-hover fade-in no-underline block" style="text-decoration:none">'
               + '<div class="flex items-center gap-2 mb-2">'
               + '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,0.06);color:' + pillarColor + '">' + pillarName + '</span>'
               + '<span class="text-xs text-text-muted">' + a.date + '</span>'

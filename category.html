@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scholar">
+<html lang="zh-CN" class="scholar" data-nav="article">
 <head>
 <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
@@ -22,37 +22,36 @@
   .nav-pillar .nav-research { font-size: 10px; font-weight: 400; opacity: 0.6; letter-spacing: 0.5px; line-height: 1.2; }
   .back-link { transition: all 0.3s ease; }
 .back-link:hover { transform: translateX(-4px); }
- .importance-5 { border-left: 3px solid var(--imp-5, #22d3ee); }
- .importance-4 { border-left: 3px solid var(--imp-4, #a855f7); }
- .importance-3 { border-left: 3px solid var(--imp-3, #64748b); }
- .badge-essence { background:rgba(34,211,238,0.12); color:var(--badge-essence, #22d3ee); }
+.importance-5 { border-left: 3px solid var(--imp-5, #22d3ee); }
+.importance-4 { border-left: 3px solid var(--imp-4, #a855f7); }
+.importance-3 { border-left: 3px solid var(--imp-3, #64748b); }
+.badge-essence { background:rgba(34,211,238,0.12); color:var(--badge-essence, #22d3ee); }
 .empty-state { min-height: 200px; display: flex; align-items: center; justify-content: center; }
+  .tree-module { transition: all 0.2s ease; cursor: pointer; }
+  .tree-module:hover { background: rgba(255,255,255,0.03); }
+  .tree-subdir { transition: all 0.2s ease; cursor: pointer; }
+  .tree-subdir:hover { background: rgba(255,255,255,0.03); }
+  .tree-subdir.active { background: rgba(251,191,36,0.1); border-left: 2px solid #fbbf24; color: #fbbf24; }
+  .tree-subdir.active .tree-count { color: #fbbf24; }
+  .tree-count { font-size: 10px; color: #64748b; }
 </style>
 <script src="site-data.js"></script>
 </head>
 <body class="bg-bg-primary bg-grid min-h-screen bg-glow-top">
 
 <!-- NAV -->
-<nav class="sticky top-0 z-50 glass border-b border-white/5">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 no-underline">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center">
-        <span class="text-white font-bold text-sm">✦</span>
-      </div>
-      <div>
-        <h1 class="text-lg font-bold tracking-tight"><span class="gradient-text">骆驼</span>🐫 <span class="text-text-secondary font-normal">商业本质</span></h1>
-      </div>
-        <div class="flex items-center gap-8">
-      <a href="index.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">首页</a>
-      <a href="worldview.html" class="nav-link text-text-secondary hover:text-accent-cyan transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🌌 世界观</a>
-      <a href="social.html" class="nav-link text-text-secondary hover:text-accent-gold transition no-underline" style="font-size:14px;font-weight:700;text-decoration:none">🏛️ 经济逻辑</a>
-      <a href="ai-news.html" class="nav-link text-text-secondary hover:text-accent-emerald transition no-underline" style="text-decoration:none"><span>资产速报</span></a>
-    </div>
-  </div>
-</nav>
+<div id="site-nav"></div>
 
 <!-- Content Area -->
 <div class="max-w-7xl mx-auto px-6 pt-12 pb-16">
+  <div class="flex gap-6">
+    <aside class="w-56 flex-shrink-0 hidden md:block">
+      <div class="glass rounded-xl p-4 sticky top-24">
+        <h4 class="text-xs text-text-muted uppercase tracking-wider mb-3 font-semibold">分类导航</h4>
+        <nav id="sidebar-tree" class="flex flex-col gap-0"></nav>
+      </div>
+    </aside>
+    <main class="flex-1 min-w-0">
   <div id="app">
     <div class="text-center text-text-muted py-20">加载中...</div>
   <noscript>
@@ -60,6 +59,8 @@
       您的浏览器未启用 JavaScript，页面部分功能无法正常显示。
     </div>
   </noscript>
+  </div>
+    </main>
   </div>
 </div>
 
@@ -213,7 +214,7 @@ function render(cfg, pillar, cat, articles) {
       const impClass = a.importance >= 5 ? 'importance-5' : a.importance >= 4 ? 'importance-4' : 'importance-3';
       const delay = 0.05 * (i + 1);
       html += `
-      <a href="article.html?id=${a.id.split('-').pop()}" class="glass rounded-xl p-6 glass-hover fade-in ${impClass} block no-underline" style="animation-delay:${delay}s">
+      <a href="article.html?id=${a.short_id}" class="glass rounded-xl p-6 glass-hover fade-in ${impClass} block no-underline" style="animation-delay:${delay}s">
         <div class="flex items-center justify-between mb-3">
           <span class="text-[10px] text-text-muted font-mono">${a.date || ''}</span>
           ${a.importance >= 5 ? '<span class="text-[10px] px-2 py-0.5 rounded-full badge-essence">精选</span>' : ''}
@@ -226,10 +227,54 @@ function render(cfg, pillar, cat, articles) {
   }
 
   document.getElementById('app').innerHTML = html;
+  // 渲染侧边栏导航树
+  buildSidebar(pillar, cat);
+}
+
+function buildSidebar(pillar, activeCat) {
+  var sidebar = document.getElementById('sidebar-tree');
+  if (!sidebar || !window.__ARTICLES__) return;
+  var modules = window.__ARTICLES__.pillarModules && window.__ARTICLES__.pillarModules[pillar];
+  if (!modules) return;
+
+  var allArticles = window.__ARTICLES__.articles || window.__ARTICLES__;
+  var html = '';
+  modules.forEach(function(mod) {
+    var count = 0;
+    var subdirHtml = '';
+    (mod.subcategories || []).forEach(function(sub) {
+      var n = allArticles.filter(function(a) { return a.subcategory === sub && a.pillar === pillar && !a.id.startsWith('moc-'); }).length;
+      count += n;
+      var activeClass = (sub === activeCat) ? ' active' : '';
+      subdirHtml += '<a href="category.html?pillar=' + pillar + '&cat=' + encodeURIComponent(sub) + '" class="tree-subdir w-full text-left px-2 py-1.5 pl-6 rounded text-sm text-text-secondary flex items-center justify-between border-l border-transparent no-underline' + activeClass + '">' +
+        '<span class="truncate">' + sub + '</span>' +
+        '<span class="tree-count ml-2 flex-shrink-0">' + n + '</span>' +
+        '</a>';
+    });
+    if (count === 0) return;
+    html += '<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">' +
+      '<span>' + (mod.icon || '📁') + '</span>' +
+      '<span class="flex-1">' + mod.module + '</span>' +
+      '<span class="tree-count">' + count + '篇</span>' +
+      '</div>' + subdirHtml;
+  });
+  sidebar.innerHTML = html;
 }
 
 init();
+// 加载超时：8 秒后如果页面仍是"加载中..."，显示可操作提示
+setTimeout(function() {
+  var app = document.getElementById('app');
+  if (app && app.innerHTML.indexOf('加载中') !== -1) {
+    app.innerHTML =
+      '<div class="glass rounded-2xl p-12 text-center fade-in" style="max-width:480px;margin:3rem auto">' +
+      '<p class="text-lg" style="color:#f59e0b">⏳ 页面加载超时</p>' +
+      '<p class="text-sm mt-2 text-text-muted">数据文件可能较大或网络较慢，<br>请尝试 <a href="javascript:location.reload()" class="underline" style="color:#22d3ee">刷新页面</a></p>' +
+      '</div>';
+  }
+}, 8000);
 </script>
+  <script src="components.js"></script>
   <script src="theme-toggle.js"></script>
 </body>
 </html>

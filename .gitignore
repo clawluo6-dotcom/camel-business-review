@@ -26,3 +26,8 @@ _archived/
 
 # Legacy auto-generated file (replaced by site-data.js + article-content.js)
 articles.js
+node_modules/
+article-content-tmp.js
+node_modules/
+package-lock.json
+package.json
