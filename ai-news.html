@@ -50,10 +50,139 @@
 // AI 速递新闻数据
 const BUILTIN_DATA = {
   "meta": {
-    "version": "1.0.4",
-    "lastUpdated": "2026-06-25T22:37:26+08:00"
+    "version": "1.0.5",
+    "lastUpdated": "2026-06-29T10:52:25+08:00"
   },
   "news": [
+    {
+      "title": "英伟达与剑桥大学发布「红皇后哥德尔机」，AI 动态自审使代码通过率翻倍",
+      "summary": "英伟达与剑桥大学发布「红皇后哥德尔机」研究，允许 AI 在执行任务的同时动态生成更苛刻的审查标准来挑战自身。实验显示，该方法使代码通过率和论文接收率实现翻倍级提升，代表 AI 自主进化能力正加速逼近临界点。",
+      "category": "models",
+      "date": "2026-06-29",
+      "tags": [
+        "英伟达",
+        "剑桥大学",
+        "红皇后哥德尔机",
+        "AI 自审",
+        "代码生成"
+      ],
+      "importance": 4,
+      "source": "AI内参",
+      "id": "n042"
+    },
+    {
+      "title": "Anthropic 内部数据：AI 代码提交占比超 80%，Claude 系统优化任务实现 52 倍加速",
+      "summary": "Anthropic 内部数据显示，其 AI 代码提交占比已超过 80%，Claude 在系统优化任务上实现 52 倍加速，远超人类团队效率。这一数据强化了「AI 正在接管研发」的叙事，也引发对 AI 自主迭代与安全边界的讨论。",
+      "category": "agents",
+      "date": "2026-06-29",
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "AI 编程",
+        "系统优化",
+        "自主迭代"
+      ],
+      "importance": 4,
+      "source": "AI内参",
+      "id": "n043"
+    },
+    {
+      "title": "美团开源 LongCat-Next 原生多模态模型，视觉与语音成为 AI「母语」",
+      "summary": "美团发布并开源原生多模态模型 LongCat-Next 及核心离散分词器，将视觉和语音作为原生能力集成，旨在构建作用于物理世界的具身智能应用。同期美团还开源了 LongCat-AudioDiT、LongCat-Video-Avatar 1.5 及多个评测基准，展示其在 AIGC 与多模态领域的完整布局。",
+      "category": "china",
+      "date": "2026-06-28",
+      "tags": [
+        "美团",
+        "LongCat",
+        "多模态模型",
+        "开源",
+        "具身智能"
+      ],
+      "importance": 4,
+      "source": "美团技术团队 / AIToolly",
+      "id": "n039"
+    },
+    {
+      "title": "OpenAI 正式发布 GPT-5.6 三档模型，美国政府要求「有限预览」",
+      "summary": "OpenAI 于 6 月 27 日推出 GPT-5.6 系列：旗舰 Sol 主打复杂推理与代码，Terra 面向日常工作，Luna 走轻量高速路线。Sol 在 Terminal-Bench 2.1 编程任务上以 ultra 模式比 Claude Fable 5 高 7.6 个百分点，但受美国政府审查影响，目前仅向少数受信任合作伙伴开放。",
+      "category": "models",
+      "date": "2026-06-27",
+      "tags": [
+        "OpenAI",
+        "GPT-5.6",
+        "Sol",
+        "Terra",
+        "Luna",
+        "模型发布"
+      ],
+      "importance": 5,
+      "source": "36kr / OpenAI官方",
+      "id": "n036"
+    },
+    {
+      "title": "DeepSeek 开源 DSpark 推测解码框架，单用户生成速度最高提升 85%",
+      "summary": "DeepSeek 于 6 月 27 日开源推测解码框架 DSpark 与训练框架 DeepSpec，并发布 DeepSeek-V4-Pro-DSpark 与 DeepSeek-V4-Flash-DSpark 两个推理加速版本。技术核心是半自回归生成与置信度调度验证，在与生产基线 MTP-1 对比中，单用户生成速度提升 60%-85%，标志行业竞争焦点转向「推理经济学」。",
+      "category": "china",
+      "date": "2026-06-27",
+      "tags": [
+        "DeepSeek",
+        "DSpark",
+        "推理加速",
+        "开源框架",
+        "MoE"
+      ],
+      "importance": 5,
+      "source": "36kr / DeepSeek官方",
+      "id": "n037"
+    },
+    {
+      "title": "美国政府对 Anthropic 前沿模型实施出口管制，生成式 AI 进入地缘政治审查时代",
+      "summary": "美国政府对 Anthropic 模型实施出口管制，此前 Claude Fable 5 与 Mythos 5 已因禁令被全球下架。此举标志着生成式 AI 进入「地缘政治审查」时代，技术安全与商业全球化矛盾加剧，亚洲厂商正加速推出对标产品填补真空。",
+      "category": "policy",
+      "date": "2026-06-27",
+      "tags": [
+        "美国",
+        "Anthropic",
+        "出口管制",
+        "AI 地缘政治",
+        "监管"
+      ],
+      "importance": 5,
+      "source": "AI内参 / TechCrunch",
+      "id": "n038"
+    },
+    {
+      "title": "BrowserBC 开源：把人类一次网页操作蒸馏成所有 Agent 都能复用的技能卡",
+      "summary": "Einsa AI 旗下 Navers Lab 开源 BrowserBC，提出录制→转写 Skill→交付执行的三步范式。用户只需在浏览器里完成一次任务，模型就会把全过程转写成自然语言技能卡，再交给任意更小的模型在真实页面上自主落地，把 Agent 从「每次从零摸索」推进到「做一次复用很多次」。",
+      "category": "agents",
+      "date": "2026-06-27",
+      "tags": [
+        "BrowserBC",
+        "Agent",
+        "技能卡",
+        "浏览器自动化",
+        "开源"
+      ],
+      "importance": 4,
+      "source": "量子位",
+      "id": "n040"
+    },
+    {
+      "title": "亚洲 AI 初创趁 Anthropic 禁令窗口连发 Mythos 类模型，360 推出 Tulongfeng",
+      "summary": "在 Anthropic Mythos 5 与 Fable 5 因美国出口禁令被全球下架后，亚洲厂商加速推出对标产品：中国网络安全公司 360 推出 Tulongfeng，声称可与 Mythos 正面对抗；东京初创 Sakana AI 同期发布前沿大模型 Fugu。禁令真空期正被本地玩家迅速填充，区域 AI 主权议题从政策讨论转入产品落地。",
+      "category": "china",
+      "date": "2026-06-27",
+      "tags": [
+        "360",
+        "Tulongfeng",
+        "Sakana AI",
+        "Mythos",
+        "出口禁令"
+      ],
+      "importance": 4,
+      "source": "TechCrunch / 量子位",
+      "id": "n041"
+    },
     {
       "title": "OpenAI 发布首款自研 AI 推理芯片 Jalapeño，联手博通九个月完成流片",
       "summary": "OpenAI 于 6 月 25 日正式发布首款自研 AI 推理芯片 Jalapeño，与博通联合开发，专为大语言模型推理设计。从设计到流片仅用九个月，刷新行业纪录，AI 辅助芯片设计成为加速关键。芯片计划 2026 年底部署，OpenAI 正式向全栈基础设施掌控迈进，直接挑战英伟达在推理市场的主导地位。",
@@ -661,24 +790,48 @@ const BUILTIN_DATA = {
         "阿里千问发布 Qwen-AgentWorld：首个原生语言世界模型，专…",
         "Google Gemini 3.5 Flash 内置 Computer…"
       ]
+    },
+    {
+      "date": "2026-06-27",
+      "events": [
+        "OpenAI 正式发布 GPT-5.6 三档模型，美国政府要求「有限预…",
+        "DeepSeek 开源 DSpark 推测解码框架，单用户生成速度最高…",
+        "美国政府对 Anthropic 前沿模型实施出口管制，生成式 AI 进…",
+        "BrowserBC 开源：把人类一次网页操作蒸馏成所有 Agent 都…",
+        "亚洲 AI 初创趁 Anthropic 禁令窗口连发 Mythos 类…"
+      ]
+    },
+    {
+      "date": "2026-06-28",
+      "events": [
+        "美团开源 LongCat-Next 原生多模态模型，视觉与语音成为 A…"
+      ]
+    },
+    {
+      "date": "2026-06-29",
+      "events": [
+        "英伟达与剑桥大学发布「红皇后哥德尔机」，AI 动态自审使代码通过率翻倍",
+        "Anthropic 内部数据：AI 代码提交占比超 80%，Claud…"
+      ]
     }
   ],
   "featured": {
-    "id": "n028",
-    "title": "OpenAI 发布首款自研 AI 推理芯片 Jalapeño，联手博通九个月完成流片",
+    "id": "n036",
+    "title": "OpenAI 正式发布 GPT-5.6 三档模型，美国政府要求「有限预览」",
     "titleCN": "",
-    "summary": "OpenAI 于 6 月 25 日正式发布首款自研 AI 推理芯片 Jalapeño，与博通联合开发，专为大语言模型推理设计。从设计到流片仅用九个月，刷新行业纪录，AI 辅助芯片设计成为加速关键。芯片计划 2026 年底部署，OpenAI 正式向全栈基础设施掌控迈进，直接挑战英伟达在推理市场的主导地位。",
-    "category": "算力基建",
-    "date": "2026-06-25",
+    "summary": "OpenAI 于 6 月 27 日推出 GPT-5.6 系列：旗舰 Sol 主打复杂推理与代码，Terra 面向日常工作，Luna 走轻量高速路线。Sol 在 Terminal-Bench 2.1 编程任务上以 ultra 模式比 Claude Fable 5 高 7.6 个百分点，但受美国政府审查影响，目前仅向少数受信任合作伙伴开放。",
+    "category": "大模型军备",
+    "date": "2026-06-27",
     "tags": [
       "OpenAI",
-      "Jalapeño",
-      "博通",
-      "推理芯片",
-      "自研芯片"
+      "GPT-5.6",
+      "Sol",
+      "Terra",
+      "Luna",
+      "模型发布"
     ],
     "importance": 5,
-    "source": "威易网 / OpenAI官方",
+    "source": "36kr / OpenAI官方",
     "link": ""
   }
 };
