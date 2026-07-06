@@ -50,10 +50,85 @@
 // AI 速递新闻数据
 const BUILTIN_DATA = {
   "meta": {
-    "version": "1.0.6",
-    "lastUpdated": "2026-07-03T12:34:23+08:00"
+    "version": "1.0.7",
+    "lastUpdated": "2026-07-06T09:04:23+08:00"
   },
   "news": [
+    {
+      "title": "联合国首届全球 AI 治理对话在日内瓦开幕",
+      "summary": "7 月 6 日至 7 日，联合国首届全球人工智能治理对话在日内瓦举行，这是首个面向所有成员国的 AI 治理多边平台。会议聚焦安全可信 AI、弥合数字鸿沟、人权保护与国际治理互操作性，古特雷斯秘书长呼吁各国共同塑造 AI 治理框架，避免让技术反过来统治人类。",
+      "category": "policy",
+      "date": "2026-07-06",
+      "tags": [
+        "联合国",
+        "AI治理",
+        "日内瓦",
+        "全球对话"
+      ],
+      "importance": 5,
+      "source": "联合国",
+      "id": "n052"
+    },
+    {
+      "title": "ICML 2026 在首尔开幕，智能体 AI 成焦点议题",
+      "summary": "第 43 届国际机器学习大会 7 月 6 日在首尔 COEX 开幕，会期至 7 月 11 日。Tutorial 与主会注册已售罄，会议延续强化学习、优化与统计学习传统优势，同时大量研讨会聚焦 Agentic AI 的安全性与可靠性，体现机器学习前沿与智能体落地的深度交汇。",
+      "category": "models",
+      "date": "2026-07-06",
+      "tags": [
+        "ICML",
+        "机器学习",
+        "首尔",
+        "智能体AI"
+      ],
+      "importance": 4,
+      "source": "ICML",
+      "id": "n053"
+    },
+    {
+      "title": "2026 全球数字经济大会：首套国家级智能体互联标准体系出炉",
+      "summary": "7 月 2 日至 5 日，2026 全球数字经济大会在北京举行。工信部专家在会上表示智能体产业正迎来规模化落地窗口期，大会期间《人工智能 智能体互联》系列国家标准（GB/Z 185—2026）正式发布，为首套国家级智能体互联标准体系。",
+      "category": "china",
+      "date": "2026-07-05",
+      "tags": [
+        "智能体互联",
+        "国家标准",
+        "数字经济大会",
+        "GB/Z 185"
+      ],
+      "importance": 4,
+      "source": "工信部/第一财经",
+      "id": "n057"
+    },
+    {
+      "title": "广州南沙签约 40 亿元 AI 产业项目，打造信创产业高地",
+      "summary": "7 月 4 日至 5 日，广州南沙与百信信息技术签署合作协议，项目总投资预计超 40 亿元，年产值目标超百亿元。双方将在高性能服务器、国产化服务器研发制造、AI 硬件及垂直模型创新等领域合作，并与香港科技大学（广州）共建联合实验室。",
+      "category": "china",
+      "date": "2026-07-05",
+      "tags": [
+        "广州南沙",
+        "百信信息",
+        "AI硬件",
+        "信创"
+      ],
+      "importance": 3,
+      "source": "中国新闻网",
+      "id": "n059"
+    },
+    {
+      "title": "豆包、千问 7 月 15 日同步下线用户自建智能体功能",
+      "summary": "7 月 4 日，字节跳动豆包与阿里通义千问同步公告，将于 7 月 15 日全面关闭用户自定义智能体创建、编辑与对话入口，存量智能体停止运行。此举是为配合《人工智能拟人化互动服务管理暂行办法》施行，标志国内消费级大模型进入强监管周期。",
+      "category": "china",
+      "date": "2026-07-04",
+      "tags": [
+        "豆包",
+        "千问",
+        "智能体",
+        "拟人化监管"
+      ],
+      "importance": 5,
+      "source": "字节跳动/阿里巴巴",
+      "id": "n054"
+    },
     {
       "title": "Anthropic 发布 Claude Sonnet 5 并恢复 Fable 5 全球访问",
       "summary": "Claude Sonnet 5 可自主运行长时任务并调用浏览器、终端等工具，性能接近 Opus 4.8 但定价更低；Fable 5 与 Mythos 5 解除美国出口管制恢复全球访问，新增网络安全分类器可阻挡 99% 越狱攻击；同步发布 Claude Science 科研工作台。",
@@ -160,6 +235,21 @@ const BUILTIN_DATA = {
       "id": "n050"
     },
     {
+      "title": "Anthropic 启动自研 AI 芯片，拟采用三星 2nm 工艺",
+      "summary": "7 月 2 日消息，Anthropic 已开始自研 AI 芯片的早期筹备，并与三星电子就 2nm 制造合作展开深度洽谈。公司近期还招募了 OpenAI 原自研芯片团队核心成员，试图在 OpenAI 与博通推出 Jalapeño 芯片后掌握算力底层主动权。",
+      "category": "hardware",
+      "date": "2026-07-02",
+      "tags": [
+        "Anthropic",
+        "自研芯片",
+        "三星",
+        "2nm"
+      ],
+      "importance": 4,
+      "source": "AIbase/新浪财经",
+      "id": "n055"
+    },
+    {
       "title": "NVIDIA 开源双塔架构扩散语言模型，生成吞吐量提升 2.42 倍",
       "summary": "开源 Nemotron-Labs-TwoTower 模型总参数约 60B，在约 2.1T 令牌上训练；采用双塔架构（冻结自回归上下文塔+可训练扩散去噪塔），保留 98.7% 生成质量前提下实现 2.42 倍吞吐量提升，支持商业使用。",
       "category": "models",
@@ -173,6 +263,36 @@ const BUILTIN_DATA = {
       "importance": 3,
       "source": "NVIDIA",
       "id": "n051"
+    },
+    {
+      "title": "xAI 发布 Voice Agent Builder 测试版，零代码构建语音智能体",
+      "summary": "7 月 1 日，xAI 推出 Voice Agent Builder 测试版，开发者可在两分钟内通过自然语言描述配置基于 Grok Voice 的生产级语音智能体。产品将电话、知识检索、工具调用、护栏与可观测性整合为端到端语音接口，定价 0.05 美元/分钟，直接挑战 ElevenLabs、Vapi 等语音基础设施厂商。",
+      "category": "agents",
+      "date": "2026-07-01",
+      "tags": [
+        "xAI",
+        "Grok Voice",
+        "语音智能体",
+        "无代码"
+      ],
+      "importance": 4,
+      "source": "x.ai",
+      "id": "n056"
+    },
+    {
+      "title": "Gemini Spark 智能助手上线 Mac 平台",
+      "summary": "7 月 1 日，Google 宣布 Gemini Spark 接入 Gemini Mac 桌面应用，支持文件整理、跨应用任务执行，并新增 Google Tasks、Keep、Canva、Dropbox 等第三方集成。该版本目前仅向美国 Google AI Ultra 订阅者开放测试，代表 Google 在 Agentic AI 桌面入口的重要布局。",
+      "category": "agents",
+      "date": "2026-07-01",
+      "tags": [
+        "Google",
+        "Gemini Spark",
+        "Mac",
+        "Agentic AI"
+      ],
+      "importance": 3,
+      "source": "TechCrunch/Google",
+      "id": "n058"
     },
     {
       "title": "英伟达与剑桥大学发布「红皇后哥德尔机」，AI 动态自审使代码通过率翻倍",
@@ -935,6 +1055,13 @@ const BUILTIN_DATA = {
       ]
     },
     {
+      "date": "2026-07-01",
+      "events": [
+        "xAI 发布 Voice Agent Builder 测试版，零代码构…",
+        "Gemini Spark 智能助手上线 Mac 平台"
+      ]
+    },
+    {
       "date": "2026-07-02",
       "events": [
         "Anthropic 发布 Claude Sonnet 5 并恢复 Fa…",
@@ -944,25 +1071,46 @@ const BUILTIN_DATA = {
         "支付宝“阿宝”开放全量公测：72 项技能覆盖政务缴费文旅等十余板块",
         "寒武纪市值盘中突破 1 万亿元，成为科创板首只万亿市值股票",
         "软银向 OpenAI 追加 100 亿美元投资，重启以 OpenAI …",
-        "NVIDIA 开源双塔架构扩散语言模型，生成吞吐量提升 2.42 倍"
+        "NVIDIA 开源双塔架构扩散语言模型，生成吞吐量提升 2.42 倍",
+        "Anthropic 启动自研 AI 芯片，拟采用三星 2nm 工艺"
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "events": [
+        "豆包、千问 7 月 15 日同步下线用户自建智能体功能"
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "events": [
+        "2026 全球数字经济大会：首套国家级智能体互联标准体系出炉",
+        "广州南沙签约 40 亿元 AI 产业项目，打造信创产业高地"
+      ]
+    },
+    {
+      "date": "2026-07-06",
+      "events": [
+        "联合国首届全球 AI 治理对话在日内瓦开幕",
+        "ICML 2026 在首尔开幕，智能体 AI 成焦点议题"
       ]
     }
   ],
   "featured": {
-    "id": "n044",
-    "title": "Anthropic 发布 Claude Sonnet 5 并恢复 Fable 5 全球访问",
+    "id": "n052",
+    "title": "联合国首届全球 AI 治理对话在日内瓦开幕",
     "titleCN": "",
-    "summary": "Claude Sonnet 5 可自主运行长时任务并调用浏览器、终端等工具，性能接近 Opus 4.8 但定价更低；Fable 5 与 Mythos 5 解除美国出口管制恢复全球访问，新增网络安全分类器可阻挡 99% 越狱攻击；同步发布 Claude Science 科研工作台。",
-    "category": "大模型军备",
-    "date": "2026-07-02",
+    "summary": "7 月 6 日至 7 日，联合国首届全球人工智能治理对话在日内瓦举行，这是首个面向所有成员国的 AI 治理多边平台。会议聚焦安全可信 AI、弥合数字鸿沟、人权保护与国际治理互操作性，古特雷斯秘书长呼吁各国共同塑造 AI 治理框架，避免让技术反过来统治人类。",
+    "category": "政策治理",
+    "date": "2026-07-06",
     "tags": [
-      "Claude",
-      "Anthropic",
-      "Fable5",
-      "出口管制"
+      "联合国",
+      "AI治理",
+      "日内瓦",
+      "全球对话"
     ],
     "importance": 5,
-    "source": "Anthropic",
+    "source": "联合国",
     "link": ""
   }
 };
