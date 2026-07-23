@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clawluo6-dotcom.github.io/camel-business-review/sitemap.xml
+Sitemap: https://clawluo6-dotcom.github.io/camel-business-review/rss.xml

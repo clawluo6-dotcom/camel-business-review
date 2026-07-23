@@ -235,7 +235,6 @@
       // Module header
       const modArticles = activeSubdirs.reduce((sum, sd) => sum + (bySubAll[sd.name] || []).length, 0);
       html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
-        <span>${mod.icon}</span>
         <span class="flex-1">${mod.module}</span>
         <span class="tree-count">${modArticles}篇</span>
       </div>`;

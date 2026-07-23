@@ -8,6 +8,8 @@
   
   
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
+<link rel="alternate" type="application/rss+xml" title="骆驼商业本质 RSS" href="https://clawluo6-dotcom.github.io/camel-business-review/rss.xml">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://clawluo6-dotcom.github.io/camel-business-review/sitemap.xml">
 
 <script src="js/marked.min.js"></script>
 <style>
@@ -146,6 +148,21 @@ function processNavLinks(content) {
   return content;
 }
 
+// 全局分享辅助函数
+function copyShareLink(url) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      var tip = document.createElement('div');
+      tip.textContent = '✅ 链接已复制';
+      tip.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);padding:10px 24px;border-radius:12px;background:rgba(34,211,238,0.15);border:1px solid rgba(34,211,238,0.3);color:#22d3ee;font-size:14px;z-index:9999;backdrop-filter:blur(8px);animation:fadeIn 0.3s';
+      document.body.appendChild(tip);
+      setTimeout(function(){ tip.remove(); }, 2000);
+    }).catch(function(){ prompt('手动复制链接：', url); });
+  } else {
+    prompt('手动复制链接：', url);
+  }
+}
+
 function init() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id') || '';
@@ -233,12 +250,16 @@ function render(article, content) {
     html += `</div>`;
   }
 
+  // 估算阅读时间（按中文每分钟 400 字计算）
+  var readTime = Math.max(1, Math.round((content || '').replace(/\s/g, '').length / 400));
+
   // Header card
   html += `
   <div class="glass rounded-2xl p-8 mb-8 fade-in" style="border-left: 3px solid ${acc}">
     <div class="flex items-center gap-3 mb-4">
       <span class="px-3 py-1 rounded-full text-xs font-medium border" style="border-color:rgba(${accRgb},0.3);color:${acc};background:rgba(${accRgb},0.08);">${article.category || ''}</span>
       <span class="text-xs text-text-muted">${article.date || ''}</span>
+      <span class="text-xs text-text-muted">📖 ${readTime} 分钟</span>
       ${article.importance >= 5 ? '<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(34,211,238,0.12);color:#22d3ee">精选</span>' : ''}
     </div>
     <h1 class="text-2xl font-extrabold leading-snug article-title">${article.title}</h1>
@@ -252,6 +273,27 @@ function render(article, content) {
     ${marked.parse(processedContent || '')}
   </div>`;
 
+  // Social sharing buttons
+  var shareUrl = encodeURIComponent(window.location.href);
+  var shareTitle = encodeURIComponent(article.title + ' — 骆驼商业本质');
+  var shareSummary = encodeURIComponent((article.summary || article.title).substring(0, 100));
+  html += `
+  <div class="mt-8 fade-in" style="animation-delay:0.15s">
+    <div class="glass rounded-2xl p-6">
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <span class="text-sm text-text-muted font-medium mr-2">分享到：</span>
+        <a href="https://service.weibo.com/share/share.php?url=${shareUrl}&title=${shareTitle}" target="_blank" rel="noopener" class="share-btn" title="分享到微博" style="color:#ff8200">📱 微博</a>
+        <a href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener" class="share-btn" title="分享到Twitter" style="color:#1da1f2">🐦 Twitter</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener" class="share-btn" title="分享到Facebook" style="color:#1877f2">📘 Facebook</a>
+        <button onclick="copyShareLink('${window.location.href}')" class="share-btn" title="复制链接" style="color:#22d3ee">🔗 复制链接</button>
+      </div>
+    </div>
+  </div>
+  <style>
+    .share-btn { display:inline-flex; align-items:center; gap:4px; padding:8px 16px; border-radius:10px; font-size:13px; font-weight:500; transition:all 0.2s; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); cursor:pointer; text-decoration:none; }
+    .share-btn:hover { transform:translateY(-2px); box-shadow:0 4px 15px rgba(0,0,0,0.2); border-color:currentColor; }
+  </style>`;
+
   // Back button
   html += `
   <div class="mt-8 text-center">
@@ -259,6 +301,26 @@ function render(article, content) {
       ← 返回「${article.subcategory || '分类'}」文章列表
     </a>
   </div>`;
+
+  // ── JSON-LD 结构化数据 ──────────────────────
+  (function() {
+    var ld = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': article.title,
+      'description': (article.summary || article.title).substring(0, 200),
+      'author': { '@type': 'Person', 'name': '骆新中' },
+      'datePublished': article.date,
+      'publisher': { '@type': 'Organization', 'name': '骆驼商业本质' },
+      'mainEntityOfPage': { '@type': 'WebPage', '@id': window.location.href }
+    };
+    var old = document.querySelector('script[type="application/ld+json"]');
+    if (old) old.remove();
+    var el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.textContent = JSON.stringify(ld);
+    document.head.appendChild(el);
+  })();
 
   // Cusdis 评论区
   var pageId = article.id || window.location.search;

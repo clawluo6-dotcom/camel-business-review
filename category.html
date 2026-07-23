@@ -264,7 +264,6 @@ function buildSidebar(pillar, activeCat) {
     });
     if (count === 0) return;
     html += '<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">' +
-      '<span>' + (mod.icon || '📁') + '</span>' +
       '<span class="flex-1">' + mod.module + '</span>' +
       '<span class="tree-count">' + count + '篇</span>' +
       '</div>' + subdirHtml;

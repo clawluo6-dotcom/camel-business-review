@@ -19,7 +19,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐫</text></svg>">
 
 <style>
-  .bg-glow-gold { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(251,191,36,0.04) 0%, transparent 70%); }
+  .bg-glow-gold { background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(251,191,36,0.04) 0%, transparent 70%); }
   .nav-link.active::after { width: 100%; }
   .fade-in { animation: fadeIn 0.4s ease-out; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
@@ -218,7 +218,6 @@
 
       const modTotal = activeSubdirs.reduce((sum, sd) => sum + (bySubAll[sd.dataSubcat] || []).length, 0);
       html += `<div class="tree-module flex items-center gap-2 px-2 py-2 mt-3 first:mt-0 rounded text-xs font-bold text-text-muted">
-        <span>${mod.icon}</span>
         <span class="flex-1">${mod.module}</span>
         <span class="tree-count">${modTotal}篇</span>
       </div>`;

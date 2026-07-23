@@ -902,7 +902,7 @@ body {
   background-size: 40px 40px;
 }
 .bg-glow-top {
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%);
+  background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.06) 0%, transparent 70%);
 }
 
 /* --- Nav 链接容器 — 无外框，自然间距 --- */
