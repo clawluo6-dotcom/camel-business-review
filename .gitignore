@@ -31,3 +31,9 @@ article-content-tmp.js
 node_modules/
 package-lock.json
 package.json
+
+# Dev.to API key (本地, 勿提交)
+.devto_key
+
+# 博客园 MetaWeblog 凭证 (本地, 勿提交)
+.cnblogs_key.json

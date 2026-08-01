@@ -41,6 +41,9 @@
 // 动态加载文章正文 — 按需 fetch 单篇 JSON，不再加载全量 JS
 (function() {
   var id = (new URLSearchParams(window.location.search)).get('id') || '';
+  // 短 ID 重定向：OB 目录重组后旧链接 -> 新短 ID
+  var _R = {'3b1c36':'814ae9','be5ec4':'22e618','c4a313':'bfb913','6d4148':'23563b','88f229':'049932','786702':'6be80d','8d7e31':'4883f5','7f00e4':'c7f998'};
+  if (_R[id]) id = _R[id];
   if (!id) {
     window.__ARTICLE_CONTENT__ = {};
     window.__ARTICLE_FETCH__ = Promise.resolve(true);
@@ -165,7 +168,11 @@ function copyShareLink(url) {
 
 function init() {
   const params = new URLSearchParams(window.location.search);
-  const id = params.get('id') || '';
+  var id = params.get('id') || '';
+
+  // 短 ID 重定向映射：OB 目录重组后旧链接自动跳新链接
+  var SHORT_ID_REDIRECT = {'3b1c36':'814ae9','be5ec4':'22e618','c4a313':'bfb913','6d4148':'23563b','88f229':'049932','786702':'6be80d','8d7e31':'4883f5','7f00e4':'c7f998'};
+  if (SHORT_ID_REDIRECT[id]) id = SHORT_ID_REDIRECT[id];
 
   if (!id) {
     document.getElementById('app').innerHTML = '<div class="glass rounded-2xl p-12 text-center"><p class="text-text-muted text-lg">未找到文章 ID</p></div>';

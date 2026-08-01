@@ -22,8 +22,8 @@ from pathlib import Path
 # ============================================================
 # 配置
 # ============================================================
-OBSIDIAN_BASE = "/Users/luo/Library/Mobile Documents/iCloud~md~obsidian/Documents/andy's obsidian/Andy知识库"
-OUTPUT_DIR = "/Users/luo/WorkBuddy/成果库/骆驼商业本质"
+OBSIDIAN_BASE = "/Users/luoclaw/Library/Mobile Documents/iCloud~md~obsidian/Documents/andy's obsidian/Andy知识库"
+OUTPUT_DIR = "/Users/luoclaw/WorkBuddy/成果库/骆驼商业本质"
 
 # 指定要扫描的新目录（带序号的）
 # 结构: pillar -> module_dir -> [subcategory_dirs or None]
@@ -37,6 +37,7 @@ DIRECTORY_MAP = {
                 "（三）、《豆豆三部曲》哲学思想": "（三）、《豆豆三部曲》哲学思想",
                 "（四）、《世界的真相》感悟": "（四）、《世界的真相》感悟",
                 "（五）、杂篇": "（五）、杂篇",
+                "（六）、自然哲学研究": "（六）、自然哲学研究",
             }
         },
         "二、佛学思想研究": {
@@ -56,8 +57,8 @@ DIRECTORY_MAP = {
             "dir": "01-哲学思想研究/三、儒家思想研究",
             "subcategories": None  # 无子目录，文章直接在模块下
         },
-        "四、自然哲学研究": {
-            "dir": "01-哲学思想研究/四、自然哲学研究",
+        "四、《易经系列》": {
+            "dir": "01-哲学思想研究/四、《易经系列》",
             "subcategories": None
         },
     },
@@ -81,6 +82,8 @@ DIRECTORY_MAP = {
             "subcategories": {
                 "（一）、国际金融": "（一）、国际金融",
                 "（二）、美国研究": "（二）、美国研究",
+                "（三）、美国金融战之\u201c新太空战略\u201d重演": "（三）、美国金融战之\u201c新太空战略\u201d重演",
+                "（四）、黄金储备曝光出清美债": "（四）、黄金储备曝光出清美债",
             }
         },
         "四、中国经济观察": {
@@ -98,7 +101,7 @@ ICON_MAP = {
     "一、传统哲学研究": "📜",
     "二、佛学思想研究": "🪷",
     "三、儒家思想研究": "🎓",
-    "四、自然哲学研究": "🔬",
+    "四、《易经系列》": "📄",
     "一、经济史研究": "📜",
     "二、宏观经济研究": "📊",
     "三、国际金融研究": "🌐",

@@ -1,0 +1,5 @@
+{
+  "blog_name": "你的博客园二级名（即 cnblogs.com/这里是blog_name）",
+  "username": "你的登录账号（邮箱或用户名）",
+  "password": "后台「设置→开放服务」生成的 MetaWeblog 访问密码（注意：不是登录密码）"
+}
