@@ -1981,6 +1981,17 @@ window.__ARTICLES__ = {
       "summary": "作者：骆新中骆驼商业本质 | 2026年6月11日",
       "importance": 3,
       "short_id": "f5ff08"
+    },
+    {
+      "id": "一、经济史研究-（二）、中国历史研究-01-中国的未来发展周期-fd5eb0",
+      "pillar": "social",
+      "category": "一、经济史研究",
+      "subcategory": "（二）、中国历史研究",
+      "title": "01-中国的未来发展周期",
+      "date": "2026-06-04",
+      "summary": "培育阶级矛盾，转移社会与国家之间的矛盾",
+      "importance": 3,
+      "short_id": "fd5eb0"
     }
   ]
 };
