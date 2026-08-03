@@ -190,6 +190,17 @@ window.__ARTICLES__ = {
       "short_id": "929f5d"
     },
     {
+      "id": "一、传统哲学研究-（二）、《西游记》哲学思想研究-04-《大话西游》最好的解读-85f549",
+      "pillar": "worldview",
+      "category": "一、传统哲学研究",
+      "subcategory": "（二）、《西游记》哲学思想研究",
+      "title": "04-《大话西游》最好的解读",
+      "date": "2026-08-02",
+      "summary": "我刚刚又重温了一下《大话西游》，我终于了解了什么是“一生所爱”。",
+      "importance": 3,
+      "short_id": "85f549"
+    },
+    {
       "id": "一、传统哲学研究-（五）、杂篇-01-财富的谬论——时代会让财富归零-bb6eb4",
       "pillar": "worldview",
       "category": "一、传统哲学研究",
@@ -617,6 +628,17 @@ window.__ARTICLES__ = {
       "summary": "作者：骆新中骆驼商业本质 | 2026年6月4日",
       "importance": 3,
       "short_id": "639bdc"
+    },
+    {
+      "id": "三、儒家思想研究-05-阳明心外无物-63b3a5",
+      "pillar": "worldview",
+      "category": "三、儒家思想研究",
+      "subcategory": "三、儒家思想研究",
+      "title": "05-阳明心外无物",
+      "date": "2026-07-23",
+      "summary": "<span style=\"color:; fontweight: bold; fontsize: 1.8em;\"心外无物：阳明入世心学与佛家出世心性论的分野</span",
+      "importance": 3,
+      "short_id": "63b3a5"
     },
     {
       "id": "三、国际金融研究-（一）、国际金融-01-全球“民主国家”政党“制度对比”（2026 年）-1ab7bd",
@@ -1466,6 +1488,17 @@ window.__ARTICLES__ = {
       "short_id": "658cfc"
     },
     {
+      "id": "二、佛学思想研究-（八）、修行方法-11-打坐入定是不是明心见性-383885",
+      "pillar": "worldview",
+      "category": "二、佛学思想研究",
+      "subcategory": "（八）、修行方法",
+      "title": "11-打坐入定是不是明心见性",
+      "date": "2026-07-27",
+      "summary": "入定是心念专注、止息杂念、意识沉入寂静的身心定境，属于 「定学、功夫层面」。",
+      "importance": 3,
+      "short_id": "383885"
+    },
+    {
       "id": "二、佛学思想研究-（六）、禅宗六祖-01-六祖证悟-aefcfc",
       "pillar": "worldview",
       "category": "二、佛学思想研究",
@@ -1981,17 +2014,6 @@ window.__ARTICLES__ = {
       "summary": "作者：骆新中骆驼商业本质 | 2026年6月11日",
       "importance": 3,
       "short_id": "f5ff08"
-    },
-    {
-      "id": "一、经济史研究-（二）、中国历史研究-01-中国的未来发展周期-fd5eb0",
-      "pillar": "social",
-      "category": "一、经济史研究",
-      "subcategory": "（二）、中国历史研究",
-      "title": "01-中国的未来发展周期",
-      "date": "2026-06-04",
-      "summary": "培育阶级矛盾，转移社会与国家之间的矛盾",
-      "importance": 3,
-      "short_id": "fd5eb0"
     }
   ]
 };
