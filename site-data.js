@@ -66,7 +66,8 @@ window.__ARTICLES__ = {
         "icon": "📊",
         "subcategories": [
           "（一）、500年全球大周期",
-          "（二）、经济周期"
+          "（二）、经济周期",
+          "（三）经济学原理研究"
         ]
       },
       {
@@ -889,7 +890,7 @@ window.__ARTICLES__ = {
       "category": "三、国际金融研究",
       "subcategory": "（五）、中东战争与石油美元",
       "title": "01-全球结算货币分析",
-      "date": "2026-08-03",
+      "date": "2026-08-04",
       "summary": "作者：骆新中骆驼商业本质 | 2026年8月3日",
       "importance": 3,
       "short_id": "4b1fb0"
@@ -933,7 +934,7 @@ window.__ARTICLES__ = {
       "category": "三、国际金融研究",
       "subcategory": "（五）、中东战争与石油美元",
       "title": "05-沃尔克建立的石油美元闭环",
-      "date": "2026-08-03",
+      "date": "2026-08-06",
       "summary": "作者：骆新中骆驼商业本质 | 2026年8月3日",
       "importance": 3,
       "short_id": "7c468b"
@@ -2081,6 +2082,17 @@ window.__ARTICLES__ = {
       "summary": "作者：骆新中骆驼商业本质 | 2026年6月11日",
       "importance": 3,
       "short_id": "f5ff08"
+    },
+    {
+      "id": "二、宏观经济研究-（三）经济学原理研究-01-经济学原理与经济危机-63e360",
+      "pillar": "social",
+      "category": "二、宏观经济研究",
+      "subcategory": "（三）经济学原理研究",
+      "title": "01-经济学原理与经济危机",
+      "date": "2026-08-07",
+      "summary": "梳理萨伊定律、马歇尔、马克思与凯恩斯四条经济学原理公式，并据此推演经济危机的成因。",
+      "importance": 3,
+      "short_id": "63e360"
     }
   ]
 };
