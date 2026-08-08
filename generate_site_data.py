@@ -22,8 +22,8 @@ from pathlib import Path
 # ============================================================
 # 配置
 # ============================================================
-OBSIDIAN_BASE = "/Users/luoclaw/Library/Mobile Documents/iCloud~md~obsidian/Documents/andy's obsidian/Andy知识库"
-OUTPUT_DIR = "/Users/luoclaw/WorkBuddy/成果库/骆驼商业本质"
+OBSIDIAN_BASE = "/Users/luo/Library/Mobile Documents/iCloud~md~obsidian/Documents/andy's obsidian/Andy知识库"
+OUTPUT_DIR = "/Users/luo/WorkBuddy/成果库/骆驼商业本质"
 
 # 指定要扫描的新目录（带序号的）
 # 结构: pillar -> module_dir -> [subcategory_dirs or None]
@@ -211,8 +211,17 @@ def remove_standalone_tag_words(content):
     """删除双链转换后残留的独立标签词行（如 '思考 哲学' 单独一行）"""
     lines = content.split('\n')
     result = []
+    in_math = False  # $$...$$ 块公式：块内所有行一律保留
     for i, line in enumerate(lines):
         stripped = line.strip()
+        # $$ 块公式定界符：切换状态并保留
+        if stripped.startswith('$$'):
+            in_math = not in_math
+            result.append(line)
+            continue
+        if in_math:
+            result.append(line)
+            continue
         # 跳过 fenced code block 标记行、标题行、列表行、引用行
         if stripped.startswith('```') or stripped == '```':
             result.append(line)
