@@ -1,0 +1,95 @@
+/* 骆驼商业本质 · 公众号品牌主题（覆盖 md2wechat 默认 basic.css）
+   配色：沉稳红 #9e2a2b + 暖金 #c9a35b；正文雅黑，行高舒适，标题带色条/色块 */
+#nice {
+  font-size: 16px;
+  color: #2e2e2e;
+  padding: 0 14px;
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+  word-break: break-word;
+  word-wrap: break-word;
+  text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: #ffffff;
+}
+
+#nice p {
+  font-size: 16px;
+  line-height: 1.95;
+  margin: 1.15em 0;
+  color: #2e2e2e;
+  text-align: justify;
+}
+
+#nice strong { color: #9e2a2b; font-weight: 700; }
+#nice em { color: #b8860b; font-style: italic; }
+#nice a { color: #9e2a2b; text-decoration: none; border-bottom: 1px solid #e7c9c9; }
+
+#nice h1 {
+  font-size: 21px;
+  color: #9e2a2b;
+  font-weight: 700;
+  margin: 1.5em 0 0.8em;
+  padding-left: 12px;
+  border-left: 5px solid #9e2a2b;
+}
+#nice h2 {
+  font-size: 19px;
+  color: #9e2a2b;
+  font-weight: 700;
+  margin: 1.7em 0 0.9em;
+  padding: 7px 0 7px 14px;
+  border-left: 5px solid #9e2a2b;
+  background: #fbf3f0;
+  border-radius: 0 6px 6px 0;
+}
+#nice h3 {
+  font-size: 17px;
+  color: #8a6d1f;
+  font-weight: 700;
+  margin: 1.4em 0 0.6em;
+  padding-left: 10px;
+  border-left: 4px solid #c9a35b;
+}
+#nice h4 { font-size: 16px; color: #7a6a55; font-weight: 700; margin: 1.2em 0 0.5em; }
+#nice h5, #nice h6 { font-size: 15px; color: #7a6a55; font-weight: 700; margin: 1em 0 0.4em; }
+
+#nice blockquote {
+  background: #faf6ef;
+  border-left: 4px solid #c9a35b;
+  margin: 1.6em 0;
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  color: #5a4a3a;
+}
+#nice blockquote p {
+  color: #5a4a3a;
+  margin: 0.5em 0;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+#nice hr {
+  border: none;
+  height: 1px;
+  background: #e8d9bf;
+  margin: 2em auto;
+  width: 70%;
+}
+
+#nice ul, #nice ol { margin: 1em 0; padding-left: 1.4em; }
+#nice li { margin: 0.5em 0; line-height: 1.85; color: #2e2e2e; }
+#nice li::marker { color: #c9a35b; }
+
+#nice code {
+  background: #f4f0ec;
+  color: #9e2a2b;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: "SFMono-Regular", Consolas, "Courier New", monospace;
+}
+#nice pre { background: #2b2b2b; padding: 14px; border-radius: 8px; overflow-x: auto; }
+#nice pre code { background: transparent; color: #f8f8f2; padding: 0; }
+
+#nice img { max-width: 100%; border-radius: 8px; margin: 1em 0; }

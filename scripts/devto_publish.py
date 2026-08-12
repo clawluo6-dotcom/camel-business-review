@@ -90,7 +90,7 @@ def get_key():
 def load_articles():
     """读取 site-data.js 的 __ARTICLES__.articles 与 article-content.js 的 __D 正文表。"""
     import subprocess
-    node = "/Users/luoclaw/.workbuddy/binaries/node/versions/22.22.2/bin/node"
+    node = os.path.expanduser("~/.workbuddy/binaries/node/versions/22.22.2/bin/node")
     js = r"""
     const fs = require('fs'), vm = require('vm');
     const sd = fs.readFileSync('%s/site-data.js', 'utf8');

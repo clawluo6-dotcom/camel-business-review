@@ -1,0 +1,25 @@
+/* 骆驼商业本质 · h2/h3 品牌样式（覆盖 md2wechat 默认 default.css 的橘黄主题）
+   确保标题渲染为沉稳红块 / 暖金条，不被默认橘黄覆盖 */
+#nice h2 .prefix,
+#nice h3 .prefix,
+#nice h3 .prefix-square { display: none !important; }
+
+#nice h2 {
+  display: block;
+  font-size: 19px;
+  color: #9e2a2b;
+  font-weight: 700;
+  margin: 1.7em 0 0.9em;
+  padding: 7px 0 7px 14px;
+  border-left: 5px solid #9e2a2b;
+  background: #fbf3f0;
+  border-radius: 0 6px 6px 0;
+}
+#nice h3 {
+  font-size: 17px;
+  color: #8a6d1f;
+  font-weight: 700;
+  margin: 1.4em 0 0.6em;
+  padding-left: 10px;
+  border-left: 4px solid #c9a35b;
+}
