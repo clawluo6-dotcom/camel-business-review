@@ -82,8 +82,8 @@ DIRECTORY_MAP = {
             "subcategories": {
                 "（一）、国际金融": "（一）、国际金融",
                 "（二）、美国研究": "（二）、美国研究",
-                "（三）、美国金融战之\u201c新太空战略\u201d重演": "（三）、美国金融战之\u201c新太空战略\u201d重演",
-                "（四）、黄金储备曝光出清美债": "（四）、黄金储备曝光出清美债",
+                "（三）、美国AI科技金融战之\u201c新太空战略\u201d重演": "（三）、美国AI科技金融战之\u201c新太空战略\u201d重演|（三）、美国AI科技金融战之\"新太空战略\"重演",
+                "（四）、预测\u201c美国黄金储备曝光\u201d出清美债": "（四）、预测\u201c美国黄金储备曝光\u201d出清美债",
                 "（五）、中东战争与石油美元": "（五）、中东战争与石油美元",
                 "（六）、美元流动研究": "（六）、美元流动研究",
             }
@@ -433,46 +433,48 @@ def scan_directory():
                 # 有子目录
                 for subcat_name, subcat_dir_name in subcategories.items():
                     subcat_list.append(subcat_name)
-                    subcat_path = os.path.join(module_dir, subcat_dir_name)
+                    # 一个子分类可对应多个物理目录（用 | 分隔），文章统一归入该子分类
+                    for sub_dir in subcat_dir_name.split('|'):
+                        subcat_path = os.path.join(module_dir, sub_dir.strip())
 
-                    if not os.path.isdir(subcat_path):
-                        print(f"  ⚠️ 子目录不存在: {subcat_path}")
-                        continue
-
-                    # 扫描子目录下的 .md 文件
-                    files = sorted(os.listdir(subcat_path))
-                    for filename in files:
-                        if should_skip(filename):
-                            skipped += 1
+                        if not os.path.isdir(subcat_path):
+                            print(f"  ⚠️ 子目录不存在: {subcat_path}")
                             continue
 
-                        filepath = os.path.join(subcat_path, filename)
-                        if not os.path.isfile(filepath):
-                            continue
+                        # 扫描子目录下的 .md 文件
+                        files = sorted(os.listdir(subcat_path))
+                        for filename in files:
+                            if should_skip(filename):
+                                skipped += 1
+                                continue
 
-                        title = extract_title(filename)
-                        article_id, short_id = make_article_id(module_name, subcat_name, filename)
-                        date = get_file_modified_time(filepath)
-                        raw_content = read_file_safe(filepath)
-                        cleaned = clean_content(raw_content)
-                        summary = extract_summary(cleaned)
-                        issues = validate_markdown(cleaned, article_id, title)
-                        for issue in issues:
-                            print(f"  ⚠️ [{article_id}] {issue}")
+                            filepath = os.path.join(subcat_path, filename)
+                            if not os.path.isfile(filepath):
+                                continue
 
-                        articles.append({
-                            "id": article_id,
-                            "pillar": pillar,
-                            "category": module_name,
-                            "subcategory": subcat_name,
-                            "title": title,
-                            "date": date,
-                            "summary": summary,
-                            "importance": 3,
-                            "short_id": short_id,
-                        })
-                        article_contents[article_id] = cleaned
-                        total += 1
+                            title = extract_title(filename)
+                            article_id, short_id = make_article_id(module_name, subcat_name, filename)
+                            date = get_file_modified_time(filepath)
+                            raw_content = read_file_safe(filepath)
+                            cleaned = clean_content(raw_content)
+                            summary = extract_summary(cleaned)
+                            issues = validate_markdown(cleaned, article_id, title)
+                            for issue in issues:
+                                print(f"  ⚠️ [{article_id}] {issue}")
+
+                            articles.append({
+                                "id": article_id,
+                                "pillar": pillar,
+                                "category": module_name,
+                                "subcategory": subcat_name,
+                                "title": title,
+                                "date": date,
+                                "summary": summary,
+                                "importance": 3,
+                                "short_id": short_id,
+                            })
+                            article_contents[article_id] = cleaned
+                            total += 1
             else:
                 # 无子目录，文章直接在模块下
                 subcat_list.append(module_name)
