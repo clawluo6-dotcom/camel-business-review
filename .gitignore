@@ -37,3 +37,13 @@ package.json
 
 # 博客园 MetaWeblog 凭证 (本地, 勿提交)
 .cnblogs_key.json
+
+# 备份与临时输出，不纳入版本库
+.backup_*/
+_cleanup_trash_*/
+scripts/multiplier_out/
+scripts/social_pack_out/
+scripts/wechat_out/
+scripts/.social_priority.txt
+scripts/.social_state.json
+scripts/.wechat_state.json
