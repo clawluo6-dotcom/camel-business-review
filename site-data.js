@@ -698,6 +698,17 @@ window.__ARTICLES__ = {
       "short_id": "d91e1b"
     },
     {
+      "id": "三、儒家思想研究-11-邵雍-天地八象交化模型-753c38",
+      "pillar": "worldview",
+      "category": "三、儒家思想研究",
+      "subcategory": "三、儒家思想研究",
+      "title": "11-邵雍-天地八象交化模型",
+      "date": "2026-08-15",
+      "summary": "出自《观物内篇》原文：",
+      "importance": 3,
+      "short_id": "753c38"
+    },
+    {
       "id": "三、国际金融研究-（一）、国际金融-01-全球“民主国家”政党“制度对比”（2026 年）-1ab7bd",
       "pillar": "social",
       "category": "三、国际金融研究",
