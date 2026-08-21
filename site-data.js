@@ -41,7 +41,9 @@ window.__ARTICLES__ = {
         "module": "三、儒家思想研究",
         "icon": "🎓",
         "subcategories": [
-          "三、儒家思想研究"
+          "（一）、儒家核心思想",
+          "（二）、北宋五子",
+          "（三）、王阳明心学"
         ]
       },
       {
@@ -142,7 +144,7 @@ window.__ARTICLES__ = {
       "category": "一、传统哲学研究",
       "subcategory": "（三）、《豆豆三部曲》哲学思想",
       "title": "01-豆豆三部曲想表达什么",
-      "date": "2026-07-23",
+      "date": "2026-08-21",
       "summary": "作者：骆新中骆驼商业本质 | 2026年5月9日",
       "importance": 3,
       "short_id": "946fc5"
@@ -588,125 +590,136 @@ window.__ARTICLES__ = {
       "short_id": "95948c"
     },
     {
-      "id": "三、儒家思想研究-01-儒释道三家与朝代更迭关系-7ce9d4",
+      "id": "三、儒家思想研究-（一）、儒家核心思想-01-儒释道三家与朝代更迭关系-fa7138",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（一）、儒家核心思想",
       "title": "01-儒释道三家与朝代更迭关系",
       "date": "2026-07-24",
       "summary": "作者：骆新中骆驼商业本质 | 2026年3月26日",
       "importance": 3,
-      "short_id": "7ce9d4"
+      "short_id": "fa7138"
     },
     {
-      "id": "三、儒家思想研究-02-儒家思想传承-b98271",
+      "id": "三、儒家思想研究-（一）、儒家核心思想-02-儒家思想传承-370e4a",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（一）、儒家核心思想",
       "title": "02-儒家思想传承",
       "date": "2026-07-23",
       "summary": "作者：骆新中骆驼商业本质 | 2026年6月4日",
       "importance": 3,
-      "short_id": "b98271"
+      "short_id": "370e4a"
     },
     {
-      "id": "三、儒家思想研究-03-王阳明心学核心思想-b511b1",
+      "id": "三、儒家思想研究-（一）、儒家核心思想-04-曾国藩：人生三大错误：-f26a7f",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
-      "title": "03-王阳明心学核心思想",
-      "date": "2026-07-23",
-      "summary": "作者：骆新中骆驼商业本质 | 2026年6月4日",
-      "importance": 3,
-      "short_id": "b511b1"
-    },
-    {
-      "id": "三、儒家思想研究-04-曾国藩：人生三大错误：-639bdc",
-      "pillar": "worldview",
-      "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（一）、儒家核心思想",
       "title": "04-曾国藩：人生三大错误：",
       "date": "2026-07-24",
       "summary": "作者：骆新中骆驼商业本质 | 2026年6月4日",
       "importance": 3,
-      "short_id": "639bdc"
+      "short_id": "f26a7f"
     },
     {
-      "id": "三、儒家思想研究-05-阳明心外无物-63b3a5",
+      "id": "三、儒家思想研究-（三）、王阳明心学-01-王阳明心学核心思想-ff5bfd",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
-      "title": "05-阳明心外无物",
+      "subcategory": "（三）、王阳明心学",
+      "title": "01-王阳明心学核心思想",
+      "date": "2026-07-23",
+      "summary": "作者：骆新中骆驼商业本质 | 2026年6月4日",
+      "importance": 3,
+      "short_id": "ff5bfd"
+    },
+    {
+      "id": "三、儒家思想研究-（三）、王阳明心学-02-王阳明龙场悟道（1508 年，贵州龙场）-aa9c42",
+      "pillar": "worldview",
+      "category": "三、儒家思想研究",
+      "subcategory": "（三）、王阳明心学",
+      "title": "02-王阳明龙场悟道（1508 年，贵州龙场）",
+      "date": "2026-08-18",
+      "summary": "背景：被贬蛮荒，生死困顿，反复琢磨朱熹“格物致知”。朱熹主张向外格万物，从事物上面求天理。王阳明格竹子失败，一直对此存疑。在龙场绝境，夜里大彻大悟，史称龙场大悟。",
+      "importance": 3,
+      "short_id": "aa9c42"
+    },
+    {
+      "id": "三、儒家思想研究-（三）、王阳明心学-03-阳明心外无物-abcebc",
+      "pillar": "worldview",
+      "category": "三、儒家思想研究",
+      "subcategory": "（三）、王阳明心学",
+      "title": "03-阳明心外无物",
       "date": "2026-07-23",
       "summary": "<span style=\"color:; fontweight: bold; fontsize: 1.8em;\"心外无物：阳明入世心学与佛家出世心性论的分野</span",
       "importance": 3,
-      "short_id": "63b3a5"
+      "short_id": "abcebc"
     },
     {
-      "id": "三、儒家思想研究-06-邵雍-皇氏经世书（一）-a3444c",
+      "id": "三、儒家思想研究-（二）、北宋五子-06-邵雍-皇氏经世书（一）-103c2f",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（二）、北宋五子",
       "title": "06-邵雍-皇氏经世书（一）",
       "date": "2026-08-17",
       "summary": "天地本源是太极（大道），无形无象，先于万物存在；人心内在本就具足太极全体，万物之理不在外界，本心自含天理。",
       "importance": 3,
-      "short_id": "a3444c"
+      "short_id": "103c2f"
     },
     {
-      "id": "三、儒家思想研究-07-邵雍-渔樵问对（二）-a3d25f",
+      "id": "三、儒家思想研究-（二）、北宋五子-07-邵雍-渔樵问对（二）-6bc283",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（二）、北宋五子",
       "title": "07-邵雍-渔樵问对（二）",
       "date": "2026-08-17",
       "summary": "渔者垂钓于伊水之上。樵者过之，弛担息肩，坐于磐石之上，而问于渔者，曰：“鱼可钩取乎？”",
       "importance": 3,
-      "short_id": "a3d25f"
+      "short_id": "6bc283"
     },
     {
-      "id": "三、儒家思想研究-08-邵雍-以物观物（三）-cda8fd",
+      "id": "三、儒家思想研究-（二）、北宋五子-08-邵雍-以物观物（三）-a6f0f8",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（二）、北宋五子",
       "title": "08-邵雍-以物观物（三）",
       "date": "2026-08-17",
       "summary": "释义：我们所说的「观察万物」，不是只用眼睛去看表象；不能停留在目视层面，要用心去体会；但也不能只凭自己的心思好恶判断，最终要依照事物本身的客观道理去审视。",
       "importance": 3,
-      "short_id": "cda8fd"
+      "short_id": "a6f0f8"
     },
     {
-      "id": "三、儒家思想研究-09-邵雍-以物观物方法（四）-33ccb4",
+      "id": "三、儒家思想研究-（二）、北宋五子-09-邵雍-以物观物方法（四）-0d5991",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（二）、北宋五子",
       "title": "09-邵雍-以物观物方法（四）",
       "date": "2026-08-17",
       "summary": "1. 先弃目视表象：别只看外表好坏、利弊、好恶。比如看见流水，不只看好看、能解渴，先放下主观喜好。",
       "importance": 3,
-      "short_id": "33ccb4"
+      "short_id": "0d5991"
     },
     {
-      "id": "三、儒家思想研究-10-邵雍-《皇氏经世书》与天地八象关系（五）-d91e1b",
+      "id": "三、儒家思想研究-（二）、北宋五子-10-邵雍-《皇氏经世书》与天地八象关系（五）-f11c37",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（二）、北宋五子",
       "title": "10-邵雍-《皇氏经世书》与天地八象关系（五）",
       "date": "2026-08-15",
       "summary": "把这 16 象，对接回「以物观物」，看邵雍怎么用这套模型看待人、历史世道（元会运世）。",
       "importance": 3,
-      "short_id": "d91e1b"
+      "short_id": "f11c37"
     },
     {
-      "id": "三、儒家思想研究-11-邵雍-天地八象交化模型-753c38",
+      "id": "三、儒家思想研究-（二）、北宋五子-11-邵雍-天地八象交化模型-df6b4b",
       "pillar": "worldview",
       "category": "三、儒家思想研究",
-      "subcategory": "三、儒家思想研究",
+      "subcategory": "（二）、北宋五子",
       "title": "11-邵雍-天地八象交化模型",
       "date": "2026-08-15",
       "summary": "出自《观物内篇》原文：",
       "importance": 3,
-      "short_id": "753c38"
+      "short_id": "df6b4b"
     },
     {
       "id": "三、国际金融研究-（一）、国际金融-01-全球“民主国家”政党“制度对比”（2026 年）-1ab7bd",
@@ -1133,7 +1146,7 @@ window.__ARTICLES__ = {
       "subcategory": "（六）、美元流动研究",
       "title": "09-美元资本流动（三流）",
       "date": "2026-08-21",
-      "summary": "作者：骆新中-骆驼商业本质 | 2026年8月21日",
+      "summary": "!CE4590362AFE4377BEC93EF0B7D052C61105c.jpeg(data/images/CE4590362AFE4377BEC93EF0B7D052C61105c.jpeg)",
       "importance": 3,
       "short_id": "c1a65e"
     },
