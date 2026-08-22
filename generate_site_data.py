@@ -13,6 +13,7 @@ generate_site_data.py — 从 Obsidian 目录重新生成网站数据
 
 import os
 import re
+import shutil
 import subprocess
 import sys
 import json
@@ -56,9 +57,9 @@ DIRECTORY_MAP = {
         "三、儒家思想研究": {
             "dir": "01-哲学思想研究/三、儒家思想研究",
             "subcategories": {
-                "（一）、儒家核心思想": ".",
-                "（二）、北宋五子": "北宋五子",
-                "（三）、王阳明心学": "王阳明心学",
+                "（一）、儒家核心思想": "（一）儒家核心思想",
+                "（二）、北宋五子": "（二）北宋五子",
+                "（三）、王阳明心学": "（三）王阳明心学",
             }
         },
         "四、《易经系列》": {
@@ -125,6 +126,105 @@ SKIP_PATTERNS = [
 # 内容清洗函数
 # ============================================================
 
+
+# ============================================================
+# ![[嵌入链接]] → Markdown 图片 + 文件校验 + 自动复制附件
+# ============================================================
+# 辅助：全 Vault 文件名 -> 绝对路径索引（首次调用构建一次）
+_VAULT_IMAGE_INDEX = None
+
+
+def _ensure_vault_image_index():
+    """构建整个 Vault 的图片文件名索引（一次）"""
+    global _VAULT_IMAGE_INDEX
+    if _VAULT_IMAGE_INDEX is not None:
+        return _VAULT_IMAGE_INDEX
+    exts = ('.jpeg','.jpg','.png','.gif','.webp','.svg','.bmp','.avif')
+    idx = {}
+    try:
+        for root, _, files in os.walk(OBSIDIAN_BASE):
+            for f in files:
+                if f.lower().endswith(exts):
+                    # 同名文件后者覆盖（取首个出现即可）
+                    idx.setdefault(f, os.path.join(root, f))
+    except Exception as _e:
+        print(f'  ⚠️ 构建 Vault 图片索引失败: {_e}')
+    _VAULT_IMAGE_INDEX = idx
+    return _VAULT_IMAGE_INDEX
+
+
+def _resolve_and_copy_image(filename):
+    """给定图片文件名（不含路径）：
+      - 在 Vault 中能找到真实附件 → 复制到站点 data/images（若缺失）并返回相对路径
+      - Vault 找不到（即 Obsidian 里其实也没有这张图的源附件，属于 broken embed）→ 返回 None
+        调用方会删除整行，避免网页渲染出与 Obsidian 观感不一致的坏图/幽灵图片。
+    """
+    if not filename:
+        return None
+    idx = _ensure_vault_image_index()
+    src = idx.get(filename)
+    if not (src and os.path.isfile(src)):
+        return None
+    target_dir = os.path.join(OUTPUT_DIR, 'data', 'images')
+    os.makedirs(target_dir, exist_ok=True)
+    site_path = os.path.join(target_dir, filename)
+    rel = f'data/images/{filename}'
+    if not os.path.isfile(site_path):
+        try:
+            shutil.copy2(src, site_path)
+            print(f'  🖼  复制图片: {filename}')
+        except Exception as e:
+            print(f'  ⚠️ 图片复制失败 {filename}: {e}')
+            return None
+    return rel
+
+
+def remove_embed_links(content):
+    """转换 Obsidian 嵌入链接 ![[...]] 为 Markdown 图片。
+    对图片：若最终文件不存在则删除这一行（避免网页出现坏图占位）。"""
+    lines = content.split('\n')
+    out = []
+    for line in lines:
+        # 若整行只有图片嵌入：命中替换后若找不到文件则整行丢弃
+        new_line = line
+        hit = False
+
+        def _sub_wiki(m):
+            nonlocal hit
+            hit = True
+            fname = m.group(1).strip()
+            rel = _resolve_and_copy_image(fname)
+            if rel:
+                return f'![{fname}]({rel})'
+            # 文件不存在：返回删除标记（让整行被跳过）
+            return '__REMOVE_THIS_LINE__'
+
+        def _sub_md(m):
+            nonlocal hit
+            hit = True
+            alt = m.group(1) or ''
+            path = m.group(2) or ''
+            # 只处理相对路径 data/images/... 或 纯文件名
+            fname = os.path.basename(path)
+            if not fname:
+                return m.group(0)
+            rel = _resolve_and_copy_image(fname)
+            if rel:
+                return f'![{alt}]({rel})'
+            return '__REMOVE_THIS_LINE__'
+
+        if '![[' in new_line or '![' in new_line:
+            new_line = re.sub(r'!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]', _sub_wiki, new_line)
+            new_line = re.sub(r'!\[([^\]]*)\]\(([^\)]+)\)', _sub_md, new_line)
+
+        if hit and ('__REMOVE_THIS_LINE__' in new_line or new_line.strip() == ''):
+            # 仅当该行没有其它正文时才整行删除；若还有非空内容，只去掉已删除的图片标记
+            stripped = new_line.replace('__REMOVE_THIS_LINE__', '').strip()
+            if not stripped:
+                continue
+            new_line = new_line.replace('__REMOVE_THIS_LINE__', '')
+        out.append(new_line)
+    return '\n'.join(out)
 def remove_frontmatter(content):
     """去掉 YAML frontmatter（--- 到 --- 之间的内容）"""
     # 只匹配文件开头的 frontmatter
@@ -140,13 +240,6 @@ def convert_wikilinks(content):
     content = re.sub(r'\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', content)
     # [[xxx]] → xxx
     content = re.sub(r'\[\[([^\]]+)\]\]', r'\1', content)
-    return content
-
-
-def remove_embed_links(content):
-    """转换 Obsidian 嵌入链接 ![[...]] 为 Markdown 图片语法"""
-    # ![[filename.ext|size]] 或 ![[filename.ext]] → ![filename](data/images/filename.ext)
-    content = re.sub(r'!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]', r'![\1](data/images/\1)', content)
     return content
 
 
@@ -254,7 +347,7 @@ def clean_content(raw_content):
     # 2. 删除系列导航行
     content = remove_navigation_lines(content)
 
-    # 3. 转换嵌入链接 ![[...]] → Markdown 图片（必须先处理，否则 [[ 会被 convert_wikilinks 吃掉）
+    # 3. 转换嵌入链接 ![[...]] → Markdown 图片（校验文件存在并自动从 Vault 复制，缺失则删除整行避免坏图）
     content = remove_embed_links(content)
 
     # 4. 转换双向链接 [[...]]
@@ -442,8 +535,19 @@ def scan_directory():
                         subcat_path = os.path.join(module_dir, sub_dir.strip())
 
                         if not os.path.isdir(subcat_path):
-                            print(f"  ⚠️ 子目录不存在: {subcat_path}")
-                            continue
+                            # 目录名兼容：DIRECTORY_MAP 里常写「（一）、A」，但 Obsidian 实际文件夹名常为「（一）A」（无顿号）。
+                            # 两种写法都尝试匹配，匹配到的子分类显示名（subcat_name）仍保留原配置，保证 short_id 不变。
+                            alt_1 = re.sub(r'（(.)）、', r'（\1）', subcat_dir_name)   # 去掉顿号
+                            alt_2 = re.sub(r'（(.)）([^、])', r'（\1）、\2', subcat_dir_name)  # 加上顿号
+                            resolved = None
+                            for cand in (subcat_path, os.path.join(module_dir, alt_1.strip()), os.path.join(module_dir, alt_2.strip())):
+                                if cand != subcat_path and os.path.isdir(cand):
+                                    resolved = cand
+                                    break
+                            if resolved is None:
+                                print(f"  ⚠️ 子目录不存在: {subcat_path}  (也尝试了: {alt_1!r} / {alt_2!r})")
+                                continue
+                            subcat_path = resolved
 
                         # 扫描子目录下的 .md 文件
                         files = sorted(os.listdir(subcat_path))
@@ -484,8 +588,12 @@ def scan_directory():
                 subcat_list.append(module_name)
 
                 if not os.path.isdir(module_dir):
-                    print(f"  ⚠️ 模块目录不存在: {module_dir}")
-                    continue
+                    alt_module = re.sub(r'（(.)）、', r'（\1）', module_dir)
+                    if alt_module != module_dir and os.path.isdir(alt_module):
+                        module_dir = alt_module
+                    else:
+                        print(f"  ⚠️ 模块目录不存在: {module_dir}")
+                        continue
 
                 files = sorted(os.listdir(module_dir))
                 for filename in files:

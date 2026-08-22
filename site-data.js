@@ -904,7 +904,7 @@ window.__ARTICLES__ = {
       "subcategory": "（三）、美国AI科技金融战之“新太空战略”重演",
       "title": "11-美国战略模型AI科技金融战模型",
       "date": "2026-08-12",
-      "summary": "!IMG0899.png(data/images/IMG0899.png)",
+      "summary": "作者：骆新中 | 2026年8月12日",
       "importance": 3,
       "short_id": "cd5aa9"
     },
@@ -986,6 +986,50 @@ window.__ARTICLES__ = {
       "short_id": "2c84ba"
     },
     {
+      "id": "三、国际金融研究-（二）、美国研究-30年代的苏联模式-43f4c1",
+      "pillar": "social",
+      "category": "三、国际金融研究",
+      "subcategory": "（二）、美国研究",
+      "title": "30年代的苏联模式",
+      "date": "2026-08-18",
+      "summary": "同期苏联执行第一个五年计划（1928‑1932），工业高速扩张，对外几乎不受金融危机冲击，在全球舆论中成为市场失灵背景下的替代范本；但并没有大量西方国家转变为社会主义国家，只是左翼思潮高涨，不少知识分子向往苏联模式，真正社会主义政权主要出现",
+      "importance": 3,
+      "short_id": "43f4c1"
+    },
+    {
+      "id": "三、国际金融研究-（二）、美国研究-周朝的兴衰看美国全球战略的兴衰-d9b885",
+      "pillar": "social",
+      "category": "三、国际金融研究",
+      "subcategory": "（二）、美国研究",
+      "title": "周朝的兴衰看美国全球战略的兴衰",
+      "date": "2026-08-22",
+      "summary": "周人的始祖是后稷，世代居住在渭水流域（今天陕西关中），是农耕部族。",
+      "importance": 3,
+      "short_id": "d9b885"
+    },
+    {
+      "id": "三、国际金融研究-（二）、美国研究-罗斯福新政 vs 苏联模式-941447",
+      "pillar": "social",
+      "category": "三、国际金融研究",
+      "subcategory": "（二）、美国研究",
+      "title": "罗斯福新政 vs 苏联模式",
+      "date": "2026-08-18",
+      "summary": "同样应对1929大萧条：",
+      "importance": 3,
+      "short_id": "941447"
+    },
+    {
+      "id": "三、国际金融研究-（二）、美国研究-美国选举制度-6dcf69",
+      "pillar": "social",
+      "category": "三、国际金融研究",
+      "subcategory": "（二）、美国研究",
+      "title": "美国选举制度",
+      "date": "2026-08-04",
+      "summary": "中期选举不选总统，在总统 4 年任期走到第 2 年举办，全部改选众议院 435 席、改选参议院 1/3 席位，同时改选大部分州长。",
+      "importance": 3,
+      "short_id": "6dcf69"
+    },
+    {
       "id": "三、国际金融研究-（五）、中东战争与石油美元-01-全球结算货币分析-4b1fb0",
       "pillar": "social",
       "category": "三、国际金融研究",
@@ -1058,7 +1102,7 @@ window.__ARTICLES__ = {
       "subcategory": "（六）、美元流动研究",
       "title": "01-美元双向流动",
       "date": "2026-08-07",
-      "summary": "!07美元双向流动1780969508099.webp(data/images/07美元双向流动1780969508099.webp)",
+      "summary": "作者：骆新中骆驼商业本质 | 2026年6月9日",
       "importance": 3,
       "short_id": "2f5ac8"
     },
@@ -1146,7 +1190,7 @@ window.__ARTICLES__ = {
       "subcategory": "（六）、美元流动研究",
       "title": "09-美元资本流动（三流）",
       "date": "2026-08-21",
-      "summary": "!CE4590362AFE4377BEC93EF0B7D052C61105c.jpeg(data/images/CE4590362AFE4377BEC93EF0B7D052C61105c.jpeg)",
+      "summary": "这是一张美元跨境资本流动分析图，把全球资本比作连通器的水池：",
       "importance": 3,
       "short_id": "c1a65e"
     },
